@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-7";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-8";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -121,11 +121,10 @@ function renderTopPick(item) {
     return;
   }
   const bestFor = item.bestFor ?? item.tags ?? [];
+  const meta = [badgeText(item), `${item.distanceM}m`, ratingText(item)].filter(Boolean);
   target.innerHTML = `
     <div class="pick-meta">
-      <span>${badgeText(item)}</span>
-      <span>${item.distanceM}m</span>
-      <span>${ratingText(item)}</span>
+      ${meta.map((text) => `<span>${text}</span>`).join("")}
     </div>
     <h2>${item.menu}</h2>
     <p class="restaurant-name">${item.name}</p>
@@ -141,6 +140,7 @@ function renderTopPick(item) {
 function renderCandidate(item) {
   const article = document.createElement("article");
   article.className = "candidate-card";
+  const rating = ratingText(item);
   article.innerHTML = `
     <div>
       <h3>${item.menu}</h3>
@@ -148,7 +148,7 @@ function renderCandidate(item) {
     </div>
     <div class="candidate-side">
       <span>${item.distanceM}m</span>
-      <span>${ratingText(item)}</span>
+      ${rating ? `<span>${rating}</span>` : ""}
       <strong>${badgeText(item)}</strong>
     </div>
   `;
@@ -162,10 +162,13 @@ function badgeText(item) {
 }
 
 function ratingText(item) {
-  if (typeof item.kakaoRating === "number") {
-    return `카카오 ★ ${item.kakaoRating.toFixed(1)}`;
+  if (typeof item.naverRating === "number") {
+    return `네이버 ★ ${item.naverRating.toFixed(1)}`;
   }
-  return "카카오 ★ 확인중";
+  if (typeof item.naverReviewCount === "number") {
+    return `네이버 리뷰 ${item.naverReviewCount.toLocaleString("ko-KR")}`;
+  }
+  return "";
 }
 
 function modeLabel(mode) {
@@ -239,7 +242,7 @@ function render() {
   $("#candidateCount").textContent = `${recommendations.length}곳`;
   const list = $("#candidateList");
   list.innerHTML = "";
-  for (const item of recommendations.slice(1, 8)) {
+  for (const item of recommendations.slice(1)) {
     list.append(renderCandidate(item));
   }
 }

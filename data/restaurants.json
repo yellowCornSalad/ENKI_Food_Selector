@@ -17,7 +17,6 @@
       "category": "한식/샤브칼국수",
       "distanceM": 120,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "high",
       "hours": [{ "days": ["weekday"], "open": "10:30", "close": "20:30", "breakStart": "15:00", "breakEnd": "17:00" }],
@@ -38,7 +37,6 @@
       "category": "찜닭",
       "distanceM": 160,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "high",
       "hours": [{ "days": ["weekday"], "open": "10:00", "close": "24:00" }],
@@ -62,7 +60,6 @@
       "category": "중식/마라",
       "distanceM": 110,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "medium",
       "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:30" }],
@@ -86,7 +83,6 @@
       "category": "부대찌개",
       "distanceM": 180,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "medium",
       "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:30" }],
@@ -107,7 +103,6 @@
       "category": "덮밥",
       "distanceM": 130,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "medium",
       "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:00" }],
@@ -128,7 +123,6 @@
       "category": "버거",
       "distanceM": 190,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "medium",
       "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
@@ -149,7 +143,6 @@
       "category": "보리밥",
       "distanceM": 120,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "medium",
       "hours": [{ "days": ["weekday"], "open": "10:30", "close": "14:30" }],
@@ -169,7 +162,6 @@
       "category": "오므라이스",
       "distanceM": 120,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "low",
       "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:00" }],
@@ -190,7 +182,6 @@
       "category": "고기/한식",
       "distanceM": 150,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "low",
       "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
@@ -214,7 +205,6 @@
       "category": "고기/한식",
       "distanceM": 230,
       "sikgwonStatus": "candidate",
-      "kakaoRating": null,
       "active": true,
       "hoursConfidence": "low",
       "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
@@ -228,6 +218,181 @@
         "dinner": [{ "name": "석쇠삼겹살", "tags": ["korean", "team"] }]
       },
       "source": "https://mushroomprincess.tistory.com/entry/%EB%AC%B8%EC%A0%95%EB%B2%95%EC%A1%B0%ED%83%80%EC%9A%B4-%EB%A7%9B%EC%A7%91-%ED%95%98%EB%A3%A8%EC%84%9D%EC%87%A0%EC%82%BC%EA%B2%B9%EC%82%B4-%EB%AC%B8%EC%A0%95%EB%B2%95%EC%A1%B0%EB%8B%A8%EC%A7%80%EB%A7%9B%EC%A7%91-%ED%85%8C%EB%9D%BC%ED%83%80%EC%9B%8C-%EB%A7%9B%EC%A7%91-%EB%AC%B8%EC%A0%95%EB%8F%99%EA%B3%A0%EA%B8%B0%EC%A7%91"
+    },
+    {
+      "id": "cheongnyeon-38-noodle",
+      "name": "청년38국수 문정테라타워점",
+      "category": "국수/냉면",
+      "distanceM": 90,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "medium",
+      "hours": [{ "days": ["weekday"], "open": "08:00", "close": "20:00", "breakStart": "10:00", "breakEnd": "11:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["noodle", "quick", "light"],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "1만원 이하~1만원대",
+      "menus": {
+        "lunch": [
+          { "name": "잔치국수", "tags": ["noodle", "quick", "light"] },
+          { "name": "비빔국수", "tags": ["noodle", "spicy", "quick"] }
+        ],
+        "dinner": [{ "name": "국수 한 그릇", "tags": ["noodle", "quick"] }]
+      },
+      "source": "https://www.keyzard.cc/tkrhktnals4/nb/224259056063"
+    },
+    {
+      "id": "gome-mui",
+      "name": "고메무이",
+      "category": "일식",
+      "distanceM": 120,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "medium",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00", "breakStart": "15:00", "breakEnd": "17:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["rice", "noodle", "team"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [
+          { "name": "돈카츠 정식", "tags": ["rice"] },
+          { "name": "카레", "tags": ["rice", "quick"] }
+        ],
+        "dinner": [{ "name": "일본 가정식", "tags": ["rice", "team"] }]
+      },
+      "source": "https://www.keyzard.cc/joeun___/nb/224151984538"
+    },
+    {
+      "id": "yeongmisi",
+      "name": "영미씨",
+      "category": "생선구이/한식",
+      "distanceM": 260,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "medium",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00", "breakStart": "15:00", "breakEnd": "17:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "rice", "light"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [
+          { "name": "고등어정식", "tags": ["korean", "rice"] },
+          { "name": "갑오징어정식", "tags": ["korean", "rice", "spicy"] }
+        ],
+        "dinner": [{ "name": "생선구이 정식", "tags": ["korean", "rice", "light"] }]
+      },
+      "source": "https://share1.tistory.com/362"
+    },
+    {
+      "id": "eunhaenggol",
+      "name": "은행골 문정점",
+      "category": "초밥",
+      "distanceM": 240,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "low",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["rice", "light", "team"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대~2만원대",
+      "menus": {
+        "lunch": [
+          { "name": "연어초밥", "tags": ["rice", "light"] },
+          { "name": "모듬초밥", "tags": ["rice", "team"] }
+        ],
+        "dinner": [{ "name": "초밥 세트", "tags": ["rice", "team"] }]
+      },
+      "source": "https://www.keyzard.cc/cardamine0203/nb/223352215160"
+    },
+    {
+      "id": "arena-shabu",
+      "name": "아레나샤브",
+      "category": "샤브샤브",
+      "distanceM": 320,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "low",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "noodle", "team", "warm"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [{ "name": "샤브샤브", "tags": ["korean", "team"] }],
+        "dinner": [{ "name": "샤브샤브", "tags": ["korean", "team"] }]
+      },
+      "source": "https://yunicone.tistory.com/814"
+    },
+    {
+      "id": "miseong-hotpot",
+      "name": "미성훠궈가",
+      "category": "중식/훠궈",
+      "distanceM": 360,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "low",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["spicy", "team", "warm"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대~2만원대",
+      "menus": {
+        "lunch": [{ "name": "훠궈 무한리필", "tags": ["spicy", "team"] }],
+        "dinner": [{ "name": "훠궈", "tags": ["spicy", "team"] }]
+      },
+      "source": "https://ppt-design.tistory.com/10"
+    },
+    {
+      "id": "wansangol",
+      "name": "완산골명가 문정법조타운점",
+      "category": "전주식 한식",
+      "distanceM": 300,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "low",
+      "hours": [{ "days": ["weekday"], "open": "10:30", "close": "21:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "rice", "spicy", "quick"],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [
+          { "name": "돌솥쭈꾸미비빔밥", "tags": ["korean", "rice", "spicy"] },
+          { "name": "콩나물국밥", "tags": ["korean", "rice", "quick"] }
+        ],
+        "dinner": [{ "name": "국밥", "tags": ["korean", "rice", "quick"] }]
+      },
+      "source": "https://0325-persie.tistory.com/111"
+    },
+    {
+      "id": "toenmaru-bapsang",
+      "name": "툇마루밥상",
+      "category": "한정식",
+      "distanceM": 420,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "low",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "rice", "team"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "2만원대",
+      "menus": {
+        "lunch": [{ "name": "툇마루 밥상 정식", "tags": ["korean", "rice", "team"] }],
+        "dinner": [{ "name": "한정식", "tags": ["korean", "rice", "team"] }]
+      },
+      "source": "https://place.tripmate.co.kr/ko/detail.php?contentId=2758137&contentTypeId=39"
     }
   ]
 }

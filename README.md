@@ -18,6 +18,7 @@
 - `sikgwonStatus: "excluded"`: 추천 제외
 
 운영 전에는 식권대장 앱/관리자에서 실제 가맹 여부를 확인한 뒤 `confirmed`로 바꾸는 것을 권장합니다.
+네이버 지도 평점이나 리뷰 수는 직접 확인된 값만 `naverRating`, `naverReviewCount`에 넣고, 확인되지 않은 매장은 화면에 평점 문구를 표시하지 않습니다.
 
 ## GitHub Pages 배포
 
