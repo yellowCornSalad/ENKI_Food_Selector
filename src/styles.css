@@ -321,62 +321,55 @@ h1 {
   color: #0f766e;
 }
 
-.ladder-board {
+.ladder-game {
   display: grid;
-  grid-template-columns: repeat(5, minmax(54px, 1fr));
-  gap: 6px;
-  align-items: end;
+  gap: 8px;
 }
 
-.ladder-lane {
-  display: grid;
-  gap: 6px;
-  justify-items: center;
-  min-width: 0;
+.ladder-labels,
+.ladder-results {
+  position: relative;
+  height: 28px;
 }
 
-.ladder-lane span {
-  width: 100%;
+.ladder-label,
+.ladder-result {
+  position: absolute;
+  top: 0;
+  width: 60px;
   overflow: hidden;
-  color: #17211f;
-  font-size: 12px;
+  color: #4d5a56;
+  font-size: 11px;
   font-weight: 800;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transform: translateX(-50%);
 }
 
-.ladder-lane i {
-  width: 3px;
-  height: 42px;
-  border-radius: 999px;
-  background: #bfd8d1;
-  position: relative;
-}
-
-.ladder-lane i::after {
-  content: "";
-  position: absolute;
-  top: 14px;
-  left: 0;
-  width: 38px;
-  height: 3px;
-  border-radius: 999px;
-  background: #bfd8d1;
-}
-
-.ladder-lane.is-winner i,
-.ladder-lane.is-winner i::after {
-  background: #0f766e;
-}
-
-.ladder-lane b {
-  color: #6a7773;
-  font-size: 11px;
-}
-
-.ladder-lane.is-winner b {
+.ladder-label.is-start,
+.ladder-result.is-winner {
   color: #0f766e;
+}
+
+.ladder-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ladder-line,
+.ladder-rung {
+  stroke: #bfd8d1;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.ladder-path,
+.ladder-rung.is-active {
+  stroke: #0f766e;
+  stroke-width: 6;
+  stroke-linecap: round;
 }
 
 .roulette-board {

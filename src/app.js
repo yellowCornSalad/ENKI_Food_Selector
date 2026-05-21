@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-8";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-9";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -189,7 +189,7 @@ function renderGameStage(recommendations) {
     return;
   }
   if (state.mode === "ladder") {
-    stage.innerHTML = renderLadder(items);
+    stage.innerHTML = renderLadder(createLadderGame(items, state.pickIndex));
     return;
   }
   if (state.mode === "roulette") {
@@ -199,19 +199,107 @@ function renderGameStage(recommendations) {
   stage.innerHTML = `<p><strong>${items[0].menu}</strong>로 바로 골랐습니다.</p>`;
 }
 
-function renderLadder(items) {
-  const lanes = items
+function createLadderGame(items, seed) {
+  const count = Math.min(items.length, 5);
+  if (!count) return { items: [], rungs: [], startLane: 0, winnerIndex: 0, path: [] };
+  const rowCount = 7;
+  const startLane = deterministicNoise(`start-${seed}`, count);
+  const rungs = [];
+  for (let row = 0; row < rowCount; row += 1) {
+    const used = new Set();
+    const rungCount = 1 + deterministicNoise(`rung-count-${seed}-${row}`, Math.max(1, count - 2));
+    for (let step = 0; step < rungCount; step += 1) {
+      const from = deterministicNoise(`rung-${seed}-${row}-${step}`, Math.max(1, count - 1));
+      if (used.has(from) || used.has(from - 1) || used.has(from + 1)) continue;
+      used.add(from);
+      rungs.push({ row, from });
+    }
+  }
+  const path = traceLadderPath(startLane, rungs, rowCount);
+  return {
+    items: items.slice(0, count),
+    rungs,
+    startLane,
+    winnerIndex: path[path.length - 1].lane,
+    path,
+  };
+}
+
+function traceLadderPath(startLane, rungs, rowCount) {
+  let lane = startLane;
+  const path = [{ row: -1, lane }];
+  for (let row = 0; row < rowCount; row += 1) {
+    const rung = rungs.find((item) => item.row === row && (item.from === lane || item.from === lane - 1));
+    if (rung) {
+      lane = rung.from === lane ? lane + 1 : lane - 1;
+    }
+    path.push({ row, lane });
+  }
+  return path;
+}
+
+function renderLadder(game) {
+  if (!game.items.length) return `<p>표시할 후보가 없습니다.</p>`;
+  const width = 320;
+  const height = 220;
+  const top = 42;
+  const bottom = 164;
+  const left = 28;
+  const gap = game.items.length > 1 ? 264 / (game.items.length - 1) : 0;
+  const rowGap = (bottom - top) / (7 + 1);
+  const xFor = (lane) => left + gap * lane;
+  const yFor = (row) => top + rowGap * (row + 1);
+  const activeRungs = new Set();
+  const activeVerticals = [];
+  let activeLane = game.startLane;
+  let cursorY = top;
+  for (const point of game.path.slice(1)) {
+    const rowY = yFor(point.row);
+    activeVerticals.push({ lane: activeLane, y1: cursorY, y2: rowY });
+    if (point.lane !== activeLane) {
+      const from = Math.min(activeLane, point.lane);
+      activeRungs.add(`${point.row}-${from}`);
+    }
+    activeLane = point.lane;
+    cursorY = rowY;
+  }
+  activeVerticals.push({ lane: activeLane, y1: cursorY, y2: bottom });
+  const verticals = game.items
+    .map((_, index) => `<line class="ladder-line" x1="${xFor(index)}" y1="${top}" x2="${xFor(index)}" y2="${bottom}" />`)
+    .join("");
+  const rungs = game.rungs
+    .map(({ row, from }) => {
+      const active = activeRungs.has(`${row}-${from}`) ? " is-active" : "";
+      return `<line class="ladder-rung${active}" x1="${xFor(from)}" y1="${yFor(row)}" x2="${xFor(from + 1)}" y2="${yFor(row)}" />`;
+    })
+    .join("");
+  const path = activeVerticals
+    .map(({ lane, y1, y2 }) => `<line class="ladder-path" x1="${xFor(lane)}" y1="${y1}" x2="${xFor(lane)}" y2="${y2}" />`)
+    .join("");
+  const starts = game.items
     .map(
-      (item, index) => `
-        <div class="ladder-lane ${index === 0 ? "is-winner" : ""}">
-          <span>${item.menu}</span>
-          <i></i>
-          <b>${index === 0 ? "당첨" : "후보"}</b>
-        </div>
-      `,
+      (item, index) =>
+        `<span class="ladder-label ${index === game.startLane ? "is-start" : ""}" style="left:${(xFor(index) / width) * 100}%">${item.menu}</span>`,
     )
     .join("");
-  return `<div class="ladder-board">${lanes}</div>`;
+  const results = game.items
+    .map(
+      (item, index) =>
+        `<span class="ladder-result ${index === game.winnerIndex ? "is-winner" : ""}" style="left:${(xFor(index) / width) * 100}%">${item.name}</span>`,
+    )
+    .join("");
+  return `
+    <div class="ladder-game">
+      <div class="ladder-labels">${starts}</div>
+      <svg class="ladder-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="사다리타기 결과">
+        ${verticals}
+        ${rungs}
+        ${path}
+      </svg>
+      <div class="ladder-results">${results}</div>
+      <p><strong>${game.items[game.winnerIndex].menu}</strong> 당첨</p>
+    </div>
+  `;
 }
 
 function renderRoulette(items) {
@@ -235,9 +323,10 @@ function render() {
     now: new Date(),
     pickIndex: state.pickIndex,
   });
-  state.lastRecommendations = recommendations;
+  const selectedRecommendations = selectGameWinner(recommendations);
+  state.lastRecommendations = selectedRecommendations;
   renderStatus(recommendations);
-  renderTopPick(recommendations[0]);
+  renderTopPick(selectedRecommendations[0]);
   renderGameStage(recommendations);
   $("#candidateCount").textContent = `${recommendations.length}곳`;
   const list = $("#candidateList");
@@ -245,6 +334,22 @@ function render() {
   for (const item of recommendations.slice(1)) {
     list.append(renderCandidate(item));
   }
+}
+
+function selectGameWinner(recommendations) {
+  if (!state.hasPicked || state.mode !== "ladder") return recommendations;
+  const game = createLadderGame(recommendations.slice(0, 5), state.pickIndex);
+  const winner = game.items[game.winnerIndex];
+  if (!winner) return recommendations;
+  return [winner, ...recommendations.filter((item) => item.id !== winner.id)];
+}
+
+function deterministicNoise(input, max) {
+  let hash = 0;
+  for (let i = 0; i < String(input).length; i += 1) {
+    hash = (hash * 31 + String(input).charCodeAt(i)) >>> 0;
+  }
+  return max ? hash % max : 0;
 }
 
 $("#lunchButton").addEventListener("click", () => setMeal("lunch"));
