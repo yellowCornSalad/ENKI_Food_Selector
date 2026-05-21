@@ -31,8 +31,6 @@ async function loadRestaurants() {
 
 function setMeal(meal) {
   state.meal = meal;
-  $("#lunchButton").classList.toggle("is-active", meal === "lunch");
-  $("#dinnerButton").classList.toggle("is-active", meal === "dinner");
   render();
 }
 
@@ -123,6 +121,8 @@ function badgeText(item) {
 }
 
 function render() {
+  $("#lunchButton").classList.toggle("is-active", state.meal === "lunch");
+  $("#dinnerButton").classList.toggle("is-active", state.meal === "dinner");
   renderPreferenceChips();
   const recommendations = recommendMeals(state.restaurants, {
     meal: state.meal,

@@ -14,14 +14,16 @@ export function recommendMeals(restaurants, options = {}) {
   const preferences = new Set(options.preferences ?? []);
   const seed = options.seed ?? 0;
 
-  return restaurants
+  const ranked = restaurants
     .filter((restaurant) => isEligible(restaurant, meal))
     .map((restaurant) => ({
       ...restaurant,
       score: scoreRestaurant(restaurant, meal, preferences, seed),
       reason: buildReason(restaurant, meal, preferences),
     }))
-    .sort((a, b) => b.score - a.score)
+    .sort((a, b) => b.score - a.score);
+
+  return rotateTopChoices(ranked, meal, preferences, seed)
     .map((restaurant) => ({
       ...restaurant,
       menu: pickMenu(restaurant, meal, preferences, seed),
@@ -80,6 +82,16 @@ function pickMenu(restaurant, meal, preferences, seed) {
   const pool = tagged.length ? tagged : menus;
   const index = deterministicNoise(`${restaurant.id}-${meal}-${seed}`, pool.length);
   return pool[index]?.name ?? pool[0].name;
+}
+
+function rotateTopChoices(ranked, meal, preferences, seed) {
+  if (ranked.length <= 1) return ranked;
+  const topSize = Math.min(5, ranked.length);
+  const top = ranked.slice(0, topSize);
+  const rest = ranked.slice(topSize);
+  const preferenceKey = [...preferences].sort().join(",");
+  const offset = deterministicNoise(`${meal}-${preferenceKey}-${seed}`, top.length);
+  return [top[offset], ...top.slice(0, offset), ...top.slice(offset + 1), ...rest];
 }
 
 function buildReason(restaurant, meal, preferences) {
