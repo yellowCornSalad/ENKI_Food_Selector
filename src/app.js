@@ -19,6 +19,11 @@ const preferenceOptions = [
 
 const $ = (selector) => document.querySelector(selector);
 
+function syncMealButtons() {
+  $("#lunchButton").classList.toggle("is-active", state.meal === "lunch");
+  $("#dinnerButton").classList.toggle("is-active", state.meal === "dinner");
+}
+
 async function loadRestaurants() {
   const response = await fetch("./data/restaurants.json", { cache: "no-store" });
   if (!response.ok) {
@@ -121,8 +126,7 @@ function badgeText(item) {
 }
 
 function render() {
-  $("#lunchButton").classList.toggle("is-active", state.meal === "lunch");
-  $("#dinnerButton").classList.toggle("is-active", state.meal === "dinner");
+  syncMealButtons();
   renderPreferenceChips();
   const recommendations = recommendMeals(state.restaurants, {
     meal: state.meal,
@@ -149,6 +153,8 @@ $("#clearFiltersButton").addEventListener("click", () => {
   render();
 });
 
+syncMealButtons();
+$("#statusStrip").textContent = "가맹점 데이터를 불러오는 중입니다.";
 loadRestaurants().catch(() => {
   $("#statusStrip").textContent = "가맹점 데이터를 불러오지 못했습니다.";
 });
