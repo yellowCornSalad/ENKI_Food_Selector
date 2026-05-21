@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-6";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-7";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -106,8 +106,9 @@ function renderTopPick(item) {
         <span>${modeLabel(state.mode)}</span>
       </div>
       <h2>뭐 고르세요?</h2>
-      <p class="restaurant-name">아래 버튼을 누르면 메뉴를 하나 골라드릴게요.</p>
+      <p class="restaurant-name">버튼을 누르면 메뉴를 하나 골라드릴게요.</p>
       <p class="reason">취향 필터와 선택 방식을 먼저 고르면 더 그럴듯하게 골라집니다.</p>
+      <button class="hero-cta" data-action="choose" type="button">메뉴 고르기</button>
     `;
     return;
   }
@@ -247,6 +248,11 @@ $("#lunchButton").addEventListener("click", () => setMeal("lunch"));
 $("#dinnerButton").addEventListener("click", () => setMeal("dinner"));
 $("#refreshButton").addEventListener("click", reroll);
 $("#chooseButton").addEventListener("click", reroll);
+$("#topPick").addEventListener("click", (event) => {
+  if (event.target.closest("[data-action='choose']")) {
+    reroll();
+  }
+});
 for (const button of document.querySelectorAll(".mode-button")) {
   button.addEventListener("click", () => setMode(button.dataset.mode));
 }
