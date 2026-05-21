@@ -12,21 +12,21 @@ export function getCurrentMeal(now) {
 export function recommendMeals(restaurants, options = {}) {
   const meal = options.meal ?? getCurrentMeal(options.now ?? new Date());
   const preferences = new Set(options.preferences ?? []);
-  const seed = options.seed ?? 0;
+  const pickIndex = Number.isFinite(options.pickIndex) ? options.pickIndex : 0;
 
   const ranked = restaurants
     .filter((restaurant) => isEligible(restaurant, meal))
     .map((restaurant) => ({
       ...restaurant,
-      score: scoreRestaurant(restaurant, meal, preferences, seed),
+      score: scoreRestaurant(restaurant, meal, preferences),
       reason: buildReason(restaurant, meal, preferences),
     }))
     .sort((a, b) => b.score - a.score);
 
-  return rotateTopChoices(ranked, meal, preferences, seed)
+  return rotateTopChoices(ranked, pickIndex)
     .map((restaurant) => ({
       ...restaurant,
-      menu: pickMenu(restaurant, meal, preferences, seed),
+      menu: pickMenu(restaurant, meal, preferences, pickIndex),
     }));
 }
 
@@ -59,7 +59,7 @@ function isOpenForMeal(restaurant, meal) {
   });
 }
 
-function scoreRestaurant(restaurant, meal, preferences, seed) {
+function scoreRestaurant(restaurant, meal, preferences) {
   let score = 0;
   if (restaurant.sikgwonStatus === "confirmed") score += 80;
   if (restaurant.sikgwonStatus === "candidate") score += 35;
@@ -71,7 +71,7 @@ function scoreRestaurant(restaurant, meal, preferences, seed) {
   }
   if (preferences.has("team") && restaurant.teamFriendly) score += 12;
   if (preferences.has("quick") && restaurant.quick) score += 12;
-  score += deterministicNoise(`${restaurant.id}-${seed}`, 9);
+  score += deterministicNoise(restaurant.id, 9);
   return score;
 }
 
@@ -84,13 +84,12 @@ function pickMenu(restaurant, meal, preferences, seed) {
   return pool[index]?.name ?? pool[0].name;
 }
 
-function rotateTopChoices(ranked, meal, preferences, seed) {
+function rotateTopChoices(ranked, pickIndex) {
   if (ranked.length <= 1) return ranked;
-  const topSize = Math.min(5, ranked.length);
+  const topSize = Math.min(7, ranked.length);
   const top = ranked.slice(0, topSize);
   const rest = ranked.slice(topSize);
-  const preferenceKey = [...preferences].sort().join(",");
-  const offset = deterministicNoise(`${meal}-${preferenceKey}-${seed}`, top.length);
+  const offset = Math.abs(pickIndex) % top.length;
   return [top[offset], ...top.slice(0, offset), ...top.slice(offset + 1), ...rest];
 }
 

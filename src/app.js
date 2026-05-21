@@ -1,10 +1,10 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-2";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-3";
 
 const state = {
   meal: getCurrentMeal(new Date()),
   preferences: new Set(),
   restaurants: [],
-  lastSeed: Date.now(),
+  pickIndex: 0,
 };
 
 const preferenceOptions = [
@@ -36,6 +36,7 @@ async function loadRestaurants() {
 
 function setMeal(meal) {
   state.meal = meal;
+  state.pickIndex = 0;
   render();
 }
 
@@ -45,11 +46,12 @@ function togglePreference(id) {
   } else {
     state.preferences.add(id);
   }
+  state.pickIndex = 0;
   render();
 }
 
 function reroll() {
-  state.lastSeed = Date.now();
+  state.pickIndex += 1;
   render();
 }
 
@@ -132,7 +134,7 @@ function render() {
     meal: state.meal,
     preferences: [...state.preferences],
     now: new Date(),
-    seed: state.lastSeed,
+    pickIndex: state.pickIndex,
   });
   renderStatus(recommendations);
   renderTopPick(recommendations[0]);
@@ -150,6 +152,7 @@ $("#refreshButton").addEventListener("click", reroll);
 $("#chooseButton").addEventListener("click", reroll);
 $("#clearFiltersButton").addEventListener("click", () => {
   state.preferences.clear();
+  state.pickIndex = 0;
   render();
 });
 
