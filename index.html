@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta name="description" content="엔키화이트햇 문정동 식권 메뉴 자동 추천" />
+    <title>엔키 오늘 뭐 먹지</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ENKI Whitehat</p>
+          <h1>오늘 뭐 먹지</h1>
+        </div>
+        <button class="icon-button" id="refreshButton" type="button" aria-label="새 추천 받기" title="새 추천 받기">
+          <span aria-hidden="true">↻</span>
+        </button>
+      </header>
+
+      <section class="status-strip" id="statusStrip" aria-live="polite"></section>
+
+      <section class="meal-switch" aria-label="식사 선택">
+        <button class="segment is-active" id="lunchButton" type="button">점심</button>
+        <button class="segment" id="dinnerButton" type="button">저녁</button>
+      </section>
+
+      <section class="preference-panel">
+        <div class="section-title">
+          <h2>취향</h2>
+          <button class="text-button" id="clearFiltersButton" type="button">초기화</button>
+        </div>
+        <div class="chips" id="preferenceChips" aria-label="취향 필터"></div>
+      </section>
+
+      <section class="hero-card" id="topPick" aria-live="polite"></section>
+
+      <section class="list-section">
+        <div class="section-title">
+          <h2>후보</h2>
+          <span id="candidateCount"></span>
+        </div>
+        <div class="candidate-list" id="candidateList"></div>
+      </section>
+
+      <section class="ops-panel">
+        <h2>운영 메모</h2>
+        <p>
+          식권대장 공식 API가 없으면 <code>data/restaurants.json</code>에서 문정동 후보와 가맹 확인 상태를 갱신합니다.
+          Slack bot도 같은 추천 엔진을 재사용하도록 분리되어 있습니다.
+        </p>
+      </section>
+    </main>
+
+    <nav class="bottom-action">
+      <button class="primary-button" id="chooseButton" type="button">지금 메뉴 고르기</button>
+    </nav>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

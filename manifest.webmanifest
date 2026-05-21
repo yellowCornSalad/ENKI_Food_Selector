@@ -1,0 +1,9 @@
+{
+  "name": "엔키 오늘 뭐 먹지",
+  "short_name": "오늘뭐먹지",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f3ef",
+  "theme_color": "#0f766e",
+  "lang": "ko-KR"
+}

@@ -1,0 +1,223 @@
+{
+  "updatedAt": "2026-05-21",
+  "office": {
+    "name": "엔키화이트햇",
+    "address": "서울특별시 송파구 송파대로 167 문정역테라타워 B동 1214~1217호",
+    "timezone": "Asia/Seoul"
+  },
+  "notes": [
+    "식권대장 공식 API 또는 관리자 내보내기 데이터가 확보되면 이 파일을 자동 갱신 대상으로 교체한다.",
+    "sikgwonStatus가 confirmed인 항목만 식권대장 가맹 확인 매장으로 취급한다.",
+    "candidate 항목은 문정역테라타워/문정법조타운 주변 후보이며 운영 전 가맹 여부 확인이 필요하다."
+  ],
+  "restaurants": [
+    {
+      "id": "soho-kalguksu",
+      "name": "소호얼크니샤브칼국수",
+      "category": "한식/샤브칼국수",
+      "distanceM": 120,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "high",
+      "hours": [{ "days": ["weekday"], "open": "10:30", "close": "20:30", "breakStart": "15:00", "breakEnd": "17:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "noodle", "team", "warm"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [{ "name": "샤브칼국수", "tags": ["korean", "noodle"] }],
+        "dinner": [{ "name": "샤브샤브 코스", "tags": ["korean", "team"] }]
+      },
+      "source": "https://doremifas-ol.keyzard.org/223640730753"
+    },
+    {
+      "id": "donggung-jjimdak",
+      "name": "동궁찜닭 송파문정점",
+      "category": "찜닭",
+      "distanceM": 160,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "high",
+      "hours": [{ "days": ["weekday"], "open": "10:00", "close": "24:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "rice", "team", "spicy"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [
+          { "name": "안동찜닭", "tags": ["korean", "rice"] },
+          { "name": "고추장찜닭", "tags": ["korean", "spicy", "rice"] }
+        ],
+        "dinner": [{ "name": "순살 찜닭", "tags": ["korean", "team"] }]
+      },
+      "source": "https://www.diningcode.com/profilemap?rid=sDfgeIDF4TOg"
+    },
+    {
+      "id": "mara-gongbang",
+      "name": "마라공방 문정테라타워점",
+      "category": "중식/마라",
+      "distanceM": 110,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "medium",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:30" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["spicy", "noodle", "quick"],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [
+          { "name": "마라탕", "tags": ["spicy", "noodle", "quick"] },
+          { "name": "마라샹궈", "tags": ["spicy"] }
+        ],
+        "dinner": [{ "name": "마라샹궈", "tags": ["spicy", "team"] }]
+      },
+      "source": "https://baseowana.com/entry/%EB%AC%B8%EC%A0%95-%EB%A7%88%EB%9D%BC%EC%83%B9%EA%B6%88-%EB%A7%9B%EC%A7%91-%EC%86%94%EC%A7%81%ED%9B%84%EA%B8%B0-%EC%95%BC%EC%B1%84-%EC%8B%A0%EC%84%A0%ED%95%9C-%EB%A7%88%EB%9D%BC%EA%B3%B5%EB%B0%A9"
+    },
+    {
+      "id": "italy-budae",
+      "name": "이태리부대찌개 문정법조타운점",
+      "category": "부대찌개",
+      "distanceM": 180,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "medium",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:30" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "rice", "spicy", "team"],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [{ "name": "부대찌개", "tags": ["korean", "rice", "spicy"] }],
+        "dinner": [{ "name": "부대전골", "tags": ["korean", "team"] }]
+      },
+      "source": "https://www.keyzard.cc/doremifas_ol/nb/224106862705"
+    },
+    {
+      "id": "deopbap-jang",
+      "name": "덮밥장사장 문정점",
+      "category": "덮밥",
+      "distanceM": 130,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "medium",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["rice", "quick", "solo"],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [{ "name": "덮밥", "tags": ["rice", "quick"] }],
+        "dinner": [{ "name": "덮밥", "tags": ["rice", "quick"] }]
+      },
+      "source": "https://www.keyzard.cc/doremifas_ol/nb/223922678707"
+    },
+    {
+      "id": "bas-burger",
+      "name": "바스버거 문정점",
+      "category": "버거",
+      "distanceM": 190,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "medium",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["quick", "western"],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [{ "name": "수제버거 세트", "tags": ["quick", "western"] }],
+        "dinner": [{ "name": "버거와 감자튀김", "tags": ["western"] }]
+      },
+      "source": "https://sohan.tistory.com/entry/%EC%88%98%EC%A0%9C%EB%B2%84%EA%B1%B0%EA%B0%80-%EB%95%A1%EA%B8%B8%EB%95%8C-%EB%AC%B8%EC%A0%95%EC%97%AD-%EB%B0%94%EC%8A%A4%EB%B2%84%EA%B1%B0"
+    },
+    {
+      "id": "gukje-boribap",
+      "name": "국제보리밥 테라타워점",
+      "category": "보리밥",
+      "distanceM": 120,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "medium",
+      "hours": [{ "days": ["weekday"], "open": "10:30", "close": "14:30" }],
+      "meals": ["lunch"],
+      "tags": ["korean", "rice", "light", "quick"],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [{ "name": "보리밥 정식", "tags": ["korean", "rice", "light"] }]
+      },
+      "source": "https://www.daangn.com/kr/jobs/%EA%B5%AD%EC%A0%9C%EB%B3%B4%EB%A6%AC%EB%B0%A5-%EB%AC%B8%EC%A0%95%EC%97%AD-gwyeqawe2m97/"
+    },
+    {
+      "id": "egg-house",
+      "name": "계란집",
+      "category": "오므라이스",
+      "distanceM": 120,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "low",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["rice", "quick", "light"],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [{ "name": "오므라이스", "tags": ["rice", "quick"] }],
+        "dinner": [{ "name": "오므라이스", "tags": ["rice", "light"] }]
+      },
+      "source": "https://www.keyzard.cc/colormall/nb/223928078971"
+    },
+    {
+      "id": "munjeong-gyeopsal",
+      "name": "문정겹살",
+      "category": "고기/한식",
+      "distanceM": 150,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "low",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "rice", "team"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [
+          { "name": "직화제육볶음", "tags": ["korean", "rice"] },
+          { "name": "차돌된장찌개", "tags": ["korean", "rice"] }
+        ],
+        "dinner": [{ "name": "삼겹살", "tags": ["korean", "team"] }]
+      },
+      "source": "https://geniusjw.com/entry/%EB%AC%B8%EC%A0%95%EB%8F%99-%ED%85%8C%EB%9D%BC%ED%83%80%EC%9B%8C-%EB%AC%B8%EC%A0%95%EA%B2%B9%EC%82%B4-%EC%A0%90%EC%8B%AC%ED%9B%84%EA%B8%B0"
+    },
+    {
+      "id": "haru-grill",
+      "name": "하루석쇠삼겹살",
+      "category": "고기/한식",
+      "distanceM": 230,
+      "sikgwonStatus": "candidate",
+      "active": true,
+      "hoursConfidence": "low",
+      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
+      "meals": ["lunch", "dinner"],
+      "tags": ["korean", "rice", "team"],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "1만원대",
+      "menus": {
+        "lunch": [{ "name": "석쇠한판순두부", "tags": ["korean", "rice"] }],
+        "dinner": [{ "name": "석쇠삼겹살", "tags": ["korean", "team"] }]
+      },
+      "source": "https://mushroomprincess.tistory.com/entry/%EB%AC%B8%EC%A0%95%EB%B2%95%EC%A1%B0%ED%83%80%EC%9A%B4-%EB%A7%9B%EC%A7%91-%ED%95%98%EB%A3%A8%EC%84%9D%EC%87%A0%EC%82%BC%EA%B2%B9%EC%82%B4-%EB%AC%B8%EC%A0%95%EB%B2%95%EC%A1%B0%EB%8B%A8%EC%A7%80%EB%A7%9B%EC%A7%91-%ED%85%8C%EB%9D%BC%ED%83%80%EC%9B%8C-%EB%A7%9B%EC%A7%91-%EB%AC%B8%EC%A0%95%EB%8F%99%EA%B3%A0%EA%B8%B0%EC%A7%91"
+    }
+  ]
+}
