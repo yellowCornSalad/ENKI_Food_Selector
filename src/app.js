@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-9";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-10";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -8,6 +8,9 @@ const state = {
   hasPicked: false,
   mode: "quick",
   lastRecommendations: [],
+  ladderSelections: new Set(),
+  ladderWarning: false,
+  gameSeed: 0,
 };
 
 const preferenceOptions = [
@@ -47,6 +50,8 @@ function setMeal(meal) {
   state.meal = meal;
   state.pickIndex = 0;
   state.hasPicked = false;
+  state.ladderSelections.clear();
+  state.ladderWarning = false;
   render();
 }
 
@@ -58,17 +63,42 @@ function togglePreference(id) {
   }
   state.pickIndex = 0;
   state.hasPicked = false;
+  state.ladderSelections.clear();
+  state.ladderWarning = false;
   render();
 }
 
-function reroll() {
-  state.pickIndex += 1;
+function chooseMeal() {
+  if (state.mode === "ladder" && state.ladderSelections.size < 2) {
+    state.hasPicked = false;
+    state.ladderWarning = true;
+    render();
+    return;
+  }
+  if (state.mode !== "ladder") {
+    state.pickIndex += 1;
+  }
+  state.gameSeed += 1;
+  state.ladderWarning = false;
   state.hasPicked = true;
   render();
 }
 
 function setMode(mode) {
   state.mode = mode;
+  state.hasPicked = false;
+  state.ladderWarning = false;
+  render();
+}
+
+function toggleLadderSelection(id) {
+  if (state.ladderSelections.has(id)) {
+    state.ladderSelections.delete(id);
+  } else if (state.ladderSelections.size < 5) {
+    state.ladderSelections.add(id);
+  }
+  state.hasPicked = false;
+  state.ladderWarning = false;
   render();
 }
 
@@ -179,8 +209,12 @@ function modeLabel(mode) {
 
 function renderGameStage(recommendations) {
   const stage = $("#gameStage");
-  const items = recommendations.slice(0, 5);
+  const items = ladderItems(recommendations);
   if (!state.hasPicked) {
+    if (state.mode === "ladder") {
+      stage.innerHTML = renderLadderSetup(recommendations);
+      return;
+    }
     stage.innerHTML = `<p>선택 방식을 고르고 하단 버튼을 눌러주세요.</p>`;
     return;
   }
@@ -189,7 +223,7 @@ function renderGameStage(recommendations) {
     return;
   }
   if (state.mode === "ladder") {
-    stage.innerHTML = renderLadder(createLadderGame(items, state.pickIndex));
+    stage.innerHTML = renderLadder(createLadderGame(items, state.gameSeed));
     return;
   }
   if (state.mode === "roulette") {
@@ -197,6 +231,37 @@ function renderGameStage(recommendations) {
     return;
   }
   stage.innerHTML = `<p><strong>${items[0].menu}</strong>로 바로 골랐습니다.</p>`;
+}
+
+function renderLadderSetup(recommendations) {
+  const options = recommendations.slice(0, 12);
+  const selectedCount = state.ladderSelections.size;
+  const warning = state.ladderWarning ? `<p class="ladder-warning">사다리에 올릴 메뉴를 2개 이상 골라주세요.</p>` : "";
+  const buttons = options
+    .map(
+      (item) => `
+        <button class="ladder-option ${state.ladderSelections.has(item.id) ? "is-selected" : ""}" data-ladder-id="${item.id}" type="button">
+          <strong>${item.menu}</strong>
+          <span>${item.name}</span>
+        </button>
+      `,
+    )
+    .join("");
+  return `
+    <div class="ladder-setup">
+      <div class="ladder-setup-head">
+        <strong>사다리에 올릴 메뉴 선택</strong>
+        <span>${selectedCount}/5개 선택</span>
+      </div>
+      <div class="ladder-options">${buttons}</div>
+      ${warning}
+    </div>
+  `;
+}
+
+function ladderItems(recommendations) {
+  const selected = recommendations.filter((item) => state.ladderSelections.has(item.id));
+  return selected.slice(0, 5);
 }
 
 function createLadderGame(items, seed) {
@@ -338,7 +403,7 @@ function render() {
 
 function selectGameWinner(recommendations) {
   if (!state.hasPicked || state.mode !== "ladder") return recommendations;
-  const game = createLadderGame(recommendations.slice(0, 5), state.pickIndex);
+  const game = createLadderGame(ladderItems(recommendations), state.gameSeed);
   const winner = game.items[game.winnerIndex];
   if (!winner) return recommendations;
   return [winner, ...recommendations.filter((item) => item.id !== winner.id)];
@@ -354,11 +419,17 @@ function deterministicNoise(input, max) {
 
 $("#lunchButton").addEventListener("click", () => setMeal("lunch"));
 $("#dinnerButton").addEventListener("click", () => setMeal("dinner"));
-$("#refreshButton").addEventListener("click", reroll);
-$("#chooseButton").addEventListener("click", reroll);
+$("#refreshButton").addEventListener("click", chooseMeal);
+$("#chooseButton").addEventListener("click", chooseMeal);
 $("#topPick").addEventListener("click", (event) => {
   if (event.target.closest("[data-action='choose']")) {
-    reroll();
+    chooseMeal();
+  }
+});
+$("#gameStage").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-ladder-id]");
+  if (button) {
+    toggleLadderSelection(button.dataset.ladderId);
   }
 });
 for (const button of document.querySelectorAll(".mode-button")) {
@@ -368,6 +439,8 @@ $("#clearFiltersButton").addEventListener("click", () => {
   state.preferences.clear();
   state.pickIndex = 0;
   state.hasPicked = false;
+  state.ladderSelections.clear();
+  state.ladderWarning = false;
   render();
 });
 

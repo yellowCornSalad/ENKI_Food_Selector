@@ -202,6 +202,81 @@ h1 {
   color: #0f766e;
 }
 
+.ladder-setup {
+  display: grid;
+  gap: 10px;
+}
+
+.ladder-setup-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ladder-setup-head strong {
+  color: #17211f;
+  font-size: 14px;
+}
+
+.ladder-setup-head span {
+  color: #66736f;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ladder-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ladder-option {
+  min-width: 0;
+  min-height: 58px;
+  padding: 9px 10px;
+  border: 1px solid rgba(23, 33, 31, 0.12);
+  border-radius: 8px;
+  background: #fffdf8;
+  color: #34413e;
+  text-align: left;
+}
+
+.ladder-option strong,
+.ladder-option span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ladder-option strong {
+  color: #17211f;
+  font-size: 13px;
+}
+
+.ladder-option span {
+  margin-top: 4px;
+  color: #69736f;
+  font-size: 11px;
+}
+
+.ladder-option.is-selected {
+  border-color: #0f766e;
+  background: #dceee9;
+}
+
+.ladder-option.is-selected strong,
+.ladder-option.is-selected span {
+  color: #0f766e;
+}
+
+.ladder-warning {
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .hero-card {
   margin-top: 22px;
   padding: 22px;
