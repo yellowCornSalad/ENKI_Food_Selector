@@ -447,26 +447,89 @@ h1 {
   stroke-linecap: round;
 }
 
-.roulette-board {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 2px;
+.roulette-game {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  position: relative;
+  padding-top: 8px;
 }
 
-.roulette-chip {
-  flex: 0 0 auto;
-  padding: 8px 10px;
-  border-radius: 999px;
-  background: #e8e4dc;
-  color: #4d5a56;
-  font-size: 12px;
-  font-weight: 800;
+.roulette-pointer {
+  width: 0;
+  height: 0;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  border-top: 22px solid #17211f;
+  filter: drop-shadow(0 2px 2px rgba(23, 33, 31, 0.2));
+  position: relative;
+  z-index: 2;
 }
 
-.roulette-chip.is-winner {
-  background: #0f766e;
+.roulette-wheel {
+  position: relative;
+  width: min(280px, 78vw);
+  aspect-ratio: 1;
+  margin-top: -3px;
+  border: 8px solid #fffdf8;
+  border-radius: 50%;
+  background: conic-gradient(from -90deg, var(--wheel));
+  box-shadow: 0 12px 26px rgba(23, 33, 31, 0.14);
+  transform: rotate(var(--spin));
+  animation: roulette-spin 1.7s cubic-bezier(0.18, 0.82, 0.22, 1) both;
+}
+
+.roulette-wheel::after {
+  content: "";
+  position: absolute;
+  inset: 13%;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 50%;
+}
+
+.roulette-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 92px;
+  overflow: hidden;
   color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.15;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 2px rgba(23, 33, 31, 0.3);
+  white-space: nowrap;
+  transform: rotate(var(--angle)) translateY(-96px) rotate(calc(-1 * var(--angle)));
+  transform-origin: center;
+}
+
+.roulette-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 5px solid #fffdf8;
+  border-radius: 50%;
+  background: #17211f;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 950;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+@keyframes roulette-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(var(--spin));
+  }
 }
 
 .ops-panel {

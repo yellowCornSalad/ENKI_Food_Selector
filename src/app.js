@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-10";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-11";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -69,13 +69,13 @@ function togglePreference(id) {
 }
 
 function chooseMeal() {
-  if (state.mode === "ladder" && state.ladderSelections.size < 2) {
+  if (needsManualChoices(state.mode) && state.ladderSelections.size < 2) {
     state.hasPicked = false;
     state.ladderWarning = true;
     render();
     return;
   }
-  if (state.mode !== "ladder") {
+  if (!needsManualChoices(state.mode)) {
     state.pickIndex += 1;
   }
   state.gameSeed += 1;
@@ -94,7 +94,7 @@ function setMode(mode) {
 function toggleLadderSelection(id) {
   if (state.ladderSelections.has(id)) {
     state.ladderSelections.delete(id);
-  } else if (state.ladderSelections.size < 5) {
+  } else if (state.ladderSelections.size < gameChoiceLimit()) {
     state.ladderSelections.add(id);
   }
   state.hasPicked = false;
@@ -209,10 +209,10 @@ function modeLabel(mode) {
 
 function renderGameStage(recommendations) {
   const stage = $("#gameStage");
-  const items = ladderItems(recommendations);
+  const items = gameItems(recommendations);
   if (!state.hasPicked) {
-    if (state.mode === "ladder") {
-      stage.innerHTML = renderLadderSetup(recommendations);
+    if (needsManualChoices(state.mode)) {
+      stage.innerHTML = renderChoiceSetup(recommendations);
       return;
     }
     stage.innerHTML = `<p>선택 방식을 고르고 하단 버튼을 눌러주세요.</p>`;
@@ -227,16 +227,17 @@ function renderGameStage(recommendations) {
     return;
   }
   if (state.mode === "roulette") {
-    stage.innerHTML = renderRoulette(items);
+    stage.innerHTML = renderRoulette(createRouletteGame(items, state.gameSeed));
     return;
   }
   stage.innerHTML = `<p><strong>${items[0].menu}</strong>로 바로 골랐습니다.</p>`;
 }
 
-function renderLadderSetup(recommendations) {
+function renderChoiceSetup(recommendations) {
   const options = recommendations.slice(0, 12);
   const selectedCount = state.ladderSelections.size;
-  const warning = state.ladderWarning ? `<p class="ladder-warning">사다리에 올릴 메뉴를 2개 이상 골라주세요.</p>` : "";
+  const gameName = state.mode === "roulette" ? "룰렛판" : "사다리";
+  const warning = state.ladderWarning ? `<p class="ladder-warning">${gameName}에 올릴 메뉴를 2개 이상 골라주세요.</p>` : "";
   const buttons = options
     .map(
       (item) => `
@@ -250,8 +251,8 @@ function renderLadderSetup(recommendations) {
   return `
     <div class="ladder-setup">
       <div class="ladder-setup-head">
-        <strong>사다리에 올릴 메뉴 선택</strong>
-        <span>${selectedCount}/5개 선택</span>
+        <strong>${gameName}에 올릴 메뉴 선택</strong>
+        <span>${selectedCount}/${gameChoiceLimit()}개 선택</span>
       </div>
       <div class="ladder-options">${buttons}</div>
       ${warning}
@@ -259,9 +260,18 @@ function renderLadderSetup(recommendations) {
   `;
 }
 
-function ladderItems(recommendations) {
+function gameItems(recommendations) {
+  if (!needsManualChoices(state.mode)) return recommendations.slice(0, 5);
   const selected = recommendations.filter((item) => state.ladderSelections.has(item.id));
-  return selected.slice(0, 5);
+  return selected.slice(0, gameChoiceLimit());
+}
+
+function gameChoiceLimit() {
+  return state.mode === "roulette" ? 6 : 5;
+}
+
+function needsManualChoices(mode) {
+  return mode === "ladder" || mode === "roulette";
 }
 
 function createLadderGame(items, seed) {
@@ -367,15 +377,36 @@ function renderLadder(game) {
   `;
 }
 
-function renderRoulette(items) {
-  const chips = items
-    .map(
-      (item, index) => `
-        <span class="roulette-chip ${index === 0 ? "is-winner" : ""}">${item.menu}</span>
-      `,
-    )
+function createRouletteGame(items, seed) {
+  const count = items.length;
+  const winnerIndex = deterministicNoise(`roulette-${seed}-${items.map((item) => item.id).join("-")}`, count);
+  return { items, winnerIndex };
+}
+
+function renderRoulette(game) {
+  if (!game.items.length) return `<p>표시할 후보가 없습니다.</p>`;
+  const colors = ["#0f766e", "#f59e0b", "#2563eb", "#dc2626", "#7c3aed", "#059669"];
+  const segment = 360 / game.items.length;
+  const gradient = game.items
+    .map((_, index) => `${colors[index % colors.length]} ${index * segment}deg ${(index + 1) * segment}deg`)
+    .join(", ");
+  const finalRotation = 1440 - (game.winnerIndex * segment + segment / 2);
+  const labels = game.items
+    .map((item, index) => {
+      const angle = index * segment + segment / 2;
+      return `<span class="roulette-label" style="--angle:${angle}deg">${item.menu}</span>`;
+    })
     .join("");
-  return `<div class="roulette-board">${chips}</div>`;
+  return `
+    <div class="roulette-game">
+      <div class="roulette-pointer" aria-hidden="true"></div>
+      <div class="roulette-wheel" style="--wheel:${gradient}; --spin:${finalRotation}deg">
+        ${labels}
+        <span class="roulette-center">GO</span>
+      </div>
+      <p><strong>${game.items[game.winnerIndex].menu}</strong> 당첨</p>
+    </div>
+  `;
 }
 
 function render() {
@@ -402,9 +433,16 @@ function render() {
 }
 
 function selectGameWinner(recommendations) {
-  if (!state.hasPicked || state.mode !== "ladder") return recommendations;
-  const game = createLadderGame(ladderItems(recommendations), state.gameSeed);
-  const winner = game.items[game.winnerIndex];
+  if (!state.hasPicked) return recommendations;
+  let winner = null;
+  if (state.mode === "ladder") {
+    const game = createLadderGame(gameItems(recommendations), state.gameSeed);
+    winner = game.items[game.winnerIndex];
+  }
+  if (state.mode === "roulette") {
+    const game = createRouletteGame(gameItems(recommendations), state.gameSeed);
+    winner = game.items[game.winnerIndex];
+  }
   if (!winner) return recommendations;
   return [winner, ...recommendations.filter((item) => item.id !== winner.id)];
 }
