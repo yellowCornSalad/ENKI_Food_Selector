@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-3";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-4";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -93,6 +93,7 @@ function renderTopPick(item) {
     <div class="pick-meta">
       <span>${badgeText(item)}</span>
       <span>${item.distanceM}m</span>
+      <span>${ratingText(item)}</span>
     </div>
     <h2>${item.menu}</h2>
     <p class="restaurant-name">${item.name}</p>
@@ -115,6 +116,7 @@ function renderCandidate(item) {
     </div>
     <div class="candidate-side">
       <span>${item.distanceM}m</span>
+      <span>${ratingText(item)}</span>
       <strong>${badgeText(item)}</strong>
     </div>
   `;
@@ -125,6 +127,13 @@ function badgeText(item) {
   if (item.sikgwonStatus === "confirmed") return "식권 확인";
   if (item.sikgwonStatus === "candidate") return "가맹 후보";
   return "확인 필요";
+}
+
+function ratingText(item) {
+  if (typeof item.kakaoRating === "number") {
+    return `카카오 ★ ${item.kakaoRating.toFixed(1)}`;
+  }
+  return "카카오 ★ 확인중";
 }
 
 function render() {

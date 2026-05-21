@@ -10,6 +10,7 @@ Update `data/restaurants.json` whenever the 식권대장 가맹점 list changes.
    - `hours`
    - `meals`
    - `menus`
+   - `kakaoRating`: KakaoMap rating as a number, or `null` when not verified
    - `active`
 3. Set `updatedAt` to the update date.
 4. Open the homepage and confirm the top recommendation still renders.
@@ -17,3 +18,5 @@ Update `data/restaurants.json` whenever the 식권대장 가맹점 list changes.
 ## Data Rule
 
 Only `confirmed` means "식권대장 가맹 확인". Use `candidate` for nearby restaurants that still need verification.
+
+Only fill `kakaoRating` after checking KakaoMap directly. Do not copy ratings from other map or review services into this field.
