@@ -860,30 +860,44 @@ function createMarbleGame(items, seed) {
 function renderMarble(game) {
   if (!game.items.length) return `<p>표시할 후보가 없습니다.</p>`;
   const revealResult = state.gamePhase === "done";
-  const colors = ["#dc2626", "#f59e0b", "#0f766e", "#2563eb", "#7c3aed", "#059669"];
-  const segment = 360 / game.items.length;
-  const gradient = game.items
-    .map((item, index) => `${sliceColor(item, index, colors)} ${index * segment}deg ${(index + 1) * segment}deg`)
-    .join(", ");
-  const winnerAngle = game.winnerIndex * segment + segment * game.sliceFraction;
-  // marble starts above and rolls clockwise into the winning slice
-  const ballFinalRotation = 1440 + winnerAngle;
-  const labels = game.items
+  const count = game.items.length;
+  const slotWidth = 100 / count; // %
+  const winnerCenter = (game.winnerIndex + 0.5) * slotWidth; // %, 0~100
+  // 시작점 (위 가운데) → 끝점 (winner slot center) 까지 좌우로 흔들리며 내려옴
+  const startX = 50;
+  const finalDX = winnerCenter - startX;
+  // 페그 (장식용) 그리드
+  const pegRows = 6;
+  const pegsHtml = [];
+  for (let row = 0; row < pegRows; row += 1) {
+    const offset = row % 2 === 0 ? 0 : 50 / Math.max(count, 5);
+    const cols = Math.max(count, 5);
+    for (let col = 0; col < cols; col += 1) {
+      const left = offset + (col * 100) / cols + (50 / cols);
+      const top = 10 + (row * 60) / pegRows;
+      pegsHtml.push(`<i class="marble-peg" style="left:${left}%;top:${top}%"></i>`);
+    }
+  }
+  const slots = game.items
     .map((item, index) => {
-      const angle = index * segment + segment / 2;
-      const cls = item.type === "again" ? "is-again" : item.type === "miss" ? "is-miss" : "";
-      return `<span class="marble-label ${cls}" style="--angle:${angle}deg"><span class="marble-label-text">${escapeHtml(item.label)}</span></span>`;
+      const cls = item.type === "again"
+        ? "is-again"
+        : item.type === "miss"
+          ? "is-miss"
+          : "is-menu";
+      const winnerCls = revealResult && index === game.winnerIndex ? " is-winner" : "";
+      return `<div class="marble-slot ${cls}${winnerCls}" style="flex:1"><span>${escapeHtml(item.label)}</span></div>`;
     })
     .join("");
   const winner = game.items[game.winnerIndex];
   return `
     <div class="marble-game ${state.gamePhase === "running" ? "is-running" : ""} ${revealResult ? "is-done" : ""}">
-      <div class="marble-wheel" style="--wheel:${gradient}">
-        ${labels}
-        <span class="marble-center">GO</span>
+      <div class="marble-arena">
+        <div class="marble-pegs" aria-hidden="true">${pegsHtml.join("")}</div>
+        <div class="marble-ball" style="--final-dx:${finalDX.toFixed(2)}%" aria-hidden="true"></div>
+        <div class="marble-slots">${slots}</div>
       </div>
-      <div class="marble-ball" style="--ball-final:${ballFinalRotation}deg" aria-hidden="true"></div>
-      ${revealResult ? renderWheelResult(winner) : `<p class="game-wait">구슬이 굴러가는 중...</p>`}
+      ${revealResult ? renderWheelResult(winner) : `<p class="game-wait">공이 떨어지는 중...</p>`}
     </div>
   `;
 }
