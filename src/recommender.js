@@ -35,6 +35,26 @@ export function recommendMeals(restaurants, options = {}) {
     }));
 }
 
+export function findRestaurantsByMenu(menuLabel, restaurants) {
+  const term = String(menuLabel ?? "").trim().toLowerCase();
+  if (!term) return [];
+  const matched = [];
+  for (const restaurant of restaurants) {
+    const allMenus = [
+      ...(restaurant.menus?.lunch ?? []),
+      ...(restaurant.menus?.dinner ?? []),
+      ...(restaurant.naverMenus ?? []),
+    ];
+    const menuHit = allMenus.some((menu) => String(menu?.name ?? "").toLowerCase().includes(term));
+    const categoryHit = String(restaurant.category ?? "").toLowerCase().includes(term);
+    const nameHit = String(restaurant.name ?? "").toLowerCase().includes(term);
+    if (menuHit || categoryHit || nameHit) {
+      matched.push(restaurant);
+    }
+  }
+  return matched.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || (a.distanceM ?? 0) - (b.distanceM ?? 0));
+}
+
 export function summarizeDataHealth(restaurants) {
   return restaurants.reduce(
     (acc, restaurant) => {

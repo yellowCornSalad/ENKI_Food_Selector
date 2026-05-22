@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-15";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-18";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -8,14 +8,18 @@ const state = {
   hasPicked: false,
   mode: "quick",
   lastRecommendations: [],
-  ladderSelections: new Set(),
+  userMenus: [],
+  userMenuInput: "",
   ladderWarning: false,
   gameSeed: 0,
   gamePhase: "setup",
   selectedStartLane: null,
   resultTimer: null,
   expandedCandidates: new Set(),
+  lastGameResult: null,
 };
+
+const MAX_USER_MENUS = 8;
 
 const preferenceOptions = [
   { id: "korean", label: "한식" },
@@ -55,7 +59,6 @@ function setMeal(meal) {
   state.meal = meal;
   state.pickIndex = 0;
   state.hasPicked = false;
-  state.ladderSelections.clear();
   state.ladderWarning = false;
   resetGameProgress();
   render();
@@ -69,7 +72,6 @@ function togglePreference(id) {
   }
   state.pickIndex = 0;
   state.hasPicked = false;
-  state.ladderSelections.clear();
   state.ladderWarning = false;
   resetGameProgress();
   render();
@@ -77,7 +79,7 @@ function togglePreference(id) {
 
 function chooseMeal() {
   if (state.gamePhase === "running") return;
-  if (needsManualChoices(state.mode) && state.ladderSelections.size < 2) {
+  if (needsManualChoices(state.mode) && state.userMenus.length < 2) {
     state.hasPicked = false;
     state.ladderWarning = true;
     render();
@@ -114,16 +116,33 @@ function setMode(mode) {
   render();
 }
 
-function toggleLadderSelection(id) {
-  if (state.ladderSelections.has(id)) {
-    state.ladderSelections.delete(id);
-  } else if (state.ladderSelections.size < gameChoiceLimit()) {
-    state.ladderSelections.add(id);
+function addUserMenu(name) {
+  const trimmed = String(name ?? "").trim();
+  if (!trimmed) return;
+  if (state.userMenus.includes(trimmed)) {
+    state.userMenuInput = "";
+    syncUserMenuInputValue();
+    return;
   }
+  if (state.userMenus.length >= MAX_USER_MENUS) return;
+  state.userMenus = [...state.userMenus, trimmed];
+  state.userMenuInput = "";
   state.hasPicked = false;
   state.ladderWarning = false;
   resetGameProgress();
   render();
+}
+
+function removeUserMenu(name) {
+  state.userMenus = state.userMenus.filter((m) => m !== name);
+  state.hasPicked = false;
+  resetGameProgress();
+  render();
+}
+
+function syncUserMenuInputValue() {
+  const el = document.getElementById("userMenuInput");
+  if (el) el.value = state.userMenuInput;
 }
 
 function resetGameProgress() {
@@ -202,6 +221,23 @@ function renderTopPick(item) {
     `;
     return;
   }
+  const id = String(item.id ?? "");
+  if (id === "result-miss" || id === "result-again" || id.startsWith("result-unmatched")) {
+    const tone = id === "result-miss" ? "is-miss" : id === "result-again" ? "is-again" : "is-empty";
+    target.classList.add(tone);
+    target.innerHTML = `
+      <div class="pick-meta">
+        <span>${state.meal === "lunch" ? "점심" : "저녁"} 결과</span>
+        <span>${escapeHtml(modeLabel(state.mode))}</span>
+      </div>
+      <h2>${escapeHtml(item.menu)}</h2>
+      <p class="restaurant-name">${escapeHtml(item.name)}</p>
+      <p class="reason">${escapeHtml(item.reason)}</p>
+      <button class="hero-cta" data-action="choose" type="button">한 번 더 돌리기</button>
+    `;
+    return;
+  }
+  target.classList.remove("is-miss", "is-again", "is-empty");
   const bestFor = item.bestFor ?? item.tags ?? [];
   const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
   target.innerHTML = `
@@ -335,6 +371,7 @@ function categoryText(item) {
 function modeLabel(mode) {
   if (mode === "ladder") return "사다리";
   if (mode === "roulette") return "룰렛";
+  if (mode === "marble") return "마블";
   return "바로 고르기";
 }
 
@@ -352,62 +389,55 @@ function renderSuggestionList(item) {
   return `<ul class="suggestion-list">${rows}</ul>`;
 }
 
-function renderGameStage(recommendations) {
+function renderGameStage() {
   const stage = $("#gameStage");
-  const items = gameItems(recommendations);
-  if (state.mode === "ladder" && (state.gamePhase === "ready" || state.gamePhase === "running")) {
+  const items = userMenuItems();
+  if (state.mode === "ladder" && (state.gamePhase === "ready" || state.gamePhase === "running" || (state.gamePhase === "done" && state.hasPicked))) {
     stage.innerHTML = renderLadder(createLadderGame(items, state.gameSeed, state.selectedStartLane ?? 0));
     return;
   }
-  if (state.mode === "roulette" && state.gamePhase === "running") {
+  if (state.mode === "roulette" && (state.gamePhase === "running" || (state.gamePhase === "done" && state.hasPicked))) {
     stage.innerHTML = renderRoulette(createRouletteGame(items, state.gameSeed));
     return;
   }
-  if (!state.hasPicked) {
-    if (needsManualChoices(state.mode)) {
-      stage.innerHTML = renderChoiceSetup(recommendations);
-      return;
-    }
-    stage.innerHTML = `<p>선택 방식을 고르고 하단 버튼을 눌러주세요.</p>`;
+  if (state.mode === "marble" && (state.gamePhase === "running" || (state.gamePhase === "done" && state.hasPicked))) {
+    stage.innerHTML = renderMarble(createMarbleGame(items, state.gameSeed));
     return;
   }
-  if (!items.length) {
-    stage.innerHTML = `<p>표시할 후보가 없습니다.</p>`;
+  if (needsManualChoices(state.mode)) {
+    stage.innerHTML = renderUserMenuInput();
     return;
   }
-  if (state.mode === "ladder") {
-    stage.innerHTML = renderLadder(createLadderGame(items, state.gameSeed, state.selectedStartLane ?? 0));
-    return;
-  }
-  if (state.mode === "roulette") {
-    stage.innerHTML = renderRoulette(createRouletteGame(items, state.gameSeed));
-    return;
-  }
-  stage.innerHTML = `<p><strong>${items[0].menu}</strong>로 바로 골랐습니다.</p>`;
+  stage.innerHTML = `<p>하단 "메뉴 고르기" 버튼을 누르면 자동 추천을 받습니다.</p>`;
 }
 
-function renderChoiceSetup(recommendations) {
-  const options = gameOptions(recommendations).slice(0, 8);
-  const selectedCount = state.ladderSelections.size;
-  const gameName = state.mode === "roulette" ? "룰렛판" : "사다리";
-  const warning = state.ladderWarning ? `<p class="ladder-warning">${gameName}에 올릴 메뉴를 2개 이상 골라주세요.</p>` : "";
-  const buttons = options
+function userMenuItems() {
+  return state.userMenus.map((label, i) => ({ id: `menu-${i}`, label, type: "menu" }));
+}
+
+function renderUserMenuInput() {
+  const chips = state.userMenus
     .map(
-      (item) => `
-        <button class="ladder-option ${state.ladderSelections.has(item.id) ? "is-selected" : ""}" data-ladder-id="${item.id}" type="button">
-          <strong>${item.menu}</strong>
-          <span>${item.restaurants.length}곳에서 가능</span>
-        </button>
-      `,
+      (menu) =>
+        `<span class="user-menu-chip"><span>${escapeHtml(menu)}</span><button type="button" class="user-menu-remove" data-remove-menu="${escapeHtml(menu)}" aria-label="${escapeHtml(menu)} 삭제">×</button></span>`,
     )
     .join("");
+  const count = state.userMenus.length;
+  const atLimit = count >= MAX_USER_MENUS;
+  const placeholder = atLimit ? "더 추가할 수 없습니다" : "메뉴 입력 후 + 또는 Enter";
+  const warning = state.ladderWarning ? `<p class="ladder-warning">${modeLabel(state.mode)}에 올릴 메뉴를 2개 이상 입력해주세요.</p>` : "";
+  const placeholderHint = count === 0 ? `<span class="user-menu-empty">예) 짜장면, 햄버거, 돈까스 등 직접 입력</span>` : "";
   return `
-    <div class="ladder-setup">
-      <div class="ladder-setup-head">
-        <strong>${gameName}에 올릴 메뉴 선택</strong>
-        <span>${selectedCount}/${gameChoiceLimit()}개 선택</span>
+    <div class="user-menu-setup">
+      <div class="user-menu-head">
+        <strong>${modeLabel(state.mode)}에 올릴 메뉴 입력</strong>
+        <span>${count}/${MAX_USER_MENUS}개</span>
       </div>
-      <div class="ladder-options">${buttons}</div>
+      <div class="user-menu-form">
+        <input type="text" id="userMenuInput" placeholder="${placeholder}" value="${escapeHtml(state.userMenuInput)}" ${atLimit ? "disabled" : ""} maxlength="14" autocomplete="off" />
+        <button type="button" id="addMenuButton" ${atLimit ? "disabled" : ""}>추가</button>
+      </div>
+      <div class="user-menu-chips">${chips}${placeholderHint}</div>
       ${warning}
     </div>
   `;
@@ -438,6 +468,38 @@ function pendingHeroMessage() {
       name: "포인터 앞을 촤르르 지나가는 중입니다.",
       reason: "5초 뒤 멈춘 칸을 공개합니다.",
       showButton: false,
+    };
+  }
+  if (state.mode === "marble" && state.gamePhase === "running") {
+    return {
+      title: "구슬 굴리는 중",
+      name: "마블이 룰렛을 한 바퀴 돌고 있어요.",
+      reason: "5초 뒤 멈춘 칸을 공개합니다.",
+      showButton: false,
+    };
+  }
+  if (needsManualChoices(state.mode) && !state.userMenus.length) {
+    return {
+      title: "메뉴를 입력해주세요",
+      name: `${modeLabel(state.mode)}에 올릴 메뉴를 직접 적어주세요.`,
+      reason: "예) 짜장면, 햄버거, 돈까스처럼 2개 이상이면 출발 가능합니다.",
+      showButton: false,
+    };
+  }
+  if (needsManualChoices(state.mode) && state.userMenus.length < 2) {
+    return {
+      title: "한 개 더!",
+      name: "최소 2개의 메뉴가 필요합니다.",
+      reason: "하단 입력칸에 메뉴를 추가해주세요.",
+      showButton: false,
+    };
+  }
+  if (needsManualChoices(state.mode)) {
+    return {
+      title: `${modeLabel(state.mode)} 준비 완료`,
+      name: `${state.userMenus.length}개의 메뉴로 게임을 시작합니다.`,
+      reason: "하단 버튼을 누르면 게임이 시작됩니다.",
+      showButton: true,
     };
   }
   return {
@@ -593,11 +655,11 @@ function gameChoiceLimit() {
 }
 
 function needsManualChoices(mode) {
-  return mode === "ladder" || mode === "roulette";
+  return mode === "ladder" || mode === "roulette" || mode === "marble";
 }
 
 function createLadderGame(items, seed, chosenStartLane) {
-  const count = Math.min(items.length, 5);
+  const count = Math.min(items.length, MAX_USER_MENUS);
   if (!count) return { items: [], rungs: [], startLane: 0, winnerIndex: 0, path: [] };
   const rowCount = 7;
   const startLane = Number.isInteger(chosenStartLane) ? Math.max(0, Math.min(chosenStartLane, count - 1)) : 0;
@@ -684,7 +746,7 @@ function renderLadder(game) {
   const results = game.items
     .map(
       (item, index) =>
-        `<span class="ladder-result ${revealResult && index === game.winnerIndex ? "is-winner" : ""}" style="left:${(xFor(index) / width) * 100}%">${item.menu}</span>`,
+        `<span class="ladder-result ${revealResult && index === game.winnerIndex ? "is-winner" : ""}" style="left:${(xFor(index) / width) * 100}%">${escapeHtml(item.label)}</span>`,
     )
     .join("");
   return `
@@ -701,17 +763,51 @@ function renderLadder(game) {
       <div class="ladder-results">${results}</div>
       ${
         revealResult
-          ? `<p class="game-result"><strong>${game.items[game.winnerIndex].menu}</strong> 당첨</p>`
+          ? `<p class="game-result"><strong>${escapeHtml(game.items[game.winnerIndex].label)}</strong> 당첨</p>`
           : `<p class="game-wait">${state.gamePhase === "running" ? "두근두근... 내려가는 중" : "위 번호 중 하나를 골라주세요"}</p>`
       }
     </div>
   `;
 }
 
+function buildWheelItems(userItems, seed) {
+  const N = userItems.length;
+  const extras = [];
+  const halfUp = Math.ceil(N / 2);
+  const halfDown = Math.floor(N / 2);
+  for (let i = 0; i < halfUp; i += 1) {
+    extras.push({ id: `again-${i}`, label: "한번더", type: "again" });
+  }
+  for (let i = 0; i < halfDown; i += 1) {
+    extras.push({ id: `miss-${i}`, label: "꽝", type: "miss" });
+  }
+  const combined = [...userItems, ...extras];
+  // deterministic shuffle so the same seed yields the same layout
+  for (let i = combined.length - 1; i > 0; i -= 1) {
+    const j = deterministicNoise(`shuffle-${seed}-${i}`, i + 1);
+    [combined[i], combined[j]] = [combined[j], combined[i]];
+  }
+  return combined;
+}
+
+function pickEdgeFraction(seed, key) {
+  const noise = deterministicNoise(`${key}-${seed}`, 100);
+  const base = 0.08 + (noise / 100) * 0.14; // 0.08 ~ 0.22 from a boundary
+  return noise % 2 === 0 ? base : 1 - base;
+}
+
+function sliceColor(item, index, colors) {
+  if (item.type === "again") return "#94a3b8";
+  if (item.type === "miss") return "#475569";
+  return colors[index % colors.length];
+}
+
 function createRouletteGame(items, seed) {
-  const count = items.length;
-  const winnerIndex = deterministicNoise(`roulette-${seed}-${items.map((item) => item.id).join("-")}`, count);
-  return { items, winnerIndex };
+  const allItems = buildWheelItems(items, seed);
+  const count = allItems.length;
+  const winnerIndex = deterministicNoise(`roulette-${seed}-${allItems.map((item) => item.label).join("-")}`, count);
+  const sliceFraction = pickEdgeFraction(seed, "roulette-edge");
+  return { items: allItems, winnerIndex, sliceFraction };
 }
 
 function renderRoulette(game) {
@@ -720,15 +816,17 @@ function renderRoulette(game) {
   const colors = ["#0f766e", "#f59e0b", "#2563eb", "#dc2626", "#7c3aed", "#059669"];
   const segment = 360 / game.items.length;
   const gradient = game.items
-    .map((_, index) => `${colors[index % colors.length]} ${index * segment}deg ${(index + 1) * segment}deg`)
+    .map((item, index) => `${sliceColor(item, index, colors)} ${index * segment}deg ${(index + 1) * segment}deg`)
     .join(", ");
-  const finalRotation = 1800 - (game.winnerIndex * segment + segment / 2);
+  const finalRotation = 1800 - (game.winnerIndex * segment + segment * game.sliceFraction);
   const labels = game.items
     .map((item, index) => {
       const angle = index * segment + segment / 2;
-      return `<span class="roulette-label" style="--angle:${angle}deg"><span class="roulette-label-text">${escapeHtml(item.menu)}</span></span>`;
+      const cls = item.type === "again" ? "is-again" : item.type === "miss" ? "is-miss" : "";
+      return `<span class="roulette-label ${cls}" style="--angle:${angle}deg"><span class="roulette-label-text">${escapeHtml(item.label)}</span></span>`;
     })
     .join("");
+  const winner = game.items[game.winnerIndex];
   return `
     <div class="roulette-game ${state.gamePhase === "running" ? "is-running" : ""} ${revealResult ? "is-done" : ""}">
       <div class="roulette-pointer" aria-hidden="true"></div>
@@ -736,11 +834,56 @@ function renderRoulette(game) {
         ${labels}
         <span class="roulette-center">GO</span>
       </div>
-      ${
-        revealResult
-          ? `<div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="game-result"><strong>${game.items[game.winnerIndex].menu}</strong> 당첨</p>`
-          : `<p class="game-wait">아직 몰라요... 거의 멈추는 중</p>`
-      }
+      ${revealResult ? renderWheelResult(winner) : `<p class="game-wait">아직 몰라요... 거의 멈추는 중</p>`}
+    </div>
+  `;
+}
+
+function renderWheelResult(winner) {
+  if (winner.type === "miss") {
+    return `<p class="game-result is-miss"><strong>꽝</strong> 다시 한번 도전!</p>`;
+  }
+  if (winner.type === "again") {
+    return `<p class="game-result is-again"><strong>한번더!</strong> 룰렛을 한 번 더 돌려보세요.</p>`;
+  }
+  return `<div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="game-result"><strong>${escapeHtml(winner.label)}</strong> 당첨</p>`;
+}
+
+function createMarbleGame(items, seed) {
+  const allItems = buildWheelItems(items, `marble-${seed}`);
+  const count = allItems.length;
+  const winnerIndex = deterministicNoise(`marble-${seed}-${allItems.map((item) => item.label).join("-")}`, count);
+  const sliceFraction = pickEdgeFraction(seed, "marble-edge");
+  return { items: allItems, winnerIndex, sliceFraction };
+}
+
+function renderMarble(game) {
+  if (!game.items.length) return `<p>표시할 후보가 없습니다.</p>`;
+  const revealResult = state.gamePhase === "done";
+  const colors = ["#dc2626", "#f59e0b", "#0f766e", "#2563eb", "#7c3aed", "#059669"];
+  const segment = 360 / game.items.length;
+  const gradient = game.items
+    .map((item, index) => `${sliceColor(item, index, colors)} ${index * segment}deg ${(index + 1) * segment}deg`)
+    .join(", ");
+  const winnerAngle = game.winnerIndex * segment + segment * game.sliceFraction;
+  // marble starts above and rolls clockwise into the winning slice
+  const ballFinalRotation = 1440 + winnerAngle;
+  const labels = game.items
+    .map((item, index) => {
+      const angle = index * segment + segment / 2;
+      const cls = item.type === "again" ? "is-again" : item.type === "miss" ? "is-miss" : "";
+      return `<span class="marble-label ${cls}" style="--angle:${angle}deg"><span class="marble-label-text">${escapeHtml(item.label)}</span></span>`;
+    })
+    .join("");
+  const winner = game.items[game.winnerIndex];
+  return `
+    <div class="marble-game ${state.gamePhase === "running" ? "is-running" : ""} ${revealResult ? "is-done" : ""}">
+      <div class="marble-wheel" style="--wheel:${gradient}">
+        ${labels}
+        <span class="marble-center">GO</span>
+      </div>
+      <div class="marble-ball" style="--ball-final:${ballFinalRotation}deg" aria-hidden="true"></div>
+      ${revealResult ? renderWheelResult(winner) : `<p class="game-wait">구슬이 굴러가는 중...</p>`}
     </div>
   `;
 }
@@ -759,7 +902,8 @@ function render() {
   state.lastRecommendations = selectedRecommendations;
   renderStatus(recommendations);
   renderTopPick(selectedRecommendations[0]);
-  renderGameStage(recommendations);
+  renderGameStage();
+  syncUserMenuInputValue();
   $("#candidateCount").textContent = `${recommendations.length}곳`;
   const list = $("#candidateList");
   list.innerHTML = "";
@@ -770,36 +914,86 @@ function render() {
 
 function selectGameWinner(recommendations) {
   if (!state.hasPicked || state.gamePhase !== "done") return recommendations;
-  let winner = null;
+  if (!needsManualChoices(state.mode)) return recommendations;
+  const items = userMenuItems();
+  if (!items.length) return recommendations;
+  let game = null;
   if (state.mode === "ladder") {
-    const game = createLadderGame(gameItems(recommendations), state.gameSeed, state.selectedStartLane ?? 0);
-    winner = game.items[game.winnerIndex];
+    game = createLadderGame(items, state.gameSeed, state.selectedStartLane ?? 0);
+  } else if (state.mode === "roulette") {
+    game = createRouletteGame(items, state.gameSeed);
+  } else if (state.mode === "marble") {
+    game = createMarbleGame(items, state.gameSeed);
   }
-  if (state.mode === "roulette") {
-    const game = createRouletteGame(gameItems(recommendations), state.gameSeed);
-    winner = game.items[game.winnerIndex];
-  }
+  if (!game) return recommendations;
+  const winner = game.items[game.winnerIndex];
   if (!winner) return recommendations;
-  if (winner.restaurants) {
-    const result = buildFoodResult(winner);
-    const winnerRestaurantIds = new Set(winner.restaurants.map((item) => item.id));
-    return [result, ...recommendations.filter((item) => !winnerRestaurantIds.has(item.id))];
+  if (winner.type === "miss") {
+    return [buildMissResult(), ...recommendations];
   }
-  return [winner, ...recommendations.filter((item) => item.id !== winner.id)];
+  if (winner.type === "again") {
+    return [buildAgainResult(), ...recommendations];
+  }
+  return mergeMenuWinner(winner.label, recommendations);
 }
 
-function buildFoodResult(group) {
-  const suggestions = group.restaurants.slice(0, 4);
-  const first = suggestions[0];
+function mergeMenuWinner(menuLabel, recommendations) {
+  const matched = findRestaurantsByMenu(menuLabel, recommendations);
+  if (!matched.length) {
+    return [buildUnmatchedResult(menuLabel), ...recommendations];
+  }
+  const suggestions = matched.slice(0, 4);
+  const top = suggestions[0];
   const names = suggestions.map((item) => item.name);
-  const nameText = names.length > 1 ? `${names.slice(0, 3).join(", ")}는 어떠신가요?` : `${first.name}은 어떠신가요?`;
-  return {
-    ...first,
-    id: `result-${group.id}`,
-    menu: group.menu,
+  const nameText = names.length > 1 ? `${names.slice(0, 3).join(", ")} 어떠신가요?` : `${top.name} 어떠신가요?`;
+  const result = {
+    ...top,
+    id: `result-menu-${menuLabel}`,
+    menu: menuLabel,
     name: nameText,
-    reason: `${group.menu} 파는 식권대장 가맹점 ${group.restaurants.length}곳 중 가까운 곳을 골랐습니다.`,
+    reason: `${menuLabel} 메뉴가 있는 가맹점 ${matched.length}곳 중 가까운 곳입니다.`,
     suggestions,
+  };
+  const matchedIds = new Set(matched.map((item) => item.id));
+  return [result, ...recommendations.filter((item) => !matchedIds.has(item.id))];
+}
+
+function buildMissResult() {
+  return {
+    id: "result-miss",
+    menu: "꽝",
+    name: "다음 기회에…",
+    reason: "한 번 더 돌려보세요. 행운을 빌어요!",
+    distanceM: 0,
+    category: "",
+    priceBand: "",
+    tags: [],
+  };
+}
+
+function buildAgainResult() {
+  return {
+    id: "result-again",
+    menu: "한번더!",
+    name: "다시 한 번 도전",
+    reason: "룰렛을 한 번 더 돌릴 기회예요.",
+    distanceM: 0,
+    category: "",
+    priceBand: "",
+    tags: [],
+  };
+}
+
+function buildUnmatchedResult(menuLabel) {
+  return {
+    id: `result-unmatched-${menuLabel}`,
+    menu: menuLabel,
+    name: "매칭되는 가맹점이 없어요",
+    reason: `${menuLabel} 메뉴를 파는 가맹점을 찾지 못했습니다. 다른 메뉴로 시도해보세요.`,
+    distanceM: 0,
+    category: "",
+    priceBand: "",
+    tags: [],
   };
 }
 
@@ -826,9 +1020,25 @@ $("#gameStage").addEventListener("click", (event) => {
     startLadder(Number(start.dataset.ladderStart));
     return;
   }
-  const button = event.target.closest("[data-ladder-id]");
-  if (button) {
-    toggleLadderSelection(button.dataset.ladderId);
+  const removeBtn = event.target.closest("[data-remove-menu]");
+  if (removeBtn) {
+    removeUserMenu(removeBtn.dataset.removeMenu);
+    return;
+  }
+  if (event.target.closest("#addMenuButton")) {
+    addUserMenu(state.userMenuInput);
+    return;
+  }
+});
+$("#gameStage").addEventListener("input", (event) => {
+  if (event.target.id === "userMenuInput") {
+    state.userMenuInput = event.target.value;
+  }
+});
+$("#gameStage").addEventListener("keydown", (event) => {
+  if (event.target.id === "userMenuInput" && event.key === "Enter") {
+    event.preventDefault();
+    addUserMenu(event.target.value);
   }
 });
 $("#candidateList").addEventListener("click", (event) => {
@@ -845,7 +1055,6 @@ $("#clearFiltersButton").addEventListener("click", () => {
   state.preferences.clear();
   state.pickIndex = 0;
   state.hasPicked = false;
-  state.ladderSelections.clear();
   state.ladderWarning = false;
   resetGameProgress();
   render();
