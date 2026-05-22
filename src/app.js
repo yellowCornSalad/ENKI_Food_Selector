@@ -122,6 +122,7 @@ function addUserMenu(name) {
   if (state.userMenus.includes(trimmed)) {
     state.userMenuInput = "";
     syncUserMenuInputValue();
+    focusUserMenuInput();
     return;
   }
   if (state.userMenus.length >= MAX_USER_MENUS) return;
@@ -131,6 +132,7 @@ function addUserMenu(name) {
   state.ladderWarning = false;
   resetGameProgress();
   render();
+  focusUserMenuInput();
 }
 
 function removeUserMenu(name) {
@@ -138,11 +140,21 @@ function removeUserMenu(name) {
   state.hasPicked = false;
   resetGameProgress();
   render();
+  focusUserMenuInput();
 }
 
 function syncUserMenuInputValue() {
   const el = document.getElementById("userMenuInput");
   if (el) el.value = state.userMenuInput;
+}
+
+function focusUserMenuInput() {
+  const el = document.getElementById("userMenuInput");
+  if (!el || el.disabled) return;
+  el.focus({ preventScroll: true });
+  // Move caret to end so further typing appends naturally
+  const len = el.value.length;
+  try { el.setSelectionRange(len, len); } catch {}
 }
 
 function resetGameProgress() {
