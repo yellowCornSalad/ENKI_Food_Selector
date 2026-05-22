@@ -1,819 +1,7296 @@
 {
-  "updatedAt": "2026-05-21",
+  "updatedAt": "2026-05-22",
   "office": {
     "name": "엔키화이트햇",
     "address": "서울특별시 송파구 송파대로 167 문정역테라타워 B동 1214~1217호",
     "timezone": "Asia/Seoul"
   },
   "notes": [
-    "식권대장 공식 API 또는 관리자 내보내기 데이터가 확보되면 이 파일을 자동 갱신 대상으로 교체한다.",
-    "sikgwonStatus가 confirmed인 항목만 식권대장 가맹 확인 매장으로 취급한다.",
-    "candidate 항목은 문정역테라타워/문정법조타운 주변 후보이며 운영 전 가맹 여부 확인이 필요하다."
+    "이 데이터는 data 폴더의 KakaoTalk_20260522 식권대장 앱 캡처 화면에서 판독한 가맹점 목록이다.",
+    "기존 수동 후보 식당은 모두 제거했고, 캡처에서 확인된 항목만 sikgwonStatus=confirmed로 등록했다.",
+    "캡처에 개별 메뉴 정보가 없어서 추천 메뉴명은 임시로 업체명과 동일하게 두었다.",
+    "영업시간은 일부 캡처에 보이는 정보만 원천에 있으며, 현재 정적 데이터에는 점심/저녁 모두 후보로 노출한다."
   ],
   "restaurants": [
     {
-      "id": "soho-kalguksu",
-      "name": "소호얼크니샤브칼국수",
-      "category": "한식/샤브칼국수",
-      "distanceM": 120,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "high",
-      "hours": [{ "days": ["weekday"], "open": "10:30", "close": "20:30", "breakStart": "15:00", "breakEnd": "17:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "noodle", "team", "warm"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "샤브칼국수", "tags": ["korean", "noodle"] }],
-        "dinner": [{ "name": "샤브샤브 코스", "tags": ["korean", "team"] }]
-      },
-      "source": "https://doremifas-ol.keyzard.org/223640730753"
-    },
-    {
-      "id": "donggung-jjimdak",
-      "name": "동궁찜닭 송파문정점",
-      "category": "찜닭",
-      "distanceM": 160,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "high",
-      "hours": [{ "days": ["weekday"], "open": "10:00", "close": "24:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team", "spicy"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "안동찜닭", "tags": ["korean", "rice"] },
-          { "name": "고추장찜닭", "tags": ["korean", "spicy", "rice"] }
-        ],
-        "dinner": [{ "name": "순살 찜닭", "tags": ["korean", "team"] }]
-      },
-      "source": "https://www.diningcode.com/profilemap?rid=sDfgeIDF4TOg"
-    },
-    {
-      "id": "mara-gongbang",
-      "name": "마라공방 문정테라타워점",
-      "category": "중식/마라",
-      "distanceM": 110,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:30" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["spicy", "noodle", "quick"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "마라탕", "tags": ["spicy", "noodle", "quick"] },
-          { "name": "마라샹궈", "tags": ["spicy"] }
-        ],
-        "dinner": [{ "name": "마라샹궈", "tags": ["spicy", "team"] }]
-      },
-      "source": "https://baseowana.com/entry/%EB%AC%B8%EC%A0%95-%EB%A7%88%EB%9D%BC%EC%83%B9%EA%B6%88-%EB%A7%9B%EC%A7%91-%EC%86%94%EC%A7%81%ED%9B%84%EA%B8%B0-%EC%95%BC%EC%B1%84-%EC%8B%A0%EC%84%A0%ED%95%9C-%EB%A7%88%EB%9D%BC%EA%B3%B5%EB%B0%A9"
-    },
-    {
-      "id": "italy-budae",
-      "name": "이태리부대찌개 문정법조타운점",
-      "category": "부대찌개",
-      "distanceM": 180,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:30" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "spicy", "team"],
-      "teamFriendly": true,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "부대찌개", "tags": ["korean", "rice", "spicy"] }],
-        "dinner": [{ "name": "부대전골", "tags": ["korean", "team"] }]
-      },
-      "source": "https://www.keyzard.cc/doremifas_ol/nb/224106862705"
-    },
-    {
-      "id": "deopbap-jang",
-      "name": "덮밥장사장 문정점",
-      "category": "덮밥",
-      "distanceM": 130,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["rice", "quick", "solo"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "덮밥", "tags": ["rice", "quick"] }],
-        "dinner": [{ "name": "덮밥", "tags": ["rice", "quick"] }]
-      },
-      "source": "https://www.keyzard.cc/doremifas_ol/nb/223922678707"
-    },
-    {
-      "id": "bas-burger",
-      "name": "바스버거 문정점",
-      "category": "버거",
-      "distanceM": 190,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["quick", "western"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "수제버거 세트", "tags": ["quick", "western"] }],
-        "dinner": [{ "name": "버거와 감자튀김", "tags": ["western"] }]
-      },
-      "source": "https://sohan.tistory.com/entry/%EC%88%98%EC%A0%9C%EB%B2%84%EA%B1%B0%EA%B0%80-%EB%95%A1%EA%B8%B8%EB%95%8C-%EB%AC%B8%EC%A0%95%EC%97%AD-%EB%B0%94%EC%8A%A4%EB%B2%84%EA%B1%B0"
-    },
-    {
-      "id": "gukje-boribap",
-      "name": "국제보리밥 테라타워점",
-      "category": "보리밥",
-      "distanceM": 120,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "10:30", "close": "14:30" }],
-      "meals": ["lunch"],
-      "tags": ["korean", "rice", "light", "quick"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "보리밥 정식", "tags": ["korean", "rice", "light"] }]
-      },
-      "source": "https://www.daangn.com/kr/jobs/%EA%B5%AD%EC%A0%9C%EB%B3%B4%EB%A6%AC%EB%B0%A5-%EB%AC%B8%EC%A0%95%EC%97%AD-gwyeqawe2m97/"
-    },
-    {
-      "id": "egg-house",
-      "name": "계란집",
-      "category": "오므라이스",
-      "distanceM": 120,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["rice", "quick", "light"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "오므라이스", "tags": ["rice", "quick"] }],
-        "dinner": [{ "name": "오므라이스", "tags": ["rice", "light"] }]
-      },
-      "source": "https://www.keyzard.cc/colormall/nb/223928078971"
-    },
-    {
-      "id": "munjeong-gyeopsal",
-      "name": "문정겹살",
-      "category": "고기/한식",
-      "distanceM": 150,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "직화제육볶음", "tags": ["korean", "rice"] },
-          { "name": "차돌된장찌개", "tags": ["korean", "rice"] }
-        ],
-        "dinner": [{ "name": "삼겹살", "tags": ["korean", "team"] }]
-      },
-      "source": "https://geniusjw.com/entry/%EB%AC%B8%EC%A0%95%EB%8F%99-%ED%85%8C%EB%9D%BC%ED%83%80%EC%9B%8C-%EB%AC%B8%EC%A0%95%EA%B2%B9%EC%82%B4-%EC%A0%90%EC%8B%AC%ED%9B%84%EA%B8%B0"
-    },
-    {
-      "id": "haru-grill",
-      "name": "하루석쇠삼겹살",
-      "category": "고기/한식",
-      "distanceM": 230,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "석쇠한판순두부", "tags": ["korean", "rice"] }],
-        "dinner": [{ "name": "석쇠삼겹살", "tags": ["korean", "team"] }]
-      },
-      "source": "https://mushroomprincess.tistory.com/entry/%EB%AC%B8%EC%A0%95%EB%B2%95%EC%A1%B0%ED%83%80%EC%9A%B4-%EB%A7%9B%EC%A7%91-%ED%95%98%EB%A3%A8%EC%84%9D%EC%87%A0%EC%82%BC%EA%B2%B9%EC%82%B4-%EB%AC%B8%EC%A0%95%EB%B2%95%EC%A1%B0%EB%8B%A8%EC%A7%80%EB%A7%9B%EC%A7%91-%ED%85%8C%EB%9D%BC%ED%83%80%EC%9B%8C-%EB%A7%9B%EC%A7%91-%EB%AC%B8%EC%A0%95%EB%8F%99%EA%B3%A0%EA%B8%B0%EC%A7%91"
-    },
-    {
-      "id": "cheongnyeon-38-noodle",
-      "name": "청년38국수 문정테라타워점",
-      "category": "국수/냉면",
-      "distanceM": 90,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "08:00", "close": "20:00", "breakStart": "10:00", "breakEnd": "11:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["noodle", "quick", "light"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원 이하~1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "잔치국수", "tags": ["noodle", "quick", "light"] },
-          { "name": "비빔국수", "tags": ["noodle", "spicy", "quick"] }
-        ],
-        "dinner": [{ "name": "국수 한 그릇", "tags": ["noodle", "quick"] }]
-      },
-      "source": "https://www.keyzard.cc/tkrhktnals4/nb/224259056063"
-    },
-    {
-      "id": "gome-mui",
-      "name": "고메무이",
-      "category": "일식",
-      "distanceM": 120,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00", "breakStart": "15:00", "breakEnd": "17:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["rice", "noodle", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "돈카츠 정식", "tags": ["rice"] },
-          { "name": "카레", "tags": ["rice", "quick"] }
-        ],
-        "dinner": [{ "name": "일본 가정식", "tags": ["rice", "team"] }]
-      },
-      "source": "https://www.keyzard.cc/joeun___/nb/224151984538"
-    },
-    {
-      "id": "yeongmisi",
-      "name": "영미씨",
-      "category": "생선구이/한식",
-      "distanceM": 260,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00", "breakStart": "15:00", "breakEnd": "17:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "light"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "고등어정식", "tags": ["korean", "rice"] },
-          { "name": "갑오징어정식", "tags": ["korean", "rice", "spicy"] }
-        ],
-        "dinner": [{ "name": "생선구이 정식", "tags": ["korean", "rice", "light"] }]
-      },
-      "source": "https://share1.tistory.com/362"
-    },
-    {
-      "id": "eunhaenggol",
-      "name": "은행골 문정점",
-      "category": "초밥",
-      "distanceM": 240,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["rice", "light", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대~2만원대",
-      "menus": {
-        "lunch": [
-          { "name": "연어초밥", "tags": ["rice", "light"] },
-          { "name": "모듬초밥", "tags": ["rice", "team"] }
-        ],
-        "dinner": [{ "name": "초밥 세트", "tags": ["rice", "team"] }]
-      },
-      "source": "https://www.keyzard.cc/cardamine0203/nb/223352215160"
-    },
-    {
-      "id": "arena-shabu",
-      "name": "아레나샤브",
-      "category": "샤브샤브",
-      "distanceM": 320,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "noodle", "team", "warm"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "샤브샤브", "tags": ["korean", "team"] }],
-        "dinner": [{ "name": "샤브샤브", "tags": ["korean", "team"] }]
-      },
-      "source": "https://yunicone.tistory.com/814"
-    },
-    {
-      "id": "miseong-hotpot",
-      "name": "미성훠궈가",
-      "category": "중식/훠궈",
-      "distanceM": 360,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["spicy", "team", "warm"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대~2만원대",
-      "menus": {
-        "lunch": [{ "name": "훠궈 무한리필", "tags": ["spicy", "team"] }],
-        "dinner": [{ "name": "훠궈", "tags": ["spicy", "team"] }]
-      },
-      "source": "https://ppt-design.tistory.com/10"
-    },
-    {
-      "id": "wansangol",
-      "name": "완산골명가 문정법조타운점",
-      "category": "전주식 한식",
-      "distanceM": 300,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "10:30", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "spicy", "quick"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "돌솥쭈꾸미비빔밥", "tags": ["korean", "rice", "spicy"] },
-          { "name": "콩나물국밥", "tags": ["korean", "rice", "quick"] }
-        ],
-        "dinner": [{ "name": "국밥", "tags": ["korean", "rice", "quick"] }]
-      },
-      "source": "https://0325-persie.tistory.com/111"
-    },
-    {
-      "id": "toenmaru-bapsang",
-      "name": "툇마루밥상",
-      "category": "한정식",
-      "distanceM": 420,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "2만원대",
-      "menus": {
-        "lunch": [{ "name": "툇마루 밥상 정식", "tags": ["korean", "rice", "team"] }],
-        "dinner": [{ "name": "한정식", "tags": ["korean", "rice", "team"] }]
-      },
-      "source": "https://place.tripmate.co.kr/ko/detail.php?contentId=2758137&contentTypeId=39"
-    },
-    {
-      "id": "chilsung-galmaegi",
-      "name": "칠성집 갈매기 문정본점",
-      "category": "고기/한식",
-      "distanceM": 520,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대~2만원대",
-      "menus": {
-        "lunch": [{ "name": "고기 정식", "tags": ["korean", "rice"] }],
-        "dinner": [{ "name": "갈매기살", "tags": ["korean", "team"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "igane-yang",
-      "name": "이가네양꼬치 문정직영점",
-      "category": "중식/양꼬치",
-      "distanceM": 520,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "23:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["spicy", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "2만원대",
-      "menus": {
-        "lunch": [{ "name": "중식 식사 메뉴", "tags": ["spicy", "rice"] }],
-        "dinner": [{ "name": "양꼬치", "tags": ["spicy", "team"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "gaetbeol-jogae",
-      "name": "갯벌의조개 문정역점",
-      "category": "조개/해산물",
-      "distanceM": 300,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "23:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["team", "warm"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "2만원대~3만원대",
-      "menus": {
-        "lunch": [{ "name": "해산물 식사", "tags": ["team"] }],
-        "dinner": [{ "name": "조개전골", "tags": ["team", "warm"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "hyeonpung-dak-kalguksu",
-      "name": "현풍닭칼국수 송파가락점",
-      "category": "닭칼국수",
-      "distanceM": 760,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "noodle", "warm", "quick"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "닭칼국수", "tags": ["korean", "noodle", "warm"] }],
-        "dinner": [{ "name": "닭볶음탕", "tags": ["korean", "team", "spicy"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "jiin-gogi",
+      "id": "sikgwon-001",
       "name": "지인고기",
       "category": "고기/한식",
-      "distanceM": 90,
-      "sikgwonStatus": "candidate",
+      "distanceM": 41,
+      "sikgwonStatus": "confirmed",
       "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team"],
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
       "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대~2만원대",
-      "menus": {
-        "lunch": [{ "name": "고기 식사", "tags": ["korean", "rice"] }],
-        "dinner": [{ "name": "고기 한 판", "tags": ["korean", "team"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "yunik",
-      "name": "윤익",
-      "category": "양식/와인",
-      "distanceM": 640,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:30", "close": "22:00", "breakStart": "15:00", "breakEnd": "17:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["western", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "2만원대",
-      "menus": {
-        "lunch": [{ "name": "파스타", "tags": ["western"] }],
-        "dinner": [{ "name": "양식 플레이트", "tags": ["western", "team"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "baeksojeong-garak",
-      "name": "백소정 송파가락점",
-      "category": "일식/돈카츠",
-      "distanceM": 700,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["rice", "noodle", "quick"],
-      "teamFriendly": false,
       "quick": true,
-      "priceBand": "1만원대",
+      "priceBand": "식권대장 앱 확인",
       "menus": {
         "lunch": [
-          { "name": "마제소바+돈카츠", "tags": ["noodle", "rice"] },
-          { "name": "돈카츠", "tags": ["rice", "quick"] }
+          {
+            "name": "지인고기",
+            "tags": [
+              "korean"
+            ]
+          }
         ],
-        "dinner": [{ "name": "돈카츠 정식", "tags": ["rice"] }]
+        "dinner": [
+          {
+            "name": "지인고기",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
       },
-      "source": "https://baby.tali.kr/256"
+      "source": "식권대장 앱 캡처(2026-05-22)"
     },
     {
-      "id": "golmok-tteokbokki",
-      "name": "골목떡볶이",
-      "category": "분식",
-      "distanceM": 880,
-      "sikgwonStatus": "candidate",
+      "id": "sikgwon-002",
+      "name": "계란집(문정)",
+      "category": "식권대장 가맹점",
+      "distanceM": 48,
+      "sikgwonStatus": "confirmed",
       "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["spicy", "quick", "light"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원 이하",
-      "menus": {
-        "lunch": [
-          { "name": "떡볶이", "tags": ["spicy", "quick"] },
-          { "name": "김밥", "tags": ["rice", "quick"] }
-        ],
-        "dinner": [{ "name": "분식 세트", "tags": ["spicy", "quick"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "appajjim",
-      "name": "아빠찜 문정역점",
-      "category": "찜/솥밥",
-      "distanceM": 760,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "코다리솥밥", "tags": ["korean", "rice"] }],
-        "dinner": [{ "name": "찜 요리", "tags": ["korean", "team"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "illu-buffet",
-      "name": "일루 퓨전한식뷔페",
-      "category": "한식뷔페",
-      "distanceM": 520,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "quick", "team"],
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
       "teamFriendly": true,
       "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "한식뷔페", "tags": ["korean", "rice", "quick"] }],
-        "dinner": [{ "name": "한식뷔페", "tags": ["korean", "rice"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "isshoni",
-      "name": "잇쇼니",
-      "category": "라멘/일식",
-      "distanceM": 300,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["noodle", "quick", "spicy"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
+      "priceBand": "식권대장 앱 확인",
       "menus": {
         "lunch": [
-          { "name": "대창마제라멘", "tags": ["noodle", "spicy"] },
-          { "name": "라멘", "tags": ["noodle", "quick"] }
+          {
+            "name": "계란집(문정)",
+            "tags": [
+              "quick"
+            ]
+          }
         ],
-        "dinner": [{ "name": "라멘", "tags": ["noodle", "quick"] }]
+        "dinner": [
+          {
+            "name": "계란집(문정)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
       },
-      "source": "https://baby.tali.kr/256"
+      "source": "식권대장 앱 캡처(2026-05-22)"
     },
     {
-      "id": "myeongin-bapsang",
-      "name": "명인밥상",
-      "category": "한식/밥상",
-      "distanceM": 900,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "2만원대~3만원대",
-      "menus": {
-        "lunch": [{ "name": "한식 밥상", "tags": ["korean", "rice"] }],
-        "dinner": [{ "name": "전복갈비찜밥상", "tags": ["korean", "team"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "heungdo-sikdang",
-      "name": "흥도식당",
-      "category": "돈카츠/일식",
-      "distanceM": 280,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["rice", "quick"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "로스카츠", "tags": ["rice", "quick"] },
-          { "name": "돈카츠 정식", "tags": ["rice"] }
-        ],
-        "dinner": [{ "name": "돈카츠", "tags": ["rice"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "yumikatsu",
-      "name": "유미카츠 문정점",
-      "category": "돈카츠/일식",
-      "distanceM": 100,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["rice", "quick"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [{ "name": "유미카츠", "tags": ["rice", "quick"] }],
-        "dinner": [{ "name": "카츠 정식", "tags": ["rice"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "sinsa-dongindong",
-      "name": "신사동인동 가락점",
-      "category": "찜갈비/한식",
-      "distanceM": 950,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "spicy", "team"],
-      "teamFriendly": true,
-      "quick": false,
-      "priceBand": "2만원대",
-      "menus": {
-        "lunch": [{ "name": "매운갈비찜 정식", "tags": ["korean", "rice", "spicy"] }],
-        "dinner": [{ "name": "동인동찜갈비", "tags": ["korean", "spicy", "team"] }]
-      },
-      "source": "https://baby.tali.kr/256"
-    },
-    {
-      "id": "baebujang-jjigae",
-      "name": "배부장찌개 문정법조단지점",
-      "category": "찌개/한식",
-      "distanceM": 120,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "21:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "spicy", "team"],
-      "teamFriendly": true,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "김치찌개", "tags": ["korean", "rice", "spicy"] },
-          { "name": "찌개 세트", "tags": ["korean", "rice", "team"] }
-        ],
-        "dinner": [{ "name": "김치찌개", "tags": ["korean", "rice", "spicy"] }]
-      },
-      "source": "https://happyrich-life.tistory.com/15"
-    },
-    {
-      "id": "usagi-soba",
-      "name": "우사기소바",
-      "category": "소바/일식",
-      "distanceM": 300,
-      "sikgwonStatus": "candidate",
-      "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:30", "breakStart": "15:00", "breakEnd": "17:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["noodle", "light", "quick"],
-      "teamFriendly": false,
-      "quick": true,
-      "priceBand": "1만원대",
-      "menus": {
-        "lunch": [
-          { "name": "소바", "tags": ["noodle", "light", "quick"] },
-          { "name": "텐동", "tags": ["rice"] }
-        ],
-        "dinner": [{ "name": "소바 정식", "tags": ["noodle", "light"] }]
-      },
-      "source": "https://breezehu.tistory.com/836"
-    },
-    {
-      "id": "yangjagang",
+      "id": "sikgwon-003",
       "name": "양자강",
       "category": "중식",
-      "distanceM": 100,
-      "sikgwonStatus": "candidate",
+      "distanceM": 52,
+      "sikgwonStatus": "confirmed",
       "active": true,
-      "hoursConfidence": "medium",
-      "hours": [{ "days": ["weekday"], "open": "09:30", "close": "21:00", "breakStart": "15:00", "breakEnd": "16:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["rice", "noodle", "quick", "spicy"],
-      "teamFriendly": false,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "spicy"
+      ],
+      "teamFriendly": true,
       "quick": true,
-      "priceBand": "1만원대",
+      "priceBand": "식권대장 앱 확인",
       "menus": {
         "lunch": [
-          { "name": "짜장면", "tags": ["noodle", "quick"] },
-          { "name": "짬뽕", "tags": ["noodle", "spicy"] }
+          {
+            "name": "양자강",
+            "tags": [
+              "spicy"
+            ]
+          }
         ],
-        "dinner": [{ "name": "중식 식사", "tags": ["rice", "noodle"] }]
+        "dinner": [
+          {
+            "name": "양자강",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ]
       },
-      "source": "https://www.diningcode.com/profile.php?rid=pdZkmgxtrMvQ"
+      "source": "식권대장 앱 캡처(2026-05-22)"
     },
     {
-      "id": "bapfarm",
-      "name": "밥팜",
-      "category": "백반/한식",
-      "distanceM": 110,
-      "sikgwonStatus": "candidate",
+      "id": "sikgwon-004",
+      "name": "KFC 문정역점",
+      "category": "버거/패스트푸드",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
       "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "20:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "quick"],
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "KFC 문정역점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "KFC 문정역점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-005",
+      "name": "먹방장사장 문정점",
+      "category": "식권대장 가맹점",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "먹방장사장 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "먹방장사장 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-006",
+      "name": "문뜬한 고등어",
+      "category": "식권대장 가맹점",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "문뜬한 고등어",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "문뜬한 고등어",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-007",
+      "name": "바스버거 문정역점",
+      "category": "버거/패스트푸드",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "바스버거 문정역점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "바스버거 문정역점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-008",
+      "name": "산척동 수제비 문정3호점",
+      "category": "식권대장 가맹점",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "산척동 수제비 문정3호점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "산척동 수제비 문정3호점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-009",
+      "name": "삼산회관 문정테라타워점",
+      "category": "식권대장 가맹점",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "삼산회관 문정테라타워점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "삼산회관 문정테라타워점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-010",
+      "name": "수유리우동집 문정역점",
+      "category": "일식",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "수유리우동집 문정역점",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "수유리우동집 문정역점",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-011",
+      "name": "신기소",
+      "category": "식권대장 가맹점",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "신기소",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "신기소",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-012",
+      "name": "신박한족발 본점",
+      "category": "고기/한식",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "신박한족발 본점",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "신박한족발 본점",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-013",
+      "name": "야끼니쿠하오리",
+      "category": "일식",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "야끼니쿠하오리",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "야끼니쿠하오리",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-014",
+      "name": "오부찌 문정 직영점",
+      "category": "식권대장 가맹점",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "오부찌 문정 직영점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "오부찌 문정 직영점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-015",
+      "name": "조조감자탕",
+      "category": "한식",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "조조감자탕",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "조조감자탕",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-016",
+      "name": "지오씨커피 문정테라타워점",
+      "category": "카페/베이커리",
+      "distanceM": 55,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
       "teamFriendly": false,
       "quick": true,
-      "priceBand": "1만원대",
+      "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [{ "name": "백반", "tags": ["korean", "rice", "quick"] }],
-        "dinner": [{ "name": "한식 식사", "tags": ["korean", "rice"] }]
+        "lunch": [
+          {
+            "name": "지오씨커피 문정테라타워점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "지오씨커피 문정테라타워점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
       },
-      "source": "https://zippoom.com/review/IUQLyTSG0QOy12wGBd9BKO"
+      "source": "식권대장 앱 캡처(2026-05-22)"
     },
     {
-      "id": "ichadol-munjeong",
-      "name": "이차돌 문정역점",
-      "category": "소고기/한식",
-      "distanceM": 130,
-      "sikgwonStatus": "candidate",
+      "id": "sikgwon-017",
+      "name": "호미정",
+      "category": "식권대장 가맹점",
+      "distanceM": 56,
+      "sikgwonStatus": "confirmed",
       "active": true,
-      "hoursConfidence": "low",
-      "hours": [{ "days": ["weekday"], "open": "11:00", "close": "22:00" }],
-      "meals": ["lunch", "dinner"],
-      "tags": ["korean", "rice", "team"],
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "호미정",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "호미정",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-018",
+      "name": "한양중식(문정)",
+      "category": "중식",
+      "distanceM": 57,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "spicy"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "한양중식(문정)",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "한양중식(문정)",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-019",
+      "name": "알샐러드",
+      "category": "샐러드/건강식",
+      "distanceM": 58,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "알샐러드",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "알샐러드",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-020",
+      "name": "겐코(문정)",
+      "category": "일식",
+      "distanceM": 59,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "겐코(문정)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "겐코(문정)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-021",
+      "name": "압구정샌드위치 문정점",
+      "category": "양식/샌드위치",
+      "distanceM": 60,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "압구정샌드위치 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "압구정샌드위치 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-022",
+      "name": "하영호신촌설렁탕(문정역)",
+      "category": "한식",
+      "distanceM": 63,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "하영호신촌설렁탕(문정역)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "하영호신촌설렁탕(문정역)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-023",
+      "name": "올라포케(문정점)",
+      "category": "샐러드/건강식",
+      "distanceM": 66,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "올라포케(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "올라포케(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-024",
+      "name": "맘스터치(문정역점)",
+      "category": "버거/패스트푸드",
+      "distanceM": 67,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "맘스터치(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "맘스터치(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-025",
+      "name": "이태리부대찌개(문정법조타운점)",
+      "category": "한식",
+      "distanceM": 71,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "이태리부대찌개(문정법조타운점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "이태리부대찌개(문정법조타운점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-026",
+      "name": "이플리(문정역점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 72,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "이플리(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "이플리(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-027",
+      "name": "함흥본가면옥(문정점)",
+      "category": "면/국수",
+      "distanceM": 73,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "함흥본가면옥(문정점)",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "함흥본가면옥(문정점)",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-028",
+      "name": "부산아지매국밥(문정테라타워점)",
+      "category": "한식",
+      "distanceM": 76,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "부산아지매국밥(문정테라타워점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "부산아지매국밥(문정테라타워점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-029",
+      "name": "빽다방(문정역)",
+      "category": "카페/베이커리",
+      "distanceM": 77,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "빽다방(문정역)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "빽다방(문정역)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-030",
+      "name": "카페 스위치",
+      "category": "카페/베이커리",
+      "distanceM": 77,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "카페 스위치",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "카페 스위치",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-031",
+      "name": "이화수전통육개장(문정법조타운점)",
+      "category": "한식",
+      "distanceM": 78,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "이화수전통육개장(문정법조타운점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "이화수전통육개장(문정법조타운점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-032",
+      "name": "아리솔 자연밥상",
+      "category": "한식",
+      "distanceM": 79,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "아리솔 자연밥상",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "아리솔 자연밥상",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-033",
+      "name": "미도인(문정법조타운점)",
+      "category": "일식",
+      "distanceM": 81,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "미도인(문정법조타운점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "미도인(문정법조타운점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-034",
+      "name": "하루엔소쿠(문정점)",
+      "category": "일식",
+      "distanceM": 81,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "하루엔소쿠(문정점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "하루엔소쿠(문정점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-035",
+      "name": "블루돈까스",
+      "category": "일식",
+      "distanceM": 83,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "블루돈까스",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "블루돈까스",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-036",
+      "name": "본설렁탕(문정역점)",
+      "category": "한식",
+      "distanceM": 84,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "본설렁탕(문정역점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "본설렁탕(문정역점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-037",
+      "name": "끼니공방",
+      "category": "식권대장 가맹점",
+      "distanceM": 85,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "끼니공방",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "끼니공방",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-038",
+      "name": "강창구찹쌀진순대(문정역점)",
+      "category": "고기/한식",
+      "distanceM": 86,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "강창구찹쌀진순대(문정역점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "강창구찹쌀진순대(문정역점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-039",
+      "name": "무청감자탕(송파문정점)",
+      "category": "한식",
+      "distanceM": 86,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "무청감자탕(송파문정점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "무청감자탕(송파문정점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-040",
+      "name": "나이스카페인클럽 문정역",
+      "category": "카페/베이커리",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "나이스카페인클럽 문정역",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "나이스카페인클럽 문정역",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-041",
+      "name": "덤벨푸드 문정점",
+      "category": "식권대장 가맹점",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "덤벨푸드 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "덤벨푸드 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-042",
+      "name": "도원짬(문정법조타운점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "도원짬(문정법조타운점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "도원짬(문정법조타운점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-043",
+      "name": "샐러디(문정엠스테이트점)",
+      "category": "샐러드/건강식",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "샐러디(문정엠스테이트점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "샐러디(문정엠스테이트점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-044",
+      "name": "세븐일레븐 문정엠스테이트점",
+      "category": "편의점/마트",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정엠스테이트점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정엠스테이트점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-045",
+      "name": "세븐일레븐 송파문정역점",
+      "category": "편의점/마트",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 송파문정역점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 송파문정역점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-046",
+      "name": "오한수우육면가(문정점)",
+      "category": "면/국수",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "오한수우육면가(문정점)",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "오한수우육면가(문정점)",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-047",
+      "name": "우사기소바(문정)",
+      "category": "일식",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "우사기소바(문정)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "우사기소바(문정)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-048",
+      "name": "페일블루커피",
+      "category": "카페/베이커리",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "페일블루커피",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "페일블루커피",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-049",
+      "name": "홍쉐프&화덕피자 파스타",
+      "category": "양식/샌드위치",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "홍쉐프&화덕피자 파스타",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "홍쉐프&화덕피자 파스타",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-050",
+      "name": "남산수제돈까스(문정점)",
+      "category": "일식",
+      "distanceM": 88,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "남산수제돈까스(문정점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "남산수제돈까스(문정점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-051",
+      "name": "빽샌드동(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 89,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "빽샌드동(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "빽샌드동(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-052",
+      "name": "카페 도스가나",
+      "category": "카페/베이커리",
+      "distanceM": 89,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "카페 도스가나",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "카페 도스가나",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-053",
+      "name": "고씨네(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 90,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "고씨네(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "고씨네(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-054",
+      "name": "문정한방삼계탕",
+      "category": "한식",
+      "distanceM": 92,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "문정한방삼계탕",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "문정한방삼계탕",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-055",
+      "name": "포온스 수제버거",
+      "category": "버거/패스트푸드",
+      "distanceM": 95,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "포온스 수제버거",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "포온스 수제버거",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-056",
+      "name": "킹콩부대찌개(송파법조타운점)",
+      "category": "한식",
+      "distanceM": 97,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "킹콩부대찌개(송파법조타운점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "킹콩부대찌개(송파법조타운점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-057",
+      "name": "플리어트",
+      "category": "샐러드/건강식",
+      "distanceM": 102,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "플리어트",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "플리어트",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-058",
+      "name": "잇소니본점",
+      "category": "식권대장 가맹점",
+      "distanceM": 103,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "잇소니본점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "잇소니본점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-059",
+      "name": "얼큰칼국수",
+      "category": "면/국수",
+      "distanceM": 108,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "얼큰칼국수",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "얼큰칼국수",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-060",
+      "name": "빠나베네",
+      "category": "식권대장 가맹점",
+      "distanceM": 109,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "빠나베네",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "빠나베네",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-061",
+      "name": "진짜진짜 돼지갈비",
+      "category": "고기/한식",
+      "distanceM": 109,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "진짜진짜 돼지갈비",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "진짜진짜 돼지갈비",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-062",
+      "name": "버거킹(문정역점)",
+      "category": "버거/패스트푸드",
+      "distanceM": 111,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "버거킹(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "버거킹(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-063",
+      "name": "세븐일레븐 문정해리움점",
+      "category": "편의점/마트",
+      "distanceM": 111,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정해리움점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정해리움점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-064",
+      "name": "평상집 문정점",
+      "category": "식권대장 가맹점",
+      "distanceM": 111,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "평상집 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "평상집 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-065",
+      "name": "송가네국수(문정)",
+      "category": "면/국수",
+      "distanceM": 112,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "송가네국수(문정)",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "송가네국수(문정)",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-066",
+      "name": "홍도식당",
+      "category": "식권대장 가맹점",
+      "distanceM": 113,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "홍도식당",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "홍도식당",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-067",
+      "name": "니토프",
+      "category": "중식",
+      "distanceM": 117,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "spicy"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "니토프",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "니토프",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-068",
+      "name": "문정커피(카페)",
+      "category": "카페/베이커리",
+      "distanceM": 139,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "문정커피(카페)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "문정커피(카페)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-069",
+      "name": "슬로우캘리 송파문정점",
+      "category": "식권대장 가맹점",
+      "distanceM": 139,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "슬로우캘리 송파문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "슬로우캘리 송파문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-070",
+      "name": "블루샥(문정법조타운점)",
+      "category": "카페/베이커리",
+      "distanceM": 149,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "블루샥(문정법조타운점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "블루샥(문정법조타운점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-071",
+      "name": "오모리다이닝",
+      "category": "식권대장 가맹점",
+      "distanceM": 149,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "오모리다이닝",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "오모리다이닝",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-072",
+      "name": "명인푸드 문정",
+      "category": "식권대장 가맹점",
+      "distanceM": 172,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "명인푸드 문정",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "명인푸드 문정",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-073",
+      "name": "투썸(문정)",
+      "category": "카페/베이커리",
+      "distanceM": 172,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "투썸(문정)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "투썸(문정)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-074",
+      "name": "돌새라면(송파법조단지점)",
+      "category": "분식",
+      "distanceM": 181,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "돌새라면(송파법조단지점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "돌새라면(송파법조단지점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-075",
+      "name": "참진한설렁탕",
+      "category": "한식",
+      "distanceM": 181,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "참진한설렁탕",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "참진한설렁탕",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-076",
+      "name": "몽중헌(문정점)",
+      "category": "중식",
+      "distanceM": 183,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "spicy"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "몽중헌(문정점)",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "몽중헌(문정점)",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-077",
+      "name": "상아김밥(문정점)",
+      "category": "분식",
+      "distanceM": 184,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "상아김밥(문정점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "상아김밥(문정점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-078",
+      "name": "황해도아바이순대(문정)",
+      "category": "고기/한식",
+      "distanceM": 187,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "황해도아바이순대(문정)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "황해도아바이순대(문정)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-079",
+      "name": "GS25(문정현대동점)",
+      "category": "편의점/마트",
+      "distanceM": 188,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "GS25(문정현대동점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "GS25(문정현대동점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-080",
+      "name": "금정(문정)",
+      "category": "식권대장 가맹점",
+      "distanceM": 191,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "금정(문정)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "금정(문정)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-081",
+      "name": "로와테이블",
+      "category": "식권대장 가맹점",
+      "distanceM": 192,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "로와테이블",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "로와테이블",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-082",
+      "name": "비바당 문정역점",
+      "category": "식권대장 가맹점",
+      "distanceM": 192,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "비바당 문정역점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "비바당 문정역점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-083",
+      "name": "아토키토(송파문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 192,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "아토키토(송파문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "아토키토(송파문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-084",
+      "name": "오봉집(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 192,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "오봉집(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "오봉집(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-085",
+      "name": "요거 문정점",
+      "category": "식권대장 가맹점",
+      "distanceM": 192,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "요거 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "요거 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-086",
+      "name": "김영희동태찜(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 193,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "김영희동태찜(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "김영희동태찜(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-087",
+      "name": "그린포유(문정점)",
+      "category": "샐러드/건강식",
+      "distanceM": 194,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "그린포유(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "그린포유(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-088",
+      "name": "디저트 문정(1호점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 194,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "디저트 문정(1호점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "디저트 문정(1호점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-089",
+      "name": "GS25(문정SK1호점)",
+      "category": "편의점/마트",
+      "distanceM": 197,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "GS25(문정SK1호점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "GS25(문정SK1호점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-090",
+      "name": "정석식당 카페테리아",
+      "category": "카페/베이커리",
+      "distanceM": 197,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "정석식당 카페테리아",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "정석식당 카페테리아",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-091",
+      "name": "김가네(문정메트로시티점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 198,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "김가네(문정메트로시티점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "김가네(문정메트로시티점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-092",
+      "name": "바나프레소(문정SK점)",
+      "category": "카페/베이커리",
+      "distanceM": 198,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "바나프레소(문정SK점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "바나프레소(문정SK점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-093",
+      "name": "사샤커피",
+      "category": "카페/베이커리",
+      "distanceM": 199,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "사샤커피",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "사샤커피",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-094",
+      "name": "세븐일레븐 문정메트로시티점",
+      "category": "편의점/마트",
+      "distanceM": 199,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정메트로시티점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정메트로시티점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-095",
+      "name": "타이완밴땅 문정점",
+      "category": "식권대장 가맹점",
+      "distanceM": 199,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "타이완밴땅 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "타이완밴땅 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-096",
+      "name": "헬키푸키(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 199,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "헬키푸키(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "헬키푸키(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-097",
+      "name": "신동보성",
+      "category": "중식",
+      "distanceM": 203,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "spicy"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "신동보성",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "신동보성",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-098",
+      "name": "키친사이",
+      "category": "식권대장 가맹점",
+      "distanceM": 203,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "키친사이",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "키친사이",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-099",
+      "name": "투썸플레이스(문정법조타운점)",
+      "category": "카페/베이커리",
+      "distanceM": 203,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "투썸플레이스(문정법조타운점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "투썸플레이스(문정법조타운점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-100",
+      "name": "몰리스 커피",
+      "category": "카페/베이커리",
+      "distanceM": 204,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "몰리스 커피",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "몰리스 커피",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-101",
+      "name": "무적상점",
+      "category": "식권대장 가맹점",
+      "distanceM": 206,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "무적상점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "무적상점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-102",
+      "name": "한스(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 207,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "한스(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "한스(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-103",
+      "name": "밀랑스베이글",
+      "category": "카페/베이커리",
+      "distanceM": 208,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "밀랑스베이글",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "밀랑스베이글",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-104",
+      "name": "청류",
+      "category": "식권대장 가맹점",
+      "distanceM": 208,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "청류",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "청류",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-105",
+      "name": "포트캔커피 문정점",
+      "category": "카페/베이커리",
+      "distanceM": 210,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "포트캔커피 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "포트캔커피 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-106",
+      "name": "돌돌분식",
+      "category": "분식",
+      "distanceM": 216,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "돌돌분식",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "돌돌분식",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-107",
+      "name": "샐러드박스(문정역점)",
+      "category": "샐러드/건강식",
+      "distanceM": 250,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "샐러드박스(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "샐러드박스(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-108",
+      "name": "세븐일레븐 문정오벨리스점",
+      "category": "편의점/마트",
+      "distanceM": 252,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정오벨리스점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정오벨리스점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-109",
+      "name": "목골쌈밥 문정법조점",
+      "category": "한식",
+      "distanceM": 256,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "목골쌈밥 문정법조점",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "목골쌈밥 문정법조점",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-110",
+      "name": "청담초밥(문정)",
+      "category": "식권대장 가맹점",
+      "distanceM": 256,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "청담초밥(문정)",
+            "tags": [
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "청담초밥(문정)",
+            "tags": [
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-111",
+      "name": "카츠파랑",
+      "category": "일식",
+      "distanceM": 256,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "카츠파랑",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "카츠파랑",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-112",
+      "name": "세븐일레븐 문정대성점",
+      "category": "편의점/마트",
+      "distanceM": 257,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정대성점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정대성점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-113",
+      "name": "슬라이스 피자마켓 문정",
+      "category": "양식/샌드위치",
+      "distanceM": 257,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "슬라이스 피자마켓 문정",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "슬라이스 피자마켓 문정",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-114",
+      "name": "김동우동(문정법조타운점)",
+      "category": "일식",
+      "distanceM": 258,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "김동우동(문정법조타운점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "김동우동(문정법조타운점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-115",
+      "name": "담소소사골육개장(문정점)",
+      "category": "한식",
+      "distanceM": 261,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "담소소사골육개장(문정점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "담소소사골육개장(문정점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-116",
+      "name": "시온텐동",
+      "category": "일식",
+      "distanceM": 261,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "시온텐동",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "시온텐동",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-117",
+      "name": "백채김치찌개 문정법조타운점",
+      "category": "한식",
+      "distanceM": 267,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "백채김치찌개 문정법조타운점",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "백채김치찌개 문정법조타운점",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-118",
+      "name": "카페파노",
+      "category": "카페/베이커리",
+      "distanceM": 269,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "카페파노",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "카페파노",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-119",
+      "name": "바나프레소 문정대명벨리온점",
+      "category": "카페/베이커리",
+      "distanceM": 271,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "바나프레소 문정대명벨리온점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "바나프레소 문정대명벨리온점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-120",
+      "name": "명랑핫도그(문정점)",
+      "category": "분식",
+      "distanceM": 276,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "명랑핫도그(문정점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "명랑핫도그(문정점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-121",
+      "name": "노브랜드버거(문정역점)",
+      "category": "버거/패스트푸드",
+      "distanceM": 284,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "노브랜드버거(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "노브랜드버거(문정역점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-122",
+      "name": "교동짬뽕(문정)",
+      "category": "중식",
+      "distanceM": 291,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "spicy"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "교동짬뽕(문정)",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "교동짬뽕(문정)",
+            "tags": [
+              "spicy"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-123",
+      "name": "말자복자",
+      "category": "식권대장 가맹점",
+      "distanceM": 292,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "말자복자",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "말자복자",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-124",
+      "name": "GS25(테라타워 A동점)",
+      "category": "편의점/마트",
+      "distanceM": 294,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "GS25(테라타워 A동점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "GS25(테라타워 A동점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-125",
+      "name": "GS25(테라타워B동점)",
+      "category": "편의점/마트",
+      "distanceM": 294,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "GS25(테라타워B동점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "GS25(테라타워B동점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-126",
+      "name": "고금양식 문정본점",
+      "category": "양식/샌드위치",
+      "distanceM": 294,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "고금양식 문정본점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "고금양식 문정본점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-127",
+      "name": "모올식당",
+      "category": "식권대장 가맹점",
+      "distanceM": 294,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "모올식당",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "모올식당",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-128",
+      "name": "세븐일레븐 문정테라타워점",
+      "category": "편의점/마트",
+      "distanceM": 294,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정테라타워점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정테라타워점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-129",
+      "name": "스몰굿커피 문정점",
+      "category": "카페/베이커리",
+      "distanceM": 294,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "스몰굿커피 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "스몰굿커피 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-130",
+      "name": "커피팜",
+      "category": "카페/베이커리",
+      "distanceM": 294,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "커피팜",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "커피팜",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-131",
+      "name": "화화당",
+      "category": "식권대장 가맹점",
+      "distanceM": 297,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "화화당",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "화화당",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-132",
+      "name": "맥머드익스프레스(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 305,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "맥머드익스프레스(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "맥머드익스프레스(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-133",
+      "name": "일루한식뷔페",
+      "category": "한식",
+      "distanceM": 309,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
       "teamFriendly": true,
       "quick": false,
-      "priceBand": "1만원대~2만원대",
+      "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [{ "name": "차돌박이 식사", "tags": ["korean", "rice"] }],
-        "dinner": [{ "name": "차돌박이", "tags": ["korean", "team"] }]
+        "lunch": [
+          {
+            "name": "일루한식뷔페",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "일루한식뷔페",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
       },
-      "source": "https://zippoom.com/review/IUQLyTSG0QOy12wGBd9BKO"
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-134",
+      "name": "육쌈",
+      "category": "식권대장 가맹점",
+      "distanceM": 317,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "육쌈",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "육쌈",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-135",
+      "name": "2대 대원칼국수",
+      "category": "면/국수",
+      "distanceM": 324,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "2대 대원칼국수",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "2대 대원칼국수",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-136",
+      "name": "부산돼지국밥 가야밀면",
+      "category": "고기/한식",
+      "distanceM": 325,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "부산돼지국밥 가야밀면",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "부산돼지국밥 가야밀면",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-137",
+      "name": "빌리엔젤(문정점)",
+      "category": "카페/베이커리",
+      "distanceM": 334,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "빌리엔젤(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "빌리엔젤(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-138",
+      "name": "문정김밥",
+      "category": "분식",
+      "distanceM": 372,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "문정김밥",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "문정김밥",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-139",
+      "name": "퀴즈노스(문정점)",
+      "category": "양식/샌드위치",
+      "distanceM": 372,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "퀴즈노스(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "퀴즈노스(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-140",
+      "name": "달섭",
+      "category": "식권대장 가맹점",
+      "distanceM": 380,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "달섭",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "달섭",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-141",
+      "name": "버푸드스토리",
+      "category": "식권대장 가맹점",
+      "distanceM": 382,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "버푸드스토리",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "버푸드스토리",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-142",
+      "name": "한솔도시락(문정지식산업센터점)",
+      "category": "한식",
+      "distanceM": 399,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "한솔도시락(문정지식산업센터점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "한솔도시락(문정지식산업센터점)",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-143",
+      "name": "김선생포차&쌈밥",
+      "category": "한식",
+      "distanceM": 402,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "김선생포차&쌈밥",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "김선생포차&쌈밥",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-144",
+      "name": "오복집",
+      "category": "식권대장 가맹점",
+      "distanceM": 403,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "오복집",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "오복집",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-145",
+      "name": "The Place (송파 파크하비오점)",
+      "category": "양식/샌드위치",
+      "distanceM": 405,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "The Place (송파 파크하비오점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "The Place (송파 파크하비오점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-146",
+      "name": "상일회관(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 405,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "상일회관(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "상일회관(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-147",
+      "name": "세븐일레븐 문정수성점",
+      "category": "편의점/마트",
+      "distanceM": 405,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정수성점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정수성점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-148",
+      "name": "세븐일레븐 문정프리미엄점",
+      "category": "편의점/마트",
+      "distanceM": 407,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정프리미엄점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정프리미엄점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-149",
+      "name": "맛있는녀석들",
+      "category": "식권대장 가맹점",
+      "distanceM": 417,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "맛있는녀석들",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "맛있는녀석들",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-150",
+      "name": "커피빈 송파파크하비오점",
+      "category": "카페/베이커리",
+      "distanceM": 417,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "커피빈 송파파크하비오점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "커피빈 송파파크하비오점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-151",
+      "name": "섬맛의공방, 제주이야기",
+      "category": "식권대장 가맹점",
+      "distanceM": 428,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "섬맛의공방, 제주이야기",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "섬맛의공방, 제주이야기",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-152",
+      "name": "세븐일레븐 문정강진점",
+      "category": "편의점/마트",
+      "distanceM": 428,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정강진점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정강진점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-153",
+      "name": "소담한 밥상",
+      "category": "한식",
+      "distanceM": 432,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "소담한 밥상",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "소담한 밥상",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-154",
+      "name": "카카야크",
+      "category": "식권대장 가맹점",
+      "distanceM": 432,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "카카야크",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "카카야크",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-155",
+      "name": "순(파크하비오)",
+      "category": "식권대장 가맹점",
+      "distanceM": 434,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "순(파크하비오)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "순(파크하비오)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-156",
+      "name": "씨즐(SIZZLE)",
+      "category": "식권대장 가맹점",
+      "distanceM": 443,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "씨즐(SIZZLE)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "씨즐(SIZZLE)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-157",
+      "name": "빽다방(송파하비오점)",
+      "category": "카페/베이커리",
+      "distanceM": 444,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "빽다방(송파하비오점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "빽다방(송파하비오점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-158",
+      "name": "아담스 꼬마김밥",
+      "category": "분식",
+      "distanceM": 452,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "아담스 꼬마김밥",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "아담스 꼬마김밥",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-159",
+      "name": "외계인방앗간(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 456,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "외계인방앗간(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "외계인방앗간(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-160",
+      "name": "날쌘카페 문정점",
+      "category": "카페/베이커리",
+      "distanceM": 458,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "날쌘카페 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "날쌘카페 문정점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-161",
+      "name": "쏘울",
+      "category": "식권대장 가맹점",
+      "distanceM": 458,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "쏘울",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "쏘울",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-162",
+      "name": "호또미",
+      "category": "식권대장 가맹점",
+      "distanceM": 458,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "호또미",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "호또미",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-163",
+      "name": "디저트 문정(본점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 460,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "디저트 문정(본점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "디저트 문정(본점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-164",
+      "name": "GS25(문정비지니스A동점)",
+      "category": "편의점/마트",
+      "distanceM": 461,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "GS25(문정비지니스A동점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "GS25(문정비지니스A동점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-165",
+      "name": "행복한밥상",
+      "category": "한식",
+      "distanceM": 461,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "rice"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "행복한밥상",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "행복한밥상",
+            "tags": [
+              "korean",
+              "rice"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-166",
+      "name": "일스터(문정)",
+      "category": "식권대장 가맹점",
+      "distanceM": 464,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "일스터(문정)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "일스터(문정)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-167",
+      "name": "플루핏",
+      "category": "식권대장 가맹점",
+      "distanceM": 475,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "플루핏",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "플루핏",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-168",
+      "name": "인생돼지",
+      "category": "고기/한식",
+      "distanceM": 483,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "인생돼지",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "인생돼지",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-169",
+      "name": "파리바게뜨(송파푸르지오점)",
+      "category": "카페/베이커리",
+      "distanceM": 490,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "파리바게뜨(송파푸르지오점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "파리바게뜨(송파푸르지오점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-170",
+      "name": "요거트맨(문정점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 509,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "요거트맨(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "요거트맨(문정점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-171",
+      "name": "역전우동0410(파크하비오점)",
+      "category": "일식",
+      "distanceM": 538,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "역전우동0410(파크하비오점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "역전우동0410(파크하비오점)",
+            "tags": [
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-172",
+      "name": "GS25 송파하비오 1호점",
+      "category": "편의점/마트",
+      "distanceM": 551,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "GS25 송파하비오 1호점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "GS25 송파하비오 1호점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-173",
+      "name": "GS25 송파하비오 2호점",
+      "category": "편의점/마트",
+      "distanceM": 551,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "GS25 송파하비오 2호점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "GS25 송파하비오 2호점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-174",
+      "name": "롯데리아 송파하비오",
+      "category": "버거/패스트푸드",
+      "distanceM": 551,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "롯데리아 송파하비오",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "롯데리아 송파하비오",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-175",
+      "name": "세븐일레븐 문정하비오2호점",
+      "category": "편의점/마트",
+      "distanceM": 551,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정하비오2호점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정하비오2호점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-176",
+      "name": "압구정순대국(문정점)",
+      "category": "고기/한식",
+      "distanceM": 555,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "압구정순대국(문정점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "압구정순대국(문정점)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-177",
+      "name": "써브웨이 문정법조점",
+      "category": "양식/샌드위치",
+      "distanceM": 588,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "써브웨이 문정법조점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "써브웨이 문정법조점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-178",
+      "name": "고래마켓키친(송파직영점)",
+      "category": "식권대장 가맹점",
+      "distanceM": 589,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "고래마켓키친(송파직영점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "고래마켓키친(송파직영점)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-179",
+      "name": "세븐일레븐 문정동조타워점",
+      "category": "편의점/마트",
+      "distanceM": 593,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정동조타워점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정동조타워점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-180",
+      "name": "세븐일레븐 문정제일점",
+      "category": "편의점/마트",
+      "distanceM": 637,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정제일점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정제일점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-181",
+      "name": "세븐일레븐 문정건영점",
+      "category": "편의점/마트",
+      "distanceM": 640,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "세븐일레븐 문정건영점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "세븐일레븐 문정건영점",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-182",
+      "name": "파리바게뜨 문정중앙",
+      "category": "카페/베이커리",
+      "distanceM": 748,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "파리바게뜨 문정중앙",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "파리바게뜨 문정중앙",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-183",
+      "name": "롯데리아 문정로데오",
+      "category": "버거/패스트푸드",
+      "distanceM": 752,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "롯데리아 문정로데오",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "롯데리아 문정로데오",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-184",
+      "name": "롯데리아 롯데마트송파",
+      "category": "버거/패스트푸드",
+      "distanceM": 789,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "롯데리아 롯데마트송파",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "롯데리아 롯데마트송파",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-185",
+      "name": "[가든파이브] 한솔냉면(현대아울렛)",
+      "category": "면/국수",
+      "distanceM": 874,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean",
+        "noodle"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "[가든파이브] 한솔냉면(현대아울렛)",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "[가든파이브] 한솔냉면(현대아울렛)",
+            "tags": [
+              "korean",
+              "noodle"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-186",
+      "name": "[가든파이브] 호두앤(현대아울렛)",
+      "category": "식권대장 가맹점",
+      "distanceM": 883,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "[가든파이브] 호두앤(현대아울렛)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "[가든파이브] 호두앤(현대아울렛)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-187",
+      "name": "[가든파이브] 일월분식(현대아울렛)",
+      "category": "분식",
+      "distanceM": 886,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": true,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "[가든파이브] 일월분식(현대아울렛)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "[가든파이브] 일월분식(현대아울렛)",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-188",
+      "name": "[가든파이브] 팜사브(현대아울렛)",
+      "category": "식권대장 가맹점",
+      "distanceM": 892,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "[가든파이브] 팜사브(현대아울렛)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "[가든파이브] 팜사브(현대아울렛)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-189",
+      "name": "[가든파이브] 공차(현대아울렛)",
+      "category": "식권대장 가맹점",
+      "distanceM": 895,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "[가든파이브] 공차(현대아울렛)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "[가든파이브] 공차(현대아울렛)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
+    },
+    {
+      "id": "sikgwon-190",
+      "name": "[가든파이브] 참새정미소(현대아울렛)",
+      "category": "식권대장 가맹점",
+      "distanceM": 902,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "quick"
+      ],
+      "teamFriendly": true,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "[가든파이브] 참새정미소(현대아울렛)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "[가든파이브] 참새정미소(현대아울렛)",
+            "tags": [
+              "quick"
+            ]
+          }
+        ]
+      },
+      "source": "식권대장 앱 캡처(2026-05-22)"
     }
   ]
 }

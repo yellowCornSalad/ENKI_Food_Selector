@@ -6,18 +6,18 @@
 
 - `index.html`: GitHub Pages로 바로 배포 가능한 모바일 웹앱
 - `src/recommender.js`: 웹앱과 향후 Slack bot이 같이 쓸 추천 엔진
-- `data/restaurants.json`: 문정역테라타워/문정법조타운 주변 식당 후보와 식권대장 가맹 확인 상태
+- `data/restaurants.json`: 식권대장 앱 캡처에서 확인한 가맹점 목록
 - `.github/workflows/pages.yml`: GitHub Pages 자동 배포
 
 ## 운영 데이터 원칙
 
-식권대장 공식 API가 제공되지 않거나 접근할 수 없으면 `data/restaurants.json`을 주기적으로 갱신합니다.
+식권대장 공식 API가 제공되지 않거나 접근할 수 없으면 식권대장 앱/관리자에서 확보한 목록으로 `data/restaurants.json`을 주기적으로 갱신합니다.
 
 - `sikgwonStatus: "confirmed"`: 식권대장 가맹 확인 완료
 - `sikgwonStatus: "candidate"`: 주변 식당 후보, 가맹 여부 확인 필요
 - `sikgwonStatus: "excluded"`: 추천 제외
 
-운영 전에는 식권대장 앱/관리자에서 실제 가맹 여부를 확인한 뒤 `confirmed`로 바꾸는 것을 권장합니다.
+현재 데이터는 2026-05-22 식권대장 앱 캡처에서 판독한 가맹점만 `confirmed`로 등록했습니다.
 네이버 지도 평점이나 리뷰 수는 직접 확인된 값만 `naverRating`, `naverReviewCount`에 넣고, 확인되지 않은 매장은 화면에 평점 문구를 표시하지 않습니다.
 
 ## GitHub Pages 배포
