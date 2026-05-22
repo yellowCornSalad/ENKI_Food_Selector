@@ -854,7 +854,7 @@ h1 {
 }
 
 .roulette-game.is-running .roulette-pointer {
-  animation: roulette-pointer-flap 0.18s ease-in-out infinite alternate;
+  animation: roulette-pointer-snap 5s cubic-bezier(0.08, 0.72, 0.05, 1) both;
 }
 
 .roulette-game.is-running .roulette-label-text {
@@ -919,13 +919,43 @@ h1 {
   }
 }
 
-@keyframes roulette-pointer-flap {
-  from {
-    transform: translateX(-50%) rotate(-7deg);
-  }
-  to {
-    transform: translateX(-50%) rotate(8deg);
-  }
+@keyframes roulette-pointer-snap {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  2% { transform: translateX(-50%) rotate(22deg); }
+  4% { transform: translateX(-50%) rotate(0deg); }
+  6% { transform: translateX(-50%) rotate(22deg); }
+  8% { transform: translateX(-50%) rotate(0deg); }
+  10% { transform: translateX(-50%) rotate(22deg); }
+  12% { transform: translateX(-50%) rotate(0deg); }
+  14% { transform: translateX(-50%) rotate(22deg); }
+  16% { transform: translateX(-50%) rotate(0deg); }
+  18% { transform: translateX(-50%) rotate(22deg); }
+  20% { transform: translateX(-50%) rotate(0deg); }
+  22% { transform: translateX(-50%) rotate(22deg); }
+  24% { transform: translateX(-50%) rotate(0deg); }
+  26% { transform: translateX(-50%) rotate(22deg); }
+  28% { transform: translateX(-50%) rotate(0deg); }
+  30% { transform: translateX(-50%) rotate(22deg); }
+  32% { transform: translateX(-50%) rotate(0deg); }
+  34% { transform: translateX(-50%) rotate(22deg); }
+  36% { transform: translateX(-50%) rotate(0deg); }
+  38% { transform: translateX(-50%) rotate(22deg); }
+  40% { transform: translateX(-50%) rotate(0deg); }
+  44% { transform: translateX(-50%) rotate(22deg); }
+  48% { transform: translateX(-50%) rotate(0deg); }
+  52% { transform: translateX(-50%) rotate(22deg); }
+  56% { transform: translateX(-50%) rotate(0deg); }
+  60% { transform: translateX(-50%) rotate(20deg); }
+  64% { transform: translateX(-50%) rotate(0deg); }
+  68% { transform: translateX(-50%) rotate(18deg); }
+  72% { transform: translateX(-50%) rotate(0deg); }
+  76% { transform: translateX(-50%) rotate(16deg); }
+  80% { transform: translateX(-50%) rotate(0deg); }
+  84% { transform: translateX(-50%) rotate(13deg); }
+  88% { transform: translateX(-50%) rotate(0deg); }
+  92% { transform: translateX(-50%) rotate(8deg); }
+  96% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
 }
 
 @keyframes roulette-label-tease {
