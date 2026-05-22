@@ -10,28 +10,30 @@ const HEADERS = {
 };
 
 function extractName(html, placeId) {
-  // PlaceDetailBase:{placeId}":{"__typename":"PlaceDetailBase","id":"...","name":"..."}
   const re = new RegExp(`PlaceDetailBase:${placeId}[^{]*\\{[^}]*"name":"([^"]+)"`);
   const m = html.match(re);
   return m ? m[1] : null;
 }
 
-const targets = data.restaurants.filter(
-  (r) =>
-    r.naverPlaceId &&
-    (!r.naverMenus || r.naverMenus.length === 0) &&
-    !/편의점|마트/.test(r.category ?? ""),
-);
+const onlyMissing = process.argv[2] === "missing";
+const targets = data.restaurants.filter((r) => {
+  if (!r.naverPlaceId) return false;
+  if (/편의점|마트/.test(r.category ?? "")) return false;
+  if (onlyMissing && r.naverMenus && r.naverMenus.length > 0) return false;
+  return true;
+});
 
+console.log(`Checking ${targets.length} stores...`);
 for (const r of targets) {
   try {
     const url = `https://m.place.naver.com/restaurant/${r.naverPlaceId}`;
     const res = await fetch(url, { headers: HEADERS, redirect: "follow" });
     const html = await res.text();
     const placeName = extractName(html, r.naverPlaceId);
-    const match = placeName && placeName.includes(r.name.split("(")[0].trim().slice(0, 3));
+    const ourCore = r.name.split("(")[0].trim().slice(0, 4);
+    const match = placeName && (placeName.includes(ourCore) || ourCore.includes(placeName.split(" ")[0]));
     console.log(`${match ? "OK " : "??"} ${r.id} ours=[${r.name}] naver=[${placeName ?? "?"}] (placeId=${r.naverPlaceId})`);
-    await new Promise((x) => setTimeout(x, 700));
+    await new Promise((x) => setTimeout(x, 600));
   } catch (e) {
     console.log(`ERR ${r.id}: ${e.message}`);
   }

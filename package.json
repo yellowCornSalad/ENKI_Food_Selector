@@ -1,0 +1,14 @@
+{
+  "name": "sikgwon-menu-picker-web",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "list-missing": "node scripts/list-missing-menus.js",
+    "fetch-menus": "node scripts/fetch-naver-menus.js",
+    "map-place-ids": "node scripts/playwright-map-placeids.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

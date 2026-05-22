@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-11";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-14";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -204,19 +204,21 @@ function renderTopPick(item) {
   }
   const bestFor = item.bestFor ?? item.tags ?? [];
   const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
+  const mapUrl = naverMapSearchUrl(item.name);
   target.innerHTML = `
     <div class="pick-meta">
       ${meta.map((text) => `<span>${text}</span>`).join("")}
     </div>
-    <h2>${item.menu}</h2>
-    <p class="restaurant-name">${item.name}</p>
-    <p class="reason">${item.reason}</p>
+    <h2>${escapeHtml(item.menu)}</h2>
+    <p class="restaurant-name">${escapeHtml(item.name)}</p>
+    <p class="reason">${escapeHtml(item.reason)}</p>
     ${renderSuggestionList(item)}
     <div class="detail-grid">
-      <span>${categoryText(item)}</span>
-      <span>${item.priceBand}</span>
-      <span>${bestFor.slice(0, 3).join(" · ")}</span>
+      <span>${escapeHtml(categoryText(item))}</span>
+      <span>${escapeHtml(item.priceBand ?? "")}</span>
+      <span>${escapeHtml(bestFor.slice(0, 3).join(" · "))}</span>
     </div>
+    <a class="hero-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">🗺️ 네이버 지도에서 보기</a>
   `;
 }
 
@@ -248,13 +250,16 @@ function renderCandidate(item) {
 function renderCandidateDetail(item, expanded) {
   if (!expanded) return "";
   const menus = item.naverMenus ?? [];
+  const mapUrl = naverMapSearchUrl(item.name);
+  const mapButton = `<a class="candidate-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">🗺️ 네이버 지도에서 검색</a>`;
   const link = item.naverPlaceUrl
-    ? `<a class="candidate-link" href="${item.naverPlaceUrl}" target="_blank" rel="noopener">네이버에서 더 보기 →</a>`
+    ? `<a class="candidate-link" href="${escapeHtml(item.naverPlaceUrl)}" target="_blank" rel="noopener">네이버 플레이스에서 더 보기 →</a>`
     : "";
   if (!menus.length) {
     return `
       <div class="candidate-detail">
         <p class="candidate-empty">네이버 메뉴 정보가 아직 없어요.</p>
+        ${mapButton}
         ${link}
       </div>
     `;
@@ -279,9 +284,18 @@ function renderCandidateDetail(item, expanded) {
   return `
     <div class="candidate-detail">
       <ul class="menu-list">${rows}</ul>
+      ${mapButton}
       ${link}
     </div>
   `;
+}
+
+function naverMapSearchUrl(name) {
+  const cleaned = String(name ?? "")
+    .replace(/[\[\]()]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return `https://map.naver.com/p/search/${encodeURIComponent(cleaned)}`;
 }
 
 function toggleCandidate(id) {
@@ -332,7 +346,9 @@ function renderSuggestionList(item) {
     .slice(0, 4)
     .map((suggestion) => {
       const rating = ratingText(suggestion);
-      return `<li><strong>${suggestion.name}</strong><span>${suggestion.distanceM}m${rating ? ` · ${rating}` : ""}</span></li>`;
+      const url = naverMapSearchUrl(suggestion.name);
+      const meta = `${suggestion.distanceM}m${rating ? ` · ${rating}` : ""}`;
+      return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener"><strong>${escapeHtml(suggestion.name)}</strong><span>${escapeHtml(meta)}</span></a></li>`;
     })
     .join("");
   return `<ul class="suggestion-list">${rows}</ul>`;

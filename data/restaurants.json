@@ -3212,92 +3212,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "2041189129",
       "naverSearchQuery": "알샐러드 문정",
-      "naverMenus": [
-        {
-          "description": "",
-          "name": "바질두부 아보카도샐러드",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
-          "description": "",
-          "name": "아보카도 연어샐러드",
-          "price": 10800,
-          "priceText": "10,800원"
-        },
-        {
-          "description": "",
-          "name": "닭가슴살 시져 샐러드",
-          "price": 8900,
-          "priceText": "8,900원"
-        },
-        {
-          "description": "",
-          "name": "크림프렌치토스트",
-          "price": 10800,
-          "priceText": "10,800원"
-        },
-        {
-          "description": "",
-          "name": "프로슈토 오픈샌드위치",
-          "price": 9300,
-          "priceText": "9,300원"
-        },
-        {
-          "description": "",
-          "name": "새우크림파스타",
-          "price": 13500,
-          "priceText": "13,500원"
-        },
-        {
-          "description": "",
-          "name": "토마토비프스튜",
-          "price": 13500,
-          "priceText": "13,500원"
-        },
-        {
-          "description": "",
-          "name": "베이컨엔초비 파스타",
-          "price": 13500,
-          "priceText": "13,500원"
-        },
-        {
-          "description": "",
-          "name": "아몬드라떼",
-          "price": 5300,
-          "priceText": "5,300원"
-        },
-        {
-          "description": "",
-          "name": "트리플오일 라구 파스타",
-          "price": 13500,
-          "priceText": "13,500원"
-        },
-        {
-          "description": "",
-          "name": "아보카도 오픈샌드위치",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
-          "description": "",
-          "name": "소불고기 구운야채",
-          "price": 10500,
-          "priceText": "10,500원"
-        },
-        {
-          "description": "",
-          "name": "닭가슴살 새우샐러드",
-          "price": 10500,
-          "priceText": "10,500원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2041189129/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 43,
-      "naverBlogReviewCount": 51,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-020",
@@ -6992,50 +6908,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1953738002",
       "naverSearchQuery": "무청감자탕(송파문정점)",
-      "naverVisitorReviewCount": 740,
-      "naverBlogReviewCount": 209,
-      "naverMenus": [
-        {
-          "description": "매일 끓이는 진한 국물의 서울 3대 감자탕",
-          "name": "감자탕(3인)",
-          "price": 38000,
-          "priceText": "38,000원"
-        },
-        {
-          "description": "우거지보다 고기가 많은 명품 뼈해장국",
-          "name": "뼈해장국(특)",
-          "price": 13000,
-          "priceText": "13,000원"
-        },
-        {
-          "description": "매일 끓이는 진~한 육수의 야들한 고기가 듬뿍~",
-          "name": "감자탕 2인",
-          "price": 30000,
-          "priceText": "30,000원"
-        },
-        {
-          "description": "오뚜기 라면사리(사리는 진리~)",
-          "name": "라면사리",
-          "price": 2000,
-          "priceText": "2,000원"
-        },
-        {
-          "description": "자글자글 고소~한 참기름 향 가득!",
-          "name": "볶음밥",
-          "price": 3000,
-          "priceText": "3,000원"
-        },
-        {
-          "description": "야들야들한 고기가 잔뜩 붙어있는 가성비 뼈해장국!",
-          "name": "뼈해장국(보통)",
-          "price": 10000,
-          "priceText": "10,000원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1953738002/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-040",
@@ -10021,98 +9895,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "2024350323",
       "naverSearchQuery": "얼큰칼국수",
-      "naverMenus": [
-        {
-          "description": "",
-          "name": "여름메뉴) 서리태칼국수",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "",
-          "name": "여름메뉴) 냉 칼국수",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "",
-          "name": "여름메뉴) 냉 비빔칼국수",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "",
-          "name": "여름메뉴) 들기름 칼국수",
-          "price": 10500,
-          "priceText": "10,500원"
-        },
-        {
-          "description": "",
-          "name": "한성칼국수",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
-          "description": "",
-          "name": "한성 얼큰칼국수",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "",
-          "name": "장칼국수",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "",
-          "name": "소고기칼국수",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "",
-          "name": "바지락칼국수",
-          "price": 11500,
-          "priceText": "11,500원"
-        },
-        {
-          "description": "",
-          "name": "백합칼국수",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "",
-          "name": "들깨칼국수",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "",
-          "name": "들깨감자옹심이",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "",
-          "name": "얼큰소고기버섯칼국수",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "",
-          "name": "매생이굴칼국수",
-          "price": 13000,
-          "priceText": "13,000원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2024350323/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 209,
-      "naverBlogReviewCount": 3,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-060",
@@ -10216,33 +10000,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1688419492",
       "naverSearchQuery": "진짜진짜 돼지갈비",
-      "naverMenus": [
-        {
-          "description": "100%한돈냉장갈비 입니다. 요즘처럼 달지않은, 1970년대방식 그대로의 맛을 느껴보세요~",
-          "name": "수제돼지갈비(선진포크,최상급,냉장)",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "30년 전통의 특제양념쏘스에 어우러지는 생면의 면발은 한번맛보면 중독100% 자신합니다~",
-          "name": "(함흥)후식비빔냉면",
-          "price": 6000,
-          "priceText": "6,000원"
-        },
-        {
-          "description": "즉석에서 반죽하여 기계로 뽑는 생면에, 직접끓인 육수의 참맛을 느껴보세요~ 나이롱X 봉지X",
-          "name": "(함흥)후식물냉면",
-          "price": 6000,
-          "priceText": "6,000원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1688419492/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 253,
-      "naverBlogReviewCount": 46,
-      "naverRating": 4.48,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-062",
@@ -11153,38 +10912,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "2092423920",
       "naverSearchQuery": "홍도식당",
-      "naverMenus": [
-        {
-          "description": "",
-          "name": "카페 아메리카노",
-          "price": 3200,
-          "priceText": "3,200원"
-        },
-        {
-          "description": "",
-          "name": "카페 라떼",
-          "price": 4200,
-          "priceText": "4,200원"
-        },
-        {
-          "description": "",
-          "name": "토피 넛 라떼",
-          "price": 4200,
-          "priceText": "4,200원"
-        },
-        {
-          "description": "",
-          "name": "바닐라 라떼",
-          "price": 4500,
-          "priceText": "4,500원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2092423920/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 2,
-      "naverBlogReviewCount": 3,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-067",
@@ -11348,194 +11077,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1681457904",
       "naverSearchQuery": "문정커피(카페)",
-      "naverMenus": [
-        {
-          "description": "푸딩과 음료, 시그니처 조합 세트입니다. 니아이커피에서 가장 잘팔리는 메뉴를 할인된 가격에 드셔보세요. 바나나푸딩 / 아메리카노 기본 구성입니다.",
-          "name": "니아이 푸딩세트",
-          "price": 15000,
-          "priceText": "15,000원"
-        },
-        {
-          "description": "ONLY ICE",
-          "name": "[ 제주 말차 ] 말차 포레스트",
-          "price": 7000,
-          "priceText": "7,000원"
-        },
-        {
-          "description": "[ 3천개 판매 돌파, 글루텐프리 ] 커스터드 크림 + 바나나 + 계란쿠키 매장에서 직접 만드는 수제 커스터드 달달폭신 바나나 푸딩",
-          "name": "[달달폭신] 바나나 가득 바나나 푸딩",
-          "price": 7900,
-          "priceText": "7,900원"
-        },
-        {
-          "description": "[ 크림 1위 ] 짭짤 히말라야 핑크 솔트와 고소꾸덕한 크림라떼 단짠단짠의 최고봉 (ONLY ICE)",
-          "name": "[짭짤고소] 솔트크림라떼",
-          "price": 6800,
-          "priceText": "6,800원"
-        },
-        {
-          "description": "[ 1만잔 돌파, 재주문 1위 ] 시그니쳐 우유로 완성한 고소하고 풍부한 맛의 카페 라떼",
-          "name": "[묵직고소] 니아이 라떼",
-          "price": 5600,
-          "priceText": "5,600원"
-        },
-        {
-          "description": "푸딩과 음료, 시그니처 조합 세트입니다. 니아이커피에서 가장 잘팔리는 메뉴를 할인된 가격에 드셔보세요. 바나나푸딩 / 아메리카노 기본 구성입니다.",
-          "name": "니아이 푸딩세트",
-          "price": 15000,
-          "priceText": "15,000원"
-        },
-        {
-          "description": "[ 최고 인기 상품 ] 푸딩과 커피 세트메뉴 입니다. 기본으로 바나나푸딩과 아메리카노 구성입니다. [ 글루텐프리 푸딩 ]",
-          "name": "니아이 푸딩 Set",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "아메리카노 2잔 + 르뱅 쿠키",
-          "name": "니아이 쿠키 set",
-          "price": 15000,
-          "priceText": "15,000원"
-        },
-        {
-          "description": "[ 고민해결 시그니쳐 세트 ] 니아이 커피 제일 잘나가는 메뉴 1, 2위인 니아이 라떼와 바나나 푸딩 세트입니다. 뭐 드실지 고민은 제가 해결해드릴게요.",
-          "name": "니아이 푸딩라떼 세트",
-          "price": 12800,
-          "priceText": "12,800원"
-        },
-        {
-          "description": "푸딩 + 르뱅 쿠키 + 라떼 + 캔 아메리카노",
-          "name": "하루종일 세트",
-          "price": 21000,
-          "priceText": "21,000원"
-        },
-        {
-          "description": "이즈니 고메버터 듬뿍 넣어 고소하고 쫜득한 버터떡입니다. 4개 1세트입니다.",
-          "name": "고메버터 버터떡 4p + 연유",
-          "price": 5900,
-          "priceText": "5,900원"
-        },
-        {
-          "description": "매장에서 냉장했다가 나갑니다. 그래서 드시기 전에 실온에 30분~1시간정도 충분히 녹혀드시거나, 전자레인지에 5초만 돌려주세요. (필링과 피가 냉장시엔 좀 단단해지는데, 녹혀드시면 흐물흐물 말랑말랑해집니다) 카다이프 30g으로, 무게 약 45g 입니다.",
-          "name": "두바이 쫀득쿠키",
-          "price": 5400,
-          "priceText": "5,400원"
-        },
-        {
-          "description": "하프 사이즈 입니다. [ 발로나 초코푸딩 + 피스타치오 카다이프 필링 ]",
-          "name": "달콤콰작) 두바이 초코푸딩 ( Half Size )",
-          "price": 8900,
-          "priceText": "8,900원"
-        },
-        {
-          "description": "[ 크림 1위 ] 짭짤 히말라야 핑크 솔트와 고소꾸덕한 크림라떼 단짠단짠의 최고봉 (ONLY ICE)",
-          "name": "[짭짤고소] 솔트크림라떼",
-          "price": 6800,
-          "priceText": "6,800원"
-        },
-        {
-          "description": "ONLY ICE",
-          "name": "[ 제주 말차 ] 말차 포레스트",
-          "price": 7000,
-          "priceText": "7,000원"
-        },
-        {
-          "description": "쓴 맛 없는 고소하고 묵직한 100% 스페셜티 커피 2주 내로 로스팅한 신선한 커피 사용",
-          "name": "[묵직고소] 아메리카노",
-          "price": 4800,
-          "priceText": "4,800원"
-        },
-        {
-          "description": "수제 바닐라빈 시럽이 들어간 라떼",
-          "name": "바닐라빈라떼",
-          "price": 6100,
-          "priceText": "6,100원"
-        },
-        {
-          "description": "",
-          "name": "카라멜라떼",
-          "price": 6100,
-          "priceText": "6,100원"
-        },
-        {
-          "description": "음료를 만들다 흑임자를 쏟았습니다.. 꼬~소한 흑임자가 듬뿍 들어간 흑임자 라떼",
-          "name": "흑임자 라떼",
-          "price": 6300,
-          "priceText": "6,300원"
-        },
-        {
-          "description": "ONLY ICE 제주산 프리미엄 G45+ 등급의 유기농 말차 말차라떼에 샷을 추가한 더욱 고소한 라떼",
-          "name": "말샷추",
-          "price": 6800,
-          "priceText": "6,800원"
-        },
-        {
-          "description": "제주산 프리미엄 G45+ 등급의 유기농 말차 말차가 듬뿍들어가 진한 말차라떼",
-          "name": "말차라떼",
-          "price": 6300,
-          "priceText": "6,300원"
-        },
-        {
-          "description": "ONLY ICE 제주산 프리미엄 G45+ 등급의 유기농 말차 말차라떼 위에 말차크림을 얹은 제주의 숲을 그대로 옮겨담은 말차 음료",
-          "name": "말차 포레스트",
-          "price": 7000,
-          "priceText": "7,000원"
-        },
-        {
-          "description": "[ 쿠키 1위 ] 이즈니버터 + 발로나, 칼리바우트 초콜렛. 매장에서 직접 반죽하고 구워서 제공하는 수제 아메리칸 쿠키.",
-          "name": "[촉촉달콤] 르뱅 쿠키",
-          "price": 4000,
-          "priceText": "4,000원"
-        },
-        {
-          "description": "딸기가 70% 이상들어간 딸기청으로 만든 겨울철 최고 인기메뉴 딸기라떼",
-          "name": "딸기라떼(ONLY ICE)",
-          "price": 6500,
-          "priceText": "6,500원"
-        },
-        {
-          "description": "ONLY ICE",
-          "name": "딥초코라떼",
-          "price": 6500,
-          "priceText": "6,500원"
-        },
-        {
-          "description": "",
-          "name": "쑥크림라떼(ONLY ICE)",
-          "price": 6500,
-          "priceText": "6,500원"
-        },
-        {
-          "description": "ONLY ICE",
-          "name": "[ 저당 ] 자몽에이드(ONLY ICE)",
-          "price": 6500,
-          "priceText": "6,500원"
-        },
-        {
-          "description": "ONLY ICE",
-          "name": "흑임자 미숫가루",
-          "price": 6000,
-          "priceText": "6,000원"
-        },
-        {
-          "description": "",
-          "name": "캐모마일 티",
-          "price": 5500,
-          "priceText": "5,500원"
-        },
-        {
-          "description": "",
-          "name": "얼그레이 티",
-          "price": 5500,
-          "priceText": "5,500원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1681457904/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 1361,
-      "naverBlogReviewCount": 313,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-069",
@@ -14085,13 +13628,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1133483065",
       "naverSearchQuery": "요거 문정점",
-      "naverMenus": [],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1133483065/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 4,
-      "naverBlogReviewCount": 1,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-086",
@@ -14566,56 +14104,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "2091645247",
       "naverSearchQuery": "디저트 문정(1호점)",
-      "naverVisitorReviewCount": 1356,
-      "naverBlogReviewCount": 184,
-      "naverMenus": [
-        {
-          "description": "성인/중고생",
-          "name": "평일런치(오후 5시 이전 퇴장 기준)",
-          "price": 27900,
-          "priceText": "27,900원"
-        },
-        {
-          "description": "성인/중고생",
-          "name": "평일 디너(오후 5시 이후 퇴장기준)",
-          "price": 31900,
-          "priceText": "31,900원"
-        },
-        {
-          "description": "성인/중고생",
-          "name": "주말/공휴일(런치,디너 동일적용)",
-          "price": 36900,
-          "priceText": "36,900원"
-        },
-        {
-          "description": "입학기(3월1일)부터 요금 적용",
-          "name": "초등학생(평일런치)",
-          "price": 16900,
-          "priceText": "16,900원"
-        },
-        {
-          "description": "입학기(3월1일)부터 요금 적용",
-          "name": "초등학생(평일디너)",
-          "price": 17900,
-          "priceText": "17,900원"
-        },
-        {
-          "description": "",
-          "name": "초등학생(주말/공휴일)",
-          "price": 18900,
-          "priceText": "18,900원"
-        },
-        {
-          "description": "",
-          "name": "미취학 아동(36개월 이상)",
-          "price": 9900,
-          "priceText": "9,900원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2091645247/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-089",
@@ -15000,9 +14490,42 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": null,
+      "naverPlaceId": "1416787139",
       "naverSearchQuery": "사샤커피",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "아메리카노(블랙/화이트)",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "",
+          "name": "라떼",
+          "price": 3000,
+          "priceText": "3,000원"
+        },
+        {
+          "description": "",
+          "name": "100% 착즙쥬스",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "",
+          "name": "그외 베버리지",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "",
+          "name": "디져트(케익)",
+          "price": null,
+          "priceText": ""
+        }
+      ],
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1416787139/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-094",
@@ -15847,98 +15370,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1784731805",
       "naverSearchQuery": "투썸플레이스(문정법조타운점)",
-      "naverVisitorReviewCount": 125,
-      "naverBlogReviewCount": 84,
-      "naverMenus": [
-        {
-          "description": "화이트 초코 생크림과 고소한 아몬드 크런치를 더한 순백의 생크림 케이크",
-          "name": "화이트 스초생",
-          "price": 39000,
-          "priceText": "39,000원"
-        },
-        {
-          "description": "🍓부드러운 생크림과 진한 초코, 상큼한 딸기의 완벽 조합! 투썸 No1 케이크!!",
-          "name": "스초생",
-          "price": 39000,
-          "priceText": "39,000원"
-        },
-        {
-          "description": "블랙쿠키 층에 마스카포네 크림의 수분이 전이되어 촉촉하고 부드럽게 즐기는 케이크",
-          "name": "아박 홀케이크",
-          "price": 34000,
-          "priceText": "34,000원"
-        },
-        {
-          "description": "투썸 고유의 원두 풍미를 느낄 수 있는 에스프레소 음료",
-          "name": "아메리카노(R)",
-          "price": 4700,
-          "priceText": "4,700원"
-        },
-        {
-          "description": "",
-          "name": "말차크림라떼",
-          "price": 5000,
-          "priceText": "5,000원"
-        },
-        {
-          "description": "",
-          "name": "아이스말차",
-          "price": 4200,
-          "priceText": "4,200원"
-        },
-        {
-          "description": "",
-          "name": "스트로베리말차라떼",
-          "price": 5000,
-          "priceText": "5,000원"
-        },
-        {
-          "description": "담백한 생크림과 부드러운 시트, 딸기를 풍성하게 올린 생크림 케이크",
-          "name": "딸기생크림1호 케이크",
-          "price": 36000,
-          "priceText": "36,000원"
-        },
-        {
-          "description": "초코생크림과 마시멜로, 초코릿칩이 어우러진 귀여운 곰돌이 모양의 생크림 케이크",
-          "name": "투썸 해피데이 베어",
-          "price": 38000,
-          "priceText": "38,000원"
-        },
-        {
-          "description": "TWG TEA를 우려낸 향긋한 밀크티 크림과 쉬폰시트와 어우러진 부드러운 밀크티 쉬폰케이크",
-          "name": "TWG얼그레이밀크티쉬폰",
-          "price": 36000,
-          "priceText": "36,000원"
-        },
-        {
-          "description": "스팀밀크 위에 부드러운 우유 거품을 살짝 올려준 에스프레소 음료",
-          "name": "카페라떼(R)",
-          "price": 5200,
-          "priceText": "5,200원"
-        },
-        {
-          "description": "상큼한 요거트에 제철 맞은 딸기를 듬뿍 넣어 새콤 달콤하게 즐기는 요거트 라떼",
-          "name": "제철 맞은 딸기 요거트라떼(R)",
-          "price": 6200,
-          "priceText": "6,200원"
-        },
-        {
-          "description": "ICED ONLY 제철 맞은 딸기에 고소한 우유를 더해 부드럽게 즐기는 딸기 라떼",
-          "name": "제철 맞은 딸기 라떼(R)",
-          "price": 6800,
-          "priceText": "6,800원"
-        },
-        {
-          "description": "제철 맞은 생딸기를 듬뿍 갈아 만든 주스에 알룰로스 시럽을 더한 딸기주스",
-          "name": "생딸기 주스 로우 슈거(R)",
-          "price": 7300,
-          "priceText": "7,300원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1784731805/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-100",
@@ -17065,80 +16498,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1801212722",
       "naverSearchQuery": "돌돌분식",
-      "naverMenus": [
-        {
-          "description": "",
-          "name": "김밥",
-          "price": 3000,
-          "priceText": "3,000원"
-        },
-        {
-          "description": "",
-          "name": "참치김밥",
-          "price": 3500,
-          "priceText": "3,500원"
-        },
-        {
-          "description": "",
-          "name": "치즈김밥",
-          "price": 3500,
-          "priceText": "3,500원"
-        },
-        {
-          "description": "",
-          "name": "라면",
-          "price": 3500,
-          "priceText": "3,500원"
-        },
-        {
-          "description": "",
-          "name": "소고기김밥",
-          "price": 4500,
-          "priceText": "4,500원"
-        },
-        {
-          "description": "",
-          "name": "멸치고추김밥",
-          "price": 4000,
-          "priceText": "4,000원"
-        },
-        {
-          "description": "",
-          "name": "치즈라면",
-          "price": 4000,
-          "priceText": "4,000원"
-        },
-        {
-          "description": "",
-          "name": "만두라면",
-          "price": 4500,
-          "priceText": "4,500원"
-        },
-        {
-          "description": "",
-          "name": "들깨칼국수",
-          "price": 6000,
-          "priceText": "6,000원"
-        },
-        {
-          "description": "",
-          "name": "우동",
-          "price": 6000,
-          "priceText": "6,000원"
-        },
-        {
-          "description": "계절메뉴",
-          "name": "열무냉국수",
-          "price": 6000,
-          "priceText": "6,000원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1801212722/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 18,
-      "naverBlogReviewCount": 2,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-107",
@@ -17727,7 +17088,78 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "고소한 풍미 가득, 바사한 식감에 정성을 담은 72시간 숙성 돈가스",
+          "name": "돈,",
+          "price": 11500,
+          "priceText": "11,500원"
+        },
+        {
+          "description": "카츠 파,랑 특제 소스로 만든 파채와 함께 끝맛까지 개운한 파채 돈가스",
+          "name": "파,돈",
+          "price": 13500,
+          "priceText": "13,500원"
+        },
+        {
+          "description": "풍미 가득한 볶음밥과 치즈를 고기로 감싸 튀겨낸 색다른 식감과 맛의 치즈롤 돈가스",
+          "name": "치,돈",
+          "price": 13500,
+          "priceText": "13,500원"
+        },
+        {
+          "description": "풍미 가득한 볶음밥 위에 돈가스",
+          "name": "볶,돈",
+          "price": 12500,
+          "priceText": "12,500원"
+        },
+        {
+          "description": "매콤한 김치 볶음밥 위에 돈가스",
+          "name": "김,볶,돈",
+          "price": 13000,
+          "priceText": "13,000원"
+        },
+        {
+          "description": "매콤한 김치 볶음밥 위에 치즈 돈가스",
+          "name": "김,볶,치",
+          "price": 14000,
+          "priceText": "14,000원"
+        },
+        {
+          "description": "직화 제육 덮밥 위에 돈가스",
+          "name": "제,돈",
+          "price": 14000,
+          "priceText": "14,000원"
+        },
+        {
+          "description": "부드러운 돼지고기에 특제 양념을 더해 감칠맛 가득 직화 제육 덮밥",
+          "name": "제육 덮밥",
+          "price": 11500,
+          "priceText": "11,500원"
+        },
+        {
+          "description": "탱글한 오징어에 매콤한 양념을 더해 입맛 돋우는 불맛 가득 오징어 덮밥",
+          "name": "오징어 덮밥",
+          "price": 13000,
+          "priceText": "13,000원"
+        },
+        {
+          "description": "",
+          "name": "어니언링",
+          "price": 6000,
+          "priceText": "6,000원"
+        },
+        {
+          "description": "",
+          "name": "오징어튀김",
+          "price": 7000,
+          "priceText": "7,000원"
+        }
+      ],
+      "naverPlaceId": "2079485357",
+      "naverSearchQuery": "카츠파랑",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2079485357/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-112",
@@ -21236,74 +20668,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1368045224",
       "naverSearchQuery": "맥머드익스프레스(문정점)",
-      "naverMenus": [
-        {
-          "description": "",
-          "name": "녹차/토피넛 샷 라떼",
-          "price": 2700,
-          "priceText": "2,700원"
-        },
-        {
-          "description": "",
-          "name": "꿀/바닐라/아몬드 라떼",
-          "price": 2200,
-          "priceText": "2,200원"
-        },
-        {
-          "description": "",
-          "name": "아메리카노",
-          "price": 900,
-          "priceText": "900원"
-        },
-        {
-          "description": "달콤한 바나나와 에스프레소가 잘 어울리는 음료",
-          "name": "바나나 달달 커피",
-          "price": 2300,
-          "priceText": "2,300원"
-        },
-        {
-          "description": "씁쓸하고 달달한 베트남식 커피",
-          "name": "베트남 연유 커피",
-          "price": 2300,
-          "priceText": "2,300원"
-        },
-        {
-          "description": "헤이즐넛이 커피와 어우러져 입안 가득 좋은 향이 퍼지는 라떼",
-          "name": "헤이즐넛 라떼",
-          "price": 2500,
-          "priceText": "2,500원"
-        },
-        {
-          "description": "헤이즐넛이 커피와 어우러져 입안 가득 좋은 향이 퍼지는 커피",
-          "name": "헤이즐넛 커피",
-          "price": 1800,
-          "priceText": "1,800원"
-        },
-        {
-          "description": "초코와 카페라떼의 조합으로 달달하고 취향에 따라 휘핑과 함께 즐길 수 있는 커피",
-          "name": "카페모카",
-          "price": 2400,
-          "priceText": "2,400원"
-        },
-        {
-          "description": "아메리카노에 꿀을 더해 자극없이 편안하게 즐길수있는 음료",
-          "name": "꿀 커피",
-          "price": 1500,
-          "priceText": "1,500원"
-        },
-        {
-          "description": "에스프레소에 우유를 더해, 보다 부드럽고 포만감을 느낄 수 있는 커피",
-          "name": "카페라떼",
-          "price": 1900,
-          "priceText": "1,900원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1368045224/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 277,
-      "naverBlogReviewCount": 3,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-133",
@@ -21472,50 +20838,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "33928773",
       "naverSearchQuery": "육쌈",
-      "naverMenus": [
-        {
-          "description": "",
-          "name": "물냉면+숯불고기",
-          "price": 7000,
-          "priceText": "7,000원"
-        },
-        {
-          "description": "",
-          "name": "비빔냉면+숯불고기",
-          "price": 7000,
-          "priceText": "7,000원"
-        },
-        {
-          "description": "",
-          "name": "비빔밥+숯불고기",
-          "price": 7000,
-          "priceText": "7,000원"
-        },
-        {
-          "description": "",
-          "name": "돌솥비빔밥+숯불고기",
-          "price": 8000,
-          "priceText": "8,000원"
-        },
-        {
-          "description": "",
-          "name": "숯불고기덮밥",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "",
-          "name": "육개장칼국수+숯불고기",
-          "price": 8000,
-          "priceText": "8,000원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/33928773/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 901,
-      "naverBlogReviewCount": 70,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-135",
@@ -21910,104 +21234,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "2047835757",
       "naverSearchQuery": "부산돼지국밥 가야밀면",
-      "naverMenus": [
-        {
-          "description": "국내산 우사골 돈골로 진하게 우린 육수와 얇게 썬 살코기가 들어간 영양만점 돼지국밥입니다.",
-          "name": "아지매국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "전통방식으로 직접 만든 순대를 첨가해 일반 순대국밥과 차별화된 순대국밥입니다.",
-          "name": "순대국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "진한육수에 전통순대와 찰순대가 함께 어울러진 깔끔한 순대국밥 입니다.",
-          "name": "순대만국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "머릿고기와 순대가 같이 들어가 맛있는 전통옛날방식의 전통순대국밥입니다.",
-          "name": "전통순대국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "국내산 우사골 돈골로 진하게 우려낸 육수에 쫄깃한 머릿고기만 들어간 국밥입니다.",
-          "name": "머릿고기만국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "쫄깃 오소리감투, 다리살, 전통순대, 얼큰다대기 첨가 숙취해소에 좋은 얼큰한국밥입니다.",
-          "name": "얼큰이국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "오소리감투와 곱창이 어우러져 쫄깃하고 얼큰한 깊은 맛을 느낄 수 있습니다.",
-          "name": "얼큰이내장국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "부드러운 순두부와 담백한 돼지고기의 맛이 속을 얼큰하게 풀어주는 해장용 순두부국밥입니다.",
-          "name": "순두부국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "콩나물과 적당히 익은 김치가 청양고추 첨가해 아삭하고 칼칼해 해장으로 끝내줍니다.",
-          "name": "김치순대국밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "야들야들한 살코기가 듬뿍들어간 시원한 뼈해장국으로 든든한 한끼하세요.",
-          "name": "뼈해장국",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "탱글탱글한 쭈꾸미를 매콤한 양념에 불맛을 더한 비빔밥입니다.",
-          "name": "쭈꾸미비빔밥",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "탱글한 쭈꾸미와 삼겹살에 매콤한 양념으로 불맛을 입힌 맛있는 쭈삼비빔밥입니다.",
-          "name": "쭈삼비빔밥",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "매콤한 양념에 불맛을 입힌 제육과 신선한 비빔야채가 들어간 맛있는 제육비빔밥입니다.",
-          "name": "제육비빔밥",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "부산의 3대 명물로 쫄깃한 식감에 시원한 육수로 더위를 날려주는 별미밀면입니다.",
-          "name": "물밀면",
-          "price": 9000,
-          "priceText": "9,000원"
-        },
-        {
-          "description": "부산의 명물로 매콤한 양념에 슥슥 비벼먹는 쫄깃하고 시원한 별미밀면입니다.",
-          "name": "비빔밀면",
-          "price": 9000,
-          "priceText": "9,000원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2047835757/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 113,
-      "naverBlogReviewCount": 13,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-137",
@@ -22186,164 +21414,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1898616601",
       "naverSearchQuery": "문정김밥",
-      "naverMenus": [
-        {
-          "description": "마녀김밥을 대표하는 가장 인기있는 김밥 튀긴 맛살이 들어가 고소한 맛이 일품",
-          "name": "마녀김밥",
-          "price": 5100,
-          "priceText": "5,100원"
-        },
-        {
-          "description": "쌀떡+치즈떡+부산어묵+메추리알+비엔나+오징어땡",
-          "name": "마녀떡볶이(1인분)",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "묵은지와 참치, 산고추의 조화로움에 탄성을 내뱉게 되는 김밥",
-          "name": "묵참김밥",
-          "price": 6800,
-          "priceText": "6,800원"
-        },
-        {
-          "description": "뚱뚱한 돈까스가 각종 야채사이에 균형있게 자리잡은 김밥",
-          "name": "뚱 돈까스김밥",
-          "price": 6600,
-          "priceText": "6,600원"
-        },
-        {
-          "description": "스팸 본연의 맛을 느끼도록 커다란 스팸이 덩어리째 들어있는 김밥 ( + 오이, 마요네즈 들어갑니다 )",
-          "name": "뚱 스팸김밥",
-          "price": 6600,
-          "priceText": "6,600원"
-        },
-        {
-          "description": "마녀김밥을 대표하는 가장 인기있는 김밥 튀긴 맛살이 들어가 고소한 맛이 일품",
-          "name": "마녀김밥",
-          "price": 5100,
-          "priceText": "5,100원"
-        },
-        {
-          "description": "부드러운 계란이 보송보송 한 가득 들어간 김밥 ( + 오이 , 마요네즈 들어갑니다 )",
-          "name": "계란마녀김밥",
-          "price": 6200,
-          "priceText": "6,200원"
-        },
-        {
-          "description": "묵은지와 참치, 산고추의 조화로움에 탄성을 내뱉게 되는 김밥",
-          "name": "묵참김밥",
-          "price": 6800,
-          "priceText": "6,800원"
-        },
-        {
-          "description": "맛있게 익은 묵은지가 산고추 & 각종 채소와 잘 어울려 아삭하고 매콤한 식감이 특징인 김밥",
-          "name": "묵은지김밥",
-          "price": 6400,
-          "priceText": "6,400원"
-        },
-        {
-          "description": "담백한 참치와 고소한 마요네즈가 어우러진 김밥",
-          "name": "참치김밥",
-          "price": 6200,
-          "priceText": "6,200원"
-        },
-        {
-          "description": "밥 대신 계란과 묵은지, 참치, 야채들로 이루어진 새콤하고 담백한 저탄수의 김밥 ( + 산고추 들어갑니다 )",
-          "name": "키토묵참김밥",
-          "price": 8800,
-          "priceText": "8,800원"
-        },
-        {
-          "description": "밥 대신 계란과 묵은지, 야채들로 이루어진 새콤하고 시원한 저탄수의 김밥 ( + 산고추 들어갑니다 )",
-          "name": "키토묵은지김밥",
-          "price": 8400,
-          "priceText": "8,400원"
-        },
-        {
-          "description": "밥 대신 계란과 돈까스, 야채들로 이루어진 담백한 저탄수의 김밥",
-          "name": "키토돈까스김밥",
-          "price": 8600,
-          "priceText": "8,600원"
-        },
-        {
-          "description": "밥 대신 계란과 스팸, 야채들로 이루어진 담백한 저탄수의 김밥 ( + 오이 , 마요네즈 들어갑니다 )",
-          "name": "키토스팸김밥",
-          "price": 8600,
-          "priceText": "8,600원"
-        },
-        {
-          "description": "밥 대신 계란과 참치, 야채들로 이루어진 담백한 저탄수의 김밥",
-          "name": "키토참치김밥",
-          "price": 8200,
-          "priceText": "8,200원"
-        },
-        {
-          "description": "쌀떡+치즈떡+부산어묵+메추리알+비엔나+오징어땡",
-          "name": "마녀떡볶이(1인분)",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "밀떡+비엔나+메추리알+브로콜리+당면+양송이",
-          "name": "로제떡볶이(1인분)",
-          "price": 9300,
-          "priceText": "9,300원"
-        },
-        {
-          "description": "밀떡+치즈떡+부산어묵+메추리알+비엔나+오징어땡",
-          "name": "밀떡볶이",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "기존 마녀떡볶이 양념에 떡 없이 여러 종류의 어묵으로만 이루어진 어묵볶이 ( 신라면 보다 살짝 매운맛 ) 덜 맵게 원하시면 꼭 알려주세요",
-          "name": "어묵볶이(1인분)",
-          "price": 8400,
-          "priceText": "8,400원"
-        },
-        {
-          "description": "살짝 매콤합니다 (신라면 보다 덜 매운 맛) +리뉴얼 된 어묵탕에 들어가는 어묵 자체가 매콤하기 때문에 맵기 조절이 불가능한 점 양해부탁드립니다+",
-          "name": "어묵탕(1인분)",
-          "price": 7900,
-          "priceText": "7,900원"
-        },
-        {
-          "description": "",
-          "name": "코카콜라(355ml)",
-          "price": 2000,
-          "priceText": "2,000원"
-        },
-        {
-          "description": "",
-          "name": "환타 (파인)(355ml)",
-          "price": 2000,
-          "priceText": "2,000원"
-        },
-        {
-          "description": "",
-          "name": "스프라이트(355ml)",
-          "price": 2000,
-          "priceText": "2,000원"
-        },
-        {
-          "description": "",
-          "name": "암바사(355ml)",
-          "price": 2000,
-          "priceText": "2,000원"
-        },
-        {
-          "description": "",
-          "name": "웰치스 (포도)(355ml)",
-          "price": 2000,
-          "priceText": "2,000원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1898616601/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 2860,
-      "naverBlogReviewCount": 79,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-139",
@@ -25616,13 +24688,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "31263823",
       "naverSearchQuery": "쏘울",
-      "naverMenus": [],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/place/31263823/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 1,
-      "naverBlogReviewCount": 3,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-162",
@@ -26050,12 +25117,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1006561268",
       "naverSearchQuery": "플루핏",
-      "naverMenus": [],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/place/1006561268/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 12,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-168",
@@ -28220,44 +27283,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "37015344",
       "naverSearchQuery": "한솔냉면(현대아울렛)",
-      "naverMenus": [
-        {
-          "description": "",
-          "name": "한솔물냉면",
-          "price": 8500,
-          "priceText": "8,500원"
-        },
-        {
-          "description": "",
-          "name": "한솔비빔낸면",
-          "price": 8500,
-          "priceText": "8,500원"
-        },
-        {
-          "description": "",
-          "name": "한솔명태회냉면",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
-          "description": "",
-          "name": "한솔물냉면+만두1개",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
-          "description": "",
-          "name": "한솔비빔냉면+만두1개",
-          "price": 9500,
-          "priceText": "9,500원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/37015344/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 136,
-      "naverBlogReviewCount": 9,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-186",
@@ -28296,12 +27323,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "1271370728",
       "naverSearchQuery": "호두앤(현대아울렛)",
-      "naverVisitorReviewCount": 863,
-      "naverMenus": [],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1271370728/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-187",
@@ -28418,20 +27441,8 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": "38219545",
       "naverSearchQuery": "공차(현대아울렛)",
-      "naverMenus": [
-        {
-          "description": "",
-          "name": "블랙밀크티+펄 LARGE",
-          "price": 5100,
-          "priceText": "5,100원"
-        }
-      ],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/38219545/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 752,
-      "naverBlogReviewCount": 12,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenus": []
     },
     {
       "id": "sikgwon-190",
