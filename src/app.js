@@ -139,7 +139,7 @@ function startMarbleGame() {
   stage.innerHTML = `
     <div class="marble-game is-running" id="marbleStage">
       <canvas id="marbleCanvas"></canvas>
-      <p class="game-wait">마블 레이스 진행 중...</p>
+      <p class="game-wait">핀볼 떨어지는 중...</p>
     </div>
   `;
   const canvas = document.getElementById("marbleCanvas");
@@ -444,7 +444,7 @@ function categoryText(item) {
 function modeLabel(mode) {
   if (mode === "ladder") return "사다리";
   if (mode === "roulette") return "룰렛";
-  if (mode === "marble") return "마블";
+  if (mode === "marble") return "핀볼";
   return "바로 고르기";
 }
 
@@ -564,9 +564,9 @@ function pendingHeroMessage() {
   }
   if (state.mode === "marble" && state.gamePhase === "running") {
     return {
-      title: "구슬 굴리는 중",
-      name: "마블이 룰렛을 한 바퀴 돌고 있어요.",
-      reason: "5초 뒤 멈춘 칸을 공개합니다.",
+      title: "핀볼 떨어지는 중",
+      name: "공들이 페그를 부딪히며 내려가고 있어요.",
+      reason: "가장 먼저 바닥에 닿는 공이 당첨입니다.",
       showButton: false,
     };
   }
