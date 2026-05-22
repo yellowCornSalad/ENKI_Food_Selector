@@ -471,6 +471,7 @@ h1 {
   stroke: #0f766e;
   stroke-width: 6;
   stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .ladder-game.is-covered .ladder-line,
@@ -493,9 +494,16 @@ h1 {
 }
 
 .ladder-game.is-running .ladder-path {
-  stroke-dasharray: 180;
-  stroke-dashoffset: 180;
-  animation: ladder-drop 3s linear both;
+  fill: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: ladder-snake 3s cubic-bezier(0.22, 0.72, 0.2, 1) both;
+}
+
+.ladder-game.is-done .ladder-path {
+  fill: none;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
 }
 
 .game-wait,
@@ -506,7 +514,19 @@ h1 {
   text-align: center;
 }
 
-@keyframes ladder-drop {
+@keyframes ladder-snake {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  18% {
+    stroke-dashoffset: 86;
+  }
+  42% {
+    stroke-dashoffset: 58;
+  }
+  70% {
+    stroke-dashoffset: 26;
+  }
   to {
     stroke-dashoffset: 0;
   }

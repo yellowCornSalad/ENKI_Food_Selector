@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-1";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-2";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -418,20 +418,21 @@ function renderLadder(game) {
   const xFor = (lane) => left + gap * lane;
   const yFor = (row) => top + rowGap * (row + 1);
   const activeRungs = new Set();
-  const activeVerticals = [];
+  const snakePoints = [{ x: xFor(game.startLane), y: top }];
   let activeLane = game.startLane;
   let cursorY = top;
   for (const point of game.path.slice(1)) {
     const rowY = yFor(point.row);
-    activeVerticals.push({ lane: activeLane, y1: cursorY, y2: rowY });
+    snakePoints.push({ x: xFor(activeLane), y: rowY });
     if (point.lane !== activeLane) {
       const from = Math.min(activeLane, point.lane);
       activeRungs.add(`${point.row}-${from}`);
+      snakePoints.push({ x: xFor(point.lane), y: rowY });
     }
     activeLane = point.lane;
     cursorY = rowY;
   }
-  activeVerticals.push({ lane: activeLane, y1: cursorY, y2: bottom });
+  snakePoints.push({ x: xFor(activeLane), y: bottom });
   const verticals = game.items
     .map((_, index) => `<line class="ladder-line" x1="${xFor(index)}" y1="${top}" x2="${xFor(index)}" y2="${bottom}" />`)
     .join("");
@@ -441,9 +442,8 @@ function renderLadder(game) {
       return `<line class="ladder-rung${active}" x1="${xFor(from)}" y1="${yFor(row)}" x2="${xFor(from + 1)}" y2="${yFor(row)}" />`;
     })
     .join("");
-  const path = activeVerticals
-    .map(({ lane, y1, y2 }) => `<line class="ladder-path" x1="${xFor(lane)}" y1="${y1}" x2="${xFor(lane)}" y2="${y2}" />`)
-    .join("");
+  const pathData = snakePoints.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`).join(" ");
+  const path = `<path class="ladder-path" d="${pathData}" pathLength="100" />`;
   const showPath = state.gamePhase === "running" || state.gamePhase === "done";
   const revealResult = state.gamePhase === "done";
   const starts = game.items
