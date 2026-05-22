@@ -1141,6 +1141,17 @@ h1 {
 .marble-game {
   display: grid;
   gap: 10px;
+  justify-items: center;
+}
+
+.marble-game canvas {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 12px;
+  background: #0f172a;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.48);
 }
 
 .marble-arena {

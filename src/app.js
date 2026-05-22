@@ -1,4 +1,5 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-18";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-22";
+import { startMarbleRace } from "./marble-race.js?v=20260522-22";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -17,9 +18,22 @@ const state = {
   resultTimer: null,
   expandedCandidates: new Set(),
   lastGameResult: null,
+  marbleItems: null,
+  marbleWinnerIndex: null,
+  marbleCleanup: null,
 };
 
 const MAX_USER_MENUS = 8;
+const MARBLE_COLORS = [
+  "#dc2626",
+  "#f59e0b",
+  "#0ea5e9",
+  "#a855f7",
+  "#10b981",
+  "#f43f5e",
+  "#22d3ee",
+  "#facc15",
+];
 
 const preferenceOptions = [
   { id: "korean", label: "한식" },
@@ -96,16 +110,57 @@ function chooseMeal() {
   state.gameSeed += 1;
   state.ladderWarning = false;
   state.selectedStartLane = null;
+  state.marbleWinnerIndex = null;
   if (state.mode === "ladder") {
     state.gamePhase = "ready";
     state.hasPicked = false;
     render();
     return;
   }
+  if (state.mode === "marble") {
+    state.gamePhase = "running";
+    state.hasPicked = false;
+    render();
+    startMarbleGame();
+    return;
+  }
   state.gamePhase = "running";
   state.hasPicked = false;
   render();
   scheduleResultReveal(5000);
+}
+
+function startMarbleGame() {
+  const stage = $("#gameStage");
+  const items = buildWheelItems(userMenuItems(), state.gameSeed);
+  state.marbleItems = items;
+  state.marbleWinnerIndex = null;
+
+  stage.innerHTML = `
+    <div class="marble-game is-running" id="marbleStage">
+      <canvas id="marbleCanvas"></canvas>
+      <p class="game-wait">마블 레이스 진행 중...</p>
+    </div>
+  `;
+  const canvas = document.getElementById("marbleCanvas");
+  const slotColors = items.map((item, i) => {
+    if (item.type === "again") return "#94a3b8";
+    if (item.type === "miss") return "#475569";
+    return MARBLE_COLORS[i % MARBLE_COLORS.length];
+  });
+
+  if (state.marbleCleanup) state.marbleCleanup();
+  state.marbleCleanup = startMarbleRace({
+    canvas,
+    items,
+    slotColors,
+    onFinish: (winnerIndex) => {
+      state.marbleWinnerIndex = winnerIndex;
+      state.gamePhase = "done";
+      state.hasPicked = true;
+      render();
+    },
+  });
 }
 
 function setMode(mode) {
@@ -164,6 +219,12 @@ function resetGameProgress() {
   state.resultTimer = null;
   state.gamePhase = "setup";
   state.selectedStartLane = null;
+  if (state.marbleCleanup) {
+    state.marbleCleanup();
+    state.marbleCleanup = null;
+  }
+  state.marbleItems = null;
+  state.marbleWinnerIndex = null;
 }
 
 function scheduleResultReveal(ms) {
@@ -413,7 +474,7 @@ function renderGameStage() {
     return;
   }
   if (state.mode === "marble" && (state.gamePhase === "running" || (state.gamePhase === "done" && state.hasPicked))) {
-    stage.innerHTML = renderMarble(createMarbleGame(items, state.gameSeed));
+    updateMarbleStage();
     return;
   }
   if (needsManualChoices(state.mode)) {
@@ -421,6 +482,25 @@ function renderGameStage() {
     return;
   }
   stage.innerHTML = `<p>하단 "메뉴 고르기" 버튼을 누르면 자동 추천을 받습니다.</p>`;
+}
+
+function updateMarbleStage() {
+  const stage = $("#gameStage");
+  let game = stage.querySelector(".marble-game");
+  if (!game) {
+    // canvas not mounted yet; keep current contents (startMarbleGame will mount)
+    return;
+  }
+  if (state.gamePhase === "done" && state.marbleItems && state.marbleWinnerIndex != null) {
+    game.classList.remove("is-running");
+    game.classList.add("is-done");
+    const wait = game.querySelector(".game-wait");
+    if (wait) wait.remove();
+    if (!game.querySelector(".game-result")) {
+      const winner = state.marbleItems[state.marbleWinnerIndex];
+      game.insertAdjacentHTML("beforeend", renderWheelResult(winner));
+    }
+  }
 }
 
 function userMenuItems() {
@@ -945,18 +1025,22 @@ function render() {
 function selectGameWinner(recommendations) {
   if (!state.hasPicked || state.gamePhase !== "done") return recommendations;
   if (!needsManualChoices(state.mode)) return recommendations;
-  const items = userMenuItems();
-  if (!items.length) return recommendations;
-  let game = null;
-  if (state.mode === "ladder") {
-    game = createLadderGame(items, state.gameSeed, state.selectedStartLane ?? 0);
-  } else if (state.mode === "roulette") {
-    game = createRouletteGame(items, state.gameSeed);
-  } else if (state.mode === "marble") {
-    game = createMarbleGame(items, state.gameSeed);
+  let winner = null;
+  if (state.mode === "marble") {
+    if (!state.marbleItems || state.marbleWinnerIndex == null) return recommendations;
+    winner = state.marbleItems[state.marbleWinnerIndex];
+  } else {
+    const items = userMenuItems();
+    if (!items.length) return recommendations;
+    let game = null;
+    if (state.mode === "ladder") {
+      game = createLadderGame(items, state.gameSeed, state.selectedStartLane ?? 0);
+    } else if (state.mode === "roulette") {
+      game = createRouletteGame(items, state.gameSeed);
+    }
+    if (!game) return recommendations;
+    winner = game.items[game.winnerIndex];
   }
-  if (!game) return recommendations;
-  const winner = game.items[game.winnerIndex];
   if (!winner) return recommendations;
   if (winner.type === "miss") {
     return [buildMissResult(), ...recommendations];
