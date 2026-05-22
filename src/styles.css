@@ -765,9 +765,30 @@ h1 {
   stroke-linejoin: round;
 }
 
-.ladder-game.is-covered .ladder-line,
+.ladder-rung {
+  opacity: 0;
+}
+
+.ladder-game.is-covered .ladder-line {
+  opacity: 0.55;
+}
+
 .ladder-game.is-covered .ladder-rung {
-  opacity: 0.12;
+  opacity: 0;
+}
+
+.ladder-game.is-running .ladder-rung {
+  animation: ladder-rung-reveal 0.45s ease-out forwards;
+  animation-delay: var(--rung-delay, 0s);
+}
+
+.ladder-game.is-done .ladder-rung {
+  opacity: 1;
+}
+
+@keyframes ladder-rung-reveal {
+  from { opacity: 0; transform: scaleX(0.7); transform-origin: center; }
+  to { opacity: 1; transform: scaleX(1); }
 }
 
 .ladder-cover {
@@ -788,7 +809,7 @@ h1 {
   fill: none;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
-  animation: ladder-snake 3s cubic-bezier(0.22, 0.72, 0.2, 1) both;
+  animation: ladder-snake 5s cubic-bezier(0.22, 0.72, 0.2, 1) both;
 }
 
 .ladder-game.is-done .ladder-path {

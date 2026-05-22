@@ -242,7 +242,7 @@ function startLadder(lane) {
   state.gamePhase = "running";
   state.hasPicked = false;
   render();
-  scheduleResultReveal(3000);
+  scheduleResultReveal(5000);
 }
 
 function renderPreferenceChips() {
@@ -549,7 +549,7 @@ function pendingHeroMessage() {
       return {
         title: "사다리 내려가는 중",
         name: "막대기가 길을 따라 내려가고 있어요.",
-        reason: "3초 뒤 결과를 공개합니다.",
+        reason: "5초 뒤 결과를 공개합니다.",
         showButton: false,
       };
     }
@@ -819,10 +819,14 @@ function renderLadder(game) {
   const verticals = game.items
     .map((_, index) => `<line class="ladder-line" x1="${xFor(index)}" y1="${top}" x2="${xFor(index)}" y2="${bottom}" />`)
     .join("");
+  const ladderRows = 7;
   const rungs = game.rungs
     .map(({ row, from }) => {
       const active = activeRungs.has(`${row}-${from}`) ? " is-active" : "";
-      return `<line class="ladder-rung${active}" x1="${xFor(from)}" y1="${yFor(row)}" x2="${xFor(from + 1)}" y2="${yFor(row)}" />`;
+      // Reveal each row of rungs roughly when the snake reaches it (5s total animation, ease-out)
+      const progress = (row + 1) / ladderRows;
+      const delay = (progress * 4.4).toFixed(2);
+      return `<line class="ladder-rung${active}" style="--rung-delay:${delay}s" x1="${xFor(from)}" y1="${yFor(row)}" x2="${xFor(from + 1)}" y2="${yFor(row)}" />`;
     })
     .join("");
   const pathData = snakePoints.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`).join(" ");
@@ -856,7 +860,7 @@ function renderLadder(game) {
       ${
         revealResult
           ? `<p class="game-result"><strong>${escapeHtml(game.items[game.winnerIndex].label)}</strong> 당첨</p>`
-          : `<p class="game-wait">${state.gamePhase === "running" ? "두근두근... 내려가는 중" : "위 번호 중 하나를 골라주세요"}</p>`
+          : `<p class="game-wait">${state.gamePhase === "running" ? "두근두근... 사다리 따라 내려가는 중" : "위 번호 중 하나를 골라주세요"}</p>`
       }
     </div>
   `;
