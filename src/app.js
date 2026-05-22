@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-6";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-8";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -19,6 +19,7 @@ const state = {
 const preferenceOptions = [
   { id: "korean", label: "한식" },
   { id: "light", label: "가볍게" },
+  { id: "diet", label: "다이어트" },
   { id: "spicy", label: "매콤" },
   { id: "rice", label: "밥" },
   { id: "noodle", label: "면" },

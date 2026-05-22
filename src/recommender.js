@@ -3,6 +3,11 @@ const MEAL_WINDOWS = {
   dinner: { start: "17:00", end: "20:00" },
 };
 
+const MEAL_BUDGETS = {
+  lunch: 12000,
+  dinner: 12000,
+};
+
 export function getCurrentMeal(now) {
   const minutes = now.getHours() * 60 + now.getMinutes();
   if (minutes >= toMinutes(MEAL_WINDOWS.dinner.start)) return "dinner";
@@ -80,8 +85,23 @@ function pickMenu(restaurant, meal, preferences, seed) {
   if (!menus.length) return "추천 메뉴 확인 필요";
   const tagged = menus.filter((menu) => menu.tags?.some((tag) => preferences.has(tag)));
   const pool = tagged.length ? tagged : menus;
-  const index = deterministicNoise(`${restaurant.id}-${meal}-${seed}`, pool.length);
-  return pool[index]?.name ?? pool[0].name;
+  const budget = MEAL_BUDGETS[meal] ?? 12000;
+  const ranked = [...pool].sort((a, b) => priceDistance(a.name, budget) - priceDistance(b.name, budget));
+  const topSize = Math.min(3, ranked.length);
+  const index = deterministicNoise(`${restaurant.id}-${meal}-${seed}`, topSize);
+  return ranked[index]?.name ?? ranked[0]?.name ?? pool[0].name;
+}
+
+function priceDistance(name, budget) {
+  const price = extractPrice(name);
+  if (price == null) return Number.POSITIVE_INFINITY;
+  return Math.abs(price - budget);
+}
+
+function extractPrice(name) {
+  const match = String(name ?? "").match(/(\d{1,3}(?:,\d{3})+|\d{4,})\s*원/);
+  if (!match) return null;
+  return Number(match[1].replace(/,/g, ""));
 }
 
 function rotateTopChoices(ranked, pickIndex) {

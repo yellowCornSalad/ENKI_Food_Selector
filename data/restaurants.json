@@ -3048,7 +3048,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": false,
       "quick": true,
@@ -3730,7 +3731,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": false,
       "quick": true,
@@ -6769,7 +6771,7 @@
     {
       "id": "sikgwon-041",
       "name": "덤벨푸드 문정점",
-      "category": "식권대장 가맹점",
+      "category": "샐러드/건강식",
       "distanceM": 87,
       "sikgwonStatus": "confirmed",
       "active": true,
@@ -6779,7 +6781,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": true,
       "quick": true,
@@ -7040,7 +7043,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": false,
       "quick": true,
@@ -9320,7 +9324,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": false,
       "quick": true,
@@ -11046,7 +11051,7 @@
     {
       "id": "sikgwon-069",
       "name": "슬로우캘리 송파문정점",
-      "category": "식권대장 가맹점",
+      "category": "샐러드/건강식",
       "distanceM": 139,
       "sikgwonStatus": "confirmed",
       "active": true,
@@ -11056,7 +11061,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": true,
       "quick": true,
@@ -13753,7 +13759,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": false,
       "quick": true,
@@ -14595,7 +14602,7 @@
     {
       "id": "sikgwon-096",
       "name": "헬키푸키(문정점)",
-      "category": "식권대장 가맹점",
+      "category": "샐러드/건강식",
       "distanceM": 199,
       "sikgwonStatus": "confirmed",
       "active": true,
@@ -14605,7 +14612,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": true,
       "quick": true,
@@ -16656,7 +16664,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": false,
       "quick": true,
@@ -26697,7 +26706,8 @@
         "dinner"
       ],
       "tags": [
-        "quick"
+        "quick",
+        "diet"
       ],
       "teamFriendly": true,
       "quick": true,
