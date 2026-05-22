@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-9";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-10";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -371,7 +371,7 @@ function renderGameStage(recommendations) {
 }
 
 function renderChoiceSetup(recommendations) {
-  const options = gameOptions(recommendations).slice(0, 12);
+  const options = gameOptions(recommendations).slice(0, 8);
   const selectedCount = state.ladderSelections.size;
   const gameName = state.mode === "roulette" ? "룰렛판" : "사다리";
   const warning = state.ladderWarning ? `<p class="ladder-warning">${gameName}에 올릴 메뉴를 2개 이상 골라주세요.</p>` : "";
@@ -469,48 +469,66 @@ function foodMenuLabel(item) {
   const corpus = `${rawMenu} ${item.category ?? ""} ${item.name ?? ""}`;
   if (isDrinkOnly(corpus)) return "";
   const rules = [
-    [/샌드위치/i, "샌드위치"],
     [/햄버거|버거|burger/i, "햄버거"],
+    [/샌드위치|서브웨이|써브웨이/i, "샌드위치"],
+    [/베이글/i, "베이글"],
     [/감자탕/i, "감자탕"],
-    [/해장국|뼈해장국/i, "해장국"],
+    [/뼈해장국|해장국/i, "해장국"],
     [/설렁탕/i, "설렁탕"],
-    [/짬뽕|짬/i, "짬뽕"],
+    [/육개장/i, "육개장"],
+    [/삼계탕|닭백숙/i, "삼계탕"],
+    [/돼지국밥|순대국밥|국밥/i, "국밥"],
+    [/순대|아바이/i, "순대"],
+    [/족발|보쌈/i, "족발"],
+    [/제육/i, "제육"],
+    [/짜장|간짜장|쟁반짜장/i, "짜장면"],
+    [/짬뽕/i, "짬뽕"],
+    [/탕수육|깐풍기|양장피|마파두부/i, "중식요리"],
+    [/김치찌개/i, "김치찌개"],
+    [/된장찌개/i, "된장찌개"],
     [/부대찌개|부찌/i, "부대찌개"],
     [/순두부/i, "순두부"],
     [/수제비|라제비/i, "수제비"],
+    [/칼국수|칼제비/i, "칼국수"],
     [/돈까스|돈카츠|카츠/i, "돈까스"],
     [/초밥|스시/i, "초밥"],
-    [/덮밥|가츠동|규동|오야코동/i, "덮밥"],
-    [/국밥/i, "국밥"],
-    [/김밥/i, "김밥"],
+    [/덮밥|가츠동|규동|오야코동|텐동/i, "덮밥"],
+    [/김밥|키토김밥/i, "김밥"],
     [/떡볶이/i, "떡볶이"],
     [/라멘|라면/i, "라멘"],
-    [/우동/i, "우동"],
-    [/쌀국수/i, "쌀국수"],
+    [/우동|쫄면/i, "우동"],
+    [/쌀국수|우육면/i, "쌀국수"],
     [/마라탕|마라샹궈/i, "마라탕"],
     [/파스타|스파게티/i, "파스타"],
     [/피자/i, "피자"],
-    [/치킨|닭강정/i, "치킨"],
-    [/샐러드|포케/i, "샐러드"],
-    [/냉면/i, "냉면"],
-    [/칼국수/i, "칼국수"],
-    [/찌개|김치찌개|된장찌개|부대찌개/i, "찌개"],
-    [/백반|정식/i, "백반"],
-    [/삼겹살|냉삼|한돈|갈매기살|항정살|돼지갈비|고기/i, "고기"],
+    [/치킨|닭강정|닭다리|닭가슴/i, "치킨"],
+    [/포케/i, "포케"],
+    [/통밀랩|랩샌드|보울/i, "샐러드"],
+    [/샐러드/i, "샐러드"],
+    [/냉면|밀면/i, "냉면"],
+    [/찌개/i, "찌개"],
+    [/쌈밥|한정식|밥상/i, "한정식"],
+    [/백반|정식|뷔페|도시락/i, "백반"],
+    [/오믈렛|오므라이스/i, "오믈렛"],
+    [/동태찜|찜닭|아구찜/i, "찜"],
+    [/와규|한우|안창살|살치살|등심|부채살|치마살|꽃살|척아이롤|우설|토마호크|아롱사태/i, "고기"],
+    [/삼겹살|냉삼|한돈|갈매기살|항정살|돼지갈비|돼지구이|숯불구이|소갈비/i, "고기"],
     [/샤브/i, "샤브샤브"],
   ];
   for (const [pattern, label] of rules) {
     if (pattern.test(corpus)) return label;
   }
-  if (looksLikeStoreName(rawMenu, item)) return fallbackFoodCategory(item);
-  if (!rawMenu || rawMenu === "추천 메뉴 확인 필요") return fallbackFoodCategory(item);
-  return rawMenu.length > 12 ? `${rawMenu.slice(0, 12)}...` : rawMenu;
+  return fallbackFoodCategory(item);
 }
 
 function fallbackFoodCategory(item) {
   const category = item.category || "";
   if (!category || category === "식권대장 가맹점") return "";
-  return category.replace(/\/.*$/, "").trim();
+  if (/편의점|마트|카페|베이커리/.test(category)) return "";
+  const first = category.split("/")[0].trim();
+  if (first === "버거") return "햄버거";
+  if (first === "샐러드") return "샐러드";
+  return first;
 }
 
 function looksLikeStoreName(menu, item) {
