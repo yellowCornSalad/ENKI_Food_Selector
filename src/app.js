@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-3";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-4";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -209,6 +209,7 @@ function renderTopPick(item) {
     <h2>${item.menu}</h2>
     <p class="restaurant-name">${item.name}</p>
     <p class="reason">${item.reason}</p>
+    ${renderSuggestionList(item)}
     <div class="detail-grid">
       <span>${item.category}</span>
       <span>${item.priceBand}</span>
@@ -260,6 +261,18 @@ function modeLabel(mode) {
   return "바로 고르기";
 }
 
+function renderSuggestionList(item) {
+  if (!item.suggestions?.length) return "";
+  const rows = item.suggestions
+    .slice(0, 4)
+    .map((suggestion) => {
+      const rating = ratingText(suggestion);
+      return `<li><strong>${suggestion.name}</strong><span>${suggestion.distanceM}m${rating ? ` · ${rating}` : ""}</span></li>`;
+    })
+    .join("");
+  return `<ul class="suggestion-list">${rows}</ul>`;
+}
+
 function renderGameStage(recommendations) {
   const stage = $("#gameStage");
   const items = gameItems(recommendations);
@@ -295,7 +308,7 @@ function renderGameStage(recommendations) {
 }
 
 function renderChoiceSetup(recommendations) {
-  const options = recommendations.slice(0, 12);
+  const options = gameOptions(recommendations).slice(0, 12);
   const selectedCount = state.ladderSelections.size;
   const gameName = state.mode === "roulette" ? "룰렛판" : "사다리";
   const warning = state.ladderWarning ? `<p class="ladder-warning">${gameName}에 올릴 메뉴를 2개 이상 골라주세요.</p>` : "";
@@ -304,7 +317,7 @@ function renderChoiceSetup(recommendations) {
       (item) => `
         <button class="ladder-option ${state.ladderSelections.has(item.id) ? "is-selected" : ""}" data-ladder-id="${item.id}" type="button">
           <strong>${item.menu}</strong>
-          <span>${item.name}</span>
+          <span>${item.restaurants.length}곳에서 가능</span>
         </button>
       `,
     )
@@ -358,8 +371,124 @@ function pendingHeroMessage() {
 
 function gameItems(recommendations) {
   if (!needsManualChoices(state.mode)) return recommendations.slice(0, 5);
-  const selected = recommendations.filter((item) => state.ladderSelections.has(item.id));
+  const selected = gameOptions(recommendations).filter((item) => state.ladderSelections.has(item.id));
   return selected.slice(0, gameChoiceLimit());
+}
+
+function gameOptions(recommendations) {
+  const groups = new Map();
+  for (const item of recommendations) {
+    const menu = foodMenuLabel(item);
+    if (!menu) continue;
+    const id = `food-${slugify(menu)}`;
+    if (!groups.has(id)) {
+      groups.set(id, {
+        id,
+        menu,
+        restaurants: [],
+        score: 0,
+      });
+    }
+    const group = groups.get(id);
+    group.restaurants.push(item);
+    group.score = Math.max(group.score, item.score ?? 0);
+  }
+  return [...groups.values()]
+    .map((group) => ({
+      ...group,
+      restaurants: group.restaurants.sort((a, b) => (b.score ?? 0) - (a.score ?? 0)),
+    }))
+    .sort((a, b) => b.score - a.score || b.restaurants.length - a.restaurants.length);
+}
+
+function foodMenuLabel(item) {
+  const rawMenu = cleanMenuName(item.menu);
+  const corpus = `${rawMenu} ${item.category ?? ""} ${item.name ?? ""}`;
+  if (isDrinkOnly(corpus)) return "";
+  const rules = [
+    [/샌드위치/i, "샌드위치"],
+    [/햄버거|버거|burger/i, "햄버거"],
+    [/감자탕/i, "감자탕"],
+    [/해장국|뼈해장국/i, "해장국"],
+    [/설렁탕/i, "설렁탕"],
+    [/짬뽕|짬/i, "짬뽕"],
+    [/부대찌개|부찌/i, "부대찌개"],
+    [/순두부/i, "순두부"],
+    [/수제비|라제비/i, "수제비"],
+    [/돈까스|돈카츠|카츠/i, "돈까스"],
+    [/초밥|스시/i, "초밥"],
+    [/덮밥|가츠동|규동|오야코동/i, "덮밥"],
+    [/국밥/i, "국밥"],
+    [/김밥/i, "김밥"],
+    [/떡볶이/i, "떡볶이"],
+    [/라멘|라면/i, "라멘"],
+    [/우동/i, "우동"],
+    [/쌀국수/i, "쌀국수"],
+    [/마라탕|마라샹궈/i, "마라탕"],
+    [/파스타|스파게티/i, "파스타"],
+    [/피자/i, "피자"],
+    [/치킨|닭강정/i, "치킨"],
+    [/샐러드|포케/i, "샐러드"],
+    [/냉면/i, "냉면"],
+    [/칼국수/i, "칼국수"],
+    [/찌개|김치찌개|된장찌개|부대찌개/i, "찌개"],
+    [/백반|정식/i, "백반"],
+    [/삼겹살|냉삼|한돈|갈매기살|항정살|돼지갈비|고기/i, "고기"],
+    [/샤브/i, "샤브샤브"],
+  ];
+  for (const [pattern, label] of rules) {
+    if (pattern.test(corpus)) return label;
+  }
+  if (looksLikeStoreName(rawMenu, item)) return fallbackFoodCategory(item);
+  if (!rawMenu || rawMenu === "추천 메뉴 확인 필요") return fallbackFoodCategory(item);
+  return rawMenu.length > 12 ? `${rawMenu.slice(0, 12)}...` : rawMenu;
+}
+
+function fallbackFoodCategory(item) {
+  const category = item.category || "";
+  if (!category || category === "식권대장 가맹점") return "";
+  return category.replace(/\/.*$/, "").trim();
+}
+
+function looksLikeStoreName(menu, item) {
+  const normalizedMenu = normalizeText(menu);
+  const normalizedName = normalizeText(item.name);
+  return (
+    !menu ||
+    normalizedMenu === normalizedName ||
+    normalizedMenu.includes("문정") ||
+    normalizedMenu.includes("직영점") ||
+    normalizedMenu.includes("역점") ||
+    normalizedMenu.endsWith("점") ||
+    /\(.+점\)/.test(menu)
+  );
+}
+
+function isDrinkOnly(value) {
+  const foodPattern = /샌드위치|버거|감자탕|해장국|순두부|수제비|돈까스|돈카츠|초밥|덮밥|국밥|김밥|떡볶이|라멘|라면|우동|쌀국수|마라|파스타|피자|치킨|샐러드|포케|냉면|칼국수|찌개|백반|정식|고기|삼겹살|갈비|샤브/;
+  const drinkPattern = /커피|라떼|아메리카노|카페|에이드|티\b|스무디|주스/;
+  return drinkPattern.test(value) && !foodPattern.test(value);
+}
+
+function cleanMenuName(value) {
+  return String(value ?? "")
+    .replace(/\d{1,3}(,\d{3})*원/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normalizeText(value) {
+  return String(value ?? "")
+    .replace(/\s+/g, "")
+    .toLowerCase();
+}
+
+function slugify(value) {
+  return String(value)
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w가-힣-]/g, "")
+    .toLowerCase();
 }
 
 function gameChoiceLimit() {
@@ -554,7 +683,27 @@ function selectGameWinner(recommendations) {
     winner = game.items[game.winnerIndex];
   }
   if (!winner) return recommendations;
+  if (winner.restaurants) {
+    const result = buildFoodResult(winner);
+    const winnerRestaurantIds = new Set(winner.restaurants.map((item) => item.id));
+    return [result, ...recommendations.filter((item) => !winnerRestaurantIds.has(item.id))];
+  }
   return [winner, ...recommendations.filter((item) => item.id !== winner.id)];
+}
+
+function buildFoodResult(group) {
+  const suggestions = group.restaurants.slice(0, 4);
+  const first = suggestions[0];
+  const names = suggestions.map((item) => item.name);
+  const nameText = names.length > 1 ? `${names.slice(0, 3).join(", ")}는 어떠신가요?` : `${first.name}은 어떠신가요?`;
+  return {
+    ...first,
+    id: `result-${group.id}`,
+    menu: group.menu,
+    name: nameText,
+    reason: `${group.menu} 파는 식권대장 가맹점 ${group.restaurants.length}곳 중 가까운 곳을 골랐습니다.`,
+    suggestions,
+  };
 }
 
 function deterministicNoise(input, max) {

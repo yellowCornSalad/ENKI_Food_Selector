@@ -354,6 +354,32 @@ h1 {
   line-height: 1.5;
 }
 
+.suggestion-list {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suggestion-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.suggestion-list strong,
+.suggestion-list span {
+  font-size: 13px;
+}
+
+.suggestion-list span {
+  color: #c7d8d4;
+  text-align: right;
+}
+
 .detail-grid {
   margin-top: 18px;
 }
