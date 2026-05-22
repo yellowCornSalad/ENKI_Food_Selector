@@ -2589,7 +2589,62 @@
       "naverSearchQuery": "지오씨커피 문정테라타워점",
       "naverVisitorReviewCount": 483,
       "naverBlogReviewCount": 187,
-      "naverMenus": [],
+      "naverMenus": [
+        {
+          "description": "패스오더 앱 설치하면, 최소 주문 금액 없이 100원에 커피 주문+1,500원 쿠폰까지",
+          "name": "[패스오더전용] 100원 아메리카노",
+          "price": 100,
+          "priceText": "100원"
+        },
+        {
+          "description": "ICED ONLY",
+          "name": "아인슈패너",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "ICED ONLY",
+          "name": "위스키크림슈패너",
+          "price": 5500,
+          "priceText": "5,500원"
+        },
+        {
+          "description": "ICED ONLY",
+          "name": "옥수슈패너",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "HOT / ICED",
+          "name": "아메리카노",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "HOT / ICED",
+          "name": "카페라떼",
+          "price": 3500,
+          "priceText": "3,500원"
+        },
+        {
+          "description": "ICED ONLY",
+          "name": "에메랄드선셋 젤리에이드",
+          "price": 4800,
+          "priceText": "4,800원"
+        },
+        {
+          "description": "ICED ONLY",
+          "name": "루비선셋 젤리에이드",
+          "price": 4800,
+          "priceText": "4,800원"
+        },
+        {
+          "description": "ICED ONLY",
+          "name": "그린선셋 젤리에이드",
+          "price": 4800,
+          "priceText": "4,800원"
+        }
+      ],
       "naverPlaceUrl": "https://map.naver.com/p/entry/place/1801172120",
       "naverMenuUpdatedAt": "2026-05-22"
     },
@@ -3506,7 +3561,266 @@
       "naverSearchQuery": "압구정샌드위치 문정점",
       "naverVisitorReviewCount": 1201,
       "naverBlogReviewCount": 82,
-      "naverMenus": [],
+      "naverMenus": [
+        {
+          "description": "패스오더 앱 설치하면, 최소 주문 금액 없이 100원에 커피 주문+1,500원 쿠폰까지",
+          "name": "[패스오더전용] 100원 아메리카노",
+          "price": 100,
+          "priceText": "100원"
+        },
+        {
+          "description": "치즈, 토마토, 햄, 양상수, 압구정 특제소스!! 압구정 샌드위치 인기메뉴",
+          "name": "압구정 샌드위치",
+          "price": 7900,
+          "priceText": "7,900원"
+        },
+        {
+          "description": "초절임 야채(양파, 오이, 당근), 닭가슴살, 압구정 샌드위치만의 반미 샌드위치",
+          "name": "수비드 치킨 반미",
+          "price": 7900,
+          "priceText": "7,900원"
+        },
+        {
+          "description": "바질페스토와 리코타 치즈, 햄, 루꼴라, 꿀의 조화로 완성된 부드럽고 진한 치즈 샌드위치",
+          "name": "바질리코 프로마쥬",
+          "price": 10300,
+          "priceText": "10,300원"
+        },
+        {
+          "description": "바질페스토와 리코타 차즈, 토마토, 루꼴라, 꿀, 호두가 어우러진 프리미엄 허브 샌드위치",
+          "name": "바질리코 베지터블",
+          "price": 10300,
+          "priceText": "10,300원"
+        },
+        {
+          "description": "양념된 소불고기, 야채 초무침, 향긋한 고수!!",
+          "name": "오리지날 비프 반미",
+          "price": 9300,
+          "priceText": "9,300원"
+        },
+        {
+          "description": "양상추, 토마토, 루꼴라, 꿀, 호두가 들어간 심플 샌드위치",
+          "name": "압구정 베지터블",
+          "price": 7100,
+          "priceText": "7,100원"
+        },
+        {
+          "description": "육즙가득 파스트라미 햄과 신선한 야채, 바삭한 바게트. 완벽한 밸런스의 고급 샌드위치",
+          "name": "파스트라미 샌드위치",
+          "price": 10800,
+          "priceText": "10,800원"
+        },
+        {
+          "description": "버터, 햄!! 압샌 대표메뉴",
+          "name": "잠봉뵈르",
+          "price": 7900,
+          "priceText": "7,900원"
+        },
+        {
+          "description": "햄, 치즈, 마요소스의 풍미 가득한 샌드위치",
+          "name": "잠봉 프로마쥬",
+          "price": 8400,
+          "priceText": "8,400원"
+        },
+        {
+          "description": "트러플 버터가 들어간 잠봉뵈르와 루꼴라의 조화!! 고급스런 풍미의 샌드위치",
+          "name": "아비뇽 트러플 잠봉뵈르",
+          "price": 9300,
+          "priceText": "9,300원"
+        },
+        {
+          "description": "바삭한 바게트와 메이플 버터의 달콤한 만남",
+          "name": "허니 메이플 잠봉뵈르",
+          "price": 8400,
+          "priceText": "8,400원"
+        },
+        {
+          "description": "크림치즈, 루꼴라, 호두, 홀그레인소스가 들어간 디저트 샌드위치",
+          "name": "크림치즈 루꼴라",
+          "price": 6900,
+          "priceText": "6,900원"
+        },
+        {
+          "description": "레몬버터, 라즈베리쨈, 루꼴라가 들어간 디저트 샌드위치",
+          "name": "레몬버터 라즈베리",
+          "price": 6900,
+          "priceText": "6,900원"
+        },
+        {
+          "description": "양상추, 루꼴라, 토마토, 닭가슴살, 메추리알, 스위트콘, 강낭콩, 블랙올리브",
+          "name": "미니 샐러드",
+          "price": 5300,
+          "priceText": "5,300원"
+        },
+        {
+          "description": "양상추, 루꼴라, 토마토, 스위트콘, 강낭콩, 블랙올리브, 메추리알, 쿠스쿠스",
+          "name": "압구정 샐러드",
+          "price": 8300,
+          "priceText": "8,300원"
+        },
+        {
+          "description": "양상추, 루꼴라, 토마토, 닭가슴살, 스위트콘, 강낭콩, 블랙올리브, 쿠스쿠스",
+          "name": "닭가슴살 샐러드",
+          "price": 9300,
+          "priceText": "9,300원"
+        },
+        {
+          "description": "",
+          "name": "리얼 토마토 수프 + 바게트 2조각",
+          "price": 6800,
+          "priceText": "6,800원"
+        },
+        {
+          "description": "",
+          "name": "리얼 양송이 수프 + 바게트 2조각",
+          "price": 6800,
+          "priceText": "6,800원"
+        },
+        {
+          "description": "",
+          "name": "리얼 밀키수프 + 바게트 2조각",
+          "price": 6800,
+          "priceText": "6,800원"
+        },
+        {
+          "description": "",
+          "name": "콰트로 바게트 퐁듀 수프",
+          "price": 7300,
+          "priceText": "7,300원"
+        },
+        {
+          "description": "",
+          "name": "말차 화이트초코 쿠키",
+          "price": 4300,
+          "priceText": "4,300원"
+        },
+        {
+          "description": "",
+          "name": "다크초코 월넛쿠키",
+          "price": 4300,
+          "priceText": "4,300원"
+        },
+        {
+          "description": "",
+          "name": "바스크 치즈케이크",
+          "price": 4500,
+          "priceText": "4,500원"
+        },
+        {
+          "description": "향긋한 스리랑카 홍차에 상큼한 레몬과 달콤한 꿀이 어우러진 힐링티",
+          "name": "스리랑카 레몬티",
+          "price": 3800,
+          "priceText": "3,800원"
+        },
+        {
+          "description": "리치의 달콤함과 캐모마일 꽃 향이 어우러진 로맨틱한 블렌딩티",
+          "name": "핑크리치 캐모마일티",
+          "price": 3800,
+          "priceText": "3,800원"
+        },
+        {
+          "description": "진한 홍차에 오렌지와 자몽의 풍부한 과일 향을 담은 프루티 블랙티",
+          "name": "오렌지 자몽 블랙티",
+          "price": 3800,
+          "priceText": "3,800원"
+        },
+        {
+          "description": "",
+          "name": "콤부차(오렌지/레몬) 16온스",
+          "price": 3600,
+          "priceText": "3,600원"
+        },
+        {
+          "description": "",
+          "name": "복숭아 아이스티(16온스)",
+          "price": 2800,
+          "priceText": "2,800원"
+        },
+        {
+          "description": "얼그레이/잉글쉬 브랙퍼스트/보성녹차\n설탕은 없지만 밀크티의 진한 향과 맛은 그대로!",
+          "name": "제로슈가 밀크티",
+          "price": 4800,
+          "priceText": "4,800원"
+        },
+        {
+          "description": "그린(사과+케일+키위+파인애플)\n진저(사과+생강)\n비트(사과+비트)",
+          "name": "[리얼 착즙] 프리미엄 비타민 주스",
+          "price": 6800,
+          "priceText": "6,800원"
+        },
+        {
+          "description": "",
+          "name": "ICE 아메리카노(16온스)",
+          "price": 3800,
+          "priceText": "3,800원"
+        },
+        {
+          "description": "",
+          "name": "HOT 아메리카노(13온스)",
+          "price": 3800,
+          "priceText": "3,800원"
+        },
+        {
+          "description": "",
+          "name": "ICE 라떼(16온스)",
+          "price": 4600,
+          "priceText": "4,600원"
+        },
+        {
+          "description": "",
+          "name": "HOT 라떼(13온스)",
+          "price": 4600,
+          "priceText": "4,600원"
+        },
+        {
+          "description": "",
+          "name": "ICE 바닐라 라떼(16온스)",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "HOT 바닐라 라떼(13온스)",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "코카콜라 355ml",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "",
+          "name": "코카콜라제로 355ml",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "",
+          "name": "펩시콜라제로 355ml",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "",
+          "name": "스프라이트 355ml",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "",
+          "name": "트레비 라임 355ml",
+          "price": 1500,
+          "priceText": "1,500원"
+        },
+        {
+          "description": "",
+          "name": "아이시스 생수 500ml",
+          "price": 1000,
+          "priceText": "1,000원"
+        }
+      ],
       "naverPlaceUrl": "https://map.naver.com/p/entry/place/1202434452",
       "naverMenuUpdatedAt": "2026-05-22"
     },
@@ -4789,7 +5103,182 @@
       "naverSearchQuery": "부산아지매국밥(문정테라타워점)",
       "naverVisitorReviewCount": 401,
       "naverBlogReviewCount": 59,
-      "naverMenus": [],
+      "naverMenus": [
+        {
+          "description": "물밀면 or 비빔밀면\n    +\n왕만두 or 편육 중",
+          "name": "★만원의 행복 이벤트★",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "국내산 우사골 돈골로 진하게 우려낸 육수와 얇게 썰어진 살코기가 들어간 영양국밥입니다.",
+          "name": "아지매국밥",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "전통방식으로 직접 만든 순대를 첨가해 일반 순대국밥과 차별화된 순대국밥입니다.",
+          "name": "순대국밥",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "쫄깃 오소리감투, 다리살, 전통순대, 얼큰다대기 첨가 숙취해소에 좋은 얼큰한국밥입니다.",
+          "name": "얼큰이국밥",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "머릿고기와 순대가 같이 들어가 맛있는 전통옛날방식의 전통순대국밥입니다.",
+          "name": "전통순대국밥",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "콩나물과 적당히 익은 김치가 청양고추 첨가해 아삭하고 칼칼해 해장으로 끝내줍니다.",
+          "name": "김치순대국밥",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "부드러운 순두부와 담백한 돼지고기의 맛이 속을 얼큰하게 풀어주는 해장용 순두부국밥입니다.",
+          "name": "얼큰순두부국밥",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "부산의 3대 명물로 쫄깃한 식감에 시원하고 상큼한 맛있는 별미밀면입니다.",
+          "name": "물/비빔 밀면",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "탱글탱글한 쭈꾸미를 매콤한 양념에 불맛을 더한 비빔밥입니다.",
+          "name": "쭈꾸미비빔밥",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "탱글한 쭈꾸미와 삼겹살에 매콤한 양념으로 불맛을 입힌 맛있는 쭈삼비빔밥입니다.",
+          "name": "쭈삼비빔밥",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "매콤한 양념에 불맛을 입힌 제육과 신선한 비빔야채가 들어간 맛있는 제육비빔밥입니다.",
+          "name": "제육비빔밥",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "국내산 우사골을 우려낸 육수에 왕만두와 떡국떡을 넣은 담백한 사골떡만두국입니다.",
+          "name": "사골떡만두국",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "진한 우사골육수에 부드러운 소면과 얇게설린 앞다리살이 듬뿍들어가 맛있는 고기국수입니다.",
+          "name": "고기국수",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "상큼하게 씹히는 야채와 부드러운 도토리묵으로 여름철에 더위를 날려줍니다.",
+          "name": "도토리묵밥",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "전통방식으로 직접 만든 순대로 시중의 순대와는 비교할 수 없습니다.",
+          "name": "순대 한접시",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "육즙도 풍부한 왕만두 밀면과 함께 드시면 더욱 맛있습니다",
+          "name": "만두 한접시",
+          "price": 6000,
+          "priceText": "6,000원"
+        },
+        {
+          "description": "",
+          "name": "보쌈수육한접시",
+          "price": 6000,
+          "priceText": "6,000원"
+        },
+        {
+          "description": "몸에 좋은 돼지족발을 톡 쏘는 해파리냉채와 곁들여 먹는 메뉴입니다.",
+          "name": "냉채족발",
+          "price": 35000,
+          "priceText": "35,000원"
+        },
+        {
+          "description": "탱글탱글한 쭈꾸미와 신선한 부추와 깻입이 조화를 이루는 최고의 술안주 입니다.",
+          "name": "부산쭈꾸미",
+          "price": 36000,
+          "priceText": "36,000원"
+        },
+        {
+          "description": "순대의 고소함과 곱창의 쫄깃함에 신선한 야채와 매콤한 양념으로 볶은 순대곱창입니다.",
+          "name": "순대곱창볶음",
+          "price": 35000,
+          "priceText": "35,000원"
+        },
+        {
+          "description": "돼지고기를 수증기로 조리하여 부드러운 식감과 육즙의 풍미를 느낄 수 있습니다.",
+          "name": "아지매보쌈",
+          "price": 30000,
+          "priceText": "30,000원"
+        },
+        {
+          "description": "담백한 아지매보쌈과 매콤한 골뱅이, 쫄깃한 밀면을 한그릇에 담은 메뉴입니다.",
+          "name": "골뱅이보쌈",
+          "price": 38000,
+          "priceText": "38,000원"
+        },
+        {
+          "description": "쭈꾸미와 삼겹살, 무보쌈소를 함께 들기는 삼합메뉴입니다.",
+          "name": "쭈꾸미보쌈",
+          "price": 38000,
+          "priceText": "38,000원"
+        },
+        {
+          "description": "가슴속까지 따뜻해지는 시원한 국물과 다양하고 신선한 부산어묵이 가득합니다.",
+          "name": "부산오뎅탕",
+          "price": 23000,
+          "priceText": "23,000원"
+        },
+        {
+          "description": "",
+          "name": "얼큰오뎅탕",
+          "price": 23000,
+          "priceText": "23,000원"
+        },
+        {
+          "description": "사골육수에 신선한 야채와 고기를 넣어 푸짐하고 더욱 얼큰하게 즐길 수 있는 메뉴입니다.",
+          "name": "술국",
+          "price": 20000,
+          "priceText": "20,000원"
+        },
+        {
+          "description": "따뜻한 두부에 볶음고기김치를 곁들여먹는 술안주로 기가막힌 요리입니다.",
+          "name": "두부김치",
+          "price": 20000,
+          "priceText": "20,000원"
+        },
+        {
+          "description": "겉은 바삭하고 속은 촉촉한 맛있는 김치전입니다.",
+          "name": "김치전",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "쫄깃한 오징어와 바삭하게 튀겨진 식감이 일품입니다.",
+          "name": "부추전",
+          "price": 12000,
+          "priceText": "12,000원"
+        }
+      ],
       "naverPlaceUrl": "https://map.naver.com/p/entry/place/964500729",
       "naverMenuUpdatedAt": "2026-05-22"
     },
