@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-14";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-15";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -204,7 +204,6 @@ function renderTopPick(item) {
   }
   const bestFor = item.bestFor ?? item.tags ?? [];
   const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
-  const mapUrl = naverMapSearchUrl(item.name);
   target.innerHTML = `
     <div class="pick-meta">
       ${meta.map((text) => `<span>${text}</span>`).join("")}
@@ -218,7 +217,6 @@ function renderTopPick(item) {
       <span>${escapeHtml(item.priceBand ?? "")}</span>
       <span>${escapeHtml(bestFor.slice(0, 3).join(" · "))}</span>
     </div>
-    <a class="hero-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">🗺️ 네이버 지도에서 보기</a>
   `;
 }
 
