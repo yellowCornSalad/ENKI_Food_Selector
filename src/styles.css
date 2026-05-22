@@ -563,25 +563,54 @@ h1 {
   justify-items: center;
   gap: 10px;
   position: relative;
-  padding-top: 8px;
+  padding-top: 26px;
 }
 
 .roulette-pointer {
-  width: 0;
-  height: 0;
-  border-right: 12px solid transparent;
-  border-left: 12px solid transparent;
-  border-top: 22px solid #17211f;
-  filter: drop-shadow(0 2px 2px rgba(23, 33, 31, 0.2));
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  z-index: 3;
+  width: 8px;
+  height: 72px;
+  border: 2px solid rgba(255, 253, 248, 0.92);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2a3431 0%, #0d1513 48%, #34403d 100%);
+  box-shadow: 0 6px 12px rgba(23, 33, 31, 0.22);
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: 50% 6px;
+}
+
+.roulette-pointer::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fffdf8;
+  border-radius: 50%;
+  background: #17211f;
+  transform: translateX(-50%);
+}
+
+.roulette-pointer::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  bottom: 4px;
+  left: -3px;
+  height: 13px;
+  border-radius: 999px;
+  background: #f8faf8;
+  box-shadow: 0 0 0 2px rgba(23, 33, 31, 0.28);
 }
 
 .roulette-wheel {
   position: relative;
   width: min(280px, 78vw);
   aspect-ratio: 1;
-  margin-top: -3px;
+  margin-top: 0;
   border: 8px solid #fffdf8;
   border-radius: 50%;
   background: conic-gradient(from -90deg, var(--wheel));
@@ -636,16 +665,15 @@ h1 {
 }
 
 .roulette-center::after {
-  content: "";
-  position: absolute;
-  top: -88px;
-  left: 50%;
-  width: 4px;
-  height: 84px;
-  border-radius: 999px;
-  background: #17211f;
-  transform: translateX(-50%);
-  box-shadow: 0 0 0 2px rgba(255, 253, 248, 0.88);
+  content: none;
+}
+
+.roulette-game.is-running .roulette-pointer {
+  animation: roulette-pointer-flap 0.18s ease-in-out infinite alternate;
+}
+
+.roulette-game.is-running .roulette-label {
+  animation: roulette-label-tease 0.42s steps(2, end) infinite;
 }
 
 .roulette-game.is-running .game-wait {
@@ -701,6 +729,30 @@ h1 {
   }
   to {
     transform: rotate(var(--spin));
+  }
+}
+
+@keyframes roulette-pointer-flap {
+  from {
+    transform: translateX(-50%) rotate(-7deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(8deg);
+  }
+}
+
+@keyframes roulette-label-tease {
+  0% {
+    filter: blur(0.6px);
+    opacity: 0.88;
+  }
+  50% {
+    filter: blur(1.8px);
+    opacity: 0.68;
+  }
+  100% {
+    filter: blur(0.9px);
+    opacity: 0.82;
   }
 }
 

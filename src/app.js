@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-5";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-6";
 
 const state = {
   meal: getCurrentMeal(new Date()),
