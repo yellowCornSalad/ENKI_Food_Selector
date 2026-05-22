@@ -2324,9 +2324,127 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverPlaceId": null,
-      "naverSearchQuery": "오부찌 문정 직영점",
-      "naverMenus": []
+      "naverPlaceId": "2090820019",
+      "naverSearchQuery": "오부찌 문정 문정",
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "[부대찌개]",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "오부찌의 베스트셀러! 한번 먹으면 다른 부대찌개는 못 먹어...",
+          "name": "오!부대찌개(1인, 2인 이상)",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "모두가 아는 그 스팸이 듬뿍 들어갔습니다!",
+          "name": "스팸부대찌개(1인, 2인 이상)",
+          "price": 13000,
+          "priceText": "13,000원"
+        },
+        {
+          "description": "",
+          "name": "[스페셜]",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "부대볶음(小) : 29,000\n부대볶음(中) : 43,000\n부대볶음(大) : 57,000",
+          "name": "부대볶음 (오후 5시부터 주문가능)",
+          "price": 29000,
+          "priceText": "29,000원"
+        },
+        {
+          "description": "",
+          "name": "[사이드/추가]",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "\"부대찌개집 맞아?\" 말이 절로 나오는 맛!\n계란말이 맛집이라고 불리기도 합니다..",
+          "name": "계란말이(1인)",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "떡 사리",
+          "price": 1000,
+          "priceText": "1,000원"
+        },
+        {
+          "description": "",
+          "name": "파채 사리",
+          "price": 1000,
+          "priceText": "1,000원"
+        },
+        {
+          "description": "",
+          "name": "치즈 사리",
+          "price": 1000,
+          "priceText": "1,000원"
+        },
+        {
+          "description": "",
+          "name": "햄 사리",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "소시지 사리",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "반반 사리",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "스팸 사리",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "모둠 사리",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "무.한.리.필!",
+          "name": "공기밥",
+          "price": 0,
+          "priceText": "0원"
+        },
+        {
+          "description": "무.한.리.필!",
+          "name": "라면사리",
+          "price": 0,
+          "priceText": "0원"
+        },
+        {
+          "description": "무.한.리.필!",
+          "name": "육수",
+          "price": 0,
+          "priceText": "0원"
+        },
+        {
+          "description": "무.한.리.필!",
+          "name": "반찬",
+          "price": 0,
+          "priceText": "0원"
+        }
+      ],
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2090820019/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 41,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-015",
@@ -4766,7 +4884,61 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "부드러운 지단에 신선한 6가지 야채로 가볍고 깔끔한 한 끼!",
+          "name": "베지김밥",
+          "price": 4600,
+          "priceText": "4,600원"
+        },
+        {
+          "description": "달짝한 소스를 품은 유부, 부담 없이 즐기는 깔끔한 맛",
+          "name": "유부김밥",
+          "price": 5500,
+          "priceText": "5,500원"
+        },
+        {
+          "description": "화끈한 불양념에 어묵을 볶아 매콤 감칠맛이 가득",
+          "name": "불어묵김밥",
+          "price": 5800,
+          "priceText": "5,800원"
+        },
+        {
+          "description": "담백한 참치와 고소한 마요네즈의 완벽한 조합",
+          "name": "참치마요김밥",
+          "price": 6600,
+          "priceText": "6,600원"
+        },
+        {
+          "description": "매콤 달콤한 한국인의 맛 제육",
+          "name": "제육김밥",
+          "price": 6600,
+          "priceText": "6,600원"
+        },
+        {
+          "description": "저염, 저칼로리 닭가슴살로 맛있고 건강하게",
+          "name": "닭가슴살김밥",
+          "price": 6600,
+          "priceText": "6,600원"
+        },
+        {
+          "description": "불포화지방이 풍부해 부담 없이 즐기는 담백한 훈제오리",
+          "name": "훈제오리김밥",
+          "price": 7000,
+          "priceText": "7,000원"
+        },
+        {
+          "description": "야들야들한 식감의 달짝지근한 소불고기",
+          "name": "소불고기김밥",
+          "price": 7200,
+          "priceText": "7,200원"
+        }
+      ],
+      "naverPlaceId": "1664327415",
+      "naverSearchQuery": "이플리 문정",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1664327415/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 256,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-027",
@@ -5723,7 +5895,133 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "전통족발 중",
+          "price": 42000,
+          "priceText": "42,000원"
+        },
+        {
+          "description": "",
+          "name": "전통족발 대",
+          "price": 50000,
+          "priceText": "50,000원"
+        },
+        {
+          "description": "",
+          "name": "전통육개장",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "차돌육개장",
+          "price": 13000,
+          "priceText": "13,000원"
+        },
+        {
+          "description": "",
+          "name": "육개장칼국수",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "순두부육개장",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "",
+          "name": "버섯육개장",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "",
+          "name": "부대육개장",
+          "price": 13000,
+          "priceText": "13,000원"
+        },
+        {
+          "description": "",
+          "name": "맑은육개장",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "사골 떡만두국",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "전통보쌈-중",
+          "price": 42000,
+          "priceText": "42,000원"
+        },
+        {
+          "description": "",
+          "name": "전통보쌈-대",
+          "price": 50000,
+          "priceText": "50,000원"
+        },
+        {
+          "description": "",
+          "name": "모듬수육전골-중",
+          "price": 42000,
+          "priceText": "42,000원"
+        },
+        {
+          "description": "",
+          "name": "모듬수육전골-대",
+          "price": 50000,
+          "priceText": "50,000원"
+        },
+        {
+          "description": "",
+          "name": "양지육개장전골-중",
+          "price": 42000,
+          "priceText": "42,000원"
+        },
+        {
+          "description": "",
+          "name": "양지육개장전골-대",
+          "price": 50000,
+          "priceText": "50,000원"
+        },
+        {
+          "description": "",
+          "name": "한판보쌈",
+          "price": 15000,
+          "priceText": "15,000원"
+        },
+        {
+          "description": "",
+          "name": "만두 한접시",
+          "price": 9000,
+          "priceText": "9,000원"
+        },
+        {
+          "description": "",
+          "name": "만두 반접시",
+          "price": 4500,
+          "priceText": "4,500원"
+        },
+        {
+          "description": "",
+          "name": "메밀전병",
+          "price": 8000,
+          "priceText": "8,000원"
+        }
+      ],
+      "naverPlaceId": "36338943",
+      "naverSearchQuery": "이화수전통육개장 송파",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/36338943/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 673,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-032",
@@ -5806,7 +6104,163 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "부드러운 스테이크를 올린 말이 필요없는 미도인 대표 덮밥",
+          "name": "미도인 스테이크 덮밥",
+          "price": 11800,
+          "priceText": "11,800원"
+        },
+        {
+          "description": "말이 필요없는 맛!! 잘 손질된 대창을 매콤한 특제 양념과 불맛 나게 볶아낸 특별 덮밥",
+          "name": "한우 대창 덮밥",
+          "price": 13500,
+          "priceText": "13,500원"
+        },
+        {
+          "description": "부드러운 육즙의 숙성 스테이크와 단호박 스프, 아지다마고의 한상차림(사이즈별 가격 다름)",
+          "name": "가정식 스테이크",
+          "price": 18800,
+          "priceText": "18,800원"
+        },
+        {
+          "description": "깔끔한 명란 크림소스! 특제 스파이시 첨가로 더욱 특별한 미도인만의 특제 파스타",
+          "name": "명란 크림 파스타",
+          "price": 13500,
+          "priceText": "13,500원"
+        },
+        {
+          "description": "부드러운 육즙윽 등심 스테이크를 미도인이 개발한 특제 소스와 함께 한그릇에 담았습니다.",
+          "name": "미도인 스테이크 덮밥 한상차림",
+          "price": 14700,
+          "priceText": "14,700원"
+        },
+        {
+          "description": "미도인의 인기덮밥 메뉴!\n부드러운 육즙의 숙성 스테이크와 특제 단짠 소스로 만든스테이크덮밥",
+          "name": "큐브 스테이크 덮밥 한상차림",
+          "price": 14900,
+          "priceText": "14,900원"
+        },
+        {
+          "description": "부드러운 스테이크, 메쉬 포테이토와 대파,특제 와인소스의 조화(사이즈별 가격 다름)",
+          "name": "트리플 스테이크",
+          "price": 19800,
+          "priceText": "19,800원"
+        },
+        {
+          "description": "대창과 부드러운 육즙의 스테이크의 과감하지만 멋진 콜라보(사이즈별 가격 다름)",
+          "name": "대창 스테이크",
+          "price": 21700,
+          "priceText": "21,700원"
+        },
+        {
+          "description": "특제 소스로 12시간 저온 숙성한 소곱창과 부드러운 육즙의 스테이크(사이즈별 가격 다름)",
+          "name": "곱창 스테이크(한정메뉴)",
+          "price": 22700,
+          "priceText": "22,700원"
+        },
+        {
+          "description": "부드러운 육즙의 숙성 스테이크와 특제 단짠 소스로 만든 스테이크 덮밥",
+          "name": "큐브 스테이크 덮밥",
+          "price": 12800,
+          "priceText": "12,800원"
+        },
+        {
+          "description": "불맛 나는 돼지고기를 화산 모양으로 형상화한 비쥬얼 갑 강추 덮밥",
+          "name": "화산 불백 덮밥",
+          "price": 9800,
+          "priceText": "9,800원"
+        },
+        {
+          "description": "미도인의 특별한 저온 숙성 방법과 매콤한 한국식 특제 소스를 곁들인 대한민국 최초 곱대덮밥",
+          "name": "곱창 대창 덮밥",
+          "price": 14900,
+          "priceText": "14,900원"
+        },
+        {
+          "description": "미도인 총괄셰프의 특제소스와 돼지고기, 대파가 듬뿍 들어간 약빤메뉴(마라맛첨가)",
+          "name": "미도인 떡볶이",
+          "price": 9900,
+          "priceText": "9,900원"
+        },
+        {
+          "description": "고기파들의 쌀국수 성지 부드러운 우삼겹이 면위를 덮어버린 미도인의 미친 비율 쌀국수",
+          "name": "고기듬뿍고기쌀국수",
+          "price": 10500,
+          "priceText": "10,500원"
+        },
+        {
+          "description": "면찾기어려운 고기바다 230g 고기가 면을 완전히 덮은 하노이 스타일",
+          "name": "고기듬뿍매운하노이쌀국수",
+          "price": 10800,
+          "priceText": "10,800원"
+        },
+        {
+          "description": "곱창듬뿍!깐양듬뿍!매운국물에 중복되는 맛속이 풀리고 기운이 나는 보양식 같은 매운쌀국수",
+          "name": "곱창 깐양 매운 쌀국수",
+          "price": 13800,
+          "priceText": "13,800원"
+        },
+        {
+          "description": "깔끔하고 부드러운 로제크림소스! 특제 스파이시와 탱글한 새우의 조화",
+          "name": "새우 로제 파스타",
+          "price": 14500,
+          "priceText": "14,500원"
+        },
+        {
+          "description": "두근 두근.. 초록의 바질 페스토 크림 소스에 빠진 큼직한 새우와 베이컨칩의 환장 조합!",
+          "name": "바질크림 새우파스타",
+          "price": 15500,
+          "priceText": "15,500원"
+        },
+        {
+          "description": "향긋한 마늘에 아삭한 식감\n모든메뉴에 찰떡 궁합! 미도인 오면 시킬수 밖에 없는 모닝글로리",
+          "name": "모닝글로리",
+          "price": 8500,
+          "priceText": "8,500원"
+        },
+        {
+          "description": "깐양+공심채 조합 미쳤다.고소한 마늘향에 매콤함까지 한입이면 리셋 완료",
+          "name": "깐양모닝글로리",
+          "price": 9800,
+          "priceText": "9,800원"
+        },
+        {
+          "description": "통새우가 듬뿍 들어가 식감도 좋고 맛도 좋은 새우커틀렛",
+          "name": "새우커틀렛",
+          "price": 7500,
+          "priceText": "7,500원"
+        },
+        {
+          "description": "바삭한 볼 속에 찹쌀의 쫄깃함, 그리고 치즈의 고소함으로 마무리 되는 튀김 메뉴",
+          "name": "찹쌀치즈볼",
+          "price": 4900,
+          "priceText": "4,900원"
+        },
+        {
+          "description": "열다섯번의 조리 과정을 거쳐, 반숙 계란을 다진고기로 감싸 튀겨낸 강추 미도인 한정메뉴",
+          "name": "미도인 스카치 에그 (한정메뉴)",
+          "price": 5500,
+          "priceText": "5,500원"
+        },
+        {
+          "description": "쉐프의 한땀한땀 정성으로 껍질을 벗겨 만든 마리네이드 방울토마토와 스테이크를 올린 샐러드",
+          "name": "마리네이드토마토 샐러드",
+          "price": 7300,
+          "priceText": "7,300원"
+        },
+        {
+          "description": "자몽허니에이드, 애플시나몬에이드, 체리벵쇼, 콜라, 사이다,제로콜라, 병맥주, 생맥주",
+          "name": "음료/주류",
+          "price": null,
+          "priceText": ""
+        }
+      ],
+      "naverPlaceId": "1493608587",
+      "naverSearchQuery": "미도인 문정",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1493608587/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 2231,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-034",
@@ -6908,8 +7362,139 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverSearchQuery": "무청감자탕(송파문정점)",
-      "naverMenus": []
+      "naverSearchQuery": "무청감자탕 송파문정점",
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "무꿀세트(중)",
+          "price": 47000,
+          "priceText": "47,000원"
+        },
+        {
+          "description": "",
+          "name": "볼케이노뼈구이(중)",
+          "price": 40000,
+          "priceText": "40,000원"
+        },
+        {
+          "description": "",
+          "name": "시래기감자탕(중)",
+          "price": 36000,
+          "priceText": "36,000원"
+        },
+        {
+          "description": "2인 이상시 주문 가능",
+          "name": "훈제삼겹찜",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "",
+          "name": "간장뼈찜(중)",
+          "price": 39000,
+          "priceText": "39,000원"
+        },
+        {
+          "description": "",
+          "name": "묵은지감자탕(중)",
+          "price": 38000,
+          "priceText": "38,000원"
+        },
+        {
+          "description": "",
+          "name": "시래기감자탕(소)",
+          "price": 32000,
+          "priceText": "32,000원"
+        },
+        {
+          "description": "",
+          "name": "묵은지감자탕(소)",
+          "price": 34000,
+          "priceText": "34,000원"
+        },
+        {
+          "description": "시래기감자탕, 볼케이노뼈구이, 깍두기볶음밥 or 고기볶음밥이 포함된 무청 꿀 세트!",
+          "name": "무꿀세트(대)",
+          "price": 59000,
+          "priceText": "59,000원"
+        },
+        {
+          "description": "",
+          "name": "볼케이노뼈구이(대)",
+          "price": 47000,
+          "priceText": "47,000원"
+        },
+        {
+          "description": "",
+          "name": "시래기감자탕(대)",
+          "price": 41000,
+          "priceText": "41,000원"
+        },
+        {
+          "description": "",
+          "name": "간장뼈찜(대)",
+          "price": 46000,
+          "priceText": "46,000원"
+        },
+        {
+          "description": "",
+          "name": "묵은지감자탕(대)",
+          "price": 43000,
+          "priceText": "43,000원"
+        },
+        {
+          "description": "",
+          "name": "시래기뼈해장국",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "묵은지뼈해장국",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "",
+          "name": "우렁시래기해장국",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "",
+          "name": "순살시래기뼈해장국",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "뚝배기불고기",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "육개장",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "황태탕",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "",
+          "name": "계란말이",
+          "price": 9000,
+          "priceText": "9,000원"
+        }
+      ],
+      "naverPlaceId": "1245780215",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1245780215/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 244,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-040",
@@ -13149,7 +13734,145 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "* 국내산 닭고기로 끓인 진한국물과 푸짐한 건더기 전통 고기듬뿍 닭곰탕\n* 반찬 3종 포함",
+          "name": "고기듬뿍 닭곰탕",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "* 호주산 소고기로 끓인 진한국물과 품짐한 건더기의 전통 고기듬뿍 소고기곰탕\n* 반찬 3종",
+          "name": "고기듬뿍 소고기곰탕",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "* 국내산한우로 끓인 진한국물과 푸짐한 건더기의 전통 고기듬뿍 한우육개장\n* 반찬 3종 포",
+          "name": "고기듬뿍 한우육개장",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "신선한 큐브 연어와 아삭한 라페, 부드러운 계란 고명과 새싹야채가 어우러진 샐러드 비빔밥",
+          "name": "큐브 연어 샐비",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "향긋한 꼬막과 아삭한 라페, 고소한 김가루와 신선한 새싹야채가 어우러진 샐러드 비빔밥",
+          "name": "향긋 꼬막 샐비",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "신선한 특제 육회와 아삭한 라페, 고소한 노른자 고명이 어우러진 건강한 샐러드 비빔밥",
+          "name": "특선 육회 샐비",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "맛있는 간장 불고기와 아삭한 라페, 부드러운 계란 고명이 어우러진 건강한 샐러드 비빔밥",
+          "name": "달콤 불고기 샐비",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "맛있는 제육 불고기에 상큼한 라페와 신선한 야채를 더한, 한입가득 매콤달콤한 샐러드 비빔밥",
+          "name": "매콤 제육 샐비",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "훈제 오리와 아삭한 라페, 부드러운 계란 고명과 새싹야채가 어우러진 샐러드 비빔밥",
+          "name": "훈제 오리 샐비",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "매콤한 불맛 쭈꾸미와 상큼한 라페, 부드러운 계란 고명이 어우러진, 맛있는 샐러드 비빔밥",
+          "name": "매콤 쫄깃 쭈꾸미 샐비",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "그릴에 구운 스팸과 아삭한 라페, 부드러운 계란 고명과 새싹야채가 어우러진 샐러드 비빔밥",
+          "name": "그릴 스팸 샐비",
+          "price": 8500,
+          "priceText": "8,500원"
+        },
+        {
+          "description": "고소한 참치 마요와 아삭한 라페, 부드러운 계란 고명과 새싹야채가 어우러진 샐러드 비빔밥",
+          "name": "참치 마요 샐비",
+          "price": 8500,
+          "priceText": "8,500원"
+        },
+        {
+          "description": "부드러운 수비드 닭가슴살과 아삭한 라페, 계란 고명과 새싹야채가 어우러진 샐러드 비빔밥",
+          "name": "수비드 닭가슴살 샐비",
+          "price": 8500,
+          "priceText": "8,500원"
+        },
+        {
+          "description": "노란 강황밥과 아삭한 라페, 부드러운 계란 고명과 새싹야채가 어우러진 샐러드 비빔밥",
+          "name": "샐러드비빔밥 (기본)",
+          "price": 7900,
+          "priceText": "7,900원"
+        },
+        {
+          "description": "달콤한 간장 불고기와 아삭한 라페, 풍성한 나물과 강황밥이 어우러진 산채 비빔밥",
+          "name": "달콤 불고기 산채",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "매콤한 제육불고기와 아삭한 라페, 풍성한 나물과 김가루, 강황밥이 어우러진 산채 비빔밥",
+          "name": "매콤 제육 산채",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "훈제 오리와 아삭한 라페, 풍성한 나물과 김가루, 강황밥이 어우러진 산채 비빔밥",
+          "name": "훈제 오리 산채",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "매콤한 쭈꾸미와 아삭한 라페, 풍성한 나물과 김가루, 강황밥이 어우러진 산채 비빔밥",
+          "name": "매콤 쫄깃 쭈꾸미 산채",
+          "price": 11000,
+          "priceText": "11,000원"
+        },
+        {
+          "description": "그릴에 구운 스팸과 표고버섯, 고사리, 시금치, 콩나물, 아삭한 라페가 어우러진 산채비빔밥",
+          "name": "그릴 스팸 산채",
+          "price": 8500,
+          "priceText": "8,500원"
+        },
+        {
+          "description": "고소한 참치 마요와 표고버섯, 고사리, 시금치, 콩나물, 라페가 어우러진 산채 비빔밥",
+          "name": "참치 마요 산채",
+          "price": 8500,
+          "priceText": "8,500원"
+        },
+        {
+          "description": "촉촉한 수비드 닭가슴살과 표고버섯, 고사리, 시금치, 콩나물, 라페가 어우러진 산채 비빔밥",
+          "name": "수비드 닭가슴살 산채",
+          "price": 8500,
+          "priceText": "8,500원"
+        },
+        {
+          "description": "표고버섯과 고사리, 시금치, 콩나물, 아삭한 라페와 김가루가 어우러진 산뜻한 산채 비빔밥",
+          "name": "산채 비빔밥 (기본)",
+          "price": 7900,
+          "priceText": "7,900원"
+        }
+      ],
+      "naverPlaceId": "2095508605",
+      "naverSearchQuery": "비바당 문정",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2095508605/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 78,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-083",
@@ -13628,7 +14351,6 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverSearchQuery": "요거 문정점",
       "naverMenus": []
     },
     {
@@ -14609,7 +15331,139 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "동파 향이 진하게 배여있는 1인분으로 충분한 야들야들한 동파육",
+          "name": "동파육덮밥 도시락",
+          "price": 14500,
+          "priceText": "14,500원"
+        },
+        {
+          "description": "대표님을 특급호텔 주방장으로 만들어준 소스가 ㅇ입혀진 쫀득한 새우 5마리로 혼밥하기 좋은",
+          "name": "깐쇼새우덮밥 도시락",
+          "price": 14500,
+          "priceText": "14,500원"
+        },
+        {
+          "description": "얼얼한 정도의 맵기를 가진 혼자먹기 딱좋을 정도의 양을 가진 부들부들한 동파육",
+          "name": "매운동파육덮밥 도시락",
+          "price": 14500,
+          "priceText": "14,500원"
+        },
+        {
+          "description": "색다른 새우요리가 땡길때",
+          "name": "깐풍새우덮밥 도시락",
+          "price": 14500,
+          "priceText": "14,500원"
+        },
+        {
+          "description": "치킨이 지겨울때 혼밥하기 좋은 깐풍기덮밥",
+          "name": "깐풍기덮밥 도시락",
+          "price": 14500,
+          "priceText": "14,500원"
+        },
+        {
+          "description": "적당한 간으로 맛있게 먹기 좋은 타이완벤땅의 마파두부밥",
+          "name": "마파두부밥",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "고기짬뽕같은 대만식 소고기국밥, 속시원한맛입니다.",
+          "name": "우라국밥(대만식 매운소고기국밥)",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "속을 편안하게 해주는 해장에도 좋은 닭고기가 들어간 산라탕",
+          "name": "산라닭고기",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "속을 편안하게 해주는 해장에도 좋은 새우가 들어간 산라탕",
+          "name": "산라새우",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "속을 편안하게 해주는 해장에도 좋은 버섯이 들어간 산라탕",
+          "name": "산라버섯",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "가볍게 배부른 음식을 먹고 싶을때 닭고기가 들어가 단백질도 채워주는",
+          "name": "닭고기게살죽",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "가볍게 배부른 음식을 먹고 싶을때 새우가 들어가 씹는맛이 좋은",
+          "name": "새우게살죽",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "가볍게 배부른 음식을 먹고 싶을때 버섯이 들어가 부드럽게 씹으며 목넘김이 좋은",
+          "name": "버섯게살죽",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "맛있는 향이 있는 부들부들한 동파육",
+          "name": "동파육 일품요리",
+          "price": 29000,
+          "priceText": "29,000원"
+        },
+        {
+          "description": "얼얼한 맵기를 가진 2~3인분의 부들부들한 동파육",
+          "name": "매운동파육 일품요리",
+          "price": 29000,
+          "priceText": "29,000원"
+        },
+        {
+          "description": "입맛이 확 살아나게 해주는 오향장육 세상에 이런 소고기 요리도 존재하는구나.",
+          "name": "오향장육 일품요리",
+          "price": 29000,
+          "priceText": "29,000원"
+        },
+        {
+          "description": "대표님을 특급호텔주방장으로 만들어준 특별한 소스를 입은 쫀득쫀득한 새우 12마리",
+          "name": "깐쇼새우 일품요리",
+          "price": 29000,
+          "priceText": "29,000원"
+        },
+        {
+          "description": "한번만 먹고본 사람은 없다는 중독적인 소스의 맛 쫀득한 새우 튀김 12마리",
+          "name": "크림새우 일품요리",
+          "price": 29000,
+          "priceText": "29,000원"
+        },
+        {
+          "description": "치킨은 지겹고 새로운 닭고기요리가 땡낄때",
+          "name": "깐풍기 일품요리",
+          "price": 29000,
+          "priceText": "29,000원"
+        },
+        {
+          "description": "대만식 요리중 밥반찬으로 강추하는 요리",
+          "name": "어향육슬 일품요리",
+          "price": 29000,
+          "priceText": "29,000원"
+        },
+        {
+          "description": "후루룩 목넘김도 좋고 먹고나면 속이 편안해지는 모든요리의 시작",
+          "name": "유산슬 일품요리",
+          "price": 29000,
+          "priceText": "29,000원"
+        }
+      ],
+      "naverPlaceId": "1674661909",
+      "naverSearchQuery": "타이완밴땅 문정",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1674661909/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 52,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-096",
@@ -15370,8 +16224,97 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverSearchQuery": "투썸플레이스(문정법조타운점)",
-      "naverMenus": []
+      "naverSearchQuery": "투썸플레이스 문정법조타운점",
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "말차크림라떼",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "아이스말차",
+          "price": 4200,
+          "priceText": "4,200원"
+        },
+        {
+          "description": "",
+          "name": "스트로베리말차라떼",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "화이트 초코 생크림과 고소한 아몬드 크런치를 더한 순백의 생크림 케이크",
+          "name": "화이트 스초생",
+          "price": 39000,
+          "priceText": "39,000원"
+        },
+        {
+          "description": "🍓부드러운 생크림과 진한 초코, 상큼한 딸기의 완벽 조합! 투썸 No1 케이크!!",
+          "name": "스초생",
+          "price": 39000,
+          "priceText": "39,000원"
+        },
+        {
+          "description": "담백한 생크림과 부드러운 시트, 딸기를 풍성하게 올린 생크림 케이크",
+          "name": "딸기생크림1호 케이크",
+          "price": 36000,
+          "priceText": "36,000원"
+        },
+        {
+          "description": "초코생크림과 마시멜로, 초코릿칩이 어우러진 귀여운 곰돌이 모양의 생크림 케이크",
+          "name": "투썸 해피데이 베어",
+          "price": 38000,
+          "priceText": "38,000원"
+        },
+        {
+          "description": "블랙쿠키 층에 마스카포네 크림의 수분이 전이되어 촉촉하고 부드럽게 즐기는 케이크",
+          "name": "아박 홀케이크",
+          "price": 34000,
+          "priceText": "34,000원"
+        },
+        {
+          "description": "TWG TEA를 우려낸 향긋한 밀크티 크림과 쉬폰시트와 어우러진 부드러운 밀크티 쉬폰케이크",
+          "name": "TWG얼그레이밀크티쉬폰",
+          "price": 36000,
+          "priceText": "36,000원"
+        },
+        {
+          "description": "투썸 고유의 원두 풍미를 느낄 수 있는 에스프레소 음료",
+          "name": "아메리카노(R)",
+          "price": 4700,
+          "priceText": "4,700원"
+        },
+        {
+          "description": "스팀밀크 위에 부드러운 우유 거품을 살짝 올려준 에스프레소 음료",
+          "name": "카페라떼(R)",
+          "price": 5200,
+          "priceText": "5,200원"
+        },
+        {
+          "description": "상큼한 요거트에 제철 맞은 딸기를 듬뿍 넣어 새콤 달콤하게 즐기는 요거트 라떼",
+          "name": "제철 맞은 딸기 요거트라떼(R)",
+          "price": 6200,
+          "priceText": "6,200원"
+        },
+        {
+          "description": "ICED ONLY 제철 맞은 딸기에 고소한 우유를 더해 부드럽게 즐기는 딸기 라떼",
+          "name": "제철 맞은 딸기 라떼(R)",
+          "price": 6800,
+          "priceText": "6,800원"
+        },
+        {
+          "description": "제철 맞은 생딸기를 듬뿍 갈아 만든 주스에 알룰로스 시럽을 더한 딸기주스",
+          "name": "생딸기 주스 로우 슈거(R)",
+          "price": 7300,
+          "priceText": "7,300원"
+        }
+      ],
+      "naverPlaceId": "1784731805",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1784731805/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 125,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-100",
@@ -17159,7 +18102,8 @@
       "naverPlaceId": "2079485357",
       "naverSearchQuery": "카츠파랑",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2079485357/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverVisitorReviewCount": 95
     },
     {
       "id": "sikgwon-112",
@@ -21415,7 +22359,18 @@
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverSearchQuery": "문정김밥",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "메뉴판",
+          "price": null,
+          "priceText": ""
+        }
+      ],
+      "naverPlaceId": "1153916240",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1153916240/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverVisitorReviewCount": 69,
+      "naverMenuUpdatedAt": "2026-05-22"
     },
     {
       "id": "sikgwon-139",
@@ -25032,9 +25987,9 @@
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1236337221",
-      "naverSearchQuery": "행복한밥상",
+      "naverSearchQuery": "행복한밥상 문정",
       "naverMenus": [],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1236337221/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1236337221/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 313,
       "naverBlogReviewCount": 7,
       "naverMenuUpdatedAt": "2026-05-22"
@@ -25372,11 +26327,11 @@
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "34177490",
-      "naverSearchQuery": "파리바게뜨(송파푸르지오점)",
+      "naverSearchQuery": "파리바게뜨 송파푸르지오점",
       "naverVisitorReviewCount": 991,
       "naverBlogReviewCount": 7,
       "naverMenus": [],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/34177490/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/34177490/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverMenuUpdatedAt": "2026-05-22"
     },
     {
@@ -26288,7 +27243,7 @@
       "naverVisitorReviewCount": 11,
       "naverBlogReviewCount": 4,
       "naverMenus": [],
-      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2002711258/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2002711258/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverMenuUpdatedAt": "2026-05-22"
     },
     {
