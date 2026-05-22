@@ -13,14 +13,10 @@
 html,
 body {
   margin: 0;
-  height: 100%;
 }
 
 body {
-  height: 100dvh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  min-height: 100vh;
   background:
     linear-gradient(180deg, rgba(15, 118, 110, 0.12), transparent 230px),
     #f5f3ef;
@@ -33,11 +29,7 @@ button {
 .app-shell {
   width: min(100%, 520px);
   margin: 0 auto;
-  padding: 22px 18px 0;
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
+  padding: 22px 18px 128px;
 }
 
 .topbar {
@@ -117,17 +109,9 @@ h1 {
 
 .preference-panel,
 .game-panel,
+.list-section,
 .ops-panel {
   margin-top: 22px;
-}
-
-.list-section {
-  margin-top: 22px;
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: calc(120px + env(safe-area-inset-bottom));
 }
 
 .list-section .section-title {
@@ -137,6 +121,33 @@ h1 {
   margin-bottom: 0;
   padding: 6px 0 10px;
   background: linear-gradient(180deg, #f5f3ef 75%, rgba(245, 243, 239, 0));
+}
+
+@media (min-width: 760px) and (min-height: 900px) {
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .app-shell {
+    padding: 22px 18px 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .list-section {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: calc(120px + env(safe-area-inset-bottom));
+  }
 }
 
 .section-title {
