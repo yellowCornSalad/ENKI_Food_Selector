@@ -404,17 +404,16 @@ h1 {
 .ladder-labels,
 .ladder-results {
   position: relative;
-  height: 28px;
+  height: 34px;
 }
 
-.ladder-label,
+.ladder-number,
 .ladder-result {
   position: absolute;
   top: 0;
-  width: 60px;
+  width: 62px;
   overflow: hidden;
   color: #4d5a56;
-  font-size: 11px;
   font-weight: 800;
   text-align: center;
   text-overflow: ellipsis;
@@ -422,9 +421,36 @@ h1 {
   transform: translateX(-50%);
 }
 
-.ladder-label.is-start,
+.ladder-number {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: 50%;
+  background: #fffdf8;
+  color: #17211f;
+  font-size: 15px;
+}
+
+.ladder-number.is-start {
+  border-color: #0f766e;
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.ladder-result {
+  width: 72px;
+  color: #69736f;
+  font-size: 11px;
+}
+
 .ladder-result.is-winner {
   color: #0f766e;
+}
+
+.ladder-field {
+  position: relative;
 }
 
 .ladder-svg {
@@ -445,6 +471,45 @@ h1 {
   stroke: #0f766e;
   stroke-width: 6;
   stroke-linecap: round;
+}
+
+.ladder-game.is-covered .ladder-line,
+.ladder-game.is-covered .ladder-rung {
+  opacity: 0.12;
+}
+
+.ladder-cover {
+  position: absolute;
+  inset: 14px 0;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(135deg, rgba(15, 118, 110, 0.08) 0 10px, rgba(255, 253, 248, 0.85) 10px 20px),
+    rgba(255, 253, 248, 0.9);
+  color: #0f766e;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.ladder-game.is-running .ladder-path {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: ladder-drop 3s linear both;
+}
+
+.game-wait,
+.game-result {
+  color: #0f766e;
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+}
+
+@keyframes ladder-drop {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .roulette-game {
@@ -475,8 +540,9 @@ h1 {
   border-radius: 50%;
   background: conic-gradient(from -90deg, var(--wheel));
   box-shadow: 0 12px 26px rgba(23, 33, 31, 0.14);
+  overflow: hidden;
   transform: rotate(var(--spin));
-  animation: roulette-spin 1.7s cubic-bezier(0.18, 0.82, 0.22, 1) both;
+  animation: roulette-spin 5s cubic-bezier(0.08, 0.72, 0.05, 1) both;
 }
 
 .roulette-wheel::after {
@@ -491,7 +557,7 @@ h1 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 92px;
+  width: 78px;
   overflow: hidden;
   color: #ffffff;
   font-size: 11px;
@@ -501,7 +567,7 @@ h1 {
   text-overflow: ellipsis;
   text-shadow: 0 1px 2px rgba(23, 33, 31, 0.3);
   white-space: nowrap;
-  transform: rotate(var(--angle)) translateY(-96px) rotate(calc(-1 * var(--angle)));
+  transform: rotate(var(--angle)) translateY(-88px) rotate(calc(-1 * var(--angle)));
   transform-origin: center;
 }
 
@@ -523,6 +589,66 @@ h1 {
   z-index: 1;
 }
 
+.roulette-center::after {
+  content: "";
+  position: absolute;
+  top: -88px;
+  left: 50%;
+  width: 4px;
+  height: 84px;
+  border-radius: 999px;
+  background: #17211f;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 2px rgba(255, 253, 248, 0.88);
+}
+
+.roulette-game.is-running .game-wait {
+  animation: pulse-text 0.8s ease-in-out infinite alternate;
+}
+
+.confetti {
+  position: relative;
+  width: 180px;
+  height: 0;
+}
+
+.confetti i {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 7px;
+  height: 11px;
+  border-radius: 2px;
+  background: #f59e0b;
+  animation: confetti-pop 0.8s ease-out both;
+}
+
+.confetti i:nth-child(2) {
+  background: #0f766e;
+  animation-delay: 0.04s;
+  transform: rotate(24deg);
+}
+
+.confetti i:nth-child(3) {
+  background: #2563eb;
+  animation-delay: 0.08s;
+}
+
+.confetti i:nth-child(4) {
+  background: #dc2626;
+  animation-delay: 0.12s;
+}
+
+.confetti i:nth-child(5) {
+  background: #7c3aed;
+  animation-delay: 0.16s;
+}
+
+.confetti i:nth-child(6) {
+  background: #059669;
+  animation-delay: 0.2s;
+}
+
 @keyframes roulette-spin {
   from {
     transform: rotate(0deg);
@@ -530,6 +656,50 @@ h1 {
   to {
     transform: rotate(var(--spin));
   }
+}
+
+@keyframes pulse-text {
+  from {
+    opacity: 0.56;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confetti-pop {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--x, 0px)), -52px) rotate(220deg);
+  }
+}
+
+.confetti i:nth-child(1) {
+  --x: -72px;
+}
+
+.confetti i:nth-child(2) {
+  --x: -42px;
+}
+
+.confetti i:nth-child(3) {
+  --x: -12px;
+}
+
+.confetti i:nth-child(4) {
+  --x: 18px;
+}
+
+.confetti i:nth-child(5) {
+  --x: 48px;
+}
+
+.confetti i:nth-child(6) {
+  --x: 78px;
 }
 
 .ops-panel {

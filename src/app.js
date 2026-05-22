@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260521-11";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-1";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -11,6 +11,9 @@ const state = {
   ladderSelections: new Set(),
   ladderWarning: false,
   gameSeed: 0,
+  gamePhase: "setup",
+  selectedStartLane: null,
+  resultTimer: null,
 };
 
 const preferenceOptions = [
@@ -52,6 +55,7 @@ function setMeal(meal) {
   state.hasPicked = false;
   state.ladderSelections.clear();
   state.ladderWarning = false;
+  resetGameProgress();
   render();
 }
 
@@ -65,10 +69,12 @@ function togglePreference(id) {
   state.hasPicked = false;
   state.ladderSelections.clear();
   state.ladderWarning = false;
+  resetGameProgress();
   render();
 }
 
 function chooseMeal() {
+  if (state.gamePhase === "running") return;
   if (needsManualChoices(state.mode) && state.ladderSelections.size < 2) {
     state.hasPicked = false;
     state.ladderWarning = true;
@@ -77,17 +83,32 @@ function chooseMeal() {
   }
   if (!needsManualChoices(state.mode)) {
     state.pickIndex += 1;
+    state.gameSeed += 1;
+    state.gamePhase = "done";
+    state.hasPicked = true;
+    render();
+    return;
   }
   state.gameSeed += 1;
   state.ladderWarning = false;
-  state.hasPicked = true;
+  state.selectedStartLane = null;
+  if (state.mode === "ladder") {
+    state.gamePhase = "ready";
+    state.hasPicked = false;
+    render();
+    return;
+  }
+  state.gamePhase = "running";
+  state.hasPicked = false;
   render();
+  scheduleResultReveal(5000);
 }
 
 function setMode(mode) {
   state.mode = mode;
   state.hasPicked = false;
   state.ladderWarning = false;
+  resetGameProgress();
   render();
 }
 
@@ -99,7 +120,35 @@ function toggleLadderSelection(id) {
   }
   state.hasPicked = false;
   state.ladderWarning = false;
+  resetGameProgress();
   render();
+}
+
+function resetGameProgress() {
+  if (state.resultTimer) {
+    clearTimeout(state.resultTimer);
+  }
+  state.resultTimer = null;
+  state.gamePhase = "setup";
+  state.selectedStartLane = null;
+}
+
+function scheduleResultReveal(ms) {
+  if (state.resultTimer) clearTimeout(state.resultTimer);
+  state.resultTimer = setTimeout(() => {
+    state.gamePhase = "done";
+    state.hasPicked = true;
+    state.resultTimer = null;
+    render();
+  }, ms);
+}
+
+function startLadder(lane) {
+  state.selectedStartLane = lane;
+  state.gamePhase = "running";
+  state.hasPicked = false;
+  render();
+  scheduleResultReveal(3000);
 }
 
 function renderPreferenceChips() {
@@ -128,17 +177,18 @@ function renderStatus(recommendations) {
 
 function renderTopPick(item) {
   const target = $("#topPick");
-  if (!state.hasPicked) {
+  if (!state.hasPicked || (needsManualChoices(state.mode) && state.gamePhase !== "done")) {
     target.classList.add("is-idle");
+    const message = pendingHeroMessage();
     target.innerHTML = `
       <div class="pick-meta">
         <span>${state.meal === "lunch" ? "점심" : "저녁"} 준비</span>
         <span>${modeLabel(state.mode)}</span>
       </div>
-      <h2>뭐 고르세요?</h2>
-      <p class="restaurant-name">버튼을 누르면 메뉴를 하나 골라드릴게요.</p>
-      <p class="reason">취향 필터와 선택 방식을 먼저 고르면 더 그럴듯하게 골라집니다.</p>
-      <button class="hero-cta" data-action="choose" type="button">메뉴 고르기</button>
+      <h2>${message.title}</h2>
+      <p class="restaurant-name">${message.name}</p>
+      <p class="reason">${message.reason}</p>
+      ${message.showButton ? `<button class="hero-cta" data-action="choose" type="button">메뉴 고르기</button>` : ""}
     `;
     return;
   }
@@ -210,6 +260,14 @@ function modeLabel(mode) {
 function renderGameStage(recommendations) {
   const stage = $("#gameStage");
   const items = gameItems(recommendations);
+  if (state.mode === "ladder" && (state.gamePhase === "ready" || state.gamePhase === "running")) {
+    stage.innerHTML = renderLadder(createLadderGame(items, state.gameSeed, state.selectedStartLane ?? 0));
+    return;
+  }
+  if (state.mode === "roulette" && state.gamePhase === "running") {
+    stage.innerHTML = renderRoulette(createRouletteGame(items, state.gameSeed));
+    return;
+  }
   if (!state.hasPicked) {
     if (needsManualChoices(state.mode)) {
       stage.innerHTML = renderChoiceSetup(recommendations);
@@ -223,7 +281,7 @@ function renderGameStage(recommendations) {
     return;
   }
   if (state.mode === "ladder") {
-    stage.innerHTML = renderLadder(createLadderGame(items, state.gameSeed));
+    stage.innerHTML = renderLadder(createLadderGame(items, state.gameSeed, state.selectedStartLane ?? 0));
     return;
   }
   if (state.mode === "roulette") {
@@ -260,6 +318,41 @@ function renderChoiceSetup(recommendations) {
   `;
 }
 
+function pendingHeroMessage() {
+  if (state.mode === "ladder") {
+    if (state.gamePhase === "ready") {
+      return {
+        title: "번호를 고르세요",
+        name: "1번부터 원하는 번호를 누르면 사다리가 내려갑니다.",
+        reason: "결과는 사다리가 끝까지 내려간 뒤 공개됩니다.",
+        showButton: false,
+      };
+    }
+    if (state.gamePhase === "running") {
+      return {
+        title: "사다리 내려가는 중",
+        name: "막대기가 길을 따라 내려가고 있어요.",
+        reason: "3초 뒤 결과를 공개합니다.",
+        showButton: false,
+      };
+    }
+  }
+  if (state.mode === "roulette" && state.gamePhase === "running") {
+    return {
+      title: "룰렛 도는 중",
+      name: "포인터 앞을 촤르르 지나가는 중입니다.",
+      reason: "5초 뒤 멈춘 칸을 공개합니다.",
+      showButton: false,
+    };
+  }
+  return {
+    title: "뭐 고르세요?",
+    name: "버튼을 누르면 메뉴를 하나 골라드릴게요.",
+    reason: "취향 필터와 선택 방식을 먼저 고르면 더 그럴듯하게 골라집니다.",
+    showButton: true,
+  };
+}
+
 function gameItems(recommendations) {
   if (!needsManualChoices(state.mode)) return recommendations.slice(0, 5);
   const selected = recommendations.filter((item) => state.ladderSelections.has(item.id));
@@ -274,11 +367,11 @@ function needsManualChoices(mode) {
   return mode === "ladder" || mode === "roulette";
 }
 
-function createLadderGame(items, seed) {
+function createLadderGame(items, seed, chosenStartLane) {
   const count = Math.min(items.length, 5);
   if (!count) return { items: [], rungs: [], startLane: 0, winnerIndex: 0, path: [] };
   const rowCount = 7;
-  const startLane = deterministicNoise(`start-${seed}`, count);
+  const startLane = Number.isInteger(chosenStartLane) ? Math.max(0, Math.min(chosenStartLane, count - 1)) : 0;
   const rungs = [];
   for (let row = 0; row < rowCount; row += 1) {
     const used = new Set();
@@ -351,28 +444,37 @@ function renderLadder(game) {
   const path = activeVerticals
     .map(({ lane, y1, y2 }) => `<line class="ladder-path" x1="${xFor(lane)}" y1="${y1}" x2="${xFor(lane)}" y2="${y2}" />`)
     .join("");
+  const showPath = state.gamePhase === "running" || state.gamePhase === "done";
+  const revealResult = state.gamePhase === "done";
   const starts = game.items
     .map(
       (item, index) =>
-        `<span class="ladder-label ${index === game.startLane ? "is-start" : ""}" style="left:${(xFor(index) / width) * 100}%">${item.menu}</span>`,
+        `<button class="ladder-number ${state.selectedStartLane === index ? "is-start" : ""}" data-ladder-start="${index}" style="left:${(xFor(index) / width) * 100}%" type="button">${index + 1}</button>`,
     )
     .join("");
   const results = game.items
     .map(
       (item, index) =>
-        `<span class="ladder-result ${index === game.winnerIndex ? "is-winner" : ""}" style="left:${(xFor(index) / width) * 100}%">${item.name}</span>`,
+        `<span class="ladder-result ${revealResult && index === game.winnerIndex ? "is-winner" : ""}" style="left:${(xFor(index) / width) * 100}%">${item.menu}</span>`,
     )
     .join("");
   return `
-    <div class="ladder-game">
+    <div class="ladder-game ${showPath ? "is-revealed" : "is-covered"} ${state.gamePhase === "running" ? "is-running" : ""} ${revealResult ? "is-done" : ""}">
       <div class="ladder-labels">${starts}</div>
-      <svg class="ladder-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="사다리타기 결과">
-        ${verticals}
-        ${rungs}
-        ${path}
-      </svg>
+      <div class="ladder-field">
+        <svg class="ladder-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="사다리타기 결과">
+          ${verticals}
+          ${rungs}
+          ${showPath ? path : ""}
+        </svg>
+        ${showPath ? "" : `<div class="ladder-cover">번호를 고르면 길이 나타납니다</div>`}
+      </div>
       <div class="ladder-results">${results}</div>
-      <p><strong>${game.items[game.winnerIndex].menu}</strong> 당첨</p>
+      ${
+        revealResult
+          ? `<p class="game-result"><strong>${game.items[game.winnerIndex].menu}</strong> 당첨</p>`
+          : `<p class="game-wait">${state.gamePhase === "running" ? "두근두근... 내려가는 중" : "위 번호 중 하나를 골라주세요"}</p>`
+      }
     </div>
   `;
 }
@@ -385,12 +487,13 @@ function createRouletteGame(items, seed) {
 
 function renderRoulette(game) {
   if (!game.items.length) return `<p>표시할 후보가 없습니다.</p>`;
+  const revealResult = state.gamePhase === "done";
   const colors = ["#0f766e", "#f59e0b", "#2563eb", "#dc2626", "#7c3aed", "#059669"];
   const segment = 360 / game.items.length;
   const gradient = game.items
     .map((_, index) => `${colors[index % colors.length]} ${index * segment}deg ${(index + 1) * segment}deg`)
     .join(", ");
-  const finalRotation = 1440 - (game.winnerIndex * segment + segment / 2);
+  const finalRotation = 1800 - (game.winnerIndex * segment + segment / 2);
   const labels = game.items
     .map((item, index) => {
       const angle = index * segment + segment / 2;
@@ -398,13 +501,17 @@ function renderRoulette(game) {
     })
     .join("");
   return `
-    <div class="roulette-game">
+    <div class="roulette-game ${state.gamePhase === "running" ? "is-running" : ""} ${revealResult ? "is-done" : ""}">
       <div class="roulette-pointer" aria-hidden="true"></div>
       <div class="roulette-wheel" style="--wheel:${gradient}; --spin:${finalRotation}deg">
         ${labels}
         <span class="roulette-center">GO</span>
       </div>
-      <p><strong>${game.items[game.winnerIndex].menu}</strong> 당첨</p>
+      ${
+        revealResult
+          ? `<div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="game-result"><strong>${game.items[game.winnerIndex].menu}</strong> 당첨</p>`
+          : `<p class="game-wait">아직 몰라요... 거의 멈추는 중</p>`
+      }
     </div>
   `;
 }
@@ -433,10 +540,10 @@ function render() {
 }
 
 function selectGameWinner(recommendations) {
-  if (!state.hasPicked) return recommendations;
+  if (!state.hasPicked || state.gamePhase !== "done") return recommendations;
   let winner = null;
   if (state.mode === "ladder") {
-    const game = createLadderGame(gameItems(recommendations), state.gameSeed);
+    const game = createLadderGame(gameItems(recommendations), state.gameSeed, state.selectedStartLane ?? 0);
     winner = game.items[game.winnerIndex];
   }
   if (state.mode === "roulette") {
@@ -465,6 +572,11 @@ $("#topPick").addEventListener("click", (event) => {
   }
 });
 $("#gameStage").addEventListener("click", (event) => {
+  const start = event.target.closest("[data-ladder-start]");
+  if (start && state.mode === "ladder" && state.gamePhase === "ready") {
+    startLadder(Number(start.dataset.ladderStart));
+    return;
+  }
   const button = event.target.closest("[data-ladder-id]");
   if (button) {
     toggleLadderSelection(button.dataset.ladderId);
@@ -479,6 +591,7 @@ $("#clearFiltersButton").addEventListener("click", () => {
   state.hasPicked = false;
   state.ladderSelections.clear();
   state.ladderWarning = false;
+  resetGameProgress();
   render();
 });
 
