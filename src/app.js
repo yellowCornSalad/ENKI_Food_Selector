@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-8";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-9";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -14,6 +14,7 @@ const state = {
   gamePhase: "setup",
   selectedStartLane: null,
   resultTimer: null,
+  expandedCandidates: new Set(),
 };
 
 const preferenceOptions = [
@@ -221,19 +222,82 @@ function renderTopPick(item) {
 
 function renderCandidate(item) {
   const article = document.createElement("article");
-  article.className = "candidate-card";
+  const expanded = state.expandedCandidates.has(item.id);
+  article.className = `candidate-card ${expanded ? "is-expanded" : ""}`;
+  article.dataset.candidateId = item.id;
+  article.setAttribute("aria-expanded", expanded ? "true" : "false");
   const rating = ratingText(item);
+  const chevron = `<span class="candidate-chevron" aria-hidden="true">▾</span>`;
   article.innerHTML = `
-    <div>
-      <h3>${item.menu}</h3>
-      <p>${item.name} · ${categoryText(item)}</p>
+    <div class="candidate-head">
+      <div>
+        <h3>${item.menu}</h3>
+        <p>${item.name} · ${categoryText(item)}</p>
+      </div>
+      <div class="candidate-side">
+        <span>${item.distanceM}m</span>
+        <strong>${rating || "네이버 정보 없음"}</strong>
+        ${chevron}
+      </div>
     </div>
-    <div class="candidate-side">
-      <span>${item.distanceM}m</span>
-      <strong>${rating || "네이버 정보 없음"}</strong>
-    </div>
+    ${renderCandidateDetail(item, expanded)}
   `;
   return article;
+}
+
+function renderCandidateDetail(item, expanded) {
+  if (!expanded) return "";
+  const menus = item.naverMenus ?? [];
+  const link = item.naverPlaceUrl
+    ? `<a class="candidate-link" href="${item.naverPlaceUrl}" target="_blank" rel="noopener">네이버에서 더 보기 →</a>`
+    : "";
+  if (!menus.length) {
+    return `
+      <div class="candidate-detail">
+        <p class="candidate-empty">네이버 메뉴 정보가 아직 없어요.</p>
+        ${link}
+      </div>
+    `;
+  }
+  const rows = menus
+    .map((menu) => {
+      const price = menu.priceText ? `<span class="menu-price">${escapeHtml(menu.priceText)}</span>` : "";
+      const desc = menu.description ? `<p class="menu-desc">${escapeHtml(menu.description)}</p>` : "";
+      return `
+        <li>
+          <div class="menu-row">
+            <strong>${escapeHtml(menu.name)}</strong>
+            ${price}
+          </div>
+          ${desc}
+        </li>
+      `;
+    })
+    .join("");
+  return `
+    <div class="candidate-detail">
+      <ul class="menu-list">${rows}</ul>
+      ${link}
+    </div>
+  `;
+}
+
+function toggleCandidate(id) {
+  if (state.expandedCandidates.has(id)) {
+    state.expandedCandidates.delete(id);
+  } else {
+    state.expandedCandidates.add(id);
+  }
+  render();
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function ratingText(item) {
@@ -732,6 +796,13 @@ $("#gameStage").addEventListener("click", (event) => {
   if (button) {
     toggleLadderSelection(button.dataset.ladderId);
   }
+});
+$("#candidateList").addEventListener("click", (event) => {
+  if (event.target.closest("a")) return;
+  const head = event.target.closest(".candidate-head");
+  if (!head) return;
+  const card = head.closest("[data-candidate-id]");
+  if (card) toggleCandidate(card.dataset.candidateId);
 });
 for (const button of document.querySelectorAll(".mode-button")) {
   button.addEventListener("click", () => setMode(button.dataset.mode));
