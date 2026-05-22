@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-10";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-11";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -19,13 +19,13 @@ const state = {
 
 const preferenceOptions = [
   { id: "korean", label: "한식" },
-  { id: "light", label: "가볍게" },
+  { id: "chinese", label: "중식" },
+  { id: "western", label: "양식" },
+  { id: "japanese", label: "일식" },
   { id: "diet", label: "다이어트" },
-  { id: "spicy", label: "매콤" },
-  { id: "rice", label: "밥" },
-  { id: "noodle", label: "면" },
-  { id: "team", label: "팀 식사" },
   { id: "quick", label: "빠르게" },
+  { id: "team", label: "팀 식사" },
+  { id: "drink", label: "커피/음료" },
 ];
 
 const $ = (selector) => document.querySelector(selector);
@@ -261,7 +261,9 @@ function renderCandidateDetail(item, expanded) {
   }
   const rows = menus
     .map((menu) => {
-      const price = menu.priceText ? `<span class="menu-price">${escapeHtml(menu.priceText)}</span>` : "";
+      const overBudget = typeof menu.price === "number" && menu.price > 12000;
+      const priceClass = overBudget ? "menu-price is-over" : "menu-price";
+      const price = menu.priceText ? `<span class="${priceClass}">${escapeHtml(menu.priceText)}</span>` : "";
       const desc = menu.description ? `<p class="menu-desc">${escapeHtml(menu.description)}</p>` : "";
       return `
         <li>
@@ -710,7 +712,7 @@ function renderRoulette(game) {
   const labels = game.items
     .map((item, index) => {
       const angle = index * segment + segment / 2;
-      return `<span class="roulette-label" style="--angle:${angle}deg">${item.menu}</span>`;
+      return `<span class="roulette-label" style="--angle:${angle}deg"><span class="roulette-label-text">${escapeHtml(item.menu)}</span></span>`;
     })
     .join("");
   return `

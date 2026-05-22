@@ -83,11 +83,16 @@ function parseMenusFromState(state) {
 }
 
 async function fetchMenus(placeId) {
-  const url = `https://m.place.naver.com/restaurant/${placeId}/menu/list`;
-  const res = await fetch(url, { headers: HEADERS });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const html = await res.text();
-  return parseMenusFromState(extractApolloState(html));
+  const paths = ["restaurant", "cafe", "place"];
+  for (const p of paths) {
+    const url = `https://m.place.naver.com/${p}/${placeId}/menu/list`;
+    const res = await fetch(url, { headers: HEADERS });
+    if (!res.ok) continue;
+    const html = await res.text();
+    const menus = parseMenusFromState(extractApolloState(html));
+    if (menus.length) return menus;
+  }
+  return [];
 }
 
 async function searchPlaceId(query) {

@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 식권 메뉴 자동 추천" />
     <title>엔키 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-10" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260522-11" />
   </head>
   <body>
     <main class="app-shell">
@@ -56,14 +56,13 @@
           <span id="candidateCount"></span>
         </div>
         <div class="candidate-list" id="candidateList"></div>
-      </section>
-
-      <section class="ops-panel">
-        <h2>운영 메모</h2>
-        <p>
-          식권대장 공식 API가 없으면 <code>data/restaurants.json</code>에서 문정동 후보와 가맹 확인 상태를 갱신합니다.
-          Slack bot도 같은 추천 엔진을 재사용하도록 분리되어 있습니다.
-        </p>
+        <section class="ops-panel">
+          <h2>운영 메모</h2>
+          <p>
+            식권대장 공식 API가 없으면 <code>data/restaurants.json</code>에서 문정동 후보와 가맹 확인 상태를 갱신합니다.
+            Slack bot도 같은 추천 엔진을 재사용하도록 분리되어 있습니다.
+          </p>
+        </section>
       </section>
     </main>
 
@@ -71,6 +70,6 @@
       <button class="primary-button" id="chooseButton" type="button">메뉴 고르기</button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260522-10"></script>
+    <script type="module" src="./src/app.js?v=20260522-11"></script>
   </body>
 </html>

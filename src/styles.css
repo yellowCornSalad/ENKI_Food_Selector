@@ -10,9 +10,17 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100%;
+}
+
+body {
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   background:
     linear-gradient(180deg, rgba(15, 118, 110, 0.12), transparent 230px),
     #f5f3ef;
@@ -25,7 +33,11 @@ button {
 .app-shell {
   width: min(100%, 520px);
   margin: 0 auto;
-  padding: 22px 18px 128px;
+  padding: 22px 18px 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .topbar {
@@ -105,9 +117,26 @@ h1 {
 
 .preference-panel,
 .game-panel,
-.list-section,
 .ops-panel {
   margin-top: 22px;
+}
+
+.list-section {
+  margin-top: 22px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: calc(120px + env(safe-area-inset-bottom));
+}
+
+.list-section .section-title {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 0;
+  padding: 6px 0 10px;
+  background: linear-gradient(180deg, #f5f3ef 75%, rgba(245, 243, 239, 0));
 }
 
 .section-title {
@@ -490,6 +519,10 @@ h1 {
   white-space: nowrap;
 }
 
+.menu-price.is-over {
+  color: #c1390a;
+}
+
 .menu-desc {
   margin-top: 4px;
   color: #66736f;
@@ -706,7 +739,7 @@ h1 {
   margin-top: 0;
   border: 8px solid #fffdf8;
   border-radius: 50%;
-  background: conic-gradient(from -90deg, var(--wheel));
+  background: conic-gradient(var(--wheel));
   box-shadow: 0 12px 26px rgba(23, 33, 31, 0.14);
   overflow: hidden;
   transform: rotate(var(--spin));
@@ -725,18 +758,41 @@ h1 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 78px;
-  overflow: hidden;
+  width: 90px;
+  height: 20px;
+  margin-left: -45px;
+  margin-top: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transform: rotate(var(--angle)) translateY(-94px) rotate(calc(-1 * var(--angle)));
+  transform-origin: 50% 50%;
+}
+
+.roulette-label-text {
+  display: inline-block;
+  max-width: 100%;
   color: #ffffff;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   line-height: 1.15;
   text-align: center;
-  text-overflow: ellipsis;
-  text-shadow: 0 1px 2px rgba(23, 33, 31, 0.3);
+  text-shadow: 0 1px 2px rgba(23, 33, 31, 0.36);
   white-space: nowrap;
-  transform: rotate(var(--angle)) translateY(-88px) rotate(calc(-1 * var(--angle)));
-  transform-origin: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform: rotate(0);
+  animation: roulette-label-counter 5s cubic-bezier(0.08, 0.72, 0.05, 1) both;
+}
+
+@keyframes roulette-label-counter {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(calc(-1 * var(--spin)));
+  }
 }
 
 .roulette-center {
@@ -765,8 +821,10 @@ h1 {
   animation: roulette-pointer-flap 0.18s ease-in-out infinite alternate;
 }
 
-.roulette-game.is-running .roulette-label {
-  animation: roulette-label-tease 0.42s steps(2, end) infinite;
+.roulette-game.is-running .roulette-label-text {
+  animation:
+    roulette-label-counter 5s cubic-bezier(0.08, 0.72, 0.05, 1) both,
+    roulette-label-tease 0.42s steps(2, end) infinite;
 }
 
 .roulette-game.is-running .game-wait {

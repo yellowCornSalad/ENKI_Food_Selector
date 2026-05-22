@@ -71,13 +71,25 @@ function scoreRestaurant(restaurant, meal, preferences) {
   if (restaurant.hoursConfidence === "high") score += 14;
   if (restaurant.meals?.includes(meal)) score += 12;
   score += Math.max(0, 25 - restaurant.distanceM / 25);
-  for (const tag of restaurant.tags ?? []) {
+  for (const tag of effectiveTags(restaurant)) {
     if (preferences.has(tag)) score += 18;
   }
   if (preferences.has("team") && restaurant.teamFriendly) score += 12;
   if (preferences.has("quick") && restaurant.quick) score += 12;
   score += deterministicNoise(restaurant.id, 9);
   return score;
+}
+
+function effectiveTags(restaurant) {
+  const tags = new Set(restaurant.tags ?? []);
+  const cat = restaurant.category ?? "";
+  if (/한식|분식|면\/국수/.test(cat)) tags.add("korean");
+  if (/중식/.test(cat)) tags.add("chinese");
+  if (/일식/.test(cat)) tags.add("japanese");
+  if (/양식|샌드위치|버거|패스트푸드/.test(cat)) tags.add("western");
+  if (/샐러드|건강식/.test(cat)) tags.add("diet");
+  if (/카페|베이커리/.test(cat)) tags.add("drink");
+  return tags;
 }
 
 function pickMenu(restaurant, meal, preferences, seed) {
