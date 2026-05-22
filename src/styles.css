@@ -123,33 +123,6 @@ h1 {
   background: linear-gradient(180deg, #f5f3ef 75%, rgba(245, 243, 239, 0));
 }
 
-@media (min-width: 760px) and (min-height: 900px) {
-  html,
-  body {
-    height: 100%;
-  }
-  body {
-    height: 100dvh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .app-shell {
-    padding: 22px 18px 0;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-  }
-  .list-section {
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: calc(120px + env(safe-area-inset-bottom));
-  }
-}
-
 .section-title {
   display: flex;
   align-items: center;
