@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-2";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-3";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -244,6 +244,9 @@ function badgeText(item) {
 function ratingText(item) {
   if (typeof item.naverRating === "number") {
     return `네이버 ★ ${item.naverRating.toFixed(1)}`;
+  }
+  if (typeof item.naverVisitorReviewCount === "number") {
+    return `네이버 리뷰 ${item.naverVisitorReviewCount.toLocaleString("ko-KR")}`;
   }
   if (typeof item.naverReviewCount === "number") {
     return `네이버 리뷰 ${item.naverReviewCount.toLocaleString("ko-KR")}`;
