@@ -933,7 +933,11 @@ function render() {
   $("#candidateCount").textContent = `${recommendations.length}곳`;
   const list = $("#candidateList");
   list.innerHTML = "";
-  for (const item of recommendations.slice(1)) {
+  const heroId = String(selectedRecommendations[0]?.id ?? "");
+  const listItems = [...recommendations]
+    .filter((item) => String(item.id) !== heroId)
+    .sort((a, b) => (a.distanceM ?? Number.POSITIVE_INFINITY) - (b.distanceM ?? Number.POSITIVE_INFINITY));
+  for (const item of listItems) {
     list.append(renderCandidate(item));
   }
 }
