@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 식권 메뉴 자동 추천" />
     <title>엔키 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-25" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260522-26" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -57,6 +57,10 @@
           <h2>식권대장 가맹점</h2>
           <span id="candidateCount"></span>
         </div>
+        <div class="candidate-search">
+          <input type="search" id="candidateSearch" placeholder="🔎 메뉴 또는 식당 이름 검색" autocomplete="off" maxlength="20" />
+          <button type="button" id="clearSearchButton" aria-label="검색어 지우기" hidden>×</button>
+        </div>
         <div class="candidate-list" id="candidateList"></div>
         <section class="ops-panel">
           <h2>운영 메모</h2>
@@ -72,6 +76,6 @@
       <button class="primary-button" id="chooseButton" type="button">메뉴 고르기</button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260522-24"></script>
+    <script type="module" src="./src/app.js?v=20260522-26"></script>
   </body>
 </html>

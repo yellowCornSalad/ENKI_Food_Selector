@@ -535,6 +535,65 @@ h1 {
   margin-top: 18px;
 }
 
+.candidate-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.candidate-search input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 36px 0 14px;
+  border: 1px solid rgba(23, 33, 31, 0.18);
+  border-radius: 8px;
+  background: #fffdf8;
+  color: #17211f;
+  font-size: 14px;
+  font-weight: 700;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.candidate-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.candidate-search input:focus {
+  outline: 2px solid rgba(15, 118, 110, 0.3);
+  outline-offset: -1px;
+  border-color: #0f766e;
+}
+
+.candidate-search button {
+  position: absolute;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(23, 33, 31, 0.18);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.candidate-search button:hover {
+  background: rgba(23, 33, 31, 0.32);
+}
+
+.candidate-empty-state {
+  padding: 24px 8px;
+  color: #6d7774;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .candidate-list {
   display: grid;
   gap: 10px;

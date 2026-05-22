@@ -6025,7 +6025,7 @@
     },
     {
       "id": "sikgwon-032",
-      "name": "아리솔 자연밥상",
+      "name": "아리솔",
       "category": "한식",
       "distanceM": 79,
       "sikgwonStatus": "confirmed",
@@ -6045,7 +6045,7 @@
       "menus": {
         "lunch": [
           {
-            "name": "아리솔 자연밥상",
+            "name": "아리솔",
             "tags": [
               "korean",
               "rice"
@@ -6054,7 +6054,7 @@
         ],
         "dinner": [
           {
-            "name": "아리솔 자연밥상",
+            "name": "아리솔",
             "tags": [
               "korean",
               "rice"
@@ -6064,7 +6064,7 @@
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": null,
-      "naverSearchQuery": "아리솔 자연밥상",
+      "naverSearchQuery": "아리솔",
       "naverMenus": []
     },
     {

@@ -21,6 +21,7 @@ const state = {
   marbleItems: null,
   marbleWinnerIndex: null,
   marbleCleanup: null,
+  searchQuery: "",
 };
 
 const MAX_USER_MENUS = 8;
@@ -1014,16 +1015,46 @@ function render() {
   renderTopPick(selectedRecommendations[0]);
   renderGameStage();
   syncUserMenuInputValue();
-  $("#candidateCount").textContent = `${recommendations.length}곳`;
-  const list = $("#candidateList");
-  list.innerHTML = "";
   const heroId = String(selectedRecommendations[0]?.id ?? "");
-  const listItems = [...recommendations]
+  const candidates = [...recommendations]
     .filter((item) => String(item.id) !== heroId)
     .sort((a, b) => (a.distanceM ?? Number.POSITIVE_INFINITY) - (b.distanceM ?? Number.POSITIVE_INFINITY));
-  for (const item of listItems) {
+  const filtered = filterBySearch(candidates);
+  const countLabel = state.searchQuery
+    ? `${filtered.length}곳 / ${recommendations.length}곳`
+    : `${recommendations.length}곳`;
+  $("#candidateCount").textContent = countLabel;
+  const clearBtn = document.getElementById("clearSearchButton");
+  if (clearBtn) clearBtn.hidden = !state.searchQuery;
+  const list = $("#candidateList");
+  list.innerHTML = "";
+  if (!filtered.length) {
+    const empty = document.createElement("p");
+    empty.className = "candidate-empty-state";
+    empty.textContent = state.searchQuery
+      ? `'${state.searchQuery}'에 맞는 가맹점이 없어요`
+      : "표시할 가맹점이 없습니다.";
+    list.append(empty);
+    return;
+  }
+  for (const item of filtered) {
     list.append(renderCandidate(item));
   }
+}
+
+function filterBySearch(items) {
+  const query = state.searchQuery.trim().toLowerCase();
+  if (!query) return items;
+  return items.filter((item) => {
+    if (String(item.name ?? "").toLowerCase().includes(query)) return true;
+    if (String(item.category ?? "").toLowerCase().includes(query)) return true;
+    const allMenus = [
+      ...(item.menus?.lunch ?? []),
+      ...(item.menus?.dinner ?? []),
+      ...(item.naverMenus ?? []),
+    ];
+    return allMenus.some((menu) => String(menu?.name ?? "").toLowerCase().includes(query));
+  });
 }
 
 function selectGameWinner(recommendations) {
@@ -1166,6 +1197,30 @@ $("#candidateList").addEventListener("click", (event) => {
   const card = head.closest("[data-candidate-id]");
   if (card) toggleCandidate(card.dataset.candidateId);
 });
+const searchInput = document.getElementById("candidateSearch");
+if (searchInput) {
+  searchInput.addEventListener("input", (event) => {
+    state.searchQuery = event.target.value ?? "";
+    render();
+    // keep focus + cursor where it is
+    const el = document.getElementById("candidateSearch");
+    if (el && document.activeElement !== el) {
+      el.focus({ preventScroll: true });
+      const len = el.value.length;
+      try { el.setSelectionRange(len, len); } catch {}
+    }
+  });
+}
+const clearSearchBtn = document.getElementById("clearSearchButton");
+if (clearSearchBtn) {
+  clearSearchBtn.addEventListener("click", () => {
+    state.searchQuery = "";
+    const el = document.getElementById("candidateSearch");
+    if (el) el.value = "";
+    render();
+    if (el) el.focus({ preventScroll: true });
+  });
+}
 for (const button of document.querySelectorAll(".mode-button")) {
   button.addEventListener("click", () => setMode(button.dataset.mode));
 }
