@@ -1,4 +1,4 @@
-import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-4";
+import { getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-5";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -201,7 +201,7 @@ function renderTopPick(item) {
     return;
   }
   const bestFor = item.bestFor ?? item.tags ?? [];
-  const meta = [badgeText(item), `${item.distanceM}m`, ratingText(item)].filter(Boolean);
+  const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
   target.innerHTML = `
     <div class="pick-meta">
       ${meta.map((text) => `<span>${text}</span>`).join("")}
@@ -211,7 +211,7 @@ function renderTopPick(item) {
     <p class="reason">${item.reason}</p>
     ${renderSuggestionList(item)}
     <div class="detail-grid">
-      <span>${item.category}</span>
+      <span>${categoryText(item)}</span>
       <span>${item.priceBand}</span>
       <span>${bestFor.slice(0, 3).join(" · ")}</span>
     </div>
@@ -225,21 +225,14 @@ function renderCandidate(item) {
   article.innerHTML = `
     <div>
       <h3>${item.menu}</h3>
-      <p>${item.name} · ${item.category}</p>
+      <p>${item.name} · ${categoryText(item)}</p>
     </div>
     <div class="candidate-side">
       <span>${item.distanceM}m</span>
-      ${rating ? `<span>${rating}</span>` : ""}
-      <strong>${badgeText(item)}</strong>
+      <strong>${rating || "네이버 정보 없음"}</strong>
     </div>
   `;
   return article;
-}
-
-function badgeText(item) {
-  if (item.sikgwonStatus === "confirmed") return "식권 확인";
-  if (item.sikgwonStatus === "candidate") return "가맹 후보";
-  return "확인 필요";
 }
 
 function ratingText(item) {
@@ -253,6 +246,11 @@ function ratingText(item) {
     return `네이버 리뷰 ${item.naverReviewCount.toLocaleString("ko-KR")}`;
   }
   return "";
+}
+
+function categoryText(item) {
+  if (!item.category || item.category === "식권대장 가맹점") return "음식점";
+  return item.category;
 }
 
 function modeLabel(mode) {
