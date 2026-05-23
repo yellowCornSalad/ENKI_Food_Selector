@@ -1242,6 +1242,50 @@ loadRestaurants().catch(() => {
   $("#statusStrip").textContent = "가맹점 데이터를 불러오지 못했습니다.";
 });
 
+// ========== HERO MAP MOUNT ==========
+const HERO_MAP_TILES = [
+  "55908_25396",
+  "55909_25396",
+  "55910_25396",
+  "55908_25397",
+  "55909_25397",
+  "55910_25397",
+  "55908_25398",
+  "55909_25398",
+  "55910_25398",
+];
+
+function mountHeroMap(container) {
+  if (!container || container.querySelector(".hero-osm")) return;
+  const osm = document.createElement("div");
+  osm.className = "hero-osm";
+  osm.setAttribute("aria-hidden", "true");
+  for (const id of HERO_MAP_TILES) {
+    const img = document.createElement("img");
+    img.src = `./assets/map-tiles/${id}.png`;
+    img.alt = "";
+    img.loading = "lazy";
+    osm.append(img);
+  }
+  container.prepend(osm);
+
+  const pin = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  pin.setAttribute("class", "hero-pin");
+  pin.setAttribute("viewBox", "0 0 100 100");
+  pin.setAttribute("aria-hidden", "true");
+  pin.innerHTML = `
+    <circle cx="50" cy="50" r="30" fill="#fbbf24" fill-opacity="0.1"/>
+    <circle cx="50" cy="50" r="18" fill="#fbbf24" fill-opacity="0.22"/>
+    <circle cx="50" cy="50" r="8" fill="#fbbf24"/>
+    <circle cx="50" cy="50" r="3.5" fill="#1e1b4b"/>
+  `;
+  container.append(pin);
+}
+
+for (const el of document.querySelectorAll("[data-hero-map]")) {
+  mountHeroMap(el);
+}
+
 // ========== TAB ROUTING ==========
 const VALID_TABS = new Set(["home", "menu", "deal", "board", "my"]);
 
