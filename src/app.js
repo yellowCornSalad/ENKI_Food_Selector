@@ -1259,12 +1259,10 @@ const HERO_MAP_LINK = "https://map.naver.com/p/search/%EB%AC%B8%EC%A0%95%EC%97%A
 
 function mountHeroMap(container) {
   if (!container || container.querySelector(".hero-osm")) return;
-  const osm = document.createElement("a");
+  // Map tiles — decorative only, NOT clickable
+  const osm = document.createElement("div");
   osm.className = "hero-osm";
-  osm.href = HERO_MAP_LINK;
-  osm.target = "_blank";
-  osm.rel = "noopener noreferrer";
-  osm.setAttribute("aria-label", "네이버 지도에서 엔키 본사(문정역테라타워) 위치 보기");
+  osm.setAttribute("aria-hidden", "true");
   for (const id of HERO_MAP_TILES) {
     const img = document.createElement("img");
     img.src = `./assets/map-tiles/${id}.png`;
@@ -1274,17 +1272,25 @@ function mountHeroMap(container) {
   }
   container.prepend(osm);
 
-  const pin = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  pin.setAttribute("class", "hero-pin");
-  pin.setAttribute("viewBox", "0 0 100 100");
-  pin.setAttribute("aria-hidden", "true");
-  pin.innerHTML = `
-    <circle cx="50" cy="50" r="30" fill="#fbbf24" fill-opacity="0.1"/>
-    <circle cx="50" cy="50" r="18" fill="#fbbf24" fill-opacity="0.22"/>
-    <circle cx="50" cy="50" r="8" fill="#fbbf24"/>
-    <circle cx="50" cy="50" r="3.5" fill="#1e1b4b"/>
+  // Pin — the ONLY clickable thing; opens Naver Map
+  const pinLink = document.createElement("a");
+  pinLink.className = "hero-pin";
+  pinLink.href = HERO_MAP_LINK;
+  pinLink.target = "_blank";
+  pinLink.rel = "noopener noreferrer";
+  pinLink.setAttribute(
+    "aria-label",
+    "네이버 지도에서 엔키 본사(문정역테라타워) 위치 보기"
+  );
+  pinLink.innerHTML = `
+    <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <circle cx="50" cy="50" r="30" fill="#fbbf24" fill-opacity="0.1"/>
+      <circle cx="50" cy="50" r="18" fill="#fbbf24" fill-opacity="0.22"/>
+      <circle cx="50" cy="50" r="8" fill="#fbbf24"/>
+      <circle cx="50" cy="50" r="3.5" fill="#1e1b4b"/>
+    </svg>
   `;
-  container.append(pin);
+  container.append(pinLink);
 }
 
 for (const el of document.querySelectorAll("[data-hero-map]")) {
