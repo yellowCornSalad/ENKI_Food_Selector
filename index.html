@@ -7,31 +7,14 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-46" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260522-48" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
     <div class="app">
       <!-- ========== HOME TAB ========== -->
       <section class="tab-pane is-active" data-tab="home">
-        <header class="hero">
-          <div class="hero-osm" aria-hidden="true">
-            <img src="./assets/map-tiles/55908_25396.png" alt="" />
-            <img src="./assets/map-tiles/55909_25396.png" alt="" />
-            <img src="./assets/map-tiles/55910_25396.png" alt="" />
-            <img src="./assets/map-tiles/55908_25397.png" alt="" />
-            <img src="./assets/map-tiles/55909_25397.png" alt="" />
-            <img src="./assets/map-tiles/55910_25397.png" alt="" />
-            <img src="./assets/map-tiles/55908_25398.png" alt="" />
-            <img src="./assets/map-tiles/55909_25398.png" alt="" />
-            <img src="./assets/map-tiles/55910_25398.png" alt="" />
-          </div>
-          <svg class="hero-pin" viewBox="0 0 100 100" aria-hidden="true">
-            <circle cx="50" cy="50" r="30" fill="#fbbf24" fill-opacity="0.1"/>
-            <circle cx="50" cy="50" r="18" fill="#fbbf24" fill-opacity="0.22"/>
-            <circle cx="50" cy="50" r="8" fill="#fbbf24"/>
-            <circle cx="50" cy="50" r="3.5" fill="#1e1b4b"/>
-          </svg>
+        <header class="hero" data-hero-map="home">
 
           <div class="hero-top">
             <div class="hero-brand">
@@ -145,7 +128,7 @@
 
       <!-- ========== MENU TAB ========== -->
       <section class="tab-pane" data-tab="menu">
-        <div class="menu-hero-wrap">
+        <div class="menu-hero-wrap" data-hero-map="menu">
           <header class="topbar">
             <div class="topbar-text">
               <p class="eyebrow">ENKI WHITEHAT</p>
@@ -215,7 +198,7 @@
 
       <!-- ========== DEAL TAB ========== -->
       <section class="tab-pane" data-tab="deal">
-        <header class="deal-hero">
+        <header class="deal-hero" data-hero-map="deal">
           <div class="deal-hero-row">
             <div>
               <p class="hero-eyebrow">ENKI · 사내 중고거래</p>
@@ -315,7 +298,7 @@
 
       <!-- ========== BOARD TAB ========== -->
       <section class="tab-pane" data-tab="board">
-        <header class="placeholder-hero">
+        <header class="placeholder-hero" data-hero-map="board">
           <p class="hero-eyebrow">소통 · 곧 만나요</p>
           <h1>광장</h1>
           <p>사내 게시판과 점심 모집글을 준비하고 있어요.</p>
@@ -344,7 +327,7 @@
 
       <!-- ========== MY TAB ========== -->
       <section class="tab-pane" data-tab="my">
-        <header class="my-hero">
+        <header class="my-hero" data-hero-map="my">
           <div class="avatar">E</div>
           <h1>안녕하세요!</h1>
           <p>엔키화이트햇 · 문정동</p>
@@ -408,6 +391,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260522-47"></script>
+    <script type="module" src="./src/app.js?v=20260522-48"></script>
   </body>
 </html>
