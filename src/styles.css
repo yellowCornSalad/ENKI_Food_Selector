@@ -50,35 +50,60 @@ button {
   padding: 18px 0 24px;
 }
 
-/* ---------- Menu tab mini-hero (topbar) — full width, same as 거래 hero ---------- */
-.tab-pane[data-tab="menu"] > .topbar {
+/* ---------- Menu tab hero wrapper — covers topbar + status + meal switch ---------- */
+.tab-pane[data-tab="menu"] .menu-hero-wrap {
+  position: relative;
+  background:
+    radial-gradient(80% 50% at 110% 0%, rgba(245, 158, 11, 0.32), transparent 60%),
+    radial-gradient(60% 50% at -10% 100%, rgba(99, 102, 241, 0.35), transparent 60%),
+    linear-gradient(170deg, #1e1b4b 0%, #312e81 70%, #1e1b4b 100%);
+  color: #ffffff;
+  padding-bottom: 18px;
+  overflow: hidden;
+}
+
+.tab-pane[data-tab="menu"] .menu-hero-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.1) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 76% 38%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1.5px);
+  pointer-events: none;
+}
+
+.tab-pane[data-tab="menu"] .menu-hero-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Topbar inside hero wrap ---------- */
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar {
   position: relative;
   margin: 0;
-  padding: 28px 22px 26px;
-  background:
-    radial-gradient(80% 60% at 110% 0%, rgba(245, 158, 11, 0.35), transparent 60%),
-    linear-gradient(170deg, #1e1b4b 0%, #312e81 100%);
+  padding: 28px 22px 8px;
+  background: transparent;
   color: #ffffff;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
 }
 
-.tab-pane[data-tab="menu"] > .topbar .topbar-text {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-text {
   flex: 1 1 auto;
   min-width: 0;
 }
 
-.tab-pane[data-tab="menu"] > .topbar .topbar-sub {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-sub {
   margin: 10px 0 16px;
   color: rgba(255, 255, 255, 0.78);
   font-size: 13px;
   line-height: 1.45;
 }
 
-.tab-pane[data-tab="menu"] > .topbar .topbar-meta {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -87,19 +112,19 @@ button {
   font-weight: 750;
 }
 
-.tab-pane[data-tab="menu"] > .topbar .topbar-meta span {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-meta span {
   padding: 4px 10px;
   background: rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   backdrop-filter: blur(8px);
 }
 
-.tab-pane[data-tab="menu"] > .topbar .topbar-meta strong {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-meta strong {
   color: #ffffff;
   font-weight: 900;
 }
 
-.tab-pane[data-tab="menu"] > .topbar::before {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -109,12 +134,12 @@ button {
   pointer-events: none;
 }
 
-.tab-pane[data-tab="menu"] > .topbar > div {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar > div {
   position: relative;
   z-index: 1;
 }
 
-.tab-pane[data-tab="menu"] > .topbar .eyebrow {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .eyebrow {
   color: rgba(252, 211, 77, 0.92);
   font-size: 11px;
   font-weight: 850;
@@ -123,7 +148,7 @@ button {
   margin-bottom: 8px;
 }
 
-.tab-pane[data-tab="menu"] > .topbar h1 {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar h1 {
   margin: 0;
   font-size: 30px;
   font-weight: 900;
@@ -131,7 +156,7 @@ button {
   line-height: 1.05;
 }
 
-.tab-pane[data-tab="menu"] > .topbar .icon-button {
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .icon-button {
   position: relative;
   z-index: 1;
   background: rgba(255, 255, 255, 0.14);
@@ -143,28 +168,40 @@ button {
 }
 
 /* ---------- Menu tab card sections ---------- */
-.tab-pane[data-tab="menu"] .status-strip {
-  margin: 0 18px 12px;
+.tab-pane[data-tab="menu"] .menu-hero-wrap .status-strip {
+  margin: 6px 18px 12px;
   padding: 14px 16px;
-  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  background: rgba(255, 255, 255, 0.95);
   border: 0;
   border-radius: 14px;
   color: #312e81;
-  box-shadow: 0 6px 18px rgba(30, 27, 75, 0.06);
+  box-shadow: 0 8px 22px rgba(15, 15, 50, 0.28);
   font-size: 13px;
   font-weight: 700;
 }
 
-.tab-pane[data-tab="menu"] .status-strip strong {
+.tab-pane[data-tab="menu"] .menu-hero-wrap .status-strip strong {
   color: #1e1b4b;
   font-weight: 900;
 }
 
-.tab-pane[data-tab="menu"] .meal-switch {
-  margin: 0 18px 14px;
+.tab-pane[data-tab="menu"] .menu-hero-wrap .meal-switch {
+  margin: 0 18px;
   padding: 5px;
-  background: rgba(67, 56, 202, 0.08);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 14px;
+  backdrop-filter: blur(8px);
+}
+
+.tab-pane[data-tab="menu"] .menu-hero-wrap .meal-switch .segment {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.tab-pane[data-tab="menu"] .menu-hero-wrap .meal-switch .segment.is-active {
+  background: #ffffff;
+  color: #312e81;
+  box-shadow: 0 6px 18px rgba(15, 15, 50, 0.32);
 }
 
 .tab-pane[data-tab="menu"] .meal-switch .segment {

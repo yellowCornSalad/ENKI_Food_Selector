@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-38" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260522-39" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -127,29 +127,31 @@
 
       <!-- ========== MENU TAB ========== -->
       <section class="tab-pane" data-tab="menu">
-        <header class="topbar">
-          <div class="topbar-text">
-            <p class="eyebrow">ENKI WHITEHAT</p>
-            <h1>오늘 뭐 먹지</h1>
-            <p class="topbar-sub">문정동 식권대장 가맹점 190곳에서 골라드릴게요.</p>
-            <div class="topbar-meta">
-              <span id="menuLunchCountdown">🕒 점심까지 계산 중</span>
-              <span>🍽️ 가맹점 <strong>190</strong>곳</span>
+        <div class="menu-hero-wrap">
+          <header class="topbar">
+            <div class="topbar-text">
+              <p class="eyebrow">ENKI WHITEHAT</p>
+              <h1>오늘 뭐 먹지</h1>
+              <p class="topbar-sub">문정동 식권대장 가맹점 190곳에서 골라드릴게요.</p>
+              <div class="topbar-meta">
+                <span id="menuLunchCountdown">🕒 점심까지 계산 중</span>
+                <span>🍽️ 가맹점 <strong>190</strong>곳</span>
+              </div>
             </div>
-          </div>
-          <button class="icon-button" id="refreshButton" type="button" aria-label="새 추천 받기" title="새 추천 받기">
-            <span aria-hidden="true">↻</span>
-          </button>
-        </header>
+            <button class="icon-button" id="refreshButton" type="button" aria-label="새 추천 받기" title="새 추천 받기">
+              <span aria-hidden="true">↻</span>
+            </button>
+          </header>
 
-        <main class="app-shell">
           <section class="status-strip" id="statusStrip" aria-live="polite"></section>
 
           <section class="meal-switch" aria-label="식사 선택">
             <button class="segment" id="lunchButton" type="button">점심</button>
             <button class="segment" id="dinnerButton" type="button">저녁</button>
           </section>
+        </div>
 
+        <main class="app-shell">
           <section class="preference-panel">
             <div class="section-title">
               <h2>취향</h2>
