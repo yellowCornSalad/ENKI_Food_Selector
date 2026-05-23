@@ -1,5 +1,5 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-22";
-import { startMarbleRace } from "./marble-race.js?v=20260522-22";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-30";
+import { startMarbleRace } from "./marble-race.js?v=20260522-30";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -1239,3 +1239,124 @@ $("#statusStrip").textContent = "가맹점 데이터를 불러오는 중입니�
 loadRestaurants().catch(() => {
   $("#statusStrip").textContent = "가맹점 데이터를 불러오지 못했습니다.";
 });
+
+// ========== TAB ROUTING ==========
+const VALID_TABS = new Set(["home", "menu", "board", "my"]);
+
+function activateTab(tab) {
+  const target = VALID_TABS.has(tab) ? tab : "home";
+  document.querySelectorAll(".tab-pane").forEach((el) => {
+    el.classList.toggle("is-active", el.dataset.tab === target);
+  });
+  document.querySelectorAll(".nav-item").forEach((el) => {
+    el.classList.toggle("is-active", el.dataset.tabTarget === target);
+  });
+  const action = document.getElementById("bottomAction");
+  if (action) action.classList.toggle("is-visible", target === "menu");
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+
+function readHashTab() {
+  const raw = window.location.hash.replace(/^#\/?/, "");
+  return raw || "home";
+}
+
+function navigateTo(tab) {
+  const next = VALID_TABS.has(tab) ? tab : "home";
+  if (readHashTab() === next) {
+    activateTab(next);
+  } else {
+    window.location.hash = `#/${next}`;
+  }
+}
+
+window.addEventListener("hashchange", () => activateTab(readHashTab()));
+
+for (const btn of document.querySelectorAll(".nav-item")) {
+  btn.addEventListener("click", () => navigateTo(btn.dataset.tabTarget));
+}
+
+for (const btn of document.querySelectorAll("[data-nav-to]")) {
+  btn.addEventListener("click", () => navigateTo(btn.dataset.navTo));
+}
+
+// ========== HOME → MENU SEARCH BRIDGE ==========
+const homeSearchInput = document.getElementById("homeSearch");
+const homeSearchBtn = document.getElementById("homeSearchBtn");
+
+function applyHomeSearch() {
+  if (!homeSearchInput) return;
+  const value = homeSearchInput.value.trim();
+  if (!value) {
+    navigateTo("menu");
+    return;
+  }
+  state.searchQuery = value;
+  const menuSearch = document.getElementById("candidateSearch");
+  if (menuSearch) menuSearch.value = value;
+  navigateTo("menu");
+  render();
+  // scroll list into view after tab switch
+  setTimeout(() => {
+    document.querySelector('[data-tab="menu"] .list-section')?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 100);
+}
+
+if (homeSearchInput) {
+  homeSearchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      applyHomeSearch();
+    }
+  });
+}
+if (homeSearchBtn) {
+  homeSearchBtn.addEventListener("click", applyHomeSearch);
+}
+
+// Popular cards on home → set search query and jump to menu tab
+for (const card of document.querySelectorAll("[data-popular]")) {
+  card.addEventListener("click", () => {
+    state.searchQuery = card.dataset.popular;
+    const menuSearch = document.getElementById("candidateSearch");
+    if (menuSearch) menuSearch.value = state.searchQuery;
+    navigateTo("menu");
+    render();
+  });
+}
+
+// ========== LUNCH COUNTDOWN ==========
+function updateLunchCountdown() {
+  const el = document.getElementById("lunchCountdown");
+  if (!el) return;
+  const now = new Date();
+  const lunch = new Date(now);
+  lunch.setHours(12, 0, 0, 0);
+  const dinner = new Date(now);
+  dinner.setHours(18, 0, 0, 0);
+  let diffMs;
+  let label;
+  if (now < lunch) {
+    diffMs = lunch - now;
+    label = "점심";
+  } else if (now < dinner) {
+    diffMs = dinner - now;
+    label = "저녁";
+  } else {
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(12, 0, 0, 0);
+    diffMs = tomorrow - now;
+    label = "내일 점심";
+  }
+  const totalMinutes = Math.max(0, Math.round(diffMs / 60000));
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  const timeText = hours > 0 ? `${hours}시간 ${minutes}분` : `${minutes}분`;
+  el.innerHTML = `🕒 ${label}까지 <strong>${timeText}</strong>`;
+}
+updateLunchCountdown();
+setInterval(updateLunchCountdown, 30000);
+
+// Initial routing
+activateTab(readHashTab());
