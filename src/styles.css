@@ -358,24 +358,51 @@ button {
   z-index: 0;
 }
 
-.hero-map {
+.hero-osm {
   position: absolute;
-  top: 24px;
-  right: -70px;
-  width: 360px;
-  height: 360px;
+  top: -40px;
+  right: -180px;
+  width: 540px;
+  height: 540px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   z-index: 1;
-  opacity: 0.42;
+  opacity: 0.55;
   pointer-events: none;
-  -webkit-mask: radial-gradient(circle at 72% 32%, #000 28%, transparent 76%);
-  mask: radial-gradient(circle at 72% 32%, #000 28%, transparent 76%);
-  filter: blur(0.3px);
+  filter: invert(0.92) hue-rotate(180deg) brightness(0.55) saturate(0.7) contrast(1.18) blur(0.4px);
+  -webkit-mask: radial-gradient(circle at 70% 42%, #000 26%, transparent 72%);
+  mask: radial-gradient(circle at 70% 42%, #000 26%, transparent 72%);
+}
+
+.hero-osm img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-pin {
+  position: absolute;
+  top: 138px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 12px rgba(251, 191, 36, 0.45));
+  animation: hero-pin-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes hero-pin-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 .hero-copy,
 .hero-meta {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hero-top {
