@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-52" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260522-53" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -332,6 +332,43 @@
           <h1>안녕하세요!</h1>
           <p>엔키화이트햇 · 문정동</p>
         </header>
+        <!-- 식대 트래커 -->
+        <section class="budget-card">
+          <div class="budget-head">
+            <div>
+              <span class="budget-eyebrow">💳 오늘의 식대</span>
+              <h2 id="budgetRemaining">12,000원</h2>
+              <p class="budget-sub" id="budgetSub">하루 12,000원 · 자정에 자동 리셋</p>
+            </div>
+            <div class="budget-ring" id="budgetRing" aria-hidden="true">
+              <svg viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="26" class="budget-ring-bg" />
+                <circle cx="30" cy="30" r="26" class="budget-ring-fg" id="budgetRingFg" />
+              </svg>
+              <span id="budgetRingLabel">100%</span>
+            </div>
+          </div>
+          <form class="budget-form" id="budgetForm" autocomplete="off">
+            <input
+              type="number"
+              id="budgetAmount"
+              placeholder="방금 얼마 결제했어요?"
+              inputmode="numeric"
+              min="0"
+              max="100000"
+            />
+            <input
+              type="text"
+              id="budgetNote"
+              placeholder="가게/메모 (선택)"
+              maxlength="20"
+            />
+            <button type="submit">+ 차감</button>
+          </form>
+          <div class="budget-log" id="budgetLog"></div>
+          <button type="button" class="budget-reset" id="budgetReset">오늘 기록 초기화</button>
+        </section>
+
         <div class="my-grid">
           <button type="button" class="my-card">
             <span class="my-ico">⭐</span>
@@ -349,9 +386,9 @@
             <small>준비 중</small>
           </button>
           <button type="button" class="my-card">
-            <span class="my-ico">💳</span>
-            <strong>식대 정보</strong>
-            <small>12,000원 / 끼</small>
+            <span class="my-ico">📊</span>
+            <strong>월간 통계</strong>
+            <small>준비 중</small>
           </button>
         </div>
         <div class="my-version">
@@ -391,6 +428,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260522-48"></script>
+    <script type="module" src="./src/app.js?v=20260522-53"></script>
   </body>
 </html>
