@@ -45,23 +45,28 @@ button {
 
 .tab-pane[data-tab="menu"] .app-shell {
   width: 100%;
-  margin: 0 auto;
-  padding: 0 0 24px;
+  max-width: none;
+  margin: 0;
+  padding: 18px 0 24px;
 }
 
-/* ---------- Menu tab mini-hero (topbar) ---------- */
-.tab-pane[data-tab="menu"] .topbar {
+/* ---------- Menu tab mini-hero (topbar) — full width, same as 거래 hero ---------- */
+.tab-pane[data-tab="menu"] > .topbar {
   position: relative;
-  margin: 0 0 18px;
-  padding: 24px 22px 24px;
+  margin: 0;
+  padding: 28px 22px 26px;
   background:
     radial-gradient(80% 60% at 110% 0%, rgba(245, 158, 11, 0.35), transparent 60%),
     linear-gradient(170deg, #1e1b4b 0%, #312e81 100%);
   color: #ffffff;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.tab-pane[data-tab="menu"] .topbar::before {
+.tab-pane[data-tab="menu"] > .topbar::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -71,12 +76,12 @@ button {
   pointer-events: none;
 }
 
-.tab-pane[data-tab="menu"] .topbar > div {
+.tab-pane[data-tab="menu"] > .topbar > div {
   position: relative;
   z-index: 1;
 }
 
-.tab-pane[data-tab="menu"] .topbar .eyebrow {
+.tab-pane[data-tab="menu"] > .topbar .eyebrow {
   color: rgba(252, 211, 77, 0.92);
   font-size: 11px;
   font-weight: 850;
@@ -85,15 +90,15 @@ button {
   margin-bottom: 8px;
 }
 
-.tab-pane[data-tab="menu"] .topbar h1 {
+.tab-pane[data-tab="menu"] > .topbar h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 900;
   color: #ffffff;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
-.tab-pane[data-tab="menu"] .icon-button {
+.tab-pane[data-tab="menu"] > .topbar .icon-button {
   position: relative;
   z-index: 1;
   background: rgba(255, 255, 255, 0.14);
@@ -101,6 +106,7 @@ button {
   color: #ffffff;
   border-radius: 12px;
   backdrop-filter: blur(6px);
+  flex: 0 0 auto;
 }
 
 /* ---------- Menu tab card sections ---------- */
