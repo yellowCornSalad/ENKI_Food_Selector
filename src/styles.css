@@ -2991,3 +2991,115 @@ h1 {
     padding-top: 34px;
   }
 }
+
+/* ===== 홈 식대 카드 — 잔액 hint ===== */
+.action .action-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: rgba(31, 41, 55, 0.62);
+}
+.action.is-warm h3 {
+  line-height: 1.15;
+}
+
+/* ===== Screen-reader only ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== 식대 모달 ===== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 10, 24, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  animation: budget-modal-fade 0.22s ease-out;
+}
+.modal-backdrop[hidden] {
+  display: none;
+}
+.modal-sheet {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%);
+  border-radius: 24px 24px 0 0;
+  padding: 18px 16px 24px;
+  box-shadow: 0 -16px 48px rgba(0, 0, 0, 0.45);
+  animation: budget-modal-slide 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-overflow-scrolling: touch;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+.modal-close:hover,
+.modal-close:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  outline: none;
+}
+.budget-card--modal {
+  margin: 18px 0 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+@keyframes budget-modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes budget-modal-slide {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (min-width: 760px) {
+  .modal-backdrop {
+    align-items: center;
+    padding: 24px;
+  }
+  .modal-sheet {
+    border-radius: 24px;
+    max-height: 80vh;
+  }
+}
+
+/* Lock body scroll while modal is open */
+body.modal-open {
+  overflow: hidden;
+}
