@@ -315,7 +315,8 @@ function renderTopPick(item) {
   target.classList.remove("is-miss", "is-again", "is-empty");
   const bestFor = item.bestFor ?? item.tags ?? [];
   const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
-  const mapUrl = naverMapSearchUrl(item.name);
+  // Direct place URL when available, otherwise name search.
+  const mapUrl = item.naverPlaceUrl || naverMapSearchUrl(item.name);
   target.innerHTML = `
     <div class="pick-meta">
       ${meta.map((text) => `<span>${text}</span>`).join("")}
@@ -361,17 +362,15 @@ function renderCandidate(item) {
 function renderCandidateDetail(item, expanded) {
   if (!expanded) return "";
   const menus = item.naverMenus ?? [];
-  const mapUrl = naverMapSearchUrl(item.name);
+  // Prefer the direct Naver Place URL (lands on that specific restaurant page)
+  // and fall back to a name search when we don't have one mapped.
+  const mapUrl = item.naverPlaceUrl || naverMapSearchUrl(item.name);
   const mapButton = `<a class="candidate-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">🗺️ 네이버 지도에서 검색</a>`;
-  const link = item.naverPlaceUrl
-    ? `<a class="candidate-link" href="${escapeHtml(item.naverPlaceUrl)}" target="_blank" rel="noopener">네이버 플레이스에서 더 보기 →</a>`
-    : "";
   if (!menus.length) {
     return `
       <div class="candidate-detail">
         <p class="candidate-empty">네이버 메뉴 정보가 아직 없어요.</p>
         ${mapButton}
-        ${link}
       </div>
     `;
   }
@@ -396,7 +395,6 @@ function renderCandidateDetail(item, expanded) {
     <div class="candidate-detail">
       <ul class="menu-list">${rows}</ul>
       ${mapButton}
-      ${link}
     </div>
   `;
 }
