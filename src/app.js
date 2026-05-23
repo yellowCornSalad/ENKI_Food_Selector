@@ -1,11 +1,13 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-31";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260523-05";
 import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
   meal: getCurrentMeal(new Date()),
   preferences: new Set(),
   restaurants: [],
-  pickIndex: 0,
+  // Start at a random rotation offset so the first card the user sees on
+  // page load differs each session (was always 0 → same top pick).
+  pickIndex: Math.floor(Math.random() * 12),
   hasPicked: false,
   mode: "quick",
   lastRecommendations: [],
@@ -313,6 +315,7 @@ function renderTopPick(item) {
   target.classList.remove("is-miss", "is-again", "is-empty");
   const bestFor = item.bestFor ?? item.tags ?? [];
   const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
+  const mapUrl = naverMapSearchUrl(item.name);
   target.innerHTML = `
     <div class="pick-meta">
       ${meta.map((text) => `<span>${text}</span>`).join("")}
@@ -326,6 +329,7 @@ function renderTopPick(item) {
       <span>${escapeHtml(item.priceBand ?? "")}</span>
       <span>${escapeHtml(bestFor.slice(0, 3).join(" · "))}</span>
     </div>
+    <a class="hero-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">🗺️ 네이버 지도에서 보기</a>
   `;
 }
 

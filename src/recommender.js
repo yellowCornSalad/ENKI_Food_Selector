@@ -8,6 +8,12 @@ const MEAL_BUDGETS = {
   dinner: 12000,
 };
 
+// New random seed every page load — keeps recommendations stable WITHIN a
+// session (so expanding/collapsing cards doesn't reshuffle the list) but
+// shuffles them between sessions / reloads so the same restaurant doesn't
+// always sit at the top.
+const SESSION_SEED = `${Date.now().toString(36)}|${Math.random().toString(36).slice(2, 10)}`;
+
 export function getCurrentMeal(now) {
   const minutes = now.getHours() * 60 + now.getMinutes();
   if (minutes >= toMinutes(MEAL_WINDOWS.dinner.start)) return "dinner";
@@ -96,7 +102,12 @@ function scoreRestaurant(restaurant, meal, preferences) {
   }
   if (preferences.has("team") && restaurant.teamFriendly) score += 12;
   if (preferences.has("quick") && restaurant.quick) score += 12;
-  score += deterministicNoise(restaurant.id, 9);
+  // Session-randomized noise — was deterministicNoise(restaurant.id, 9) which
+  // produced the same score every load, so the same restaurant always topped
+  // the list (e.g. 조조감자탕). Mixing in SESSION_SEED gives each page load a
+  // different shuffle of the top picks while still ranking confirmed-가맹점
+  // ahead of unconfirmed (40-pt difference dominates the 35-pt noise band).
+  score += deterministicNoise(`${restaurant.id}|${SESSION_SEED}`, 35);
   return score;
 }
 
@@ -138,7 +149,8 @@ function extractPrice(name) {
 
 function rotateTopChoices(ranked, pickIndex) {
   if (ranked.length <= 1) return ranked;
-  const topSize = Math.min(7, ranked.length);
+  // Bigger rotation pool (was 7) so '한 번 더' has more variety.
+  const topSize = Math.min(12, ranked.length);
   const top = ranked.slice(0, topSize);
   const rest = ranked.slice(topSize);
   const offset = Math.abs(pickIndex) % top.length;
