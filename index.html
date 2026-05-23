@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-42" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260522-43" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -15,55 +15,22 @@
       <!-- ========== HOME TAB ========== -->
       <section class="tab-pane is-active" data-tab="home">
         <header class="hero">
-          <svg class="hero-map" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <defs>
-              <radialGradient id="heroMapGlow" cx="62%" cy="38%" r="52%">
-                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32"/>
-                <stop offset="60%" stop-color="#ffffff" stop-opacity="0.06"/>
-                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="400" height="400" fill="url(#heroMapGlow)"/>
-            <!-- minor grid -->
-            <g stroke="#ffffff" stroke-opacity="0.18" stroke-width="0.9" fill="none">
-              <line x1="0" y1="60" x2="400" y2="68"/>
-              <line x1="0" y1="120" x2="400" y2="128"/>
-              <line x1="0" y1="180" x2="400" y2="188"/>
-              <line x1="0" y1="240" x2="400" y2="248"/>
-              <line x1="0" y1="300" x2="400" y2="308"/>
-              <line x1="60" y1="0" x2="56" y2="400"/>
-              <line x1="140" y1="0" x2="136" y2="400"/>
-              <line x1="220" y1="0" x2="216" y2="400"/>
-              <line x1="300" y1="0" x2="296" y2="400"/>
-              <line x1="370" y1="0" x2="366" y2="400"/>
-            </g>
-            <!-- block fills -->
-            <g fill="#ffffff" fill-opacity="0.06">
-              <rect x="68" y="74" width="64" height="40" rx="4"/>
-              <rect x="148" y="74" width="64" height="40" rx="4"/>
-              <rect x="228" y="74" width="64" height="40" rx="4"/>
-              <rect x="68" y="134" width="64" height="40" rx="4"/>
-              <rect x="148" y="134" width="64" height="40" rx="4"/>
-              <rect x="228" y="194" width="64" height="40" rx="4"/>
-              <rect x="148" y="254" width="64" height="40" rx="4"/>
-              <rect x="228" y="254" width="64" height="40" rx="4"/>
-            </g>
-            <!-- major arterial roads -->
-            <g stroke="#ffffff" stroke-opacity="0.42" stroke-width="2.4" fill="none" stroke-linecap="round">
-              <path d="M -20 230 Q 140 198 220 210 T 420 195"/>
-              <path d="M 200 -20 Q 196 140 218 220 T 230 420"/>
-            </g>
-            <!-- subway line -->
-            <g stroke="#fbbf24" stroke-opacity="0.55" stroke-width="1.8" stroke-dasharray="6 5" fill="none">
-              <path d="M -10 170 Q 130 158 220 180 T 420 170"/>
-            </g>
-            <!-- ENKI pin (문정역테라타워) -->
-            <g transform="translate(220 210)">
-              <circle r="28" fill="#fbbf24" fill-opacity="0.12"/>
-              <circle r="16" fill="#fbbf24" fill-opacity="0.22"/>
-              <circle r="7" fill="#fbbf24"/>
-              <circle r="3" fill="#1e1b4b"/>
-            </g>
+          <div class="hero-osm" aria-hidden="true">
+            <img src="./assets/map-tiles/55908_25396.png" alt="" />
+            <img src="./assets/map-tiles/55909_25396.png" alt="" />
+            <img src="./assets/map-tiles/55910_25396.png" alt="" />
+            <img src="./assets/map-tiles/55908_25397.png" alt="" />
+            <img src="./assets/map-tiles/55909_25397.png" alt="" />
+            <img src="./assets/map-tiles/55910_25397.png" alt="" />
+            <img src="./assets/map-tiles/55908_25398.png" alt="" />
+            <img src="./assets/map-tiles/55909_25398.png" alt="" />
+            <img src="./assets/map-tiles/55910_25398.png" alt="" />
+          </div>
+          <svg class="hero-pin" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="30" fill="#fbbf24" fill-opacity="0.1"/>
+            <circle cx="50" cy="50" r="18" fill="#fbbf24" fill-opacity="0.22"/>
+            <circle cx="50" cy="50" r="8" fill="#fbbf24"/>
+            <circle cx="50" cy="50" r="3.5" fill="#1e1b4b"/>
           </svg>
 
           <div class="hero-top">
