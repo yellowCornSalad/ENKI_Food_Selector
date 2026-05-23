@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-37" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260522-38" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -128,9 +128,14 @@
       <!-- ========== MENU TAB ========== -->
       <section class="tab-pane" data-tab="menu">
         <header class="topbar">
-          <div>
+          <div class="topbar-text">
             <p class="eyebrow">ENKI WHITEHAT</p>
             <h1>오늘 뭐 먹지</h1>
+            <p class="topbar-sub">문정동 식권대장 가맹점 190곳에서 골라드릴게요.</p>
+            <div class="topbar-meta">
+              <span id="menuLunchCountdown">🕒 점심까지 계산 중</span>
+              <span>🍽️ 가맹점 <strong>190</strong>곳</span>
+            </div>
           </div>
           <button class="icon-button" id="refreshButton" type="button" aria-label="새 추천 받기" title="새 추천 받기">
             <span aria-hidden="true">↻</span>
@@ -383,6 +388,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260522-33"></script>
+    <script type="module" src="./src/app.js?v=20260522-38"></script>
   </body>
 </html>

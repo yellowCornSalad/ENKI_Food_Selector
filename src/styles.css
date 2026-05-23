@@ -61,9 +61,42 @@ button {
   color: #ffffff;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
+}
+
+.tab-pane[data-tab="menu"] > .topbar .topbar-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tab-pane[data-tab="menu"] > .topbar .topbar-sub {
+  margin: 10px 0 16px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.tab-pane[data-tab="menu"] > .topbar .topbar-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.tab-pane[data-tab="menu"] > .topbar .topbar-meta span {
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.tab-pane[data-tab="menu"] > .topbar .topbar-meta strong {
+  color: #ffffff;
+  font-weight: 900;
 }
 
 .tab-pane[data-tab="menu"] > .topbar::before {
