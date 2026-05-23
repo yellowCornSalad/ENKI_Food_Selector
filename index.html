@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-58" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260523-01" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -22,8 +22,10 @@
               <span>ENKI · 문정동</span>
             </div>
             <div class="hero-icons">
-              <button type="button" aria-label="알림">🔔<span class="dot"></span></button>
-              <button type="button" aria-label="설정">⚙️</button>
+              <button type="button" class="hero-icon-btn" data-nav-to="board" aria-label="채팅 열기">
+                🔔<span class="dot" id="chatUnreadDot"></span>
+              </button>
+              <button type="button" class="hero-icon-btn" data-open-settings aria-label="설정 열기">⚙️</button>
             </div>
           </div>
 
@@ -297,33 +299,43 @@
         </div>
       </section>
 
-      <!-- ========== BOARD TAB ========== -->
+      <!-- ========== CHAT TAB (board) ========== -->
       <section class="tab-pane" data-tab="board">
-        <header class="placeholder-hero">
-          <p class="hero-eyebrow">소통 · 곧 만나요</p>
-          <h1>광장</h1>
-          <p>사내 게시판과 점심 모집글을 준비하고 있어요.</p>
+        <header class="chat-hero">
+          <div class="chat-hero-top">
+            <div>
+              <p class="hero-eyebrow">ENKI · MESSAGES</p>
+              <h1>채팅</h1>
+              <p class="chat-hero-sub" id="chatHeroSub">점심 모집 · 거래 · 1:1 메시지</p>
+            </div>
+            <button type="button" class="chat-new-btn" id="chatNewBtn" aria-label="새 채팅">+</button>
+          </div>
         </header>
-        <div class="placeholder-cards">
-          <article class="placeholder-card">
-            <span class="ph-icon">📋</span>
-            <h3>사내 게시판</h3>
-            <p>공지 · 자유 · 익명 게시판</p>
-            <small>준비 중</small>
-          </article>
-          <article class="placeholder-card">
-            <span class="ph-icon">🍽️</span>
-            <h3>점심 모집</h3>
-            <p>"12시 한식 같이 가실 분"</p>
-            <small>준비 중</small>
-          </article>
-          <article class="placeholder-card">
-            <span class="ph-icon">💬</span>
-            <h3>채팅방</h3>
-            <p>1:1 / 그룹 채팅</p>
-            <small>준비 중</small>
-          </article>
+
+        <div class="chat-toolbar">
+          <div class="chat-search">
+            <span class="chat-search-icon" aria-hidden="true">🔎</span>
+            <input
+              type="search"
+              id="chatSearchInput"
+              placeholder="동료 또는 메시지 검색…"
+              autocomplete="off"
+            />
+          </div>
+          <div class="chat-filter" id="chatFilter" role="tablist">
+            <button class="chat-chip is-active" data-chat-filter="all" type="button">전체</button>
+            <button class="chat-chip" data-chat-filter="lunch" type="button">점심 모집</button>
+            <button class="chat-chip" data-chat-filter="deal" type="button">거래</button>
+            <button class="chat-chip" data-chat-filter="dm" type="button">1:1</button>
+            <button class="chat-chip" data-chat-filter="system" type="button">공지</button>
+          </div>
         </div>
+
+        <ul class="chat-list" id="chatList" aria-live="polite"></ul>
+
+        <p class="chat-footer-note">
+          🚧 v1.1은 미리보기 — 실시간 채팅은 v1.2 (Firebase) 에서 활성화
+        </p>
       </section>
 
       <!-- ========== MY TAB ========== -->
@@ -406,6 +418,73 @@
       </div>
     </div>
 
+    <!-- ========== 설정 모달 ========== -->
+    <div class="modal-backdrop" id="settingsModal" hidden role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
+      <div class="modal-sheet" role="document">
+        <button type="button" class="modal-close" id="settingsModalClose" aria-label="닫기">×</button>
+        <section class="settings-card">
+          <header class="settings-head">
+            <span class="settings-eyebrow">⚙️ 설정</span>
+            <h2 id="settingsModalTitle">ENKI Food Selector</h2>
+            <p class="settings-sub">v1.1 · 문정동 식권대장 가맹점 190곳</p>
+          </header>
+
+          <div class="settings-section">
+            <h3>💰 일일 식대 금액</h3>
+            <form class="settings-row" id="settingsBudgetForm" autocomplete="off">
+              <input
+                type="number"
+                id="settingsBudgetInput"
+                inputmode="numeric"
+                min="0"
+                max="100000"
+                placeholder="12000"
+              />
+              <span class="settings-unit">원</span>
+              <button type="submit">저장</button>
+            </form>
+            <small class="settings-hint">회사 정책 변경 시 조정 가능 · 기본 12,000원</small>
+          </div>
+
+          <div class="settings-section">
+            <h3>🔔 알림</h3>
+            <label class="settings-toggle">
+              <span>점심/저녁 임박 알림</span>
+              <input type="checkbox" id="settingsNotifyLunch" disabled />
+              <small>v1.2 예정</small>
+            </label>
+            <label class="settings-toggle">
+              <span>거래 댓글 알림</span>
+              <input type="checkbox" id="settingsNotifyDeal" disabled />
+              <small>v1.2 예정</small>
+            </label>
+          </div>
+
+          <div class="settings-section">
+            <h3>🗑️ 데이터 관리</h3>
+            <button type="button" class="settings-danger" id="settingsResetBudget">
+              오늘 식대 기록 초기화
+            </button>
+            <button type="button" class="settings-danger" id="settingsResetAll">
+              모든 로컬 데이터 초기화
+            </button>
+          </div>
+
+          <div class="settings-section">
+            <h3>📦 앱 정보</h3>
+            <ul class="settings-info">
+              <li><span>버전</span><strong>v1.1</strong></li>
+              <li><span>가맹점</span><strong>190곳</strong></li>
+              <li><span>제작</span><strong>준호 배</strong></li>
+            </ul>
+            <a href="mailto:jhbae.b@enki.co.kr?subject=%5BENKI%20Food%20Selector%5D%20%ED%94%BC%EB%93%9C%EB%B0%B1" class="settings-feedback">
+              💬 피드백 보내기
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+
     <!-- bottom CTA (메뉴 탭에서만 보임) -->
     <nav class="bottom-action" id="bottomAction">
       <button class="primary-button" id="chooseButton" type="button">메뉴 고르기</button>
@@ -427,7 +506,8 @@
       </button>
       <button class="nav-item" type="button" data-tab-target="board">
         <span class="nav-icon">💬</span>
-        <span class="nav-label">소통</span>
+        <span class="nav-label">채팅</span>
+        <span class="nav-badge" id="navChatBadge" hidden></span>
       </button>
       <button class="nav-item" type="button" data-tab-target="my">
         <span class="nav-icon">🙋</span>
@@ -435,6 +515,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260522-58"></script>
+    <script type="module" src="./src/app.js?v=20260523-01"></script>
   </body>
 </html>

@@ -1461,8 +1461,20 @@ updateWeatherAndDate();
 setInterval(updateWeatherAndDate, 10 * 60 * 1000);
 
 // ========== BUDGET TRACKER (localStorage) ==========
-const BUDGET_DAILY = 12000;
+const BUDGET_DAILY_DEFAULT = 12000;
+const BUDGET_DAILY_KEY = "enki.budget.daily.v1";
 const BUDGET_KEY = "enki.budget.v1";
+function getDailyBudget() {
+  try {
+    const raw = localStorage.getItem(BUDGET_DAILY_KEY);
+    const n = raw == null ? BUDGET_DAILY_DEFAULT : Number(raw);
+    return Number.isFinite(n) && n > 0 ? n : BUDGET_DAILY_DEFAULT;
+  } catch { return BUDGET_DAILY_DEFAULT; }
+}
+function setDailyBudget(n) {
+  try { localStorage.setItem(BUDGET_DAILY_KEY, String(Math.round(n))); } catch {}
+}
+let BUDGET_DAILY = getDailyBudget();
 
 function todayKey() {
   const now = new Date();
@@ -1513,7 +1525,7 @@ function renderBudget() {
   if (subEl) {
     subEl.textContent = used > 0
       ? `오늘 ${used.toLocaleString("ko-KR")}원 사용 · 자정에 자동 리셋`
-      : `하루 12,000원 · 자정에 자동 리셋`;
+      : `하루 ${BUDGET_DAILY.toLocaleString("ko-KR")}원 · 자정에 자동 리셋`;
   }
   // Ring progress
   const ring = document.getElementById("budgetRingFg");
@@ -1675,6 +1687,333 @@ document.addEventListener("keydown", (event) => {
 // Initial render + midnight rollover check every minute
 renderBudget();
 setInterval(renderBudget, 60 * 1000);
+
+// ========== CHAT TAB (mock data, v1.1 preview) ==========
+const CHAT_THREADS = [
+  {
+    id: "t1",
+    type: "lunch",
+    name: "박지인 매니저",
+    initial: "박",
+    avatarClass: "",
+    online: true,
+    lastMessage: "오늘 12시 한식 같이 가실 분 계실까요?",
+    time: "방금",
+    unread: 2,
+    tag: "점심 모집",
+  },
+  {
+    id: "t2",
+    type: "lunch",
+    name: "다이어트 같이먹어요 (4)",
+    initial: "🥗",
+    avatarClass: "is-group",
+    online: false,
+    lastMessage: "이서연: 슬로우캘리 1시 어떠세요?",
+    time: "10분 전",
+    unread: 5,
+    tag: "그룹 점심",
+  },
+  {
+    id: "t3",
+    type: "deal",
+    name: "김민수 (거래)",
+    initial: "김",
+    avatarClass: "is-deal",
+    online: true,
+    lastMessage: "맥북 충전기 65W 아직 판매중이신가요?",
+    time: "1시간 전",
+    unread: 1,
+    tag: "거래",
+  },
+  {
+    id: "t4",
+    type: "system",
+    name: "ENKI 공지",
+    initial: "E",
+    avatarClass: "is-system",
+    online: false,
+    lastMessage: "5/24(금) 전사 회식 — 송파대로 BBQ 6시 집결",
+    time: "어제",
+    unread: 0,
+    tag: "공지",
+  },
+  {
+    id: "t5",
+    type: "dm",
+    name: "이서연 책임",
+    initial: "이",
+    avatarClass: "",
+    online: false,
+    lastMessage: "내일 점심 같이 슬로우캘리 가요!",
+    time: "어제",
+    unread: 0,
+    tag: "1:1",
+  },
+  {
+    id: "t6",
+    type: "deal",
+    name: "맛집 추천 모임 (8)",
+    initial: "🍱",
+    avatarClass: "is-group",
+    online: false,
+    lastMessage: "박철수: 어제 갔던 지인고기 진짜 맛있었어요",
+    time: "그저께",
+    unread: 0,
+    tag: "그룹",
+  },
+  {
+    id: "t7",
+    type: "deal",
+    name: "최지우 (거래)",
+    initial: "최",
+    avatarClass: "is-deal",
+    online: false,
+    lastMessage: "에어팟 프로 2 케이스 같이 드릴게요",
+    time: "그저께",
+    unread: 0,
+    tag: "거래",
+  },
+  {
+    id: "t8",
+    type: "system",
+    name: "ENKI 시스템",
+    initial: "🤖",
+    avatarClass: "is-system",
+    online: false,
+    lastMessage: "식권대장 가맹점 데이터 v1.0 배포 완료",
+    time: "1일 전",
+    unread: 0,
+    tag: "공지",
+  },
+];
+
+const chatState = { filter: "all", query: "" };
+
+function escapeChatHtml(str) {
+  return String(str ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function chatTagClass(type) {
+  return ({
+    lunch: "tag-lunch",
+    deal: "tag-deal",
+    system: "tag-system",
+    dm: "",
+  })[type] || "";
+}
+
+function filteredThreads() {
+  const q = chatState.query.trim().toLowerCase();
+  return CHAT_THREADS.filter((t) => {
+    if (chatState.filter !== "all" && t.type !== chatState.filter) return false;
+    if (!q) return true;
+    return (
+      t.name.toLowerCase().includes(q) ||
+      t.lastMessage.toLowerCase().includes(q)
+    );
+  });
+}
+
+function renderChatList() {
+  const listEl = document.getElementById("chatList");
+  if (!listEl) return;
+  const items = filteredThreads();
+  if (!items.length) {
+    listEl.innerHTML = `<li class="chat-empty">검색 결과가 없어요.</li>`;
+    return;
+  }
+  listEl.innerHTML = items
+    .map((t) => {
+      const tagCls = chatTagClass(t.type);
+      const tagHtml = t.tag
+        ? `<span class="chat-tag ${tagCls}">${escapeChatHtml(t.tag)}</span>`
+        : "";
+      const unreadHtml = t.unread > 0
+        ? `<span class="chat-badge">${t.unread}</span>`
+        : "";
+      const onlineHtml = t.online ? `<span class="chat-online"></span>` : "";
+      const previewCls = t.unread > 0 ? "chat-preview has-unread" : "chat-preview";
+      return `
+        <li>
+          <button type="button" class="chat-item" data-chat-id="${t.id}" data-chat-name="${escapeChatHtml(t.name)}">
+            <div class="chat-avatar ${t.avatarClass}">
+              ${escapeChatHtml(t.initial)}
+              ${onlineHtml}
+            </div>
+            <div class="chat-body">
+              <div class="chat-line">
+                <strong>${escapeChatHtml(t.name)}${tagHtml}</strong>
+                <span class="chat-time">${escapeChatHtml(t.time)}</span>
+              </div>
+              <p class="${previewCls}">${escapeChatHtml(t.lastMessage)}</p>
+            </div>
+            ${unreadHtml}
+          </button>
+        </li>
+      `;
+    })
+    .join("");
+}
+
+function totalChatUnread() {
+  return CHAT_THREADS.reduce((s, t) => s + (t.unread || 0), 0);
+}
+
+function updateChatBadges() {
+  const total = totalChatUnread();
+  const navBadge = document.getElementById("navChatBadge");
+  if (navBadge) {
+    if (total > 0) {
+      navBadge.textContent = total > 99 ? "99+" : String(total);
+      navBadge.hidden = false;
+    } else {
+      navBadge.hidden = true;
+    }
+  }
+  const dot = document.getElementById("chatUnreadDot");
+  if (dot) dot.hidden = total === 0;
+  const sub = document.getElementById("chatHeroSub");
+  if (sub) {
+    sub.textContent = total > 0
+      ? `읽지 않은 메시지 ${total}개 · 점심 · 거래 · 1:1`
+      : `점심 모집 · 거래 · 1:1 메시지`;
+  }
+}
+
+function showToast(message) {
+  const existing = document.querySelector(".chat-toast");
+  if (existing) existing.remove();
+  const el = document.createElement("div");
+  el.className = "chat-toast";
+  el.textContent = message;
+  document.body.append(el);
+  setTimeout(() => el.remove(), 2400);
+}
+
+// Wire chat tab
+const chatListEl = document.getElementById("chatList");
+const chatFilterEl = document.getElementById("chatFilter");
+const chatSearchInput = document.getElementById("chatSearchInput");
+const chatNewBtn = document.getElementById("chatNewBtn");
+
+if (chatListEl) {
+  chatListEl.addEventListener("click", (event) => {
+    const item = event.target.closest("[data-chat-id]");
+    if (!item) return;
+    const name = item.dataset.chatName || "채팅";
+    showToast(`💬 ${name} — v1.2에서 실시간 채팅 열립니다`);
+  });
+}
+
+if (chatFilterEl) {
+  chatFilterEl.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-chat-filter]");
+    if (!btn) return;
+    chatState.filter = btn.dataset.chatFilter || "all";
+    for (const c of chatFilterEl.querySelectorAll(".chat-chip")) {
+      c.classList.toggle("is-active", c === btn);
+    }
+    renderChatList();
+  });
+}
+
+if (chatSearchInput) {
+  chatSearchInput.addEventListener("input", () => {
+    chatState.query = chatSearchInput.value;
+    renderChatList();
+  });
+}
+
+if (chatNewBtn) {
+  chatNewBtn.addEventListener("click", () => {
+    showToast("✏️ 새 채팅 만들기 — v1.2에서 활성화");
+  });
+}
+
+renderChatList();
+updateChatBadges();
+
+// ========== SETTINGS MODAL ==========
+const settingsModal = document.getElementById("settingsModal");
+const settingsModalClose = document.getElementById("settingsModalClose");
+const settingsBudgetForm = document.getElementById("settingsBudgetForm");
+const settingsBudgetInput = document.getElementById("settingsBudgetInput");
+const settingsResetBudget = document.getElementById("settingsResetBudget");
+const settingsResetAll = document.getElementById("settingsResetAll");
+
+function openSettingsModal() {
+  if (!settingsModal) return;
+  if (settingsBudgetInput) settingsBudgetInput.value = String(BUDGET_DAILY);
+  settingsModal.hidden = false;
+  document.body.classList.add("modal-open");
+}
+function closeSettingsModal() {
+  if (!settingsModal) return;
+  settingsModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest("[data-open-settings]")) {
+    event.preventDefault();
+    openSettingsModal();
+  }
+});
+if (settingsModalClose) settingsModalClose.addEventListener("click", closeSettingsModal);
+if (settingsModal) {
+  settingsModal.addEventListener("click", (event) => {
+    if (event.target === settingsModal) closeSettingsModal();
+  });
+}
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && settingsModal && !settingsModal.hidden) {
+    closeSettingsModal();
+  }
+});
+
+if (settingsBudgetForm) {
+  settingsBudgetForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const v = Number(settingsBudgetInput?.value ?? 0);
+    if (!Number.isFinite(v) || v <= 0 || v > 100000) {
+      showToast("⚠️ 1원 ~ 100,000원 사이로 입력해주세요");
+      return;
+    }
+    setDailyBudget(v);
+    BUDGET_DAILY = v;
+    renderBudget();
+    showToast(`✅ 일일 식대 ${v.toLocaleString("ko-KR")}원으로 변경됨`);
+  });
+}
+
+if (settingsResetBudget) {
+  settingsResetBudget.addEventListener("click", () => {
+    if (!confirm("오늘 식대 사용 기록을 모두 지울까요?")) return;
+    resetBudgetToday();
+    showToast("🗑️ 오늘 식대 기록 초기화됨");
+  });
+}
+
+if (settingsResetAll) {
+  settingsResetAll.addEventListener("click", () => {
+    if (!confirm("모든 로컬 데이터(식대·일일 한도·향후 즐겨찾기 등)를 초기화합니다.\n계속할까요?")) return;
+    try {
+      localStorage.removeItem(BUDGET_KEY);
+      localStorage.removeItem(BUDGET_DAILY_KEY);
+    } catch {}
+    BUDGET_DAILY = BUDGET_DAILY_DEFAULT;
+    budgetState = { date: todayKey(), entries: [] };
+    saveBudget(budgetState);
+    renderBudget();
+    if (settingsBudgetInput) settingsBudgetInput.value = String(BUDGET_DAILY);
+    showToast("🗑️ 모든 로컬 데이터 초기화됨");
+  });
+}
 
 // Initial routing
 activateTab(readHashTab());
