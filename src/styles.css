@@ -3072,11 +3072,123 @@ h1 {
   outline: none;
 }
 .budget-card--modal {
-  margin: 18px 0 0;
+  margin: 44px 4px 4px;
   background: transparent;
   box-shadow: none;
   border: none;
   padding: 0;
+}
+/* Dark-mode color overrides for modal context */
+.budget-card--modal .budget-head {
+  margin-bottom: 18px;
+  padding-right: 4px;
+}
+.budget-card--modal .budget-eyebrow {
+  color: #fbbf24;
+}
+.budget-card--modal h2 {
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: -0.6px;
+  text-shadow: 0 2px 12px rgba(251, 191, 36, 0.18);
+}
+.budget-card--modal h2.is-over {
+  color: #fca5a5;
+}
+.budget-card--modal .budget-sub {
+  color: rgba(248, 250, 252, 0.72);
+}
+.budget-card--modal .budget-ring {
+  width: 58px;
+  height: 58px;
+}
+.budget-card--modal .budget-ring-bg {
+  stroke: rgba(255, 255, 255, 0.15);
+}
+.budget-card--modal .budget-ring-fg {
+  stroke: #fbbf24;
+}
+.budget-card--modal .budget-ring-fg.is-over {
+  stroke: #fca5a5;
+}
+.budget-card--modal .budget-ring span {
+  color: #fbbf24;
+  font-size: 13px;
+}
+.budget-card--modal .budget-ring span.is-over {
+  color: #fca5a5;
+}
+
+/* Form: lighter inputs, amber CTA */
+.budget-card--modal .budget-form {
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+}
+.budget-card--modal .budget-form input {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e1b4b;
+  border-color: rgba(251, 191, 36, 0.3);
+  min-height: 44px;
+  font-size: 14px;
+}
+.budget-card--modal .budget-form input:focus {
+  outline-color: rgba(251, 191, 36, 0.55);
+  border-color: #fbbf24;
+}
+.budget-card--modal .budget-form input::placeholder {
+  color: #6b7280;
+  font-weight: 600;
+}
+.budget-card--modal .budget-form button {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1e1b4b;
+  min-height: 44px;
+  font-size: 14px;
+  box-shadow: 0 6px 16px rgba(251, 191, 36, 0.28);
+}
+
+/* Log entries: dark cards with light text */
+.budget-card--modal .budget-empty {
+  color: rgba(248, 250, 252, 0.55);
+}
+.budget-card--modal .budget-entry {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.budget-card--modal .budget-entry-main strong {
+  color: #ffffff;
+}
+.budget-card--modal .budget-note {
+  color: rgba(248, 250, 252, 0.7);
+}
+.budget-card--modal .budget-entry-side span {
+  color: rgba(248, 250, 252, 0.55);
+}
+.budget-card--modal .budget-remove {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(248, 250, 252, 0.7);
+}
+.budget-card--modal .budget-remove:hover {
+  background: rgba(252, 165, 165, 0.25);
+  color: #fca5a5;
+}
+.budget-card--modal .budget-reset {
+  color: rgba(248, 250, 252, 0.45);
+  padding: 12px 0 4px;
+}
+.budget-card--modal .budget-reset:hover {
+  color: #fca5a5;
+}
+
+/* Single-column form on narrow screens to avoid input crunch */
+@media (max-width: 420px) {
+  .budget-card--modal .budget-form {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .budget-card--modal .budget-form button {
+    width: 100%;
+  }
 }
 
 @keyframes budget-modal-fade {
