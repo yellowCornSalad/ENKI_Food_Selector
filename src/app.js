@@ -1354,6 +1354,11 @@ function updateLunchCountdown() {
   const minutes = totalMinutes % 60;
   const timeText = hours > 0 ? `${hours}시간 ${minutes}분` : `${minutes}분`;
   el.innerHTML = `🕒 ${label}까지 <strong>${timeText}</strong>`;
+  // Mirror the same label into 메뉴 탭 hero (if mounted)
+  const menuEl = document.getElementById("menuLunchCountdown");
+  if (menuEl) {
+    menuEl.innerHTML = `🕒 ${label}까지 <strong>${timeText}</strong>`;
+  }
 }
 updateLunchCountdown();
 setInterval(updateLunchCountdown, 30000);
