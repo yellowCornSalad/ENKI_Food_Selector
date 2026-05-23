@@ -1,5 +1,5 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-30";
-import { startMarbleRace } from "./marble-race.js?v=20260522-30";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260522-31";
+import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
   meal: getCurrentMeal(new Date()),
@@ -1357,6 +1357,52 @@ function updateLunchCountdown() {
 }
 updateLunchCountdown();
 setInterval(updateLunchCountdown, 30000);
+
+// ========== WEATHER + DATE (문정동) ==========
+function weatherIcon(code) {
+  if (code === 0) return "☀️";
+  if (code <= 2) return "🌤️";
+  if (code === 3) return "☁️";
+  if (code >= 45 && code <= 48) return "🌫️";
+  if (code >= 51 && code <= 57) return "🌦️";
+  if (code >= 61 && code <= 67) return "🌧️";
+  if (code >= 71 && code <= 77) return "❄️";
+  if (code >= 80 && code <= 82) return "🌧️";
+  if (code >= 85 && code <= 86) return "🌨️";
+  if (code >= 95) return "⛈️";
+  return "🌤️";
+}
+
+function todayLabel() {
+  const now = new Date();
+  const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
+  return `${now.getMonth() + 1}월 ${now.getDate()}일 (${weekdays[now.getDay()]})`;
+}
+
+async function updateWeatherAndDate() {
+  const el = document.getElementById("heroWeather");
+  if (!el) return;
+  const dateText = todayLabel();
+  el.textContent = `📅 ${dateText}`;
+  try {
+    const res = await fetch(
+      "https://api.open-meteo.com/v1/forecast?latitude=37.4858&longitude=127.1228&current_weather=true&timezone=Asia%2FSeoul",
+      { cache: "default" },
+    );
+    if (!res.ok) return;
+    const data = await res.json();
+    const current = data?.current_weather;
+    if (!current) return;
+    const icon = weatherIcon(current.weathercode);
+    const temp = Math.round(current.temperature);
+    el.textContent = `📅 ${dateText} · ${icon} ${temp}°`;
+  } catch {
+    // network failed; keep date-only label
+  }
+}
+
+updateWeatherAndDate();
+setInterval(updateWeatherAndDate, 10 * 60 * 1000);
 
 // Initial routing
 activateTab(readHashTab());
