@@ -507,6 +507,16 @@ button {
 .hero-meta {
   position: relative;
   z-index: 3;
+  /* Let map clicks pass through the empty area to .hero-osm underneath */
+  pointer-events: none;
+}
+/* Text inside is still selectable; only the wrapper is click-transparent */
+.hero-copy h1,
+.hero-copy p,
+.hero-copy .hero-eyebrow,
+.hero-meta span,
+.hero-meta strong {
+  pointer-events: auto;
 }
 
 .hero-top {
@@ -516,6 +526,14 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 18px 22px 0;
+  /* Brand text + empty center should not block map clicks */
+  pointer-events: none;
+}
+/* But the bell/gear buttons and brand must remain interactive */
+.hero-top .hero-icons,
+.hero-top .hero-icons button,
+.hero-top .hero-brand {
+  pointer-events: auto;
 }
 
 .hero-brand {
