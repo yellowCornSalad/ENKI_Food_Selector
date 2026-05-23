@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260522-54" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260522-55" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -68,10 +68,11 @@
             </div>
             <span class="icon">👥</span>
           </button>
-          <button type="button" class="action is-warm" data-nav-to="menu">
+          <button type="button" class="action is-warm" data-open-budget>
             <div>
-              <div class="badge">식대</div>
-              <h3>12,000원 / 끼</h3>
+              <div class="badge" id="budgetCardBadge">오늘의 식대</div>
+              <h3 id="budgetCardRemaining">12,000원 / 끼</h3>
+              <small class="action-hint" id="budgetCardHint">탭하여 사용 금액 입력</small>
             </div>
             <span class="icon">💳</span>
           </button>
@@ -332,43 +333,6 @@
           <h1>안녕하세요!</h1>
           <p>엔키화이트햇 · 문정동</p>
         </header>
-        <!-- 식대 트래커 -->
-        <section class="budget-card">
-          <div class="budget-head">
-            <div>
-              <span class="budget-eyebrow">💳 오늘의 식대</span>
-              <h2 id="budgetRemaining">12,000원</h2>
-              <p class="budget-sub" id="budgetSub">하루 12,000원 · 자정에 자동 리셋</p>
-            </div>
-            <div class="budget-ring" id="budgetRing" aria-hidden="true">
-              <svg viewBox="0 0 60 60">
-                <circle cx="30" cy="30" r="26" class="budget-ring-bg" />
-                <circle cx="30" cy="30" r="26" class="budget-ring-fg" id="budgetRingFg" />
-              </svg>
-              <span id="budgetRingLabel">100%</span>
-            </div>
-          </div>
-          <form class="budget-form" id="budgetForm" autocomplete="off">
-            <input
-              type="number"
-              id="budgetAmount"
-              placeholder="방금 얼마 결제했어요?"
-              inputmode="numeric"
-              min="0"
-              max="100000"
-            />
-            <input
-              type="text"
-              id="budgetNote"
-              placeholder="가게/메모 (선택)"
-              maxlength="20"
-            />
-            <button type="submit">+ 차감</button>
-          </form>
-          <div class="budget-log" id="budgetLog"></div>
-          <button type="button" class="budget-reset" id="budgetReset">오늘 기록 초기화</button>
-        </section>
-
         <div class="my-grid">
           <button type="button" class="my-card">
             <span class="my-ico">⭐</span>
@@ -397,6 +361,49 @@
         </div>
         <div class="my-credit">Made by 준호 배</div>
       </section>
+    </div>
+
+    <!-- ========== 식대 모달 ========== -->
+    <div class="modal-backdrop" id="budgetModal" hidden role="dialog" aria-modal="true" aria-labelledby="budgetModalTitle">
+      <div class="modal-sheet" role="document">
+        <button type="button" class="modal-close" id="budgetModalClose" aria-label="닫기">×</button>
+        <section class="budget-card budget-card--modal">
+          <div class="budget-head">
+            <div>
+              <span class="budget-eyebrow">💳 오늘의 식대</span>
+              <h2 id="budgetRemaining" aria-live="polite">12,000원</h2>
+              <p class="budget-sub" id="budgetSub">하루 12,000원 · 자정에 자동 리셋</p>
+            </div>
+            <div class="budget-ring" id="budgetRing" aria-hidden="true">
+              <svg viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="26" class="budget-ring-bg" />
+                <circle cx="30" cy="30" r="26" class="budget-ring-fg" id="budgetRingFg" />
+              </svg>
+              <span id="budgetRingLabel">100%</span>
+            </div>
+          </div>
+          <h3 id="budgetModalTitle" class="sr-only">식대 사용 내역</h3>
+          <form class="budget-form" id="budgetForm" autocomplete="off">
+            <input
+              type="number"
+              id="budgetAmount"
+              placeholder="방금 얼마 결제했어요?"
+              inputmode="numeric"
+              min="0"
+              max="100000"
+            />
+            <input
+              type="text"
+              id="budgetNote"
+              placeholder="가게/메모 (선택)"
+              maxlength="20"
+            />
+            <button type="submit">+ 차감</button>
+          </form>
+          <div class="budget-log" id="budgetLog"></div>
+          <button type="button" class="budget-reset" id="budgetReset">오늘 기록 초기화</button>
+        </section>
+      </div>
     </div>
 
     <!-- bottom CTA (메뉴 탭에서만 보임) -->
@@ -428,6 +435,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260522-54"></script>
+    <script type="module" src="./src/app.js?v=20260522-55"></script>
   </body>
 </html>

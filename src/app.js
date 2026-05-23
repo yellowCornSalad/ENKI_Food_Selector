@@ -1530,6 +1530,19 @@ function renderBudget() {
     ringLabel.textContent = isOver ? "초과" : `${pct}%`;
     ringLabel.classList.toggle("is-over", isOver);
   }
+  // Home action card mirror
+  const cardRemain = document.getElementById("budgetCardRemaining");
+  const cardHint = document.getElementById("budgetCardHint");
+  if (cardRemain) {
+    cardRemain.textContent = isOver
+      ? `초과 ${Math.abs(remaining).toLocaleString("ko-KR")}원`
+      : `${remaining.toLocaleString("ko-KR")}원 남음`;
+  }
+  if (cardHint) {
+    cardHint.textContent = used > 0
+      ? `오늘 ${used.toLocaleString("ko-KR")}원 사용 · 탭하여 기록`
+      : `탭하여 사용 금액 입력`;
+  }
   // Log
   const log = document.getElementById("budgetLog");
   if (log) {
@@ -1613,6 +1626,51 @@ if (budgetResetBtn) {
     if (confirm("오늘 사용 기록을 모두 지울까요?")) resetBudgetToday();
   });
 }
+
+// ========== 식대 모달 open/close ==========
+const budgetModal = document.getElementById("budgetModal");
+const budgetModalClose = document.getElementById("budgetModalClose");
+
+function openBudgetModal() {
+  if (!budgetModal) return;
+  renderBudget(); // ensure ring/log/remaining are fresh
+  budgetModal.hidden = false;
+  document.body.classList.add("modal-open");
+  // focus the amount input after the slide animation
+  setTimeout(() => {
+    document.getElementById("budgetAmount")?.focus();
+  }, 240);
+}
+
+function closeBudgetModal() {
+  if (!budgetModal) return;
+  budgetModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+// Triggers — any element with [data-open-budget]
+document.addEventListener("click", (event) => {
+  const trigger = event.target.closest("[data-open-budget]");
+  if (trigger) {
+    event.preventDefault();
+    openBudgetModal();
+  }
+});
+
+// Close: × button, backdrop click, ESC key
+if (budgetModalClose) {
+  budgetModalClose.addEventListener("click", closeBudgetModal);
+}
+if (budgetModal) {
+  budgetModal.addEventListener("click", (event) => {
+    if (event.target === budgetModal) closeBudgetModal();
+  });
+}
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && budgetModal && !budgetModal.hidden) {
+    closeBudgetModal();
+  }
+});
 
 // Initial render + midnight rollover check every minute
 renderBudget();
