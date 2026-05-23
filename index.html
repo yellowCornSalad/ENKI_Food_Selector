@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260523-03" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260523-04" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -301,31 +301,38 @@
 
       <!-- ========== BOARD TAB (광장) ========== -->
       <section class="tab-pane" data-tab="board">
-        <header class="placeholder-hero">
-          <p class="hero-eyebrow">소통 · 곧 만나요</p>
-          <h1>광장</h1>
-          <p>사내 게시판과 점심 모집글을 준비하고 있어요.</p>
+        <header class="board-hero">
+          <div class="board-hero-top">
+            <div>
+              <p class="hero-eyebrow">ENKI · COMMUNITY</p>
+              <h1>광장</h1>
+              <p class="board-hero-sub" id="boardHeroSub">사내 게시판 · 자유 · 익명 · 점심 모집</p>
+            </div>
+            <button type="button" class="board-new-btn" id="boardNewBtn" aria-label="새 글 쓰기">+</button>
+          </div>
         </header>
-        <div class="placeholder-cards">
-          <article class="placeholder-card">
-            <span class="ph-icon">📋</span>
-            <h3>사내 게시판</h3>
-            <p>공지 · 자유 · 익명 게시판</p>
-            <small>준비 중</small>
-          </article>
-          <article class="placeholder-card placeholder-card--link" data-nav-to="chat">
-            <span class="ph-icon">🍽️</span>
-            <h3>점심 모집</h3>
-            <p>"12시 한식 같이 가실 분"</p>
-            <small>채팅 탭에서 →</small>
-          </article>
-          <article class="placeholder-card placeholder-card--link" data-nav-to="chat">
-            <span class="ph-icon">💬</span>
-            <h3>채팅방</h3>
-            <p>1:1 / 그룹 채팅</p>
-            <small>채팅 탭에서 →</small>
-          </article>
+
+        <div class="board-toolbar">
+          <div class="chat-search">
+            <span class="chat-search-icon" aria-hidden="true">🔎</span>
+            <input
+              type="search"
+              id="boardSearchInput"
+              placeholder="제목/내용/작성자 검색…"
+              autocomplete="off"
+            />
+          </div>
+          <div class="board-filter" id="boardFilter" role="tablist">
+            <button class="chat-chip is-active" data-board-filter="all" type="button">전체</button>
+            <button class="chat-chip" data-board-filter="notice" type="button">📢 공지</button>
+            <button class="chat-chip" data-board-filter="free" type="button">💬 자유</button>
+            <button class="chat-chip" data-board-filter="anon" type="button">🕵️ 익명</button>
+            <button class="chat-chip" data-board-filter="lunch" type="button">🍱 점심 모집</button>
+            <button class="chat-chip" data-board-filter="review" type="button">⭐ 거래 후기</button>
+          </div>
         </div>
+
+        <ul class="board-list" id="boardList" aria-live="polite"></ul>
       </section>
 
       <!-- ========== CHAT TAB ========== -->
@@ -466,6 +473,104 @@
       </div>
     </div>
 
+    <!-- ========== 게시글 상세 모달 ========== -->
+    <div class="modal-backdrop" id="postDetailModal" hidden role="dialog" aria-modal="true" aria-labelledby="postDetailTitle">
+      <div class="modal-sheet modal-sheet--tall" role="document">
+        <button type="button" class="modal-close" id="postDetailClose" aria-label="닫기">×</button>
+        <article class="post-detail">
+          <div class="post-detail-meta">
+            <span class="post-tag" id="postDetailTag">공지</span>
+            <div class="post-detail-author">
+              <span class="post-avatar" id="postDetailAvatar">E</span>
+              <div>
+                <strong id="postDetailAuthor">ENKI 운영팀</strong>
+                <span id="postDetailTime">방금</span>
+              </div>
+            </div>
+          </div>
+          <h2 id="postDetailTitle">제목</h2>
+          <div class="post-detail-body" id="postDetailBody"></div>
+
+          <div class="post-detail-actions">
+            <button type="button" class="post-like-btn" id="postLikeBtn">
+              <span class="like-icon" id="postLikeIcon">🤍</span>
+              <span id="postLikeCount">0</span>
+            </button>
+            <span class="post-comments-meta">💬 <span id="postCommentsMeta">0</span> 댓글</span>
+            <span class="post-views-meta">👁️ <span id="postViewsMeta">0</span></span>
+          </div>
+
+          <hr class="post-divider" />
+
+          <h3 class="post-comments-head">댓글 <span id="postCommentsCount">0</span></h3>
+          <ul class="post-comments-list" id="postCommentsList"></ul>
+
+          <form class="post-comment-form" id="postCommentForm" autocomplete="off">
+            <input
+              type="text"
+              id="postCommentInput"
+              placeholder="댓글을 입력하세요…"
+              maxlength="200"
+            />
+            <button type="submit">등록</button>
+          </form>
+        </article>
+      </div>
+    </div>
+
+    <!-- ========== 글쓰기 모달 ========== -->
+    <div class="modal-backdrop" id="composeModal" hidden role="dialog" aria-modal="true" aria-labelledby="composeModalTitle">
+      <div class="modal-sheet" role="document">
+        <button type="button" class="modal-close" id="composeModalClose" aria-label="닫기">×</button>
+        <section class="compose-card">
+          <header class="compose-head">
+            <span class="settings-eyebrow">✏️ 글쓰기</span>
+            <h2 id="composeModalTitle">새 글 작성</h2>
+            <p class="settings-sub">로컬에 저장 · 자정에는 유지 (Firebase v1.2부터 동기화)</p>
+          </header>
+
+          <form class="compose-form" id="composeForm" autocomplete="off">
+            <label class="compose-field">
+              <span>카테고리</span>
+              <select id="composeCategory">
+                <option value="free">💬 자유</option>
+                <option value="anon">🕵️ 익명</option>
+                <option value="lunch">🍱 점심 모집</option>
+                <option value="review">⭐ 거래 후기</option>
+              </select>
+            </label>
+
+            <label class="compose-field">
+              <span>제목</span>
+              <input
+                type="text"
+                id="composeTitle"
+                placeholder="제목을 입력하세요"
+                maxlength="60"
+                required
+              />
+            </label>
+
+            <label class="compose-field">
+              <span>내용</span>
+              <textarea
+                id="composeBody"
+                placeholder="내용을 입력하세요 (최대 500자)"
+                maxlength="500"
+                rows="6"
+                required
+              ></textarea>
+            </label>
+
+            <div class="compose-actions">
+              <button type="button" class="compose-cancel" id="composeCancel">취소</button>
+              <button type="submit" class="compose-submit">게시하기</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+
     <!-- ========== 설정 모달 ========== -->
     <div class="modal-backdrop" id="settingsModal" hidden role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
       <div class="modal-sheet" role="document">
@@ -563,6 +668,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260523-03"></script>
+    <script type="module" src="./src/app.js?v=20260523-04"></script>
   </body>
 </html>

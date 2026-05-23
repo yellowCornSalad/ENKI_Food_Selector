@@ -2218,5 +2218,692 @@ if (notifClearAllBtn) {
 renderNotifList();
 updateNotifBadges();
 
+// ========== BOARD (광장) ==========
+const BOARD_USER_POSTS_KEY = "enki.board.userPosts.v1";
+const BOARD_LIKES_KEY = "enki.board.likes.v1";
+const BOARD_USER_COMMENTS_KEY = "enki.board.userComments.v1";
+const BOARD_CATEGORY_LABEL = {
+  notice: "📢 공지",
+  free: "💬 자유",
+  anon: "🕵️ 익명",
+  lunch: "🍱 점심 모집",
+  review: "⭐ 거래 후기",
+};
+const BOARD_TAG_CLASS = {
+  notice: "tag-notice",
+  free: "tag-free",
+  anon: "tag-anon",
+  lunch: "tag-lunch",
+  review: "tag-review",
+};
+
+// Seed posts — feels like a live ENKI community board
+const SEED_POSTS = [
+  {
+    id: "p1",
+    category: "notice",
+    pinned: true,
+    title: "5/24(금) 전사 회식 — 송파대로 BBQ 6시 집결",
+    body: `안녕하세요, 운영팀입니다.
+이번 주 금요일 5/24, 전사 회식이 있습니다.
+
+📍 장소: BBQ 송파대로점 (문정역 4번 출구 도보 3분)
+⏰ 시간: 오후 6시 집결, 6시 30분 시작
+🍻 메뉴: 황금올리브치킨 + 양념 + 맥주
+🙋 참석 확인은 본 게시글에 댓글 또는 인사팀 슬랙으로 부탁드립니다.
+
+회식 후 2차는 자율입니다. 즐거운 한 주 마무리해요!`,
+    author: "ENKI 운영팀",
+    avatarInitial: "E",
+    time: "어제 14:20",
+    timestamp: Date.now() - 22 * 60 * 60 * 1000,
+    likes: 24,
+    views: 142,
+    comments: [
+      { id: "c1", author: "박지인", initial: "박", body: "참석합니다!", time: "어제 14:25", likes: 3 },
+      { id: "c2", author: "김민수", initial: "김", body: "BBQ 어느 매장이에요?", time: "어제 14:32", likes: 1 },
+      { id: "c3", author: "이서연", initial: "이", body: "송파대로 어느 쪽인지 알 수 있을까요?", time: "어제 15:08", likes: 0 },
+      { id: "c4", author: "최지우", initial: "최", body: "예약 인원 알려주세요 🙋‍♂️", time: "어제 16:11", likes: 2 },
+      { id: "c5", author: "박철수", initial: "박", body: "2차 어디로 가는지 정해지면 공유 부탁드려요", time: "어제 17:40", likes: 5 },
+    ],
+  },
+  {
+    id: "p2",
+    category: "notice",
+    pinned: true,
+    title: "식권대장 6월 1일부터 결제 한도 변경 안내",
+    body: `인사팀 공지입니다.
+
+6월 1일부터 식권대장 일일 한도가 조정됩니다.
+- 점심: 12,000원 → 13,000원 (변경 없음)
+- 저녁: 12,000원 → 신규 신청자 한정 적용
+
+자세한 내용은 인사팀 공지를 확인해주세요.`,
+    author: "인사팀",
+    avatarInitial: "H",
+    time: "2일 전",
+    timestamp: Date.now() - 48 * 60 * 60 * 1000,
+    likes: 15,
+    views: 89,
+    comments: [
+      { id: "c1", author: "박지인", initial: "박", body: "오 저녁도 가능해지나요?", time: "2일 전", likes: 4 },
+      { id: "c2", author: "이서연", initial: "이", body: "신청 방법 안내 부탁드려요", time: "2일 전", likes: 2 },
+    ],
+  },
+  {
+    id: "p3",
+    category: "free",
+    title: "송파 가나순두부 진짜 추천 — 점심 후보로 강추",
+    body: `오늘 점심에 갔다왔는데 두부조림 미쳤습니다.
+한식 카테고리 1순위로 등록해도 될 듯.
+
+위치: 문정역 3번 출구 도보 5분
+가격: 9,000~12,000원
+대기: 12시 30분 넘으면 줄 섭니다`,
+    author: "박지인",
+    avatarInitial: "박",
+    time: "30분 전",
+    timestamp: Date.now() - 30 * 60 * 1000,
+    likes: 12,
+    views: 38,
+    comments: [
+      { id: "c1", author: "김민수", initial: "김", body: "거기 진짜 맛있죠 👍", time: "20분 전", likes: 5 },
+      { id: "c2", author: "이서연", initial: "이", body: "근데 줄 길어요...", time: "18분 전", likes: 3 },
+      { id: "c3", author: "박철수", initial: "박", body: "오늘 가봐야겠다", time: "12분 전", likes: 1 },
+      { id: "c4", author: "최지우", initial: "최", body: "두부조림 미쳤음 ㅇㅈ", time: "8분 전", likes: 4 },
+      { id: "c5", author: "강지영", initial: "강", body: "내일 점심 같이 가실 분?", time: "5분 전", likes: 2 },
+    ],
+  },
+  {
+    id: "p4",
+    category: "lunch",
+    title: "12시 슬로우캘리 같이 가실 분 (3/4 모집됨)",
+    body: `오늘 12시에 슬로우캘리 가실 분 모집합니다.
+다이어트 도시락 좋아하시는 분이면 누구나 환영!
+
+현재: 3명 / 4명
+출발: 5층 라운지 11:55`,
+    author: "박지인",
+    avatarInitial: "박",
+    time: "방금",
+    timestamp: Date.now() - 2 * 60 * 1000,
+    likes: 2,
+    views: 14,
+    comments: [
+      { id: "c1", author: "이서연", initial: "이", body: "저요!", time: "방금", likes: 1 },
+      { id: "c2", author: "박지인", initial: "박", body: "@이서연 1명 남았어요~ 빨리오세요", time: "방금", likes: 0 },
+    ],
+    lunch: { current: 3, total: 4 },
+  },
+  {
+    id: "p5",
+    category: "lunch",
+    title: "1시 한식 모집해요 (2/6) — 송파 가나순두부",
+    body: `위 박지인님 글 보고 끌려서 1시 팀도 만듭니다 ㅋㅋ
+
+현재: 2명 / 6명
+출발: 5층 로비 12:50`,
+    author: "김민수",
+    avatarInitial: "김",
+    time: "10분 전",
+    timestamp: Date.now() - 10 * 60 * 1000,
+    likes: 1,
+    views: 22,
+    comments: [
+      { id: "c1", author: "박철수", initial: "박", body: "참여합니다", time: "8분 전", likes: 0 },
+    ],
+    lunch: { current: 2, total: 6 },
+  },
+  {
+    id: "p6",
+    category: "lunch",
+    title: "라멘 좋아하시는 분 (4/4 마감)",
+    body: `오늘 점심 라멘 같이 갈 팀 만들었습니다.
+마감되어 다음에 또 모집할게요!`,
+    author: "이서연",
+    avatarInitial: "이",
+    time: "1시간 전",
+    timestamp: Date.now() - 60 * 60 * 1000,
+    likes: 5,
+    views: 45,
+    comments: [],
+    lunch: { current: 4, total: 4 },
+  },
+  {
+    id: "p7",
+    category: "free",
+    title: "회사 근처 새로 생긴 카페 정보 공유해요",
+    body: `문정역 6번 출구 쪽에 카페 새로 생겼는데 (이름이 'Munjeong Roastery')
+- 핸드드립 4,500원
+- 큐브치즈케이크 6,000원
+- 좌석 30석 정도, 콘센트 풍부함
+- 노트북 작업하기 좋음
+
+추천드려요!`,
+    author: "김민수",
+    avatarInitial: "김",
+    time: "1시간 전",
+    timestamp: Date.now() - 65 * 60 * 1000,
+    likes: 18,
+    views: 92,
+    comments: [
+      { id: "c1", author: "박지인", initial: "박", body: "오 가봐야겠네요!", time: "55분 전", likes: 3 },
+      { id: "c2", author: "이서연", initial: "이", body: "치즈케이크 맛있나요?", time: "50분 전", likes: 1 },
+      { id: "c3", author: "김민수", initial: "김", body: "@이서연 진짜 추천드림 ㅋ", time: "45분 전", likes: 2 },
+      { id: "c4", author: "최지우", initial: "최", body: "좌석 정보 감사요", time: "30분 전", likes: 0 },
+    ],
+  },
+  {
+    id: "p8",
+    category: "anon",
+    title: "야근 너무 많은 거 아닌가요...",
+    body: `진짜 매일 9시 퇴근이 일상이 되어버렸습니다.
+다들 비슷한 상황인가요?
+
+특히 이번 분기 들어서 더 심해진 것 같은데
+다른 팀은 어떤지 궁금합니다.`,
+    author: "익명",
+    avatarInitial: "?",
+    isAnon: true,
+    time: "1일 전",
+    timestamp: Date.now() - 26 * 60 * 60 * 1000,
+    likes: 42,
+    views: 287,
+    comments: [
+      { id: "c1", author: "익명 1", initial: "?", body: "+1 우리팀도...", time: "1일 전", likes: 12, isAnon: true },
+      { id: "c2", author: "익명 2", initial: "?", body: "그래도 우리 회사는 야근 강요는 안 하잖아요", time: "1일 전", likes: 5, isAnon: true },
+      { id: "c3", author: "익명 3", initial: "?", body: "PM한테 일정 협상이 필요할 듯", time: "1일 전", likes: 8, isAnon: true },
+      { id: "c4", author: "익명 4", initial: "?", body: "이번 프로젝트 끝나면 좀 나아지지 않을까요", time: "1일 전", likes: 3, isAnon: true },
+      { id: "c5", author: "익명 5", initial: "?", body: "야근 수당이라도 제대로 챙겨주면 좋겠음", time: "20시간 전", likes: 15, isAnon: true },
+    ],
+  },
+  {
+    id: "p9",
+    category: "anon",
+    title: "회사 커피머신 진짜 답이 없네요",
+    body: `매번 고장 나는 거 정상인가요?
+이번 주만 3번째 고장입니다.
+
+새로 사주시면 안 되나요...`,
+    author: "익명",
+    avatarInitial: "?",
+    isAnon: true,
+    time: "2일 전",
+    timestamp: Date.now() - 50 * 60 * 60 * 1000,
+    likes: 31,
+    views: 198,
+    comments: [
+      { id: "c1", author: "익명 1", initial: "?", body: "ㅋㅋㅋㅋ 진짜 동의", time: "2일 전", likes: 18, isAnon: true },
+      { id: "c2", author: "익명 2", initial: "?", body: "1층 가서 사먹는 게 빠를 듯", time: "2일 전", likes: 4, isAnon: true },
+    ],
+  },
+  {
+    id: "p10",
+    category: "free",
+    title: "오늘 점심 추천 좀 부탁드려요",
+    body: `오늘 메뉴 고르기 힘들어서요.
+한식 / 일식 / 분식 다 좋습니다.`,
+    author: "최지우",
+    avatarInitial: "최",
+    time: "3시간 전",
+    timestamp: Date.now() - 3 * 60 * 60 * 1000,
+    likes: 6,
+    views: 54,
+    comments: [
+      { id: "c1", author: "박지인", initial: "박", body: "가나순두부 가셈", time: "2시간 전", likes: 4 },
+      { id: "c2", author: "김민수", initial: "김", body: "지인고기 점심 메뉴도 괜찮음", time: "2시간 전", likes: 3 },
+    ],
+  },
+  {
+    id: "p11",
+    category: "review",
+    title: "맥북 충전기 거래 — 김민수님 진짜 감사합니다",
+    body: `맥북 충전기 65W 잘 받았습니다.
+새 거나 다름없고, 가격도 시중가 절반이라 너무 좋네요.
+
+거래도 5층 휴게실에서 5분 만에 끝났어요.
+김민수님 추천합니다!`,
+    author: "박지인",
+    avatarInitial: "박",
+    time: "1일 전",
+    timestamp: Date.now() - 27 * 60 * 60 * 1000,
+    likes: 3,
+    views: 24,
+    comments: [
+      { id: "c1", author: "김민수", initial: "김", body: "감사합니다 잘 쓰세요!", time: "1일 전", likes: 1 },
+    ],
+  },
+  {
+    id: "p12",
+    category: "anon",
+    title: "신입 분들 적응 꿀팁",
+    body: `1년차 후배가 적응 어려워하길래 정리해봅니다.
+
+1. 슬랙 채널 다 입장하기 (특히 #lunch)
+2. 식권대장 앱 회사 메일로 가입
+3. 5층 라운지 11시 50분 ~ 12시 5분 사이 가면 점심 메이트 자동 매칭
+4. 매주 금요일 4시 간식타임 절대 놓치지 말 것
+
+이거 알면 첫 달 적응 쉬워요`,
+    author: "익명",
+    avatarInitial: "?",
+    isAnon: true,
+    time: "어제",
+    timestamp: Date.now() - 24 * 60 * 60 * 1000,
+    likes: 19,
+    views: 134,
+    comments: [
+      { id: "c1", author: "익명 1", initial: "?", body: "감사합니다 진짜 도움 많이 됐어요", time: "어제", likes: 3, isAnon: true },
+      { id: "c2", author: "익명 2", initial: "?", body: "4시 간식타임 ㄹㅇ 못 놓침", time: "어제", likes: 7, isAnon: true },
+    ],
+  },
+];
+
+function escBoard(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function loadBoardUserPosts() {
+  try {
+    const raw = localStorage.getItem(BOARD_USER_POSTS_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw);
+  } catch { return []; }
+}
+function saveBoardUserPosts(arr) {
+  try { localStorage.setItem(BOARD_USER_POSTS_KEY, JSON.stringify(arr)); } catch {}
+}
+function loadBoardLikes() {
+  try { return JSON.parse(localStorage.getItem(BOARD_LIKES_KEY) || "{}"); }
+  catch { return {}; }
+}
+function saveBoardLikes(obj) {
+  try { localStorage.setItem(BOARD_LIKES_KEY, JSON.stringify(obj)); } catch {}
+}
+function loadBoardUserComments() {
+  try { return JSON.parse(localStorage.getItem(BOARD_USER_COMMENTS_KEY) || "{}"); }
+  catch { return {}; }
+}
+function saveBoardUserComments(obj) {
+  try { localStorage.setItem(BOARD_USER_COMMENTS_KEY, JSON.stringify(obj)); } catch {}
+}
+
+let boardUserPosts = loadBoardUserPosts();
+let boardLikes = loadBoardLikes();
+let boardUserComments = loadBoardUserComments();
+
+const boardState = { filter: "all", query: "", currentPostId: null };
+
+function allBoardPosts() {
+  // User posts first (newest), then seed posts; pinned still stays on top
+  return [...boardUserPosts, ...SEED_POSTS];
+}
+
+function findPost(id) {
+  return allBoardPosts().find((p) => p.id === id);
+}
+
+function relativeTime(ts) {
+  if (!ts) return "";
+  const diff = Date.now() - ts;
+  const m = Math.floor(diff / 60000);
+  if (m < 1) return "방금";
+  if (m < 60) return `${m}분 전`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h}시간 전`;
+  const d = Math.floor(h / 24);
+  if (d < 7) return `${d}일 전`;
+  return new Date(ts).toLocaleDateString("ko-KR");
+}
+
+function isLiked(postId) {
+  return !!boardLikes[postId];
+}
+function likeCountOf(post) {
+  return (post.likes || 0) + (isLiked(post.id) ? 1 : 0);
+}
+function commentsOf(post) {
+  const extra = boardUserComments[post.id] || [];
+  return [...(post.comments || []), ...extra];
+}
+
+function filteredPosts() {
+  const q = boardState.query.trim().toLowerCase();
+  const arr = allBoardPosts().filter((p) => {
+    if (boardState.filter !== "all" && p.category !== boardState.filter) return false;
+    if (!q) return true;
+    return (
+      p.title.toLowerCase().includes(q) ||
+      p.body.toLowerCase().includes(q) ||
+      (p.author || "").toLowerCase().includes(q)
+    );
+  });
+  // pinned posts first, then by timestamp desc
+  arr.sort((a, b) => {
+    const ap = a.pinned ? 1 : 0;
+    const bp = b.pinned ? 1 : 0;
+    if (ap !== bp) return bp - ap;
+    return (b.timestamp || 0) - (a.timestamp || 0);
+  });
+  return arr;
+}
+
+function renderBoardList() {
+  const listEl = document.getElementById("boardList");
+  if (!listEl) return;
+  const items = filteredPosts();
+  if (!items.length) {
+    listEl.innerHTML = `<li class="board-empty">📭 게시글이 없어요. 첫 글을 작성해보세요!</li>`;
+    return;
+  }
+  listEl.innerHTML = items.map((p) => {
+    const tagCls = BOARD_TAG_CLASS[p.category] || "tag-free";
+    const tagLabel = BOARD_CATEGORY_LABEL[p.category] || "💬 자유";
+    const liked = isLiked(p.id);
+    const likes = likeCountOf(p);
+    const comments = commentsOf(p).length;
+    const isMine = !!p.isUserPost;
+    const isAnonAuthor = !!p.isAnon || p.category === "anon";
+    const time = p.timestamp ? relativeTime(p.timestamp) : (p.time || "");
+    const lunchMeta = p.lunch
+      ? `<span class="board-lunch-meta ${p.lunch.current >= p.lunch.total ? "is-full" : ""}">
+           ${p.lunch.current >= p.lunch.total ? "마감" : `${p.lunch.current}/${p.lunch.total}`}
+         </span>`
+      : "";
+    const pinned = p.pinned ? `<span class="post-pin-badge">📌 고정</span>` : "";
+    const classList = [
+      "board-card",
+      p.pinned ? "is-pinned" : "",
+      isMine ? "is-mine" : "",
+    ].filter(Boolean).join(" ");
+    return `
+      <li>
+        <button type="button" class="${classList}" data-post-id="${escBoard(p.id)}">
+          <div class="post-card-top">
+            <span class="post-tag ${tagCls}">${escBoard(tagLabel)}</span>
+            ${pinned}
+            ${lunchMeta}
+          </div>
+          <h3>${escBoard(p.title)}</h3>
+          <p class="preview">${escBoard(p.body.replace(/\n+/g, " "))}</p>
+          <div class="post-card-foot">
+            <span class="post-author-mini">
+              <span class="post-avatar-mini ${isAnonAuthor ? "is-anon" : ""}">${escBoard(p.avatarInitial || "?")}</span>
+              <strong>${escBoard(p.author || "익명")}</strong>
+            </span>
+            <span>${escBoard(time)}</span>
+            <span class="post-card-stats">
+              <span class="${liked ? "stat-liked" : ""}">${liked ? "❤️" : "🤍"} ${likes}</span>
+              <span>💬 ${comments}</span>
+              <span>👁️ ${p.views ?? 0}</span>
+            </span>
+          </div>
+        </button>
+      </li>
+    `;
+  }).join("");
+}
+
+function updateBoardSub() {
+  const sub = document.getElementById("boardHeroSub");
+  if (!sub) return;
+  const total = allBoardPosts().length;
+  sub.textContent = `${total}개의 게시글 · 공지 · 자유 · 익명 · 점심 모집`;
+}
+
+// ----- Detail modal -----
+const postDetailModal = document.getElementById("postDetailModal");
+const postDetailClose = document.getElementById("postDetailClose");
+
+function openPostDetail(postId) {
+  const p = findPost(postId);
+  if (!p || !postDetailModal) return;
+  boardState.currentPostId = postId;
+  // increment view (visual only — for seed posts the view counter is per-session)
+  p.views = (p.views || 0) + 1;
+
+  const tagEl = document.getElementById("postDetailTag");
+  if (tagEl) {
+    tagEl.className = `post-tag ${BOARD_TAG_CLASS[p.category] || "tag-free"}`;
+    tagEl.textContent = BOARD_CATEGORY_LABEL[p.category] || "💬 자유";
+  }
+  const authorEl = document.getElementById("postDetailAuthor");
+  if (authorEl) authorEl.textContent = p.author || "익명";
+  const timeEl = document.getElementById("postDetailTime");
+  if (timeEl) timeEl.textContent = p.timestamp ? relativeTime(p.timestamp) : (p.time || "");
+  const avatarEl = document.getElementById("postDetailAvatar");
+  if (avatarEl) {
+    avatarEl.textContent = p.avatarInitial || "?";
+    avatarEl.className = `post-avatar ${p.isAnon || p.category === "anon" ? "is-anon" : ""}`;
+  }
+  const titleEl = document.getElementById("postDetailTitle");
+  if (titleEl) titleEl.textContent = p.title;
+  const bodyEl = document.getElementById("postDetailBody");
+  if (bodyEl) bodyEl.textContent = p.body;
+
+  // Like state
+  const liked = isLiked(p.id);
+  const likeBtn = document.getElementById("postLikeBtn");
+  const likeIcon = document.getElementById("postLikeIcon");
+  const likeCount = document.getElementById("postLikeCount");
+  if (likeBtn) likeBtn.classList.toggle("is-liked", liked);
+  if (likeIcon) likeIcon.textContent = liked ? "❤️" : "🤍";
+  if (likeCount) likeCount.textContent = String(likeCountOf(p));
+
+  // Comments
+  const comments = commentsOf(p);
+  const commentsCount = document.getElementById("postCommentsCount");
+  if (commentsCount) commentsCount.textContent = String(comments.length);
+  const commentsMeta = document.getElementById("postCommentsMeta");
+  if (commentsMeta) commentsMeta.textContent = String(comments.length);
+  const viewsMeta = document.getElementById("postViewsMeta");
+  if (viewsMeta) viewsMeta.textContent = String(p.views ?? 0);
+
+  const commentsList = document.getElementById("postCommentsList");
+  if (commentsList) {
+    if (!comments.length) {
+      commentsList.innerHTML = `<li class="post-comments-empty">아직 댓글이 없어요. 첫 댓글을 남겨보세요.</li>`;
+    } else {
+      commentsList.innerHTML = comments.map((c) => {
+        const mine = !!c.isMine;
+        const anon = !!c.isAnon || (c.author || "").startsWith("익명");
+        return `
+          <li class="post-comment ${mine ? "is-mine" : ""}">
+            <div class="post-comment-top">
+              <span class="post-avatar-mini ${anon ? "is-anon" : ""}">${escBoard(c.initial || "?")}</span>
+              <strong>${escBoard(c.author || "익명")}</strong>
+              <span>${escBoard(c.time || "")}</span>
+            </div>
+            <div class="post-comment-body">${escBoard(c.body || "")}</div>
+          </li>
+        `;
+      }).join("");
+    }
+  }
+
+  postDetailModal.hidden = false;
+  document.body.classList.add("modal-open");
+  // Re-render board list to reflect new view count
+  renderBoardList();
+}
+
+function closePostDetail() {
+  if (!postDetailModal) return;
+  postDetailModal.hidden = true;
+  document.body.classList.remove("modal-open");
+  boardState.currentPostId = null;
+}
+
+const boardListEl = document.getElementById("boardList");
+const boardFilterEl = document.getElementById("boardFilter");
+const boardSearchInput = document.getElementById("boardSearchInput");
+
+if (boardListEl) {
+  boardListEl.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-post-id]");
+    if (!card) return;
+    openPostDetail(card.dataset.postId);
+  });
+}
+
+if (boardFilterEl) {
+  boardFilterEl.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-board-filter]");
+    if (!btn) return;
+    boardState.filter = btn.dataset.boardFilter || "all";
+    for (const c of boardFilterEl.querySelectorAll(".chat-chip")) {
+      c.classList.toggle("is-active", c === btn);
+    }
+    renderBoardList();
+  });
+}
+
+if (boardSearchInput) {
+  boardSearchInput.addEventListener("input", () => {
+    boardState.query = boardSearchInput.value;
+    renderBoardList();
+  });
+}
+
+if (postDetailClose) postDetailClose.addEventListener("click", closePostDetail);
+if (postDetailModal) {
+  postDetailModal.addEventListener("click", (event) => {
+    if (event.target === postDetailModal) closePostDetail();
+  });
+}
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && postDetailModal && !postDetailModal.hidden) {
+    closePostDetail();
+  }
+});
+
+// Like toggle
+const postLikeBtn = document.getElementById("postLikeBtn");
+if (postLikeBtn) {
+  postLikeBtn.addEventListener("click", () => {
+    const id = boardState.currentPostId;
+    if (!id) return;
+    boardLikes[id] = !boardLikes[id];
+    saveBoardLikes(boardLikes);
+    const p = findPost(id);
+    if (p) {
+      const liked = isLiked(id);
+      postLikeBtn.classList.toggle("is-liked", liked);
+      const ico = document.getElementById("postLikeIcon");
+      if (ico) ico.textContent = liked ? "❤️" : "🤍";
+      const cnt = document.getElementById("postLikeCount");
+      if (cnt) cnt.textContent = String(likeCountOf(p));
+    }
+    renderBoardList();
+  });
+}
+
+// Comment submit
+const postCommentForm = document.getElementById("postCommentForm");
+const postCommentInput = document.getElementById("postCommentInput");
+if (postCommentForm) {
+  postCommentForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const id = boardState.currentPostId;
+    const text = (postCommentInput?.value || "").trim();
+    if (!id || !text) return;
+    const p = findPost(id);
+    if (!p) return;
+    const anon = p.category === "anon";
+    const now = new Date();
+    const timeStr = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+    const comment = {
+      id: `uc${Date.now()}`,
+      author: anon ? "익명 (나)" : "준호 배",
+      initial: anon ? "?" : "준",
+      body: text,
+      time: `방금 ${timeStr}`,
+      likes: 0,
+      isMine: true,
+      isAnon: anon,
+    };
+    if (!boardUserComments[id]) boardUserComments[id] = [];
+    boardUserComments[id].push(comment);
+    saveBoardUserComments(boardUserComments);
+    if (postCommentInput) postCommentInput.value = "";
+    openPostDetail(id); // re-render
+  });
+}
+
+// ----- Compose modal -----
+const composeModal = document.getElementById("composeModal");
+const composeModalClose = document.getElementById("composeModalClose");
+const composeCancel = document.getElementById("composeCancel");
+const composeForm = document.getElementById("composeForm");
+const boardNewBtn = document.getElementById("boardNewBtn");
+
+function openComposeModal() {
+  if (!composeModal) return;
+  composeModal.hidden = false;
+  document.body.classList.add("modal-open");
+  document.getElementById("composeTitle")?.focus();
+}
+function closeComposeModal() {
+  if (!composeModal) return;
+  composeModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+if (boardNewBtn) boardNewBtn.addEventListener("click", openComposeModal);
+if (composeModalClose) composeModalClose.addEventListener("click", closeComposeModal);
+if (composeCancel) composeCancel.addEventListener("click", closeComposeModal);
+if (composeModal) {
+  composeModal.addEventListener("click", (event) => {
+    if (event.target === composeModal) closeComposeModal();
+  });
+}
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && composeModal && !composeModal.hidden) {
+    closeComposeModal();
+  }
+});
+
+if (composeForm) {
+  composeForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const category = document.getElementById("composeCategory")?.value || "free";
+    const title = (document.getElementById("composeTitle")?.value || "").trim();
+    const body = (document.getElementById("composeBody")?.value || "").trim();
+    if (!title || !body) return;
+    const anon = category === "anon";
+    const post = {
+      id: `up${Date.now()}`,
+      category,
+      title,
+      body,
+      author: anon ? "익명" : "준호 배",
+      avatarInitial: anon ? "?" : "준",
+      isAnon: anon,
+      isUserPost: true,
+      timestamp: Date.now(),
+      time: "방금",
+      likes: 0,
+      views: 1,
+      comments: [],
+    };
+    boardUserPosts = [post, ...boardUserPosts];
+    saveBoardUserPosts(boardUserPosts);
+    // Clear form
+    if (document.getElementById("composeTitle")) document.getElementById("composeTitle").value = "";
+    if (document.getElementById("composeBody")) document.getElementById("composeBody").value = "";
+    closeComposeModal();
+    renderBoardList();
+    updateBoardSub();
+    showToast("✅ 글이 게시됐어요");
+  });
+}
+
+renderBoardList();
+updateBoardSub();
+
 // Initial routing
 activateTab(readHashTab());
