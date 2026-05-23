@@ -1255,11 +1255,16 @@ const HERO_MAP_TILES = [
   "55910_25398",
 ];
 
+const HERO_MAP_LINK = "https://map.naver.com/p/search/%EB%AC%B8%EC%A0%95%EC%97%AD%ED%85%8C%EB%9D%BC%ED%83%80%EC%9B%8C";
+
 function mountHeroMap(container) {
   if (!container || container.querySelector(".hero-osm")) return;
-  const osm = document.createElement("div");
+  const osm = document.createElement("a");
   osm.className = "hero-osm";
-  osm.setAttribute("aria-hidden", "true");
+  osm.href = HERO_MAP_LINK;
+  osm.target = "_blank";
+  osm.rel = "noopener noreferrer";
+  osm.setAttribute("aria-label", "네이버 지도에서 엔키 본사(문정역테라타워) 위치 보기");
   for (const id of HERO_MAP_TILES) {
     const img = document.createElement("img");
     img.src = `./assets/map-tiles/${id}.png`;
