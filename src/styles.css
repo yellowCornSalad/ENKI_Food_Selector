@@ -376,6 +376,99 @@ button {
   mix-blend-mode: screen;
 }
 
+/* ===== Per-tab hero map overrides ===== */
+.menu-hero-wrap {
+  position: relative;
+}
+.menu-hero-wrap > .hero-osm {
+  top: -60px;
+  right: -160px;
+  width: 440px;
+  height: 440px;
+  opacity: 0.6;
+}
+.menu-hero-wrap > .hero-pin {
+  top: 50px;
+  right: 60px;
+  width: 56px;
+  height: 56px;
+}
+
+.deal-hero {
+  position: relative;
+}
+.deal-hero > .hero-osm {
+  top: -50px;
+  right: -140px;
+  width: 380px;
+  height: 380px;
+  opacity: 0.55;
+  filter: brightness(1.18) hue-rotate(-10deg) saturate(0.9) contrast(1.05);
+  -webkit-mask: radial-gradient(circle at 75% 38%, #000 22%, transparent 70%);
+  mask: radial-gradient(circle at 75% 38%, #000 22%, transparent 70%);
+}
+.deal-hero > .hero-pin {
+  top: 40px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 4px 12px rgba(255, 220, 130, 0.55));
+}
+
+.placeholder-hero {
+  position: relative;
+  overflow: hidden;
+}
+.placeholder-hero > .hero-osm {
+  top: -30px;
+  right: -120px;
+  width: 320px;
+  height: 320px;
+  opacity: 0.5;
+}
+.placeholder-hero > .hero-pin {
+  top: 20px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+}
+.placeholder-hero > .placeholder-hero-text,
+.placeholder-hero > p,
+.placeholder-hero > h1 {
+  position: relative;
+  z-index: 2;
+}
+
+.my-hero {
+  position: relative;
+  overflow: hidden;
+}
+.my-hero > .hero-osm {
+  top: -90px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 380px;
+  height: 380px;
+  opacity: 0.42;
+  -webkit-mask: radial-gradient(circle at 50% 38%, #000 26%, transparent 70%);
+  mask: radial-gradient(circle at 50% 38%, #000 26%, transparent 70%);
+}
+.my-hero > .hero-pin {
+  top: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+}
+.my-hero .avatar,
+.my-hero h1,
+.my-hero p {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-osm img {
   width: 100%;
   height: 100%;
