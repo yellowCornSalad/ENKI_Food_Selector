@@ -1,5 +1,19 @@
 # 🍱 엔키 — 오늘 뭐 먹지
 
+<p align="center">
+  <a href="https://yellowcornsalad.github.io/ENKI_Food_Selector/">
+    <img src="https://img.shields.io/badge/🍱_엔키_뭐먹지_바로가기-1e1b4b?style=for-the-badge&logoColor=fbbf24" alt="ENKI 오늘 뭐 먹지 — 사이트 열기" />
+  </a>
+  &nbsp;
+  <a href="https://yellowcornsalad.github.io/ENKI_Food_Selector/#/menu">
+    <img src="https://img.shields.io/badge/메뉴_탭_바로가기-4338ca?style=for-the-badge" alt="메뉴 탭" />
+  </a>
+  &nbsp;
+  <a href="https://yellowcornsalad.github.io/ENKI_Food_Selector/#/deal">
+    <img src="https://img.shields.io/badge/엔키_거래_바로가기-ff6f0f?style=for-the-badge" alt="엔키 거래" />
+  </a>
+</p>
+
 엔키화이트햇 문정동 근무자 전용 사내 점심·중고거래 모바일 웹앱.
 점심 추천부터 사다리·룰렛·핀볼 미니게임, 사내 거래까지 한 화면에서.
 
@@ -7,7 +21,8 @@
   <img src="./assets/screenshots/home.png" alt="ENKI 오늘 뭐 먹지 — 홈 화면" width="340" />
 </p>
 
-> 🌐 라이브: <https://yellowcornsalad.github.io/ENKI_Food_Selector/>
+> 🌐 **라이브 사이트** · <https://yellowcornsalad.github.io/ENKI_Food_Selector/>
+> 📱 모바일에서 보기 좋게 만들어졌어요. PC에서 열면 가운데 정렬됨
 
 ---
 
