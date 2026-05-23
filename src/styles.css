@@ -507,13 +507,14 @@ button {
 .hero-meta {
   position: relative;
   z-index: 3;
-  /* Let map clicks pass through the empty area to .hero-osm underneath */
+  /* The copy block stretches full-width even though text is on the
+     left. h1/p are block elements that would swallow clicks on the
+     right where the map pin lives. Re-enabling pointer-events on
+     h1/p/eyebrow is unsafe; marketing copy doesn't need selection. */
   pointer-events: none;
 }
-/* Text inside is still selectable; only the wrapper is click-transparent */
-.hero-copy h1,
-.hero-copy p,
-.hero-copy .hero-eyebrow,
+/* .hero-meta children are inline pills sized to their content
+   (countdown, date) — safe to make clickable without covering pin. */
 .hero-meta span,
 .hero-meta strong {
   pointer-events: auto;
@@ -526,13 +527,13 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 18px 22px 0;
-  /* Brand text + empty center should not block map clicks */
+  /* Top row spans full width; only the brand + icon buttons need
+     clicks, not the empty center. */
   pointer-events: none;
 }
-/* But the bell/gear buttons and brand must remain interactive */
+.hero-top .hero-brand,
 .hero-top .hero-icons,
-.hero-top .hero-icons button,
-.hero-top .hero-brand {
+.hero-top .hero-icons button {
   pointer-events: auto;
 }
 
