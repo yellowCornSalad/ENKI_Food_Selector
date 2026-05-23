@@ -69,7 +69,76 @@ async function loadRestaurants() {
   }
   const payload = await response.json();
   state.restaurants = payload.restaurants ?? [];
+  renderPopular();
   render();
+}
+
+// ========== POPULAR ON HOME (네이버 평점 × log(리뷰수)) ==========
+function popularScore(item) {
+  const rating = typeof item.naverRating === "number" ? item.naverRating : 0;
+  const reviews = item.naverVisitorReviewCount || item.naverReviewCount || 0;
+  if (!rating || !reviews) return -1;
+  // rating dominates; log(reviews) prevents a 5.0/1-review place from topping
+  // a 4.6/2000-review staple while still rewarding genuine volume.
+  return rating * Math.log10(reviews + 1);
+}
+
+function thumbForCategory(item) {
+  const cat = String(item.category ?? "").toLowerCase();
+  if (/고기|구이|돼지|소고기|한우|와규|곱창|족발|갈비|삼겹/.test(cat)) return "🥩";
+  if (/치킨/.test(cat)) return "🍗";
+  if (/중식|짜장|짬뽕|마라|훠궈/.test(cat)) return "🥟";
+  if (/일식|초밥|회|스시|돈까스|돈가스|라멘|우동|규동|텐동/.test(cat)) return "🍣";
+  if (/양식|샌드위치|버거|피자|파스타|스테이크/.test(cat)) return "🍝";
+  if (/카페|커피|음료|차/.test(cat)) return "☕";
+  if (/베이커리|빵|디저트/.test(cat)) return "🥐";
+  if (/샐러드|건강식|다이어트/.test(cat)) return "🥗";
+  if (/분식|떡볶이|김밥/.test(cat)) return "🍙";
+  if (/면\/국수|국수|쌀국수/.test(cat)) return "🍜";
+  if (/한식|국밥|찌개|순두부|덮밥|백반/.test(cat)) return "🍚";
+  return "🍱";
+}
+
+function renderPopular() {
+  const scroll = document.getElementById("popularScroll");
+  if (!scroll) return;
+  const ranked = state.restaurants
+    .map((item) => ({ item, score: popularScore(item) }))
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score);
+  // Take top 10 by score, then random 5 per session so the carousel
+  // varies between reloads but stays anchored to real popular places.
+  const pool = ranked.slice(0, 10);
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  const picks = pool.slice(0, 5);
+  if (!picks.length) {
+    scroll.innerHTML = "";
+    return;
+  }
+  scroll.innerHTML = picks
+    .map(({ item }, i) => {
+      const accentCls = i % 3 === 1 ? "is-warm" : i % 3 === 2 ? "is-cool" : "";
+      const rating = (item.naverRating ?? 0).toFixed(1);
+      const reviews = item.naverVisitorReviewCount || item.naverReviewCount || 0;
+      const distance = item.distanceM ? `${item.distanceM}m` : "";
+      const cat = item.category ? `${escapeHtml(item.category)}` : "";
+      const subMeta = [cat, distance].filter(Boolean).join(" · ");
+      return `
+        <article class="popular-card ${accentCls}" data-popular="${escapeHtml(item.name)}">
+          <div class="pop-thumb">${thumbForCategory(item)}</div>
+          <h4>${escapeHtml(item.name)}</h4>
+          <small>${escapeHtml(subMeta)}</small>
+          <div class="pop-meta">
+            <span>네이버 ★ ${rating}</span>
+            <strong>리뷰 ${reviews.toLocaleString("ko-KR")}</strong>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
 }
 
 function setMeal(meal) {
@@ -1373,9 +1442,13 @@ if (homeSearchBtn) {
   homeSearchBtn.addEventListener("click", applyHomeSearch);
 }
 
-// Popular cards on home → set search query and jump to menu tab
-for (const card of document.querySelectorAll("[data-popular]")) {
-  card.addEventListener("click", () => {
+// Popular cards on home → set search query and jump to menu tab.
+// Event delegation so re-rendered cards (after data load) still work.
+const popularScrollEl = document.getElementById("popularScroll");
+if (popularScrollEl) {
+  popularScrollEl.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-popular]");
+    if (!card) return;
     state.searchQuery = card.dataset.popular;
     const menuSearch = document.getElementById("candidateSearch");
     if (menuSearch) menuSearch.value = state.searchQuery;
