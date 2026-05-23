@@ -1370,15 +1370,57 @@ for (const el of document.querySelectorAll("[data-hero-map]")) {
 
 // ========== TAB ROUTING ==========
 const VALID_TABS = new Set(["home", "menu", "deal", "board", "chat", "my"]);
+// Tab order used to decide slide direction. Bottom-nav order with 'menu'
+// slotted right after 'home' since the home page is the primary path to it.
+const TAB_ORDER = ["home", "menu", "board", "deal", "chat", "my"];
 
 function activateTab(tab) {
   const target = VALID_TABS.has(tab) ? tab : "home";
+  // Figure out which direction the new tab is coming from so the keyframes
+  // can slide it in from the matching side (iOS feel).
+  const prevPane = document.querySelector(".tab-pane.is-active");
+  const prevTab = prevPane?.dataset.tab;
+  let direction = null;
+  if (prevTab && prevTab !== target) {
+    const prevIdx = TAB_ORDER.indexOf(prevTab);
+    const nextIdx = TAB_ORDER.indexOf(target);
+    if (prevIdx >= 0 && nextIdx >= 0) {
+      direction = nextIdx > prevIdx ? "right" : "left";
+    }
+  }
+
   document.querySelectorAll(".tab-pane").forEach((el) => {
-    el.classList.toggle("is-active", el.dataset.tab === target);
+    const isActive = el.dataset.tab === target;
+    // Always clear direction state from previous run.
+    el.classList.remove("is-from-right", "is-from-left");
+    if (isActive) {
+      // Restart the keyframe by toggling off + forcing reflow + toggling on.
+      // Without this, re-activating the same tab (or returning to one)
+      // would not replay the entrance animation.
+      el.classList.remove("is-active");
+      // eslint-disable-next-line no-unused-expressions
+      void el.offsetWidth;
+      if (direction === "right") el.classList.add("is-from-right");
+      else if (direction === "left") el.classList.add("is-from-left");
+      el.classList.add("is-active");
+    } else {
+      el.classList.remove("is-active");
+    }
   });
+
   document.querySelectorAll(".nav-item").forEach((el) => {
-    el.classList.toggle("is-active", el.dataset.tabTarget === target);
+    const isActive = el.dataset.tabTarget === target;
+    if (isActive) {
+      // Same restart trick so the icon-pop keyframe replays each tap.
+      el.classList.remove("is-active");
+      const icon = el.querySelector(".nav-icon");
+      if (icon) void icon.offsetWidth;
+      el.classList.add("is-active");
+    } else {
+      el.classList.remove("is-active");
+    }
   });
+
   const action = document.getElementById("bottomAction");
   if (action) action.classList.toggle("is-visible", target === "menu");
   window.scrollTo({ top: 0, behavior: "instant" });

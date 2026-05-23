@@ -35,8 +35,42 @@ button {
   display: none;
 }
 
+/* iOS-style page transition: subtle slide + fade + spring scale.
+   The 0.32/0.72/0/1 easing is Apple's signature curve — fast start,
+   gentle settle. Activation direction (is-from-right/left) is set by
+   activateTab() based on tab order so forward/backward feel natural. */
 .tab-pane.is-active {
   display: block;
+  animation: tab-enter 0.42s cubic-bezier(0.32, 0.72, 0, 1) both;
+  will-change: opacity, transform;
+}
+.tab-pane.is-active.is-from-right {
+  animation-name: tab-enter-right;
+}
+.tab-pane.is-active.is-from-left {
+  animation-name: tab-enter-left;
+}
+
+@keyframes tab-enter {
+  0% { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.985); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes tab-enter-right {
+  0% { opacity: 0; transform: translate3d(28px, 0, 0) scale(0.985); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes tab-enter-left {
+  0% { opacity: 0; transform: translate3d(-28px, 0, 0) scale(0.985); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .tab-pane.is-active,
+  .tab-pane.is-active.is-from-right,
+  .tab-pane.is-active.is-from-left {
+    animation: none;
+  }
 }
 
 .tab-pane[data-tab="menu"] {
@@ -1590,27 +1624,44 @@ button {
   background: transparent;
   color: #94a3b8;
   cursor: pointer;
-  transition: color 0.15s ease;
+  /* Smooth color shift with Apple easing for cohesive feel. */
+  transition: color 0.32s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .nav-item .nav-icon {
   font-size: 22px;
   line-height: 1;
-  transition: transform 0.15s ease;
+  transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .nav-item .nav-label {
   font-size: 10.5px;
   font-weight: 850;
+  transition: font-weight 0.2s ease;
 }
 
 .nav-item.is-active {
   color: #4338ca;
 }
 
+/* Springy little pop when an icon becomes active — overshoots and
+   settles via the back-out cubic-bezier (the 1.56 makes it bouncy). */
 .nav-item.is-active .nav-icon {
   transform: translateY(-2px);
+  animation: nav-icon-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
   filter: drop-shadow(0 2px 4px rgba(67, 56, 202, 0.35));
+}
+
+@keyframes nav-icon-pop {
+  0%   { transform: translateY(0)    scale(1); }
+  40%  { transform: translateY(-4px) scale(1.22); }
+  100% { transform: translateY(-2px) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-item.is-active .nav-icon {
+    animation: none;
+  }
 }
 
 .topbar {
