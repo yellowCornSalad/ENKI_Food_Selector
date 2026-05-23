@@ -1298,7 +1298,7 @@ for (const el of document.querySelectorAll("[data-hero-map]")) {
 }
 
 // ========== TAB ROUTING ==========
-const VALID_TABS = new Set(["home", "menu", "deal", "board", "my"]);
+const VALID_TABS = new Set(["home", "menu", "deal", "board", "chat", "my"]);
 
 function activateTab(tab) {
   const target = VALID_TABS.has(tab) ? tab : "home";
@@ -1881,8 +1881,6 @@ function updateChatBadges() {
       navBadge.hidden = true;
     }
   }
-  const dot = document.getElementById("chatUnreadDot");
-  if (dot) dot.hidden = total === 0;
   const sub = document.getElementById("chatHeroSub");
   if (sub) {
     sub.textContent = total > 0
@@ -2020,6 +2018,205 @@ if (settingsResetAll) {
     showToast("🗑️ 모든 로컬 데이터 초기화됨");
   });
 }
+
+// ========== NOTIFICATIONS ==========
+// Mock dataset (v1.1) — real push comes with Firebase in v1.2.
+const NOTIFICATIONS = [
+  {
+    id: "n1",
+    type: "chat",
+    icon: "💬",
+    title: "박지인 매니저",
+    body: "오늘 12시 한식 같이 가실 분 계실까요?",
+    time: "방금",
+    unread: true,
+    action: { kind: "tab", target: "chat" },
+  },
+  {
+    id: "n2",
+    type: "deal",
+    icon: "💰",
+    title: "맥북 충전기 65W",
+    body: "관심 등록한 상품에 새 댓글 1개",
+    time: "5분 전",
+    unread: true,
+    action: { kind: "tab", target: "deal" },
+  },
+  {
+    id: "n3",
+    type: "lunch",
+    icon: "🍽️",
+    title: "점심 모집 — 슬로우캘리",
+    body: "12시 다이어트 도시락, 4명 중 2명 모집됨",
+    time: "15분 전",
+    unread: true,
+    action: { kind: "tab", target: "chat" },
+  },
+  {
+    id: "n4",
+    type: "system",
+    icon: "📢",
+    title: "ENKI 공지",
+    body: "5/24(금) 전사 회식 — 송파대로 BBQ 6시 집결",
+    time: "1시간 전",
+    unread: true,
+    action: { kind: "tab", target: "board" },
+  },
+  {
+    id: "n5",
+    type: "budget",
+    icon: "💳",
+    title: "오늘의 식대",
+    body: "남은 식대 8,500원 · 자정에 자동 리셋",
+    time: "2시간 전",
+    unread: false,
+    action: { kind: "modal", target: "budget" },
+  },
+  {
+    id: "n6",
+    type: "app",
+    icon: "🤖",
+    title: "ENKI Food Selector v1.1",
+    body: "광장 / 채팅 / 알림 센터가 추가됐어요",
+    time: "어제",
+    unread: false,
+    action: { kind: "modal", target: "settings" },
+  },
+];
+
+function totalNotifUnread() {
+  return NOTIFICATIONS.reduce((s, n) => s + (n.unread ? 1 : 0), 0);
+}
+
+function escapeNotifHtml(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function notifTypeClass(type) {
+  return `notif-icon-${type}`;
+}
+
+function renderNotifList() {
+  const listEl = document.getElementById("notifList");
+  if (!listEl) return;
+  if (!NOTIFICATIONS.length) {
+    listEl.innerHTML = `<li class="notif-empty">📭 알림이 없어요</li>`;
+    return;
+  }
+  listEl.innerHTML = NOTIFICATIONS.map((n) => {
+    const unreadCls = n.unread ? " is-unread" : "";
+    return `
+      <li>
+        <button type="button" class="notif-item${unreadCls}" data-notif-id="${n.id}">
+          <span class="notif-ico ${notifTypeClass(n.type)}">${escapeNotifHtml(n.icon)}</span>
+          <div class="notif-body">
+            <div class="notif-line">
+              <strong>${escapeNotifHtml(n.title)}</strong>
+              <span class="notif-time">${escapeNotifHtml(n.time)}</span>
+            </div>
+            <p>${escapeNotifHtml(n.body)}</p>
+          </div>
+          ${n.unread ? '<span class="notif-unread-dot" aria-hidden="true"></span>' : ""}
+        </button>
+      </li>
+    `;
+  }).join("");
+}
+
+function updateNotifBadges() {
+  const total = totalNotifUnread();
+  const dot = document.getElementById("notifUnreadDot");
+  if (dot) dot.hidden = total === 0;
+  const sub = document.getElementById("notifSub");
+  if (sub) {
+    sub.textContent = total > 0
+      ? `읽지 않은 알림 ${total}개`
+      : `최근 알림이 없어요`;
+  }
+}
+
+const notifModal = document.getElementById("notifModal");
+const notifModalClose = document.getElementById("notifModalClose");
+const notifListEl = document.getElementById("notifList");
+const notifMarkAllBtn = document.getElementById("notifMarkAll");
+const notifClearAllBtn = document.getElementById("notifClearAll");
+
+function openNotifModal() {
+  if (!notifModal) return;
+  renderNotifList();
+  updateNotifBadges();
+  notifModal.hidden = false;
+  document.body.classList.add("modal-open");
+}
+function closeNotifModal() {
+  if (!notifModal) return;
+  notifModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest("[data-open-notifications]")) {
+    event.preventDefault();
+    openNotifModal();
+  }
+});
+if (notifModalClose) notifModalClose.addEventListener("click", closeNotifModal);
+if (notifModal) {
+  notifModal.addEventListener("click", (event) => {
+    if (event.target === notifModal) closeNotifModal();
+  });
+}
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && notifModal && !notifModal.hidden) {
+    closeNotifModal();
+  }
+});
+
+if (notifListEl) {
+  notifListEl.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-notif-id]");
+    if (!btn) return;
+    const id = btn.dataset.notifId;
+    const notif = NOTIFICATIONS.find((n) => n.id === id);
+    if (!notif) return;
+    if (notif.unread) {
+      notif.unread = false;
+      renderNotifList();
+      updateNotifBadges();
+    }
+    closeNotifModal();
+    // Dispatch by action kind
+    if (notif.action?.kind === "tab") {
+      navigateTo(notif.action.target);
+    } else if (notif.action?.kind === "modal") {
+      if (notif.action.target === "budget") openBudgetModal();
+      else if (notif.action.target === "settings") openSettingsModal();
+    }
+  });
+}
+
+if (notifMarkAllBtn) {
+  notifMarkAllBtn.addEventListener("click", () => {
+    for (const n of NOTIFICATIONS) n.unread = false;
+    renderNotifList();
+    updateNotifBadges();
+  });
+}
+if (notifClearAllBtn) {
+  notifClearAllBtn.addEventListener("click", () => {
+    if (!confirm("모든 알림을 지울까요?")) return;
+    NOTIFICATIONS.length = 0;
+    renderNotifList();
+    updateNotifBadges();
+  });
+}
+
+renderNotifList();
+updateNotifBadges();
 
 // Initial routing
 activateTab(readHashTab());
