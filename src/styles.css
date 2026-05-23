@@ -40,13 +40,182 @@ button {
 }
 
 .tab-pane[data-tab="menu"] {
-  background: linear-gradient(180deg, rgba(15, 118, 110, 0.1), transparent 230px), #f5f3ef;
+  background: #eef2f3;
 }
 
-.app-shell {
+.tab-pane[data-tab="menu"] .app-shell {
   width: 100%;
   margin: 0 auto;
-  padding: 22px 18px 24px;
+  padding: 0 0 24px;
+}
+
+/* ---------- Menu tab mini-hero (topbar) ---------- */
+.tab-pane[data-tab="menu"] .topbar {
+  position: relative;
+  margin: 0 0 18px;
+  padding: 24px 22px 24px;
+  background:
+    radial-gradient(80% 60% at 110% 0%, rgba(245, 158, 11, 0.35), transparent 60%),
+    linear-gradient(170deg, #0b2f2b 0%, #0f4f47 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.tab-pane[data-tab="menu"] .topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 80%, rgba(255, 255, 255, 0.1) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1.5px);
+  pointer-events: none;
+}
+
+.tab-pane[data-tab="menu"] .topbar > div {
+  position: relative;
+  z-index: 1;
+}
+
+.tab-pane[data-tab="menu"] .topbar .eyebrow {
+  color: rgba(252, 211, 77, 0.92);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.tab-pane[data-tab="menu"] .topbar h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.tab-pane[data-tab="menu"] .icon-button {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+/* ---------- Menu tab card sections ---------- */
+.tab-pane[data-tab="menu"] .status-strip {
+  margin: 0 18px 12px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #dceee9 100%);
+  border: 0;
+  border-radius: 14px;
+  color: #115e57;
+  box-shadow: 0 6px 18px rgba(11, 47, 43, 0.06);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tab-pane[data-tab="menu"] .status-strip strong {
+  color: #0b2f2b;
+  font-weight: 900;
+}
+
+.tab-pane[data-tab="menu"] .meal-switch {
+  margin: 0 18px 14px;
+  padding: 5px;
+  background: rgba(15, 118, 110, 0.08);
+  border-radius: 14px;
+}
+
+.tab-pane[data-tab="menu"] .meal-switch .segment {
+  border-radius: 11px;
+}
+
+.tab-pane[data-tab="menu"] .preference-panel,
+.tab-pane[data-tab="menu"] .game-panel,
+.tab-pane[data-tab="menu"] .list-section {
+  margin: 0 18px 14px;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(11, 47, 43, 0.06);
+}
+
+.tab-pane[data-tab="menu"] .preference-panel .section-title h2,
+.tab-pane[data-tab="menu"] .game-panel .section-title h2,
+.tab-pane[data-tab="menu"] .list-section .section-title h2 {
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.tab-pane[data-tab="menu"] .list-section .section-title {
+  background: linear-gradient(180deg, #ffffff 75%, rgba(255, 255, 255, 0));
+}
+
+.tab-pane[data-tab="menu"] .game-stage {
+  margin-top: 12px;
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px dashed rgba(15, 118, 110, 0.22);
+  border-radius: 12px;
+}
+
+.tab-pane[data-tab="menu"] .mode-button {
+  border-radius: 10px;
+  background: #f8fafc;
+  border-color: rgba(15, 118, 110, 0.15);
+}
+
+.tab-pane[data-tab="menu"] .mode-button.is-active {
+  background: linear-gradient(135deg, #0f766e, #064e3b);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.tab-pane[data-tab="menu"] .chip {
+  border-radius: 999px;
+  background: #f1f5f9;
+  border-color: transparent;
+  color: #475569;
+  font-weight: 800;
+}
+
+.tab-pane[data-tab="menu"] .chip.is-selected {
+  background: linear-gradient(135deg, #0f766e, #047857);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.tab-pane[data-tab="menu"] .hero-card {
+  margin: 0 18px 14px;
+  border-radius: 18px;
+  background:
+    radial-gradient(80% 60% at 110% 0%, rgba(245, 158, 11, 0.28), transparent 60%),
+    linear-gradient(140deg, #0b2f2b 0%, #0f4f47 60%, #082823 100%);
+  box-shadow: 0 12px 30px rgba(11, 47, 43, 0.28);
+}
+
+.tab-pane[data-tab="menu"] .candidate-card {
+  border-radius: 14px;
+  border: 0;
+  box-shadow: 0 4px 14px rgba(11, 47, 43, 0.05);
+  background: #ffffff;
+}
+
+.tab-pane[data-tab="menu"] .candidate-card.is-expanded {
+  background: #f1f7f5;
+  box-shadow: 0 8px 20px rgba(11, 47, 43, 0.1);
+}
+
+.tab-pane[data-tab="menu"] .candidate-search input {
+  background: #f8fafc;
+  border-color: transparent;
+}
+
+.tab-pane[data-tab="menu"] .candidate-search input:focus {
+  background: #ffffff;
+  border-color: #0f766e;
 }
 
 /* ========== HOME HERO ========== */
