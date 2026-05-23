@@ -355,6 +355,27 @@ button {
     radial-gradient(circle at 78% 38%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1.5px),
     radial-gradient(circle at 48% 70%, rgba(255, 255, 255, 0.1) 0 1px, transparent 1.5px);
   pointer-events: none;
+  z-index: 0;
+}
+
+.hero-map {
+  position: absolute;
+  top: 24px;
+  right: -70px;
+  width: 360px;
+  height: 360px;
+  z-index: 1;
+  opacity: 0.42;
+  pointer-events: none;
+  -webkit-mask: radial-gradient(circle at 72% 32%, #000 28%, transparent 76%);
+  mask: radial-gradient(circle at 72% 32%, #000 28%, transparent 76%);
+  filter: blur(0.3px);
+}
+
+.hero-copy,
+.hero-meta {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-top {
