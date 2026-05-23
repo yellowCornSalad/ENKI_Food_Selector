@@ -369,11 +369,20 @@ button {
   grid-template-rows: repeat(3, 1fr);
   z-index: 1;
   opacity: 0.75;
-  pointer-events: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
   filter: brightness(1.05) hue-rotate(220deg) saturate(0.95) contrast(1.05);
   -webkit-mask: radial-gradient(circle at 70% 42%, #000 26%, transparent 72%);
   mask: radial-gradient(circle at 70% 42%, #000 26%, transparent 72%);
   mix-blend-mode: screen;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+.hero-osm:hover,
+.hero-osm:focus-visible {
+  opacity: 0.95;
+  filter: brightness(1.18) hue-rotate(220deg) saturate(1.05) contrast(1.08);
+  outline: none;
 }
 
 /* ===== Per-tab hero map overrides — smaller, lower opacity, away from buttons ===== */
