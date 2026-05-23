@@ -1241,7 +1241,7 @@ loadRestaurants().catch(() => {
 });
 
 // ========== TAB ROUTING ==========
-const VALID_TABS = new Set(["home", "menu", "board", "my"]);
+const VALID_TABS = new Set(["home", "menu", "deal", "board", "my"]);
 
 function activateTab(tab) {
   const target = VALID_TABS.has(tab) ? tab : "home";

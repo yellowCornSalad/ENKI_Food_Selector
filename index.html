@@ -188,6 +188,106 @@
         </main>
       </section>
 
+      <!-- ========== DEAL TAB ========== -->
+      <section class="tab-pane" data-tab="deal">
+        <header class="deal-hero">
+          <div class="deal-hero-row">
+            <div>
+              <p class="hero-eyebrow">ENKI · 사내 중고거래</p>
+              <h1>엔키 거래</h1>
+              <p>엔키화이트햇 동료끼리 안전하게 사고팔아요.</p>
+            </div>
+            <button type="button" class="deal-write-btn" aria-label="물건 등록">＋</button>
+          </div>
+          <div class="deal-search">
+            <input type="search" id="dealSearch" placeholder="🔎 물건 이름, 카테고리 검색" autocomplete="off" />
+          </div>
+          <div class="deal-chips">
+            <button type="button" class="deal-chip is-active">전체</button>
+            <button type="button" class="deal-chip">디지털</button>
+            <button type="button" class="deal-chip">생활/주방</button>
+            <button type="button" class="deal-chip">의류</button>
+            <button type="button" class="deal-chip">도서</button>
+            <button type="button" class="deal-chip">기프티콘</button>
+            <button type="button" class="deal-chip">나눔</button>
+          </div>
+        </header>
+
+        <section class="deal-grid">
+          <article class="deal-card">
+            <div class="deal-thumb is-tech">📱</div>
+            <span class="deal-status is-on">판매중</span>
+            <h3>아이폰 14 케이스 (미사용)</h3>
+            <strong>5,000원</strong>
+            <small>박OO · 32분 전</small>
+            <div class="deal-meta">
+              <span>❤️ 3</span>
+              <span>💬 1</span>
+            </div>
+          </article>
+          <article class="deal-card">
+            <div class="deal-thumb is-life">🪑</div>
+            <span class="deal-status is-on">판매중</span>
+            <h3>사무용 의자 (1년 사용)</h3>
+            <strong>40,000원</strong>
+            <small>김OO · 2시간 전</small>
+            <div class="deal-meta">
+              <span>❤️ 7</span>
+              <span>💬 4</span>
+            </div>
+          </article>
+          <article class="deal-card">
+            <div class="deal-thumb is-coffee">☕</div>
+            <span class="deal-status is-reserved">예약중</span>
+            <h3>스타벅스 e-기프티콘 1만원</h3>
+            <strong>8,500원</strong>
+            <small>이OO · 어제</small>
+            <div class="deal-meta">
+              <span>❤️ 12</span>
+              <span>💬 6</span>
+            </div>
+          </article>
+          <article class="deal-card">
+            <div class="deal-thumb is-book">📚</div>
+            <span class="deal-status is-on">판매중</span>
+            <h3>리팩터링 2판 / 클린 코드</h3>
+            <strong>15,000원</strong>
+            <small>최OO · 어제</small>
+            <div class="deal-meta">
+              <span>❤️ 5</span>
+              <span>💬 2</span>
+            </div>
+          </article>
+          <article class="deal-card">
+            <div class="deal-thumb is-free">🎁</div>
+            <span class="deal-status is-gift">나눔</span>
+            <h3>이사 후 남은 종이컵 500개</h3>
+            <strong>무료 나눔</strong>
+            <small>한OO · 2일 전</small>
+            <div class="deal-meta">
+              <span>❤️ 18</span>
+              <span>💬 11</span>
+            </div>
+          </article>
+          <article class="deal-card">
+            <div class="deal-thumb is-tech">⌨️</div>
+            <span class="deal-status is-done">거래완료</span>
+            <h3>키크론 K2 키보드</h3>
+            <strong>75,000원</strong>
+            <small>장OO · 3일 전</small>
+            <div class="deal-meta">
+              <span>❤️ 9</span>
+              <span>💬 8</span>
+            </div>
+          </article>
+        </section>
+
+        <div class="deal-note">
+          <strong>곧 진짜로 동작합니다 🚧</strong>
+          <p>지금은 시안이에요. 사진 업로드 · 채팅 · 좋아요는 Firebase 도입 후 1.2 버전에서 켜집니다.</p>
+        </div>
+      </section>
+
       <!-- ========== BOARD TAB ========== -->
       <section class="tab-pane" data-tab="board">
         <header class="placeholder-hero">
@@ -269,6 +369,10 @@
         <span class="nav-icon">🍱</span>
         <span class="nav-label">메뉴</span>
       </button>
+      <button class="nav-item" type="button" data-tab-target="deal">
+        <span class="nav-icon">💰</span>
+        <span class="nav-label">거래</span>
+      </button>
       <button class="nav-item" type="button" data-tab-target="board">
         <span class="nav-icon">💬</span>
         <span class="nav-label">소통</span>
@@ -279,6 +383,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260522-31"></script>
+    <script type="module" src="./src/app.js?v=20260522-33"></script>
   </body>
 </html>
