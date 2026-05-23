@@ -1455,5 +1455,163 @@ async function updateWeatherAndDate() {
 updateWeatherAndDate();
 setInterval(updateWeatherAndDate, 10 * 60 * 1000);
 
+// ========== BUDGET TRACKER (localStorage) ==========
+const BUDGET_DAILY = 12000;
+const BUDGET_KEY = "enki.budget.v1";
+
+function todayKey() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+}
+
+function loadBudget() {
+  try {
+    const raw = localStorage.getItem(BUDGET_KEY);
+    const parsed = raw ? JSON.parse(raw) : null;
+    const today = todayKey();
+    if (!parsed || parsed.date !== today) {
+      return { date: today, entries: [] };
+    }
+    return parsed;
+  } catch {
+    return { date: todayKey(), entries: [] };
+  }
+}
+
+function saveBudget(budget) {
+  try { localStorage.setItem(BUDGET_KEY, JSON.stringify(budget)); } catch {}
+}
+
+let budgetState = loadBudget();
+
+function totalUsed() {
+  return budgetState.entries.reduce((sum, e) => sum + Number(e.amount || 0), 0);
+}
+
+function renderBudget() {
+  // Daily rollover check
+  if (budgetState.date !== todayKey()) {
+    budgetState = { date: todayKey(), entries: [] };
+    saveBudget(budgetState);
+  }
+  const used = totalUsed();
+  const remaining = BUDGET_DAILY - used;
+  const isOver = remaining < 0;
+  const ratio = Math.max(0, Math.min(1, used / BUDGET_DAILY));
+
+  const remainEl = document.getElementById("budgetRemaining");
+  if (remainEl) {
+    remainEl.textContent = `${remaining.toLocaleString("ko-KR")}원`;
+    remainEl.classList.toggle("is-over", isOver);
+  }
+  const subEl = document.getElementById("budgetSub");
+  if (subEl) {
+    subEl.textContent = used > 0
+      ? `오늘 ${used.toLocaleString("ko-KR")}원 사용 · 자정에 자동 리셋`
+      : `하루 12,000원 · 자정에 자동 리셋`;
+  }
+  // Ring progress
+  const ring = document.getElementById("budgetRingFg");
+  const ringLabel = document.getElementById("budgetRingLabel");
+  if (ring) {
+    const circumference = 2 * Math.PI * 26; // r=26
+    const remainRatio = Math.max(0, 1 - ratio);
+    ring.style.strokeDasharray = `${circumference}`;
+    ring.style.strokeDashoffset = `${circumference * (1 - remainRatio)}`;
+    ring.classList.toggle("is-over", isOver);
+  }
+  if (ringLabel) {
+    const pct = isOver ? 0 : Math.round((1 - ratio) * 100);
+    ringLabel.textContent = isOver ? "초과" : `${pct}%`;
+    ringLabel.classList.toggle("is-over", isOver);
+  }
+  // Log
+  const log = document.getElementById("budgetLog");
+  if (log) {
+    if (!budgetState.entries.length) {
+      log.innerHTML = `<p class="budget-empty">오늘은 아직 사용 기록이 없어요.</p>`;
+    } else {
+      log.innerHTML = budgetState.entries
+        .slice()
+        .reverse()
+        .map((entry, idxFromEnd) => {
+          const actualIdx = budgetState.entries.length - 1 - idxFromEnd;
+          const note = entry.note ? `<span class="budget-note">${escapeHtml(entry.note)}</span>` : "";
+          return `
+            <div class="budget-entry">
+              <div class="budget-entry-main">
+                <strong>${entry.amount.toLocaleString("ko-KR")}원</strong>
+                ${note}
+              </div>
+              <div class="budget-entry-side">
+                <span>${escapeHtml(entry.time ?? "")}</span>
+                <button type="button" class="budget-remove" data-budget-remove="${actualIdx}" aria-label="삭제">×</button>
+              </div>
+            </div>
+          `;
+        })
+        .join("");
+    }
+  }
+}
+
+function addBudgetEntry(amount, note) {
+  if (!Number.isFinite(amount) || amount <= 0) return;
+  const now = new Date();
+  const time = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+  budgetState.entries.push({ amount: Math.round(amount), note: note || "", time });
+  saveBudget(budgetState);
+  renderBudget();
+}
+
+function removeBudgetEntry(idx) {
+  budgetState.entries.splice(idx, 1);
+  saveBudget(budgetState);
+  renderBudget();
+}
+
+function resetBudgetToday() {
+  budgetState = { date: todayKey(), entries: [] };
+  saveBudget(budgetState);
+  renderBudget();
+}
+
+const budgetForm = document.getElementById("budgetForm");
+if (budgetForm) {
+  budgetForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const amountEl = document.getElementById("budgetAmount");
+    const noteEl = document.getElementById("budgetNote");
+    const amount = Number(amountEl?.value ?? 0);
+    const note = (noteEl?.value ?? "").trim();
+    if (!Number.isFinite(amount) || amount <= 0) return;
+    addBudgetEntry(amount, note);
+    if (amountEl) amountEl.value = "";
+    if (noteEl) noteEl.value = "";
+    amountEl?.focus();
+  });
+}
+
+const budgetLogEl = document.getElementById("budgetLog");
+if (budgetLogEl) {
+  budgetLogEl.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-budget-remove]");
+    if (!btn) return;
+    const idx = Number(btn.dataset.budgetRemove);
+    if (Number.isInteger(idx)) removeBudgetEntry(idx);
+  });
+}
+
+const budgetResetBtn = document.getElementById("budgetReset");
+if (budgetResetBtn) {
+  budgetResetBtn.addEventListener("click", () => {
+    if (confirm("오늘 사용 기록을 모두 지울까요?")) resetBudgetToday();
+  });
+}
+
+// Initial render + midnight rollover check every minute
+renderBudget();
+setInterval(renderBudget, 60 * 1000);
+
 // Initial routing
 activateTab(readHashTab());
