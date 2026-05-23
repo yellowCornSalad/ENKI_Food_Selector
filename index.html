@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260523-02" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260523-03" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -22,8 +22,8 @@
               <span>ENKI · 문정동</span>
             </div>
             <div class="hero-icons">
-              <button type="button" class="hero-icon-btn" data-nav-to="board" aria-label="채팅 열기">
-                🔔<span class="dot" id="chatUnreadDot"></span>
+              <button type="button" class="hero-icon-btn" data-open-notifications aria-label="알림 열기">
+                🔔<span class="dot" id="notifUnreadDot"></span>
               </button>
               <button type="button" class="hero-icon-btn" data-open-settings aria-label="설정 열기">⚙️</button>
             </div>
@@ -299,8 +299,37 @@
         </div>
       </section>
 
-      <!-- ========== CHAT TAB (board) ========== -->
+      <!-- ========== BOARD TAB (광장) ========== -->
       <section class="tab-pane" data-tab="board">
+        <header class="placeholder-hero">
+          <p class="hero-eyebrow">소통 · 곧 만나요</p>
+          <h1>광장</h1>
+          <p>사내 게시판과 점심 모집글을 준비하고 있어요.</p>
+        </header>
+        <div class="placeholder-cards">
+          <article class="placeholder-card">
+            <span class="ph-icon">📋</span>
+            <h3>사내 게시판</h3>
+            <p>공지 · 자유 · 익명 게시판</p>
+            <small>준비 중</small>
+          </article>
+          <article class="placeholder-card placeholder-card--link" data-nav-to="chat">
+            <span class="ph-icon">🍽️</span>
+            <h3>점심 모집</h3>
+            <p>"12시 한식 같이 가실 분"</p>
+            <small>채팅 탭에서 →</small>
+          </article>
+          <article class="placeholder-card placeholder-card--link" data-nav-to="chat">
+            <span class="ph-icon">💬</span>
+            <h3>채팅방</h3>
+            <p>1:1 / 그룹 채팅</p>
+            <small>채팅 탭에서 →</small>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== CHAT TAB ========== -->
+      <section class="tab-pane" data-tab="chat">
         <header class="chat-hero">
           <div class="chat-hero-top">
             <div>
@@ -418,6 +447,25 @@
       </div>
     </div>
 
+    <!-- ========== 알림 모달 ========== -->
+    <div class="modal-backdrop" id="notifModal" hidden role="dialog" aria-modal="true" aria-labelledby="notifModalTitle">
+      <div class="modal-sheet" role="document">
+        <button type="button" class="modal-close" id="notifModalClose" aria-label="닫기">×</button>
+        <section class="notif-card">
+          <header class="notif-head">
+            <span class="notif-eyebrow">🔔 알림 센터</span>
+            <h2 id="notifModalTitle">알림</h2>
+            <p class="notif-sub" id="notifSub">최근 알림이 없어요</p>
+          </header>
+          <div class="notif-toolbar">
+            <button type="button" class="notif-link" id="notifMarkAll">모두 읽음</button>
+            <button type="button" class="notif-link is-danger" id="notifClearAll">전체 지우기</button>
+          </div>
+          <ul class="notif-list" id="notifList" aria-live="polite"></ul>
+        </section>
+      </div>
+    </div>
+
     <!-- ========== 설정 모달 ========== -->
     <div class="modal-backdrop" id="settingsModal" hidden role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
       <div class="modal-sheet" role="document">
@@ -496,15 +544,15 @@
         <span class="nav-icon">🏠</span>
         <span class="nav-label">홈</span>
       </button>
-      <button class="nav-item" type="button" data-tab-target="menu">
-        <span class="nav-icon">🍱</span>
-        <span class="nav-label">메뉴</span>
+      <button class="nav-item" type="button" data-tab-target="board">
+        <span class="nav-icon">🏛️</span>
+        <span class="nav-label">광장</span>
       </button>
       <button class="nav-item" type="button" data-tab-target="deal">
         <span class="nav-icon">💰</span>
         <span class="nav-label">거래</span>
       </button>
-      <button class="nav-item" type="button" data-tab-target="board">
+      <button class="nav-item" type="button" data-tab-target="chat">
         <span class="nav-icon">💬</span>
         <span class="nav-label">채팅</span>
         <span class="nav-badge" id="navChatBadge" hidden></span>
@@ -515,6 +563,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260523-02"></script>
+    <script type="module" src="./src/app.js?v=20260523-03"></script>
   </body>
 </html>
