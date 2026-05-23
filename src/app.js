@@ -283,7 +283,6 @@ function renderTopPick(item) {
       <h2>${message.title}</h2>
       <p class="restaurant-name">${message.name}</p>
       <p class="reason">${message.reason}</p>
-      ${message.showButton ? `<button class="hero-cta" data-action="choose" type="button">메뉴 고르기</button>` : ""}
     `;
     return;
   }
@@ -1156,7 +1155,10 @@ function deterministicNoise(input, max) {
 
 $("#lunchButton").addEventListener("click", () => setMeal("lunch"));
 $("#dinnerButton").addEventListener("click", () => setMeal("dinner"));
-$("#refreshButton").addEventListener("click", chooseMeal);
+$("#refreshButton").addEventListener("click", () => {
+  // Full page reload — useful to reset everything if something looks off
+  window.location.reload();
+});
 $("#chooseButton").addEventListener("click", chooseMeal);
 $("#topPick").addEventListener("click", (event) => {
   if (event.target.closest("[data-action='choose']")) {
