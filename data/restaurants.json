@@ -29916,8 +29916,99 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverSearchQuery": "한솔냉면(현대아울렛)",
-      "naverMenus": []
+      "naverSearchQuery": "한솔냉면 가든파이브",
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "전주비빔밥 정식",
+          "price": 11500,
+          "priceText": "11,500원"
+        },
+        {
+          "description": "",
+          "name": "전주돌솥비빔밥 정식",
+          "price": 12000,
+          "priceText": "12,000원"
+        },
+        {
+          "description": "",
+          "name": "낙지돌솥비빔밥 정식",
+          "price": 12500,
+          "priceText": "12,500원"
+        },
+        {
+          "description": "",
+          "name": "제육돌솥비빔밥 정식",
+          "price": 12500,
+          "priceText": "12,500원"
+        },
+        {
+          "description": "",
+          "name": "고등어구이 정찬",
+          "price": 15000,
+          "priceText": "15,000원"
+        },
+        {
+          "description": "",
+          "name": "차돌된장찌개",
+          "price": 9500,
+          "priceText": "9,500원"
+        },
+        {
+          "description": "",
+          "name": "해물순두부찌개",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "",
+          "name": "삼겹김치찌개",
+          "price": 10500,
+          "priceText": "10,500원"
+        },
+        {
+          "description": "",
+          "name": "한우장터국밥",
+          "price": 11500,
+          "priceText": "11,500원"
+        },
+        {
+          "description": "",
+          "name": "한솔물냉면",
+          "price": 11500,
+          "priceText": "11,500원"
+        },
+        {
+          "description": "",
+          "name": "한솔비빔냉면",
+          "price": 11500,
+          "priceText": "11,500원"
+        },
+        {
+          "description": "",
+          "name": "한솔회냉면 (명태회）",
+          "price": 12500,
+          "priceText": "12,500원"
+        },
+        {
+          "description": "",
+          "name": "왕만두",
+          "price": 7500,
+          "priceText": "7,500원"
+        },
+        {
+          "description": "",
+          "name": "떡갈비",
+          "price": 4000,
+          "priceText": "4,000원"
+        }
+      ],
+      "naverPlaceId": "1992773362",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1992773362/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverRating": 4.28,
+      "naverVisitorReviewCount": 401,
+      "naverBlogReviewCount": 30,
+      "naverMenuUpdatedAt": "2026-06-10"
     },
     {
       "id": "sikgwon-186",
@@ -29942,8 +30033,39 @@
         "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverSearchQuery": "호두앤(현대아울렛)",
-      "naverMenus": []
+      "naverSearchQuery": "호두앤 가든파이브",
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "쌀호두과자 팥앙금 11개",
+          "price": 6000,
+          "priceText": "6,000원"
+        },
+        {
+          "description": "",
+          "name": "쌀호두과자 팥앙금 20개",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "",
+          "name": "타이야끼 커스터드크림 11개",
+          "price": 6000,
+          "priceText": "6,000원"
+        },
+        {
+          "description": "",
+          "name": "타이야끼 커스터드크림 20개",
+          "price": 10000,
+          "priceText": "10,000원"
+        }
+      ],
+      "naverPlaceId": "1194336815",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1194336815/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverRating": 4.33,
+      "naverVisitorReviewCount": 373,
+      "naverBlogReviewCount": 13,
+      "naverMenuUpdatedAt": "2026-06-10"
     },
     {
       "id": "sikgwon-187",
@@ -29968,11 +30090,145 @@
         "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "일월떡볶이+야끼만두+튀김어묵",
+          "name": "일월떡볶이(단품)",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "일월떡볶이+야끼만두+튀김어묵+삶은계란+핫도그",
+          "name": "일월떡볶이(세트)",
+          "price": 7500,
+          "priceText": "7,500원"
+        },
+        {
+          "description": "",
+          "name": "떡순튀 세트",
+          "price": 16500,
+          "priceText": "16,500원"
+        },
+        {
+          "description": "",
+          "name": "찰순대",
+          "price": 4500,
+          "priceText": "4,500원"
+        },
+        {
+          "description": "대왕오징어+대왕김말이+야채튀김",
+          "name": "모둠튀김",
+          "price": 6000,
+          "priceText": "6,000원"
+        },
+        {
+          "description": "",
+          "name": "타코야끼",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "카츠산도",
+          "price": 8500,
+          "priceText": "8,500원"
+        },
+        {
+          "description": "",
+          "name": "(꼬마)야채김밥",
+          "price": 1600,
+          "priceText": "1,600원"
+        },
+        {
+          "description": "",
+          "name": "(꼬마)매콤어묵김밥",
+          "price": 1900,
+          "priceText": "1,900원"
+        },
+        {
+          "description": "",
+          "name": "(꼬마)참치마요김밥",
+          "price": 1900,
+          "priceText": "1,900원"
+        },
+        {
+          "description": "",
+          "name": "(꼬마)유부말이김밥",
+          "price": 1900,
+          "priceText": "1,900원"
+        },
+        {
+          "description": "",
+          "name": "(꼬마)스팸치즈김밥",
+          "price": 2300,
+          "priceText": "2,300원"
+        },
+        {
+          "description": "",
+          "name": "(꼬마)계란폭탄김밥",
+          "price": 2300,
+          "priceText": "2,300원"
+        },
+        {
+          "description": "",
+          "name": "(꼬마)돈까스김밥",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "",
+          "name": "(꼬마)불고기김밥",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "",
+          "name": "치즈라면(평일한정)",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "계란라면(평일한정)",
+          "price": 4500,
+          "priceText": "4,500원"
+        },
+        {
+          "description": "",
+          "name": "어묵꼬치",
+          "price": 3000,
+          "priceText": "3,000원"
+        },
+        {
+          "description": "",
+          "name": "소떡소떡",
+          "price": 2500,
+          "priceText": "2,500원"
+        },
+        {
+          "description": "",
+          "name": "버터갈릭감자튀김",
+          "price": 5000,
+          "priceText": "5,000원"
+        },
+        {
+          "description": "",
+          "name": "일월 수제돈까스",
+          "price": 8500,
+          "priceText": "8,500원"
+        }
+      ],
+      "naverPlaceId": "1659728369",
+      "naverSearchQuery": "일월분식 가든파이브",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1659728369/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverRating": 0,
+      "naverVisitorReviewCount": 195,
+      "naverBlogReviewCount": 55,
+      "naverMenuUpdatedAt": "2026-06-10"
     },
     {
       "id": "sikgwon-188",
-      "name": "[가든파이브] 짬사브(현대아울렛)",
+      "name": "[가든파이브] 찜샤브(현대아울렛)",
       "category": "식권대장 가맹점",
       "distanceM": 892,
       "sikgwonStatus": "confirmed",
@@ -29993,7 +30249,39 @@
         "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [
+        {
+          "description": "신선야채, 만두, 버섯, 호박, 수입산 쇠고기",
+          "name": "찜&샤브 클래식 쇠고기",
+          "price": 14900,
+          "priceText": "14,900원"
+        },
+        {
+          "description": "각종 영양버섯, 신선야채, 만두, 라이스페퍼, 호박,수입산 쇠고기 리필바 이용가능",
+          "name": "찜&샤브 명품영양버섯 쇠고기",
+          "price": 21900,
+          "priceText": "21,900원"
+        },
+        {
+          "description": "신선야채, 만두, 라이스페퍼, 버섯, 호박, 한우",
+          "name": "찜&샤브 클래식 한우",
+          "price": 22900,
+          "priceText": "22,900원"
+        },
+        {
+          "description": "신선야채와 싱싱한해산물, 호박, 만두, 월남쌈 리필바 이용",
+          "name": "찜&샤브 스페셜 해물 쇠고기",
+          "price": 21900,
+          "priceText": "21,900원"
+        }
+      ],
+      "naverPlaceId": "1095394801",
+      "naverSearchQuery": "찜샤브 가든파이브",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1095394801/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverRating": 4.47,
+      "naverVisitorReviewCount": 722,
+      "naverBlogReviewCount": 155,
+      "naverMenuUpdatedAt": "2026-06-10"
     },
     {
       "id": "sikgwon-189",
@@ -30032,8 +30320,111 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverSearchQuery": "공차(현대아울렛)",
-      "naverMenus": []
+      "naverSearchQuery": "공차 가든파이브",
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "망고 쥬얼리 밀크티",
+          "price": 5100,
+          "priceText": "5,100원"
+        },
+        {
+          "description": "",
+          "name": "망고 밀크 요거티",
+          "price": 5100,
+          "priceText": "5,100원"
+        },
+        {
+          "description": "",
+          "name": "망고 말차 티포가토 스무디",
+          "price": 5500,
+          "priceText": "5,500원"
+        },
+        {
+          "description": "",
+          "name": "포도 쥬얼리 밀크티",
+          "price": 5100,
+          "priceText": "5,100원"
+        },
+        {
+          "description": "",
+          "name": "초포도 요거티 크러쉬",
+          "price": 5300,
+          "priceText": "5,300원"
+        },
+        {
+          "description": "",
+          "name": "포도 그린티 스파클링",
+          "price": 4500,
+          "priceText": "4,500원"
+        },
+        {
+          "description": "",
+          "name": "그린밀크티L",
+          "price": 4000,
+          "priceText": "4,000원"
+        },
+        {
+          "description": "",
+          "name": "우롱밀크티L",
+          "price": 4000,
+          "priceText": "4,000원"
+        },
+        {
+          "description": "",
+          "name": "블랙밀크티L",
+          "price": 4000,
+          "priceText": "4,000원"
+        },
+        {
+          "description": "",
+          "name": "얼그레이밀크티L",
+          "price": 4000,
+          "priceText": "4,000원"
+        },
+        {
+          "description": "",
+          "name": "워터멜론밀크티L",
+          "price": 4000,
+          "priceText": "4,000원"
+        },
+        {
+          "description": "",
+          "name": "타로밀크티L",
+          "price": 4000,
+          "priceText": "4,000원"
+        },
+        {
+          "description": "",
+          "name": "카라멜밀크티L",
+          "price": 4000,
+          "priceText": "4,000원"
+        },
+        {
+          "description": "",
+          "name": "초콜렛밀크티L",
+          "price": 4000,
+          "priceText": "4,000원"
+        },
+        {
+          "description": "",
+          "name": "차이밀크티L",
+          "price": 4300,
+          "priceText": "4,300원"
+        },
+        {
+          "description": "",
+          "name": "아메리카노(09:00~13:00)",
+          "price": 2500,
+          "priceText": "2,500원"
+        }
+      ],
+      "naverPlaceId": "869731888",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/869731888/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverRating": 4.3,
+      "naverVisitorReviewCount": 772,
+      "naverBlogReviewCount": 37,
+      "naverMenuUpdatedAt": "2026-06-10"
     },
     {
       "id": "sikgwon-190",
@@ -30058,7 +30449,14 @@
         "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": []
+      "naverMenus": [],
+      "naverPlaceId": "1866002804",
+      "naverSearchQuery": "참새정미소 가든파이브",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1866002804/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverRating": 0,
+      "naverVisitorReviewCount": 308,
+      "naverBlogReviewCount": 3,
+      "naverMenuUpdatedAt": "2026-06-10"
     },
     {
       "id": "sikgwon-191",
