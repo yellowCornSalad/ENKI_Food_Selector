@@ -5,3 +5,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# 식권대장 앱 캡처 원본 (OCR 참고용 로컬 자료, 공개 레포에 올리지 않음)
+data/KakaoTalk_*.png
