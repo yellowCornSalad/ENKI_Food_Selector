@@ -12141,8 +12141,75 @@
         ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
-      "naverMenus": [],
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenus": [
+        {
+          "description": "숙성 다짐육을 경양식카츠를 재해석한 흥도카츠",
+          "name": "흥도카츠",
+          "price": 10000,
+          "priceText": "10,000원"
+        },
+        {
+          "description": "먹물 빵가루를 이용한 특수부위 상로스카츠",
+          "name": "흑카츠",
+          "price": 14000,
+          "priceText": "14,000원"
+        },
+        {
+          "description": "침지 숙성을 통한 극한의 부드러움의 안심 카츠",
+          "name": "히레카츠",
+          "price": 14000,
+          "priceText": "14,000원"
+        },
+        {
+          "description": "세가지 교차 숙성을 통한 숙성 등심 카츠",
+          "name": "로스카츠",
+          "price": 13000,
+          "priceText": "13,000원"
+        },
+        {
+          "description": "숙성 등심 + 안심 카츠를 한번에 즐기는 모듬 카츠",
+          "name": "모듬카츠 정식",
+          "price": 15000,
+          "priceText": "15,000원"
+        },
+        {
+          "description": "세가지 카레를 섞은 흥도식당만의 카레 위에 숙성 로스카츠를 한번에 즐기는 로스카레",
+          "name": "로스카레",
+          "price": 13000,
+          "priceText": "13,000원"
+        },
+        {
+          "description": "세가지 카레를 섞은 흥도식당만의 카레 위에 숙성 히레카츠를 한번에 즐기는 히레카레",
+          "name": "히레카레",
+          "price": 14000,
+          "priceText": "14,000원"
+        },
+        {
+          "description": "여름메뉴 탄탄맨소스를 이용한 냉라멘",
+          "name": "냉라멘",
+          "price": 9000,
+          "priceText": "9,000원"
+        },
+        {
+          "description": "",
+          "name": "카레 추가",
+          "price": 1000,
+          "priceText": "1,000원"
+        },
+        {
+          "description": "",
+          "name": "유부 미니우동 추가",
+          "price": 3000,
+          "priceText": "3,000원"
+        }
+      ],
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverPlaceId": "1252807080",
+      "naverSearchQuery": "홍도식당 문정",
+      "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1252807080/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
+      "naverRating": 4.46,
+      "naverVisitorReviewCount": 1795,
+      "naverBlogReviewCount": 731
     },
     {
       "id": "sikgwon-067",
