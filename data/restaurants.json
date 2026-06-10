@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-22",
+  "updatedAt": "2026-06-10",
   "office": {
     "name": "엔키화이트햇",
     "address": "서울특별시 송파구 송파대로 167 문정역테라타워 B동 1214~1217호",
@@ -691,7 +691,7 @@
     },
     {
       "id": "sikgwon-005",
-      "name": "먹방장사장 문정점",
+      "name": "덮밥장사장 문정점",
       "category": "식권대장 가맹점",
       "distanceM": 55,
       "sikgwonStatus": "confirmed",
@@ -732,7 +732,7 @@
     },
     {
       "id": "sikgwon-006",
-      "name": "문뜬한 고등어",
+      "name": "뚠뚠한 고등어",
       "category": "식권대장 가맹점",
       "distanceM": 55,
       "sikgwonStatus": "confirmed",
@@ -2069,7 +2069,7 @@
     },
     {
       "id": "sikgwon-013",
-      "name": "야끼니쿠하오리",
+      "name": "야키니쿠하오리",
       "category": "일식",
       "distanceM": 55,
       "sikgwonStatus": "confirmed",
@@ -3210,7 +3210,7 @@
     },
     {
       "id": "sikgwon-019",
-      "name": "알샐러드",
+      "name": "암샐러드",
       "category": "샐러드/건강식",
       "distanceM": 58,
       "sikgwonStatus": "confirmed",
@@ -4849,7 +4849,7 @@
     },
     {
       "id": "sikgwon-026",
-      "name": "이플리(문정역점)",
+      "name": "이풀리(문정역점)",
       "category": "식권대장 가맹점",
       "distanceM": 72,
       "sikgwonStatus": "confirmed",
@@ -5372,7 +5372,7 @@
     },
     {
       "id": "sikgwon-029",
-      "name": "빽다방(문정역)",
+      "name": "빽다방(문정역점)",
       "category": "카페/베이커리",
       "distanceM": 77,
       "sikgwonStatus": "confirmed",
@@ -6025,7 +6025,7 @@
     },
     {
       "id": "sikgwon-032",
-      "name": "아리솔",
+      "name": "아리솔 자연밥상",
       "category": "한식",
       "distanceM": 79,
       "sikgwonStatus": "confirmed",
@@ -6574,7 +6574,7 @@
     },
     {
       "id": "sikgwon-035",
-      "name": "블루돈까스",
+      "name": "불독돈까스",
       "category": "일식",
       "distanceM": 83,
       "sikgwonStatus": "confirmed",
@@ -9299,7 +9299,7 @@
     },
     {
       "id": "sikgwon-051",
-      "name": "빽샌드동(문정점)",
+      "name": "뱃살도둑(문정점)",
       "category": "식권대장 가맹점",
       "distanceM": 89,
       "sikgwonStatus": "confirmed",
@@ -9340,7 +9340,7 @@
     },
     {
       "id": "sikgwon-052",
-      "name": "카페 도스가나",
+      "name": "카페 토스카나",
       "category": "카페/베이커리",
       "distanceM": 89,
       "sikgwonStatus": "confirmed",
@@ -10261,7 +10261,7 @@
     },
     {
       "id": "sikgwon-057",
-      "name": "플리어트",
+      "name": "폴리어트",
       "category": "샐러드/건강식",
       "distanceM": 102,
       "sikgwonStatus": "confirmed",
@@ -10303,7 +10303,7 @@
     },
     {
       "id": "sikgwon-058",
-      "name": "잇소니본점",
+      "name": "잇쇼니본점",
       "category": "식권대장 가맹점",
       "distanceM": 103,
       "sikgwonStatus": "confirmed",
@@ -10344,7 +10344,7 @@
     },
     {
       "id": "sikgwon-059",
-      "name": "얼큰칼국수",
+      "name": "열둘칼국수",
       "category": "면/국수",
       "distanceM": 108,
       "sikgwonStatus": "confirmed",
@@ -10485,7 +10485,7 @@
     },
     {
       "id": "sikgwon-060",
-      "name": "빠나베네",
+      "name": "빠네빠네",
       "category": "식권대장 가맹점",
       "distanceM": 109,
       "sikgwonStatus": "confirmed",
@@ -10901,7 +10901,7 @@
     },
     {
       "id": "sikgwon-063",
-      "name": "세븐일레븐 문정해리움점",
+      "name": "세븐일레븐 문정헤리움점",
       "category": "편의점/마트",
       "distanceM": 111,
       "sikgwonStatus": "confirmed",
@@ -11502,7 +11502,7 @@
     },
     {
       "id": "sikgwon-067",
-      "name": "니토프",
+      "name": "니트포",
       "category": "중식",
       "distanceM": 117,
       "sikgwonStatus": "confirmed",
@@ -11978,7 +11978,7 @@
     },
     {
       "id": "sikgwon-070",
-      "name": "블루샥(문정법조타운점)",
+      "name": "블루삭(문정법조타운점)",
       "category": "카페/베이커리",
       "distanceM": 149,
       "sikgwonStatus": "confirmed",
@@ -12198,7 +12198,7 @@
     },
     {
       "id": "sikgwon-071",
-      "name": "오모리다이닝",
+      "name": "오모로이다이닝",
       "category": "식권대장 가맹점",
       "distanceM": 149,
       "sikgwonStatus": "confirmed",
@@ -12505,7 +12505,7 @@
     },
     {
       "id": "sikgwon-074",
-      "name": "돌새라면(송파법조단지점)",
+      "name": "틈새라면(송파법조단지점)",
       "category": "분식",
       "distanceM": 181,
       "sikgwonStatus": "confirmed",
@@ -13455,7 +13455,7 @@
     },
     {
       "id": "sikgwon-079",
-      "name": "GS25(문정현대동점)",
+      "name": "GS25(문정현대C동점)",
       "category": "편의점/마트",
       "distanceM": 188,
       "sikgwonStatus": "confirmed",
@@ -13699,7 +13699,7 @@
     },
     {
       "id": "sikgwon-082",
-      "name": "비바당 문정역점",
+      "name": "비비당 문정역점",
       "category": "식권대장 가맹점",
       "distanceM": 192,
       "sikgwonStatus": "confirmed",
@@ -14316,7 +14316,7 @@
     },
     {
       "id": "sikgwon-085",
-      "name": "요거 문정점",
+      "name": "요커 문정점",
       "category": "식권대장 가맹점",
       "distanceM": 192,
       "sikgwonStatus": "confirmed",
@@ -15296,7 +15296,7 @@
     },
     {
       "id": "sikgwon-095",
-      "name": "타이완밴땅 문정점",
+      "name": "타이완벤땅 문정점",
       "category": "식권대장 가맹점",
       "distanceM": 199,
       "sikgwonStatus": "confirmed",
@@ -16318,7 +16318,7 @@
     },
     {
       "id": "sikgwon-100",
-      "name": "몰리스 커피",
+      "name": "몰리노 커피",
       "category": "카페/베이커리",
       "distanceM": 204,
       "sikgwonStatus": "confirmed",
@@ -16496,7 +16496,7 @@
     },
     {
       "id": "sikgwon-101",
-      "name": "무적상점",
+      "name": "무죄삼겹",
       "category": "식권대장 가맹점",
       "distanceM": 206,
       "sikgwonStatus": "confirmed",
@@ -16757,7 +16757,7 @@
     },
     {
       "id": "sikgwon-103",
-      "name": "밀랑스베이글",
+      "name": "델랑시베이글",
       "category": "카페/베이커리",
       "distanceM": 208,
       "sikgwonStatus": "confirmed",
@@ -17691,7 +17691,7 @@
     },
     {
       "id": "sikgwon-108",
-      "name": "세븐일레븐 문정오벨리스점",
+      "name": "세븐일레븐 문정오벨리스크점",
       "category": "편의점/마트",
       "distanceM": 252,
       "sikgwonStatus": "confirmed",
@@ -18462,7 +18462,7 @@
     },
     {
       "id": "sikgwon-114",
-      "name": "김동우동(문정법조타운점)",
+      "name": "길동우동(문정법조타운점)",
       "category": "일식",
       "distanceM": 258,
       "sikgwonStatus": "confirmed",
@@ -18989,7 +18989,7 @@
     },
     {
       "id": "sikgwon-118",
-      "name": "카페파노",
+      "name": "카페띠노",
       "category": "카페/베이커리",
       "distanceM": 269,
       "sikgwonStatus": "confirmed",
@@ -20377,7 +20377,7 @@
     },
     {
       "id": "sikgwon-126",
-      "name": "고금양식 문정본점",
+      "name": "고급양식 문정본점",
       "category": "양식/샌드위치",
       "distanceM": 294,
       "sikgwonStatus": "confirmed",
@@ -20597,7 +20597,7 @@
     },
     {
       "id": "sikgwon-127",
-      "name": "모올식당",
+      "name": "모울식당",
       "category": "식권대장 가맹점",
       "distanceM": 294,
       "sikgwonStatus": "confirmed",
@@ -21296,7 +21296,7 @@
     },
     {
       "id": "sikgwon-131",
-      "name": "화화당",
+      "name": "팔화당",
       "category": "식권대장 가맹점",
       "distanceM": 297,
       "sikgwonStatus": "confirmed",
@@ -21493,7 +21493,7 @@
     },
     {
       "id": "sikgwon-132",
-      "name": "맥머드익스프레스(문정점)",
+      "name": "매머드익스프레스(문정점)",
       "category": "식권대장 가맹점",
       "distanceM": 305,
       "sikgwonStatus": "confirmed",
@@ -21687,7 +21687,7 @@
     },
     {
       "id": "sikgwon-134",
-      "name": "육쌈",
+      "name": "폭삶",
       "category": "식권대장 가맹점",
       "distanceM": 317,
       "sikgwonStatus": "confirmed",
@@ -22594,7 +22594,7 @@
     },
     {
       "id": "sikgwon-140",
-      "name": "달섭",
+      "name": "달섬",
       "category": "식권대장 가맹점",
       "distanceM": 380,
       "sikgwonStatus": "confirmed",
@@ -22635,7 +22635,7 @@
     },
     {
       "id": "sikgwon-141",
-      "name": "버푸드스토리",
+      "name": "H푸드스토리",
       "category": "식권대장 가맹점",
       "distanceM": 382,
       "sikgwonStatus": "confirmed",
@@ -24356,7 +24356,7 @@
     },
     {
       "id": "sikgwon-154",
-      "name": "카카야크",
+      "name": "카가아쿠",
       "category": "식권대장 가맹점",
       "distanceM": 432,
       "sikgwonStatus": "confirmed",
@@ -25648,7 +25648,7 @@
     },
     {
       "id": "sikgwon-162",
-      "name": "호또미",
+      "name": "호또멘",
       "category": "식권대장 가맹점",
       "distanceM": 458,
       "sikgwonStatus": "confirmed",
@@ -25996,7 +25996,7 @@
     },
     {
       "id": "sikgwon-166",
-      "name": "일스터(문정)",
+      "name": "윅스터(문정)",
       "category": "식권대장 가맹점",
       "distanceM": 464,
       "sikgwonStatus": "confirmed",
@@ -27287,7 +27287,7 @@
     },
     {
       "id": "sikgwon-179",
-      "name": "세븐일레븐 문정동조타워점",
+      "name": "세븐일레븐 문정홈즈타워점",
       "category": "편의점/마트",
       "distanceM": 593,
       "sikgwonStatus": "confirmed",
@@ -28322,7 +28322,7 @@
     },
     {
       "id": "sikgwon-188",
-      "name": "[가든파이브] 팜사브(현대아울렛)",
+      "name": "[가든파이브] 짬사브(현대아울렛)",
       "category": "식권대장 가맹점",
       "distanceM": 892,
       "sikgwonStatus": "confirmed",
@@ -28437,6 +28437,80 @@
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
+    },
+    {
+      "id": "sikgwon-191",
+      "name": "옥된장(문정법조타운점)",
+      "category": "한식",
+      "distanceM": 87,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "korean"
+      ],
+      "teamFriendly": false,
+      "quick": false,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "된장찌개",
+            "tags": [
+              "korean"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "된장찌개",
+            "tags": [
+              "korean"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "sikgwon-192",
+      "name": "루트비(문정)",
+      "category": "카페/베이커리/패스트푸드",
+      "distanceM": 172,
+      "sikgwonStatus": "confirmed",
+      "active": true,
+      "hoursConfidence": "app-captured",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "tags": [
+        "drink"
+      ],
+      "teamFriendly": false,
+      "quick": true,
+      "priceBand": "식권대장 앱 확인",
+      "menus": {
+        "lunch": [
+          {
+            "name": "카페 메뉴",
+            "tags": [
+              "drink"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "카페 메뉴",
+            "tags": [
+              "drink"
+            ]
+          }
+        ]
+      }
     }
   ]
 }
