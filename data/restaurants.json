@@ -169,7 +169,7 @@
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/717502633/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 1159,
-      "naverBlogReviewCount": 771,
+      "naverBlogReviewCount": 764,
       "naverRating": 4.57,
       "naverMenuUpdatedAt": "2026-05-22"
     },
@@ -579,9 +579,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1545894468/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 605,
-      "naverBlogReviewCount": 219,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 606,
+      "naverBlogReviewCount": 218,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.06
     },
     {
       "id": "sikgwon-004",
@@ -685,8 +686,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1784725931/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 584,
-      "naverBlogReviewCount": 46,
+      "naverVisitorReviewCount": 589,
+      "naverBlogReviewCount": 48,
       "naverMenuUpdatedAt": "2026-05-22"
     },
     {
@@ -930,7 +931,8 @@
       "naverSearchQuery": "덮밥장사장 문정점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1228143707/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 146,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 31
     },
     {
       "id": "sikgwon-006",
@@ -1041,7 +1043,8 @@
       "naverSearchQuery": "뚠뚠한 고등어",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2062057864/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 19,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 6
     },
     {
       "id": "sikgwon-007",
@@ -1166,7 +1169,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1714682491",
       "naverSearchQuery": "바스버거 문정역점",
-      "naverVisitorReviewCount": 1275,
+      "naverVisitorReviewCount": 1314,
       "naverBlogReviewCount": 211,
       "naverMenus": [
         {
@@ -1351,7 +1354,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1714682491/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.34
     },
     {
       "id": "sikgwon-008",
@@ -1476,8 +1480,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1883750517",
       "naverSearchQuery": "산척동 수제비 문정3호점",
-      "naverVisitorReviewCount": 561,
-      "naverBlogReviewCount": 172,
+      "naverVisitorReviewCount": 562,
+      "naverBlogReviewCount": 171,
       "naverMenus": [
         {
           "description": "JMT ★본사 매출 1위★",
@@ -1696,8 +1700,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1455957544",
       "naverSearchQuery": "삼산회관 문정테라타워점",
-      "naverVisitorReviewCount": 744,
-      "naverBlogReviewCount": 333,
+      "naverVisitorReviewCount": 745,
+      "naverBlogReviewCount": 332,
       "naverMenus": [
         {
           "description": "삼산회관 실비대파김치와 특제 소스를 곁들여 먹는 부드러운 육질의 시그니처 냉삼",
@@ -2115,9 +2119,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/851094375/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 602,
-      "naverBlogReviewCount": 52,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 603,
+      "naverBlogReviewCount": 53,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.31
     },
     {
       "id": "sikgwon-012",
@@ -2242,8 +2247,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1937057865",
       "naverSearchQuery": "신박한족발 본점",
-      "naverVisitorReviewCount": 551,
-      "naverBlogReviewCount": 145,
+      "naverVisitorReviewCount": 560,
+      "naverBlogReviewCount": 148,
       "naverMenus": [
         {
           "description": "기막힌 안주 한상. 구성)프라잉족발/매콤 국물 떡볶이/새콤달콤 막국수",
@@ -2718,7 +2723,8 @@
       "naverPlaceId": "2090706893",
       "naverSearchQuery": "야키니쿠히오리",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2090706893/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 79
+      "naverVisitorReviewCount": 79,
+      "naverBlogReviewCount": 381
     },
     {
       "id": "sikgwon-014",
@@ -2876,8 +2882,9 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2090820019/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 41,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 52,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverBlogReviewCount": 19
     },
     {
       "id": "sikgwon-015",
@@ -3002,8 +3009,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "2050770670",
       "naverSearchQuery": "조조감자탕",
-      "naverVisitorReviewCount": 114,
-      "naverBlogReviewCount": 28,
+      "naverVisitorReviewCount": 119,
+      "naverBlogReviewCount": 31,
       "naverMenus": [
         {
           "description": "(기본 / 얼큰 / 매운) 한 그릇으로 즐길 수 있는 가성비 감자탕",
@@ -3138,8 +3145,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1801172120",
       "naverSearchQuery": "지오씨커피 문정테라타워점",
-      "naverVisitorReviewCount": 483,
-      "naverBlogReviewCount": 187,
+      "naverVisitorReviewCount": 484,
+      "naverBlogReviewCount": 188,
       "naverMenus": [
         {
           "description": "패스오더 앱 설치하면, 최소 주문 금액 없이 100원에 커피 주문+1,500원 쿠폰까지",
@@ -3322,7 +3329,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "587962124",
       "naverSearchQuery": "호미정",
-      "naverVisitorReviewCount": 746,
+      "naverVisitorReviewCount": 749,
       "naverBlogReviewCount": 128,
       "naverMenus": [
         {
@@ -3543,8 +3550,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1787691072",
       "naverSearchQuery": "한양중식(문정)",
-      "naverVisitorReviewCount": 4943,
-      "naverBlogReviewCount": 1115,
+      "naverVisitorReviewCount": 5014,
+      "naverBlogReviewCount": 1130,
       "naverMenus": [
         {
           "description": "가장 효율적으로 식사 가능한 한양중식의 추천 세트 메뉴.탕수육,새우,식사 선택가능",
@@ -4027,7 +4034,8 @@
       "naverSearchQuery": "얌샐러드",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1189235561/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 184,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 38
     },
     {
       "id": "sikgwon-020",
@@ -4153,7 +4161,7 @@
       "naverPlaceId": "1324020733",
       "naverSearchQuery": "겐코(문정)",
       "naverVisitorReviewCount": 684,
-      "naverBlogReviewCount": 117,
+      "naverBlogReviewCount": 118,
       "naverMenus": [
         {
           "description": "매일 손질한 신선한 연어와 채소를 달콤한 드레싱과 함께 즐기실 수 있는 덮밥",
@@ -4289,8 +4297,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1202434452",
       "naverSearchQuery": "압구정샌드위치 문정점",
-      "naverVisitorReviewCount": 1201,
-      "naverBlogReviewCount": 82,
+      "naverVisitorReviewCount": 1217,
+      "naverBlogReviewCount": 81,
       "naverMenus": [
         {
           "description": "패스오더 앱 설치하면, 최소 주문 금액 없이 100원에 커피 주문+1,500원 쿠폰까지",
@@ -5015,8 +5023,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1229749862/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 2833,
-      "naverBlogReviewCount": 384,
+      "naverVisitorReviewCount": 2846,
+      "naverBlogReviewCount": 396,
       "naverRating": 4.92,
       "naverMenuUpdatedAt": "2026-05-22"
     },
@@ -5328,7 +5336,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1629721956/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.34
     },
     {
       "id": "sikgwon-025",
@@ -5471,7 +5480,7 @@
       "naverPlaceId": "631708674",
       "naverSearchQuery": "이태리부대찌개(문정법조타운점)",
       "naverVisitorReviewCount": 733,
-      "naverBlogReviewCount": 239,
+      "naverBlogReviewCount": 237,
       "naverMenus": [
         {
           "description": "6가지 햄과 소시지가 듬뿍 담긴 이태리부대찌개 최고의 인기메뉴",
@@ -5541,7 +5550,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/631708674/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.34
     },
     {
       "id": "sikgwon-026",
@@ -5634,7 +5644,8 @@
       "naverPlaceId": "1664327415",
       "naverSearchQuery": "이풀리 문정역점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1664327415/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 263
+      "naverVisitorReviewCount": 263,
+      "naverBlogReviewCount": 39
     },
     {
       "id": "sikgwon-027",
@@ -5776,8 +5787,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "609552455",
       "naverSearchQuery": "함흥본가면옥(문정점)",
-      "naverVisitorReviewCount": 1991,
-      "naverBlogReviewCount": 327,
+      "naverVisitorReviewCount": 1993,
+      "naverBlogReviewCount": 330,
       "naverMenus": [
         {
           "description": "",
@@ -5841,7 +5852,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/609552455/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.33
     },
     {
       "id": "sikgwon-028",
@@ -5885,7 +5897,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "964500729",
       "naverSearchQuery": "부산아지매국밥(문정테라타워점)",
-      "naverVisitorReviewCount": 401,
+      "naverVisitorReviewCount": 402,
       "naverBlogReviewCount": 59,
       "naverMenus": [
         {
@@ -6064,7 +6076,8 @@
         }
       ],
       "naverPlaceUrl": "https://map.naver.com/p/entry/place/964500729",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.37
     },
     {
       "id": "sikgwon-029",
@@ -6241,7 +6254,8 @@
       "naverPlaceId": "1463891499",
       "naverSearchQuery": "빽다방 문정역점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1463891499/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 1271
+      "naverVisitorReviewCount": 1271,
+      "naverBlogReviewCount": 23
     },
     {
       "id": "sikgwon-030",
@@ -6417,9 +6431,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1744991441/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 694,
+      "naverVisitorReviewCount": 695,
       "naverBlogReviewCount": 69,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.68
     },
     {
       "id": "sikgwon-031",
@@ -6584,7 +6599,9 @@
       "naverSearchQuery": "이화수전통육개장 송파",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/36338943/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 673,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.29,
+      "naverBlogReviewCount": 83
     },
     {
       "id": "sikgwon-032",
@@ -6820,8 +6837,9 @@
       "naverPlaceId": "1493608587",
       "naverSearchQuery": "미도인 문정",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1493608587/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 2231,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 2304,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverBlogReviewCount": 364
     },
     {
       "id": "sikgwon-034",
@@ -6946,8 +6964,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1727256629",
       "naverSearchQuery": "하루엔소쿠(문정점)",
-      "naverVisitorReviewCount": 2114,
-      "naverBlogReviewCount": 71,
+      "naverVisitorReviewCount": 2127,
+      "naverBlogReviewCount": 70,
       "naverMenus": [
         {
           "description": "신선한 야채6종과 특제소스로 맛을낸 칼칼하고 찐한 국물 + 로스1/2카츠 + 밥(1/2공기) +반찬 스노우치즈 또는 우동면 옵션 추가가능",
@@ -7131,7 +7149,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1727256629/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.42
     },
     {
       "id": "sikgwon-035",
@@ -7326,7 +7345,9 @@
       "naverPlaceId": "138916690",
       "naverSearchQuery": "불독돈까스",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/138916690/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 661
+      "naverVisitorReviewCount": 661,
+      "naverRating": 4.35,
+      "naverBlogReviewCount": 198
     },
     {
       "id": "sikgwon-036",
@@ -7583,7 +7604,7 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1218935582/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 1523,
+      "naverVisitorReviewCount": 1545,
       "naverBlogReviewCount": 250,
       "naverMenuUpdatedAt": "2026-05-22"
     },
@@ -7710,8 +7731,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1641321357",
       "naverSearchQuery": "강창구찹쌀진순대(문정역점)",
-      "naverVisitorReviewCount": 290,
-      "naverBlogReviewCount": 122,
+      "naverVisitorReviewCount": 292,
+      "naverBlogReviewCount": 123,
       "naverMenus": [
         {
           "description": "진순대의 대표메뉴 수제순대, 머릿고기, 명품육수까지 완벽한 한끼",
@@ -8030,7 +8051,8 @@
       "naverPlaceId": "1245780215",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1245780215/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 244,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverBlogReviewCount": 109
     },
     {
       "id": "sikgwon-040",
@@ -8376,7 +8398,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1206099977",
       "naverSearchQuery": "덤벨푸드 문정점",
-      "naverVisitorReviewCount": 110,
+      "naverVisitorReviewCount": 112,
       "naverBlogReviewCount": 31,
       "naverMenus": [
         {
@@ -8626,8 +8648,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "416850799",
       "naverSearchQuery": "샐러디(문정엠스테이트점)",
-      "naverVisitorReviewCount": 1835,
-      "naverBlogReviewCount": 111,
+      "naverVisitorReviewCount": 1834,
+      "naverBlogReviewCount": 110,
       "naverMenus": [
         {
           "description": "",
@@ -8673,7 +8695,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/416850799/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.61
     },
     {
       "id": "sikgwon-044",
@@ -8715,10 +8738,11 @@
       "naverPlaceId": "1587979053",
       "naverSearchQuery": "세븐일레븐 문정엠스테이트점",
       "naverVisitorReviewCount": 423,
-      "naverBlogReviewCount": 3,
+      "naverBlogReviewCount": 0,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1587979053/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.29
     },
     {
       "id": "sikgwon-045",
@@ -8762,7 +8786,8 @@
       "naverVisitorReviewCount": 278,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1121928760/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverBlogReviewCount": 0
     },
     {
       "id": "sikgwon-046",
@@ -8963,7 +8988,8 @@
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1950132227/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 481,
       "naverBlogReviewCount": 117,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.39
     },
     {
       "id": "sikgwon-047",
@@ -9088,8 +9114,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1174558279",
       "naverSearchQuery": "우사기소바(문정)",
-      "naverVisitorReviewCount": 2039,
-      "naverBlogReviewCount": 641,
+      "naverVisitorReviewCount": 2052,
+      "naverBlogReviewCount": 658,
       "naverMenus": [
         {
           "description": "특제 참깨소스와 갖은토핑, 수란을 비벼먹는 우사기만의 특별한 소바",
@@ -9528,8 +9554,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1850789405",
       "naverSearchQuery": "홍쉐프&화덕피자 파스타",
-      "naverVisitorReviewCount": 760,
-      "naverBlogReviewCount": 652,
+      "naverVisitorReviewCount": 789,
+      "naverBlogReviewCount": 658,
       "naverMenus": [
         {
           "description": "바질 페스토를 넣어 향긋하고 상쾌하며 담백한 맛을 느낄수있는 오일파스타",
@@ -9623,7 +9649,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1850789405/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.49
     },
     {
       "id": "sikgwon-050",
@@ -9830,8 +9857,9 @@
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1367541174/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 373,
-      "naverBlogReviewCount": 56,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverBlogReviewCount": 57,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.41
     },
     {
       "id": "sikgwon-051",
@@ -10026,7 +10054,8 @@
       "naverSearchQuery": "뱃살도둑 문정점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1030849045/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 1638,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 91
     },
     {
       "id": "sikgwon-052",
@@ -10107,7 +10136,9 @@
       "naverSearchQuery": "카페 토스카나",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1055472637/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 299,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverRating": 4.53,
+      "naverBlogReviewCount": 24
     },
     {
       "id": "sikgwon-053",
@@ -10232,7 +10263,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1373643933",
       "naverSearchQuery": "고씨네(문정점)",
-      "naverVisitorReviewCount": 325,
+      "naverVisitorReviewCount": 327,
       "naverBlogReviewCount": 146,
       "naverMenus": [
         {
@@ -10452,8 +10483,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1977612690",
       "naverSearchQuery": "문정한방삼계탕 문정",
-      "naverVisitorReviewCount": 1090,
-      "naverBlogReviewCount": 131,
+      "naverVisitorReviewCount": 1092,
+      "naverBlogReviewCount": 133,
       "naverMenus": [
         {
           "description": "",
@@ -10517,7 +10548,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1977612690/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.28
     },
     {
       "id": "sikgwon-055",
@@ -10935,7 +10967,7 @@
       "naverPlaceId": "1234585188",
       "naverSearchQuery": "킹콩부대찌개(송파법조타운점)",
       "naverVisitorReviewCount": 579,
-      "naverBlogReviewCount": 70,
+      "naverBlogReviewCount": 69,
       "naverMenus": [
         {
           "description": "킹콩을 대표하는 부대찌개! 엄선된 햄과 맵칼한 킹콩특제소스의 조화^^",
@@ -10987,7 +11019,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1234585188/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.36
     },
     {
       "id": "sikgwon-057",
@@ -11162,7 +11195,9 @@
       "naverSearchQuery": "잇쇼니 문정",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1461060382/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 8517,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverRating": 4.43,
+      "naverBlogReviewCount": 844
     },
     {
       "id": "sikgwon-059",
@@ -11531,7 +11566,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1090428778",
       "naverSearchQuery": "버거킹(문정역점)",
-      "naverVisitorReviewCount": 6140,
+      "naverVisitorReviewCount": 6139,
       "naverBlogReviewCount": 84,
       "naverMenus": [
         {
@@ -11761,7 +11796,9 @@
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1587241026/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 243,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.76,
+      "naverBlogReviewCount": 0
     },
     {
       "id": "sikgwon-064",
@@ -11886,8 +11923,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "2044478051",
       "naverSearchQuery": "평상집 문정점",
-      "naverVisitorReviewCount": 115,
-      "naverBlogReviewCount": 24,
+      "naverVisitorReviewCount": 130,
+      "naverBlogReviewCount": 27,
       "naverMenus": [
         {
           "description": "압력솥에 푹 부드럽게 고아진 백숙입니다. 제대로 직접 만들어진 찹쌀 누룽지죽이 일품입니다.",
@@ -12242,7 +12279,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1820338977/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.2
     },
     {
       "id": "sikgwon-066",
@@ -12381,7 +12419,9 @@
       "naverSearchQuery": "니트포",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1164042047/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 511,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverRating": 4.31,
+      "naverBlogReviewCount": 66
     },
     {
       "id": "sikgwon-068",
@@ -12631,7 +12671,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1285492151",
       "naverSearchQuery": "슬로우캘리 송파문정점",
-      "naverVisitorReviewCount": 646,
+      "naverVisitorReviewCount": 649,
       "naverBlogReviewCount": 83,
       "naverMenus": [
         {
@@ -13299,7 +13339,8 @@
       "naverPlaceId": "1841633339",
       "naverSearchQuery": "블루삭 문정법조타운점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1841633339/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 59
+      "naverVisitorReviewCount": 59,
+      "naverBlogReviewCount": 3
     },
     {
       "id": "sikgwon-071",
@@ -13446,7 +13487,8 @@
       "naverSearchQuery": "오모로이다이닝",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2088498878/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 32,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 19
     },
     {
       "id": "sikgwon-072",
@@ -13805,7 +13847,8 @@
       "naverSearchQuery": "틈새라면 송파법조단지점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1020129731/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 1058,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 99
     },
     {
       "id": "sikgwon-075",
@@ -14195,9 +14238,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1035491612/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 808,
-      "naverBlogReviewCount": 547,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 811,
+      "naverBlogReviewCount": 546,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.48
     },
     {
       "id": "sikgwon-077",
@@ -14522,9 +14566,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1699924466/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 824,
+      "naverVisitorReviewCount": 825,
       "naverBlogReviewCount": 51,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.35
     },
     {
       "id": "sikgwon-078",
@@ -14714,7 +14759,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/47036140/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.26
     },
     {
       "id": "sikgwon-079",
@@ -14794,11 +14840,12 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1114517363",
       "naverSearchQuery": "금정(문정)",
-      "naverVisitorReviewCount": 537,
+      "naverVisitorReviewCount": 538,
       "naverBlogReviewCount": 17,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1114517363/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.23
     },
     {
       "id": "sikgwon-081",
@@ -14957,7 +15004,7 @@
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1869815662/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 223,
-      "naverBlogReviewCount": 70,
+      "naverBlogReviewCount": 73,
       "naverMenuUpdatedAt": "2026-05-22"
     },
     {
@@ -15135,7 +15182,8 @@
       "naverPlaceId": "2095508605",
       "naverSearchQuery": "비비당 문정역점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2095508605/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 80
+      "naverVisitorReviewCount": 80,
+      "naverBlogReviewCount": 24
     },
     {
       "id": "sikgwon-083",
@@ -15260,7 +15308,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1643586952",
       "naverSearchQuery": "아토키토(송파문정점)",
-      "naverVisitorReviewCount": 36,
+      "naverVisitorReviewCount": 38,
       "naverBlogReviewCount": 22,
       "naverMenus": [
         {
@@ -15480,8 +15528,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1433599150",
       "naverSearchQuery": "오봉집(문정점)",
-      "naverVisitorReviewCount": 709,
-      "naverBlogReviewCount": 56,
+      "naverVisitorReviewCount": 720,
+      "naverBlogReviewCount": 57,
       "naverMenus": [
         {
           "description": "직화낙지+보쌈+막국수",
@@ -15854,7 +15902,8 @@
       "naverSearchQuery": "요커 문정점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1219525591/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 91,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 34
     },
     {
       "id": "sikgwon-086",
@@ -15996,7 +16045,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1051875694/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 3.64
     },
     {
       "id": "sikgwon-087",
@@ -16122,9 +16172,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1446404512",
       "naverSearchQuery": "그린포유(문정점)",
-      "naverVisitorReviewCount": 705,
-      "naverBlogReviewCount": 22,
-      "naverRating": 1,
+      "naverVisitorReviewCount": 722,
+      "naverBlogReviewCount": 23,
       "naverMenus": [
         {
           "description": "부드러운 닭다리살을 소스와 함께 잘 볶아내 불 맛까지 더했어요 !",
@@ -16373,9 +16422,10 @@
       "naverSearchQuery": "GS25(문정SK1호점) 문정",
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1599930292/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 639,
-      "naverBlogReviewCount": 3,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 640,
+      "naverBlogReviewCount": 0,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.69
     },
     {
       "id": "sikgwon-090",
@@ -16541,8 +16591,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1067494706",
       "naverSearchQuery": "김가네(문정메트로시티점)",
-      "naverVisitorReviewCount": 925,
-      "naverBlogReviewCount": 24,
+      "naverVisitorReviewCount": 926,
+      "naverBlogReviewCount": 23,
       "naverMenus": [
         {
           "description": "",
@@ -16750,7 +16800,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1416787139/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.47,
+      "naverVisitorReviewCount": 376,
+      "naverBlogReviewCount": 25
     },
     {
       "id": "sikgwon-094",
@@ -16792,10 +16845,11 @@
       "naverPlaceId": "1978155598",
       "naverSearchQuery": "세븐일레븐 문정메트로시티점",
       "naverVisitorReviewCount": 322,
-      "naverBlogReviewCount": 4,
+      "naverBlogReviewCount": 0,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1978155598/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.22
     },
     {
       "id": "sikgwon-095",
@@ -16966,7 +17020,8 @@
       "naverPlaceId": "1674661909",
       "naverSearchQuery": "타이완벤땅 문정점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1674661909/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 52
+      "naverVisitorReviewCount": 52,
+      "naverBlogReviewCount": 172
     },
     {
       "id": "sikgwon-096",
@@ -17092,7 +17147,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1560605148",
       "naverSearchQuery": "헬키푸키(문정점)",
-      "naverVisitorReviewCount": 353,
+      "naverVisitorReviewCount": 364,
       "naverBlogReviewCount": 45,
       "naverMenus": [
         {
@@ -17401,7 +17456,8 @@
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/37829490/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 570,
       "naverBlogReviewCount": 70,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.31
     },
     {
       "id": "sikgwon-098",
@@ -17526,7 +17582,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1729423515",
       "naverSearchQuery": "키친사이",
-      "naverVisitorReviewCount": 418,
+      "naverVisitorReviewCount": 424,
       "naverBlogReviewCount": 36,
       "naverMenus": [
         {
@@ -17817,7 +17873,8 @@
       "naverPlaceId": "1784731805",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1784731805/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 125,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverBlogReviewCount": 84
     },
     {
       "id": "sikgwon-100",
@@ -18136,7 +18193,8 @@
       "naverSearchQuery": "무죄삼겹",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2063254228/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 367,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 47
     },
     {
       "id": "sikgwon-102",
@@ -18354,8 +18412,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1324780768/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 282,
-      "naverBlogReviewCount": 48,
+      "naverVisitorReviewCount": 283,
+      "naverBlogReviewCount": 49,
       "naverMenuUpdatedAt": "2026-05-22"
     },
     {
@@ -18485,7 +18543,8 @@
       "naverSearchQuery": "델랑시베이글",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1844056492/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 1189,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 262
     },
     {
       "id": "sikgwon-104",
@@ -18697,8 +18756,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1298283004/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 1648,
-      "naverBlogReviewCount": 563,
+      "naverVisitorReviewCount": 1846,
+      "naverBlogReviewCount": 565,
       "naverMenuUpdatedAt": "2026-05-22"
     },
     {
@@ -19378,7 +19437,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1613733774/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.73
     },
     {
       "id": "sikgwon-108",
@@ -19588,7 +19648,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1009893019",
       "naverSearchQuery": "청담초밥(문정)",
-      "naverVisitorReviewCount": 2084,
+      "naverVisitorReviewCount": 2137,
       "naverBlogReviewCount": 361,
       "naverMenus": [
         {
@@ -19683,7 +19743,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1009893019/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.26
     },
     {
       "id": "sikgwon-111",
@@ -19794,7 +19855,8 @@
       "naverSearchQuery": "카츠파랑",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2079485357/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverMenuUpdatedAt": "2026-05-22",
-      "naverVisitorReviewCount": 95
+      "naverVisitorReviewCount": 95,
+      "naverBlogReviewCount": 12
     },
     {
       "id": "sikgwon-112",
@@ -19838,8 +19900,9 @@
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/30887709/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 225,
-      "naverBlogReviewCount": 2,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverBlogReviewCount": 0,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.4
     },
     {
       "id": "sikgwon-113",
@@ -19964,8 +20027,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1930756247",
       "naverSearchQuery": "슬라이스 피자마켓 문정",
-      "naverVisitorReviewCount": 166,
-      "naverBlogReviewCount": 86,
+      "naverVisitorReviewCount": 169,
+      "naverBlogReviewCount": 85,
       "naverMenus": [
         {
           "description": "BEST NEW YORK CRISP PEPPERONI 직접 갈은 모짜렐라, 페퍼로니, 홈메이드토마토소스, 저온숙성도우",
@@ -20149,7 +20212,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1930756247/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.6
     },
     {
       "id": "sikgwon-114",
@@ -20458,7 +20522,8 @@
       "naverSearchQuery": "길동우동 문정법조타운점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1420130403/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 388,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 26
     },
     {
       "id": "sikgwon-115",
@@ -20702,7 +20767,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/38705557/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.14
     },
     {
       "id": "sikgwon-116",
@@ -20827,7 +20893,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1933418381",
       "naverSearchQuery": "시온텐동",
-      "naverVisitorReviewCount": 535,
+      "naverVisitorReviewCount": 533,
       "naverBlogReviewCount": 453,
       "naverMenus": [
         {
@@ -21165,7 +21231,9 @@
       "naverPlaceId": "1811247983",
       "naverSearchQuery": "카페띠노",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1811247983/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 144
+      "naverVisitorReviewCount": 144,
+      "naverRating": 4.38,
+      "naverBlogReviewCount": 64
     },
     {
       "id": "sikgwon-119",
@@ -21693,9 +21761,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1809609393/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 643,
-      "naverBlogReviewCount": 64,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 644,
+      "naverBlogReviewCount": 63,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.44
     },
     {
       "id": "sikgwon-121",
@@ -21818,8 +21887,9 @@
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1081407892/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 2800,
-      "naverBlogReviewCount": 128,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverBlogReviewCount": 127,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.47
     },
     {
       "id": "sikgwon-122",
@@ -22129,7 +22199,6 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1817884397",
       "naverSearchQuery": "말자복자",
-      "naverRating": 1,
       "naverMenus": [
         {
           "description": "",
@@ -22164,7 +22233,7 @@
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1817884397/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 120,
-      "naverBlogReviewCount": 16,
+      "naverBlogReviewCount": 17,
       "naverMenuUpdatedAt": "2026-05-22"
     },
     {
@@ -22570,7 +22639,8 @@
       "naverPlaceId": "2036180107",
       "naverSearchQuery": "고급양식 문정본점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2036180107/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 815
+      "naverVisitorReviewCount": 815,
+      "naverBlogReviewCount": 75
     },
     {
       "id": "sikgwon-127",
@@ -22825,7 +22895,9 @@
       "naverPlaceId": "1678068065",
       "naverSearchQuery": "모울식당",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1678068065/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 562
+      "naverVisitorReviewCount": 562,
+      "naverRating": 4.31,
+      "naverBlogReviewCount": 155
     },
     {
       "id": "sikgwon-128",
@@ -22867,10 +22939,11 @@
       "naverPlaceId": "1167151387",
       "naverSearchQuery": "세븐일레븐 문정테라타워점",
       "naverVisitorReviewCount": 270,
-      "naverBlogReviewCount": 2,
+      "naverBlogReviewCount": 0,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1167151387/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.46
     },
     {
       "id": "sikgwon-129",
@@ -22995,8 +23068,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1013817899",
       "naverSearchQuery": "스몰굿커피 문정점",
-      "naverVisitorReviewCount": 463,
-      "naverBlogReviewCount": 29,
+      "naverVisitorReviewCount": 465,
+      "naverBlogReviewCount": 30,
       "naverMenus": [
         {
           "description": "패스오더 앱 설치하면, 최소 주문 금액 없이 100원에 커피 주문+1,500원 쿠폰까지",
@@ -23302,7 +23375,7 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2072524961/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 11,
+      "naverVisitorReviewCount": 13,
       "naverBlogReviewCount": 1,
       "naverMenuUpdatedAt": "2026-05-22"
     },
@@ -23523,7 +23596,9 @@
       "naverPlaceId": "1172136030",
       "naverSearchQuery": "팔화당",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1172136030/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 1325
+      "naverVisitorReviewCount": 1325,
+      "naverRating": 4.4,
+      "naverBlogReviewCount": 413
     },
     {
       "id": "sikgwon-132",
@@ -23658,7 +23733,8 @@
       "naverSearchQuery": "매머드익스프레스 문정",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1117905909/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 36,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 3
     },
     {
       "id": "sikgwon-133",
@@ -23711,8 +23787,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1102580937",
       "naverSearchQuery": "일루한식뷔페",
-      "naverVisitorReviewCount": 1220,
-      "naverBlogReviewCount": 1090,
+      "naverVisitorReviewCount": 1223,
+      "naverBlogReviewCount": 1105,
       "naverMenus": [
         {
           "description": "생맥주가 있는 한식뷔페",
@@ -23728,7 +23804,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1102580937/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.48
     },
     {
       "id": "sikgwon-134",
@@ -24413,8 +24490,9 @@
       ],
       "naverPlaceId": "1153916240",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1153916240/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 69,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 71,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverBlogReviewCount": 7
     },
     {
       "id": "sikgwon-139",
@@ -24632,9 +24710,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/88840646/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 584,
-      "naverBlogReviewCount": 37,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 586,
+      "naverBlogReviewCount": 39,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.45
     },
     {
       "id": "sikgwon-140",
@@ -24697,7 +24776,9 @@
       "naverSearchQuery": "달섬",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1970752489/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 315,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverRating": 4.3,
+      "naverBlogReviewCount": 65
     },
     {
       "id": "sikgwon-141",
@@ -24748,7 +24829,9 @@
       "naverSearchQuery": "H푸드스토리",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1702821628/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 1400,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverRating": 4.38,
+      "naverBlogReviewCount": 49
     },
     {
       "id": "sikgwon-142",
@@ -24890,7 +24973,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "77251599",
       "naverSearchQuery": "한솔도시락(문정지식산업센터점)",
-      "naverVisitorReviewCount": 415,
+      "naverVisitorReviewCount": 419,
       "naverBlogReviewCount": 8,
       "naverMenus": [
         {
@@ -24943,7 +25026,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/77251599/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.41
     },
     {
       "id": "sikgwon-143",
@@ -25015,8 +25099,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1751187822",
       "naverSearchQuery": "김선생포차&쌈밥",
-      "naverVisitorReviewCount": 165,
-      "naverBlogReviewCount": 15,
+      "naverVisitorReviewCount": 166,
+      "naverBlogReviewCount": 16,
       "naverMenus": [
         {
           "description": "국내산 냉장고기를 사용합니다. 우렁쌈장과 8가지 이상의 쌈채소를 제공합니다.",
@@ -25038,7 +25122,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1751187822/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.32
     },
     {
       "id": "sikgwon-144",
@@ -25257,8 +25342,9 @@
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1910521914/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 234,
-      "naverBlogReviewCount": 41,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverBlogReviewCount": 40,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.32
     },
     {
       "id": "sikgwon-145",
@@ -25383,8 +25469,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "482267736",
       "naverSearchQuery": "The Place (송파 파크하비오점)",
-      "naverVisitorReviewCount": 1261,
-      "naverBlogReviewCount": 352,
+      "naverVisitorReviewCount": 1263,
+      "naverBlogReviewCount": 351,
       "naverMenus": [
         {
           "description": "달콤한 제철 참외, 마스카포네 치즈와 참외 드레싱",
@@ -25478,7 +25564,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/482267736/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.43
     },
     {
       "id": "sikgwon-146",
@@ -25603,7 +25690,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1165827238",
       "naverSearchQuery": "상일회관(문정점)",
-      "naverVisitorReviewCount": 608,
+      "naverVisitorReviewCount": 613,
       "naverBlogReviewCount": 85,
       "naverMenus": [
         {
@@ -25742,7 +25829,9 @@
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1097868066/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 251,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.21,
+      "naverBlogReviewCount": 0
     },
     {
       "id": "sikgwon-148",
@@ -25786,7 +25875,9 @@
       "naverVisitorReviewCount": 276,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1917114935/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.33,
+      "naverBlogReviewCount": 0
     },
     {
       "id": "sikgwon-149",
@@ -25964,7 +26055,7 @@
       "naverPlaceId": "961662541",
       "naverSearchQuery": "커피빈 송파파크하비오점",
       "naverVisitorReviewCount": 1214,
-      "naverBlogReviewCount": 70,
+      "naverBlogReviewCount": 71,
       "naverMenus": [
         {
           "description": "에스프레소와 물의 컴비네이션",
@@ -26154,8 +26245,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1719610577",
       "naverSearchQuery": "섬맛의공방, 제주이야기",
-      "naverVisitorReviewCount": 930,
-      "naverBlogReviewCount": 398,
+      "naverVisitorReviewCount": 947,
+      "naverBlogReviewCount": 397,
       "naverMenus": [
         {
           "description": "",
@@ -26249,7 +26340,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1719610577/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.13
     },
     {
       "id": "sikgwon-152",
@@ -26293,7 +26385,8 @@
       "naverVisitorReviewCount": 13,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/2088428607/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverBlogReviewCount": 0
     },
     {
       "id": "sikgwon-153",
@@ -26428,7 +26521,8 @@
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1532217173/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 475,
       "naverBlogReviewCount": 20,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.31
     },
     {
       "id": "sikgwon-154",
@@ -26521,7 +26615,9 @@
       "naverSearchQuery": "카가야쿠",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1359034886/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 505,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverRating": 4.53,
+      "naverBlogReviewCount": 120
     },
     {
       "id": "sikgwon-155",
@@ -26649,7 +26745,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1694994837",
       "naverSearchQuery": "씨즐(SIZZLE) 문정",
-      "naverVisitorReviewCount": 531,
+      "naverVisitorReviewCount": 538,
       "naverBlogReviewCount": 82,
       "naverMenus": [
         {
@@ -26810,7 +26906,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1265964981",
       "naverSearchQuery": "빽다방(송파하비오점)",
-      "naverVisitorReviewCount": 1981,
+      "naverVisitorReviewCount": 1984,
       "naverBlogReviewCount": 30,
       "naverMenus": [
         {
@@ -26905,7 +27001,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1265964981/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.48
     },
     {
       "id": "sikgwon-158",
@@ -27230,9 +27327,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1366506736/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 1211,
+      "naverVisitorReviewCount": 1212,
       "naverBlogReviewCount": 51,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.3
     },
     {
       "id": "sikgwon-159",
@@ -27357,8 +27455,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1653905028",
       "naverSearchQuery": "외계인방앗간(문정점)",
-      "naverVisitorReviewCount": 1721,
-      "naverBlogReviewCount": 166,
+      "naverVisitorReviewCount": 1718,
+      "naverBlogReviewCount": 165,
       "naverMenus": [
         {
           "description": "",
@@ -27422,7 +27520,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1653905028/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.45
     },
     {
       "id": "sikgwon-160",
@@ -27547,7 +27646,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1083481237",
       "naverSearchQuery": "날쌘카페 문정점",
-      "naverVisitorReviewCount": 631,
+      "naverVisitorReviewCount": 634,
       "naverBlogReviewCount": 147,
       "naverMenus": [
         {
@@ -27732,7 +27831,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1083481237/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.94
     },
     {
       "id": "sikgwon-161",
@@ -27907,7 +28007,9 @@
       "naverSearchQuery": "호또멘",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1972278688/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 504,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverRating": 4.38,
+      "naverBlogReviewCount": 162
     },
     {
       "id": "sikgwon-163",
@@ -28125,8 +28227,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1573008645/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 430,
-      "naverBlogReviewCount": 45,
+      "naverVisitorReviewCount": 436,
+      "naverBlogReviewCount": 44,
       "naverMenuUpdatedAt": "2026-05-22"
     },
     {
@@ -28214,7 +28316,8 @@
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1236337221/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 313,
       "naverBlogReviewCount": 7,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.47
     },
     {
       "id": "sikgwon-166",
@@ -28349,7 +28452,8 @@
       "naverSearchQuery": "윅스터 문정",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1145475635/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 40,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 24
     },
     {
       "id": "sikgwon-167",
@@ -28601,9 +28705,10 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/272817699/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 2466,
-      "naverBlogReviewCount": 921,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverVisitorReviewCount": 2517,
+      "naverBlogReviewCount": 922,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.41
     },
     {
       "id": "sikgwon-169",
@@ -28648,7 +28753,8 @@
       "naverBlogReviewCount": 7,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/34177490/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.38
     },
     {
       "id": "sikgwon-170",
@@ -28933,8 +29039,9 @@
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/641303839/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 975,
-      "naverBlogReviewCount": 5,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverBlogReviewCount": 0,
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.3
     },
     {
       "id": "sikgwon-173",
@@ -28977,8 +29084,8 @@
       "naverSearchQuery": "GS25 송파하비오 2호점",
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/809829950/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverVisitorReviewCount": 729,
-      "naverBlogReviewCount": 4,
+      "naverVisitorReviewCount": 731,
+      "naverBlogReviewCount": 0,
       "naverRating": 4.41,
       "naverMenuUpdatedAt": "2026-05-22"
     },
@@ -29105,8 +29212,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1016505539",
       "naverSearchQuery": "롯데리아 송파하비오",
-      "naverVisitorReviewCount": 2955,
-      "naverBlogReviewCount": 96,
+      "naverVisitorReviewCount": 2962,
+      "naverBlogReviewCount": 95,
       "naverMenus": [
         {
           "description": "국내산 한우를 사용한 패티 2장 구성으로 육즙 가득 묵직한 육풍미를 특징으로 한 프리미엄 버거",
@@ -29290,7 +29397,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1016505539/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.47
     },
     {
       "id": "sikgwon-175",
@@ -29334,7 +29442,7 @@
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/361870839/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 737,
-      "naverBlogReviewCount": 3,
+      "naverBlogReviewCount": 0,
       "naverRating": 4.31,
       "naverMenuUpdatedAt": "2026-05-22"
     },
@@ -29461,7 +29569,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1397620368",
       "naverSearchQuery": "압구정순대국(문정점)",
-      "naverVisitorReviewCount": 414,
+      "naverVisitorReviewCount": 413,
       "naverBlogReviewCount": 14,
       "naverMenus": [
         {
@@ -29514,7 +29622,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1397620368/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.31
     },
     {
       "id": "sikgwon-177",
@@ -29556,7 +29665,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "2002711258",
       "naverSearchQuery": "써브웨이 문정법조점",
-      "naverVisitorReviewCount": 11,
+      "naverVisitorReviewCount": 12,
       "naverBlogReviewCount": 4,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2002711258/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
@@ -29684,7 +29793,9 @@
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1006219155/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 169,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.29,
+      "naverBlogReviewCount": 0
     },
     {
       "id": "sikgwon-181",
@@ -29725,8 +29836,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1586553056",
       "naverSearchQuery": "세븐일레븐 문정건영점",
-      "naverVisitorReviewCount": 193,
-      "naverBlogReviewCount": 2,
+      "naverVisitorReviewCount": 194,
+      "naverBlogReviewCount": 0,
       "naverMenus": [],
       "naverPlaceUrl": "https://pcmap.place.naver.com/cvs/1586553056/home?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverRating": 4.43,
@@ -29807,7 +29918,7 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "18518289",
       "naverSearchQuery": "파리바게뜨 문정중앙",
-      "naverVisitorReviewCount": 2201,
+      "naverVisitorReviewCount": 2207,
       "naverBlogReviewCount": 7,
       "naverMenus": [
         {
@@ -29836,7 +29947,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/18518289/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.4
     },
     {
       "id": "sikgwon-183",
@@ -29961,8 +30073,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "32891388",
       "naverSearchQuery": "롯데리아 문정로데오",
-      "naverVisitorReviewCount": 2305,
-      "naverBlogReviewCount": 41,
+      "naverVisitorReviewCount": 2309,
+      "naverBlogReviewCount": 40,
       "naverMenus": [
         {
           "description": "국내산 한우를 사용한 패티 2장 구성으로 육즙 가득 묵직한 육풍미를 특징으로 한 프리미엄 버거",
@@ -30146,7 +30258,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/32891388/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.22
     },
     {
       "id": "sikgwon-184",
@@ -30271,8 +30384,8 @@
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "21817958",
       "naverSearchQuery": "롯데리아 롯데마트송파",
-      "naverVisitorReviewCount": 1844,
-      "naverBlogReviewCount": 21,
+      "naverVisitorReviewCount": 1840,
+      "naverBlogReviewCount": 20,
       "naverMenus": [
         {
           "description": "국내산 한우를 사용한 패티 2장 구성으로 육즙 가득 묵직한 육풍미를 특징으로 한 프리미엄 버거",
@@ -30456,7 +30569,8 @@
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/21817958/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "naverRating": 4.41
     },
     {
       "id": "sikgwon-185",
@@ -30952,7 +31066,8 @@
       "naverSearchQuery": "옥된장 문정법조타운점",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1187065279/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 716,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverBlogReviewCount": 971
     },
     {
       "id": "sikgwon-192",
@@ -31326,7 +31441,9 @@
       "naverSearchQuery": "루트비 문정",
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1454681598/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 690,
-      "naverMenuUpdatedAt": "2026-06-10"
+      "naverMenuUpdatedAt": "2026-06-10",
+      "naverRating": 4.47,
+      "naverBlogReviewCount": 62
     }
   ]
 }
