@@ -91,7 +91,7 @@ function parsePlaceMeta(state, placeId) {
   return {
     name: entity.name ?? null,
     address: entity.address ?? entity.roadAddress ?? null,
-    rating: typeof entity.visitorReviewScore === "number" ? entity.visitorReviewScore : null,
+    rating: typeof entity.visitorReviewsScore === "number" ? entity.visitorReviewsScore : null,
     visitorReviewCount: stats?.totalCount ?? entity.visitorReviewsTotal ?? null,
     blogReviewCount: entity.blogCafeReviewCount ?? null,
   };
