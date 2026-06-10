@@ -812,6 +812,163 @@ button {
 }
 
 /* ========== HOME SECTIONS ========== */
+/* ===== 오늘의 점심 운세 ===== */
+.fortune {
+  margin: 0 18px 18px;
+}
+
+.fortune-card {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #9333ea 100%);
+  box-shadow: 0 14px 32px rgba(79, 70, 229, 0.28);
+  color: #f5f3ff;
+  animation: fortune-in 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+@keyframes fortune-in {
+  0% { opacity: 0; transform: translateY(8px) scale(0.99); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.fortune-card::after {
+  content: "";
+  position: absolute;
+  top: -46px;
+  right: -34px;
+  width: 170px;
+  height: 170px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.fortune-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.fortune-eyebrow {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+
+.fortune-date {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(245, 243, 255, 0.8);
+}
+
+.fortune-grade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.fortune-grade-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fortune-icon {
+  font-size: 22px;
+}
+
+.fortune-grade-main strong {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.fortune-score {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.fortune-score span {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.fortune-score small {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.fortune-line {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: #ffffff;
+}
+
+.fortune-lucky {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.fortune-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 9px 6px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.14);
+  text-align: center;
+}
+
+.fortune-chip .fc-k {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(245, 243, 255, 0.78);
+}
+
+.fortune-chip .fc-v {
+  font-size: 13px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.fortune-cta {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.fortune-cta:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.fortune-cta:active {
+  transform: translateY(0) scale(0.99);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fortune-card { animation: none; }
+}
+
 .home-section {
   margin: 0 18px 18px;
   padding: 18px;
