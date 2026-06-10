@@ -176,25 +176,23 @@ const FORTUNE_LINES = [
   "오늘 점심을 누군가에게 사면, 더 큰 것이 돌아온다.",
   "메뉴판 맨 아래 숨은 메뉴에 오늘의 행운이 있다.",
 ];
-const FORTUNE_COLORS = ["빨강", "주황", "노랑", "초록", "청록", "파랑", "남색", "보라", "분홍", "금색", "은색", "하양"];
-
-// FNV-1a 해시 — 날짜+salt 로 항목마다 독립적인 결정론적 값을 뽑는다.
-function fortuneHash(salt) {
-  const key = `${todayKey()}|${salt}`;
-  let h = 2166136261;
-  for (let i = 0; i < key.length; i += 1) {
-    h ^= key.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
+// 뽑을 때마다 새로 — 같은 멘트가 반복되지 않게 날짜 고정을 쓰지 않고 매번 랜덤.
+function pickFortuneLine() {
+  return FORTUNE_LINES[Math.floor(Math.random() * FORTUNE_LINES.length)];
 }
-
-function todaysFortune() {
-  return {
-    line: FORTUNE_LINES[fortuneHash("line") % FORTUNE_LINES.length],
-    color: FORTUNE_COLORS[fortuneHash("color") % FORTUNE_COLORS.length],
-    number: 1 + (fortuneHash("num") % 9),
-  };
+// 한국 로또: 1~45 중 중복 없는 6개를 오름차순으로.
+function drawLotto() {
+  const set = new Set();
+  while (set.size < 6) set.add(1 + Math.floor(Math.random() * 45));
+  return [...set].sort((a, b) => a - b);
+}
+// 공식 로또 공 색 구간 (1~10 노랑 / 11~20 파랑 / 21~30 빨강 / 31~40 회색 / 41~45 초록)
+function lottoBallClass(n) {
+  if (n <= 10) return "lb-yellow";
+  if (n <= 20) return "lb-blue";
+  if (n <= 30) return "lb-red";
+  if (n <= 40) return "lb-gray";
+  return "lb-green";
 }
 
 let fortuneRevealed = false;
@@ -231,17 +229,14 @@ function revealFortune(cookieEl) {
   if (sub) sub.textContent = "쿠키가 깨지는 중…";
   // 깨지는 애니메이션이 끝난 뒤 결과 공개
   setTimeout(() => {
-    const f = todaysFortune();
     const fortuneEl = document.getElementById("fgFortune");
-    const luckyEl = document.getElementById("fgLucky");
-    const dateEl = document.getElementById("fgDate");
-    if (fortuneEl) fortuneEl.textContent = `“${f.line}”`;
-    if (luckyEl) {
-      luckyEl.innerHTML =
-        `<span>행운의 숫자 <strong>${f.number}</strong></span>` +
-        `<span>행운의 색 <strong>${escapeHtml(f.color)}</strong></span>`;
+    const lottoEl = document.getElementById("fgLotto");
+    if (fortuneEl) fortuneEl.textContent = `“${pickFortuneLine()}”`;
+    if (lottoEl) {
+      lottoEl.innerHTML = drawLotto()
+        .map((n) => `<span class="lotto-ball ${lottoBallClass(n)}">${n}</span>`)
+        .join("");
     }
-    if (dateEl) dateEl.textContent = `${escapeHtml(todayLabel())} · 오늘의 운`;
     if (cookies) cookies.hidden = true;
     if (sub) sub.hidden = true;
     document.getElementById("fgResult")?.removeAttribute("hidden");
@@ -274,6 +269,7 @@ document.getElementById("fgCookies")?.addEventListener("click", (event) => {
 });
 document.getElementById("fortuneModalClose")?.addEventListener("click", closeFortuneModal);
 document.getElementById("fortuneDone")?.addEventListener("click", closeFortuneModal);
+document.getElementById("fortuneAgain")?.addEventListener("click", resetFortuneGame);
 if (fortuneModal) {
   fortuneModal.addEventListener("click", (event) => {
     if (event.target === fortuneModal) closeFortuneModal();
