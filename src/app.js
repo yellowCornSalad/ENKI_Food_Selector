@@ -149,51 +149,34 @@ function renderPopular() {
     .join("");
 }
 
-// ========== 오늘의 점심 운세 (날짜 기반 결정론적) ==========
-// 같은 날이면 누구에게나 같은 운세가 뜬다 — 자정에 바뀜. 사무실에서 "오늘 운세
-// 뭐 떴어?" 가 가능하도록 Math.random() 이 아니라 날짜를 시드로 쓴다.
+// ========== 오늘의 포춘쿠키 (날짜 기반 결정론적 미니게임) ==========
+// 쿠키 5개 중 아무거나 골라도 '오늘의 운'은 하나로 정해져 있다 (운명은 피할 수 없다).
+// 같은 날이면 누구에게나 같은 운 — 자정에 바뀜. Math.random() 이 아니라 날짜를 시드로.
 const FORTUNE_LINES = [
-  "오늘 점심은 끌리는 대로. 직감이 맞는 날입니다.",
-  "고민하지 마세요. 가장 먼저 떠오른 메뉴가 정답입니다.",
-  "동료가 추천하는 곳에 답이 있어요. 따라가 보세요.",
-  "새로운 가맹점에 도전하면 행운이 따릅니다.",
-  "오늘은 매콤한 한 그릇이 스트레스를 날려줄 거예요.",
-  "지갑이 가벼워도 마음은 든든하게. 가성비가 빛나는 날.",
-  "혼밥도 좋습니다. 오늘은 나에게 집중하세요.",
-  "줄 서는 집엔 이유가 있죠. 기다림이 보상받는 날입니다.",
-  "익숙한 단골집이 최고의 선택. 모험은 내일로 미뤄도 좋아요.",
-  "오후 회의 전 든든하게. 배가 부르면 아이디어도 샘솟습니다.",
-  "달달한 디저트 하나가 오늘의 운을 끌어올립니다.",
-  "국물 있는 메뉴가 몸과 마음을 녹여줄 거예요.",
-  "점심 약속을 먼저 제안해보세요. 좋은 인연이 따라옵니다.",
-  "오늘의 키워드는 '함께'. 같이 먹으면 두 배로 맛있습니다.",
-  "가까운 곳에 행운이 숨어 있어요. 멀리 가지 마세요.",
-  "평소 안 먹던 메뉴가 의외의 만족을 줄 거예요.",
-  "커피 한 잔의 여유가 오후를 살립니다.",
-  "복은 밥심에서. 잘 먹는 것이 곧 오늘의 승리입니다.",
-];
-const FORTUNE_LUCKY_FOODS = [
-  { label: "한식", emoji: "🍚", q: "한식" },
-  { label: "고기·구이", emoji: "🥩", q: "고기" },
-  { label: "중식", emoji: "🥟", q: "중식" },
-  { label: "일식", emoji: "🍣", q: "일식" },
-  { label: "양식", emoji: "🍝", q: "양식" },
-  { label: "분식", emoji: "🍙", q: "분식" },
-  { label: "국밥·탕", emoji: "🍲", q: "국밥" },
-  { label: "면·국수", emoji: "🍜", q: "국수" },
-  { label: "돈까스", emoji: "🍤", q: "돈까스" },
-  { label: "버거", emoji: "🍔", q: "버거" },
-  { label: "샐러드", emoji: "🥗", q: "샐러드" },
-  { label: "카페·디저트", emoji: "☕", q: "카페" },
+  "망설이면 손해. 1초 안에 고르는 사람이 오늘의 승자다.",
+  "지금 머릿속에 떠오른 그 메뉴. 그게 운명입니다.",
+  "오늘은 새로운 가게의 문을 열 때. 첫 도전에 복이 따른다.",
+  "매운맛이 그대를 구원하리라. 스트레스여 안녕.",
+  "오늘 한 끼가 이번 주 컨디션을 정한다. 잘 먹어라.",
+  "줄이 길다면, 바로 그곳이 정답이다.",
+  "혼밥하는 자에게 평온이 깃든다. 오늘은 나에게 집중.",
+  "동료의 추천을 거절하지 마라. 그 안에 복이 숨어 있다.",
+  "오늘 쓴 식권 한 장이 내일의 미소가 된다.",
+  "국물이 답이다. 따뜻함이 행운을 부른다.",
+  "디저트는 사치가 아니라 오늘 그대를 위한 보상이다.",
+  "가까운 곳에 보물이 있다. 멀리 헤매지 마라.",
+  "낯선 메뉴에 도전하는 용기가 오늘의 운을 연다.",
+  "그대의 위(胃)는 이미 답을 알고 있다. 귀 기울여라.",
+  "오늘은 2인분의 식욕, 1인분의 지갑. 현명하게 골라라.",
+  "함께 먹으면 두 배, 나눠 먹으면 세 배의 행운.",
+  "오늘 만난 그 맛, 단골이 될 운명입니다.",
+  "배부른 오후엔 졸음 대신 영감이 찾아온다… 가끔은.",
+  "고민 끝에 고른 메뉴는 늘 옳았다. 오늘도 그렇다.",
+  "행운은 뜨거울 때 먹어야 제맛. 식기 전에 움직여라.",
+  "오늘 점심을 누군가에게 사면, 더 큰 것이 돌아온다.",
+  "메뉴판 맨 아래 숨은 메뉴에 오늘의 행운이 있다.",
 ];
 const FORTUNE_COLORS = ["빨강", "주황", "노랑", "초록", "청록", "파랑", "남색", "보라", "분홍", "금색", "은색", "하양"];
-const FORTUNE_GRADES = [
-  { min: 90, label: "대길 大吉", icon: "🍀" },
-  { min: 80, label: "길 吉", icon: "🍀" },
-  { min: 70, label: "중길 中吉", icon: "🌿" },
-  { min: 60, label: "소길 小吉", icon: "🌱" },
-  { min: 0, label: "평 平", icon: "🌤️" },
-];
 
 // FNV-1a 해시 — 날짜+salt 로 항목마다 독립적인 결정론적 값을 뽑는다.
 function fortuneHash(salt) {
@@ -206,42 +189,99 @@ function fortuneHash(salt) {
   return h >>> 0;
 }
 
-function renderFortune() {
-  const el = document.getElementById("fortuneSection");
-  if (!el) return;
-  const score = 55 + (fortuneHash("score") % 45); // 55~99 (사기 진작용 긍정 편향)
-  const grade = FORTUNE_GRADES.find((g) => score >= g.min);
-  const line = FORTUNE_LINES[fortuneHash("line") % FORTUNE_LINES.length];
-  const food = FORTUNE_LUCKY_FOODS[fortuneHash("food") % FORTUNE_LUCKY_FOODS.length];
-  const color = FORTUNE_COLORS[fortuneHash("color") % FORTUNE_COLORS.length];
-  const number = 1 + (fortuneHash("num") % 9);
-  el.innerHTML = `
-    <article class="fortune-card">
-      <div class="fortune-top">
-        <span class="fortune-eyebrow">🔮 오늘의 점심 운세</span>
-        <span class="fortune-date">${escapeHtml(todayLabel())}</span>
-      </div>
-      <div class="fortune-grade">
-        <div class="fortune-grade-main">
-          <span class="fortune-icon">${grade.icon}</span>
-          <strong>${grade.label}</strong>
-        </div>
-        <div class="fortune-score" aria-label="운세 점수 ${score}점">
-          <span>${score}</span><small>점</small>
-        </div>
-      </div>
-      <p class="fortune-line">${escapeHtml(line)}</p>
-      <div class="fortune-lucky">
-        <div class="fortune-chip"><span class="fc-k">행운 메뉴</span><span class="fc-v">${food.emoji} ${escapeHtml(food.label)}</span></div>
-        <div class="fortune-chip"><span class="fc-k">행운 색</span><span class="fc-v">${escapeHtml(color)}</span></div>
-        <div class="fortune-chip"><span class="fc-k">행운 숫자</span><span class="fc-v">${number}</span></div>
-      </div>
-      <button type="button" class="fortune-cta" data-fortune-food="${escapeHtml(food.q)}">
-        🍀 오늘은 ${escapeHtml(food.label)} 먹으러 가기 →
-      </button>
-    </article>
-  `;
+function todaysFortune() {
+  return {
+    line: FORTUNE_LINES[fortuneHash("line") % FORTUNE_LINES.length],
+    color: FORTUNE_COLORS[fortuneHash("color") % FORTUNE_COLORS.length],
+    number: 1 + (fortuneHash("num") % 9),
+  };
 }
+
+let fortuneRevealed = false;
+
+function resetFortuneGame() {
+  fortuneRevealed = false;
+  const cookies = document.getElementById("fgCookies");
+  const result = document.getElementById("fgResult");
+  const sub = document.getElementById("fgSub");
+  if (cookies) {
+    cookies.hidden = false;
+    cookies.querySelectorAll(".fg-cookie").forEach((c) => {
+      c.classList.remove("is-chosen", "is-faded", "is-cracking");
+      c.disabled = false;
+    });
+  }
+  if (result) result.hidden = true;
+  if (sub) {
+    sub.hidden = false;
+    sub.textContent = "마음이 끌리는 쿠키를 하나 고르세요";
+  }
+}
+
+function revealFortune(cookieEl) {
+  if (fortuneRevealed) return;
+  fortuneRevealed = true;
+  const cookies = document.getElementById("fgCookies");
+  const sub = document.getElementById("fgSub");
+  cookies?.querySelectorAll(".fg-cookie").forEach((c) => {
+    c.disabled = true;
+    if (c === cookieEl) c.classList.add("is-chosen", "is-cracking");
+    else c.classList.add("is-faded");
+  });
+  if (sub) sub.textContent = "쿠키가 깨지는 중…";
+  // 깨지는 애니메이션이 끝난 뒤 결과 공개
+  setTimeout(() => {
+    const f = todaysFortune();
+    const fortuneEl = document.getElementById("fgFortune");
+    const luckyEl = document.getElementById("fgLucky");
+    const dateEl = document.getElementById("fgDate");
+    if (fortuneEl) fortuneEl.textContent = `“${f.line}”`;
+    if (luckyEl) {
+      luckyEl.innerHTML =
+        `<span>행운의 숫자 <strong>${f.number}</strong></span>` +
+        `<span>행운의 색 <strong>${escapeHtml(f.color)}</strong></span>`;
+    }
+    if (dateEl) dateEl.textContent = `${escapeHtml(todayLabel())} · 오늘의 운`;
+    if (cookies) cookies.hidden = true;
+    if (sub) sub.hidden = true;
+    document.getElementById("fgResult")?.removeAttribute("hidden");
+  }, 950);
+}
+
+const fortuneModal = document.getElementById("fortuneModal");
+function openFortuneModal() {
+  if (!fortuneModal) return;
+  resetFortuneGame();
+  fortuneModal.hidden = false;
+  document.body.classList.add("modal-open");
+}
+function closeFortuneModal() {
+  if (!fortuneModal) return;
+  fortuneModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+document.addEventListener("click", (event) => {
+  const trigger = event.target.closest("[data-open-fortune]");
+  if (trigger) {
+    event.preventDefault();
+    openFortuneModal();
+  }
+});
+document.getElementById("fgCookies")?.addEventListener("click", (event) => {
+  const cookie = event.target.closest(".fg-cookie");
+  if (cookie) revealFortune(cookie);
+});
+document.getElementById("fortuneModalClose")?.addEventListener("click", closeFortuneModal);
+document.getElementById("fortuneDone")?.addEventListener("click", closeFortuneModal);
+if (fortuneModal) {
+  fortuneModal.addEventListener("click", (event) => {
+    if (event.target === fortuneModal) closeFortuneModal();
+  });
+}
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && fortuneModal && !fortuneModal.hidden) closeFortuneModal();
+});
 
 function setMeal(meal) {
   state.meal = meal;
@@ -1600,21 +1640,6 @@ if (popularScrollEl) {
     render();
   });
 }
-
-// 오늘의 운세 "행운 메뉴 먹으러 가기" → 메뉴 탭으로 해당 카테고리 검색.
-const fortuneSectionEl = document.getElementById("fortuneSection");
-if (fortuneSectionEl) {
-  fortuneSectionEl.addEventListener("click", (event) => {
-    const btn = event.target.closest("[data-fortune-food]");
-    if (!btn) return;
-    state.searchQuery = btn.dataset.fortuneFood;
-    const menuSearch = document.getElementById("candidateSearch");
-    if (menuSearch) menuSearch.value = state.searchQuery;
-    navigateTo("menu");
-    render();
-  });
-}
-renderFortune();
 
 // ========== LUNCH COUNTDOWN ==========
 function updateLunchCountdown() {

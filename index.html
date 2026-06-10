@@ -7,7 +7,7 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260610-04" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260610-05" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -63,12 +63,12 @@
             </div>
             <span class="icon">🍱</span>
           </button>
-          <button type="button" class="action" data-nav-to="board">
+          <button type="button" class="action is-fortune" data-open-fortune>
             <div>
-              <div class="badge">그룹 점심</div>
-              <h3>같이 갈 사람</h3>
+              <div class="badge">오늘의 운세</div>
+              <h3>포춘쿠키 🥠</h3>
             </div>
-            <span class="icon">👥</span>
+            <span class="icon">🥠</span>
           </button>
           <button type="button" class="action is-warm" data-open-budget>
             <div>
@@ -78,10 +78,6 @@
             </div>
             <span class="icon">💳</span>
           </button>
-        </section>
-
-        <section class="fortune" id="fortuneSection" aria-live="polite">
-          <!-- renderFortune() 가 채웁니다 (날짜 기반 결정론적) -->
         </section>
 
         <section class="home-section">
@@ -458,6 +454,33 @@
       </div>
     </div>
 
+    <!-- ========== 오늘의 포춘쿠키 모달 ========== -->
+    <div class="modal-backdrop" id="fortuneModal" hidden role="dialog" aria-modal="true" aria-labelledby="fortuneModalTitle">
+      <div class="modal-sheet" role="document">
+        <button type="button" class="modal-close" id="fortuneModalClose" aria-label="닫기">×</button>
+        <section class="fortune-game" id="fortuneGame">
+          <h2 id="fortuneModalTitle" class="fg-title">🥠 오늘의 포춘쿠키</h2>
+          <p class="fg-sub" id="fgSub">마음이 끌리는 쿠키를 하나 고르세요</p>
+          <div class="fg-cookies" id="fgCookies" role="group" aria-label="포춘쿠키 5개">
+            <button type="button" class="fg-cookie" data-cookie="0" aria-label="쿠키 1번"><span>🥠</span></button>
+            <button type="button" class="fg-cookie" data-cookie="1" aria-label="쿠키 2번"><span>🥠</span></button>
+            <button type="button" class="fg-cookie" data-cookie="2" aria-label="쿠키 3번"><span>🥠</span></button>
+            <button type="button" class="fg-cookie" data-cookie="3" aria-label="쿠키 4번"><span>🥠</span></button>
+            <button type="button" class="fg-cookie" data-cookie="4" aria-label="쿠키 5번"><span>🥠</span></button>
+          </div>
+          <div class="fg-result" id="fgResult" hidden>
+            <div class="fg-paper">
+              <span class="fg-paper-eyebrow" id="fgDate">오늘의 운</span>
+              <p class="fg-fortune" id="fgFortune"></p>
+              <div class="fg-lucky" id="fgLucky"></div>
+            </div>
+            <p class="fg-note">내일 또 열어보세요 🍀</p>
+            <button type="button" class="fg-done" id="fortuneDone">확인</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
     <!-- ========== 알림 모달 ========== -->
     <div class="modal-backdrop" id="notifModal" hidden role="dialog" aria-modal="true" aria-labelledby="notifModalTitle">
       <div class="modal-sheet" role="document">
@@ -672,6 +695,6 @@
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260610-03"></script>
+    <script type="module" src="./src/app.js?v=20260610-05"></script>
   </body>
 </html>
