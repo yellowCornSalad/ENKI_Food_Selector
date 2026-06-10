@@ -74,12 +74,17 @@ async function loadRestaurants() {
 }
 
 // ========== POPULAR ON HOME (네이버 평점 × log(리뷰수)) ==========
+// 네이버가 2024년경부터 대부분 가맹점의 ★평점을 비공개로 바꾸고 방문자 리뷰 수만
+// 노출한다. 그래서 평점이 없는 곳이 다수 — 이때는 중립 평점(4.2)을 적용해 리뷰
+// 볼륨이 인기 순위를 결정하게 한다. 평점이 살아있는 곳은 그 값이 가중치로 작동.
+const NEUTRAL_RATING = 4.2;
 function popularScore(item) {
-  const rating = typeof item.naverRating === "number" ? item.naverRating : 0;
+  const rating = typeof item.naverRating === "number" && item.naverRating > 0
+    ? item.naverRating
+    : NEUTRAL_RATING;
   const reviews = item.naverVisitorReviewCount || item.naverReviewCount || 0;
-  if (!rating || !reviews) return -1;
-  // rating dominates; log(reviews) prevents a 5.0/1-review place from topping
-  // a 4.6/2000-review staple while still rewarding genuine volume.
+  if (!reviews) return -1; // 리뷰가 0이면 인기 판단 불가 → 제외
+  // log(reviews)가 볼륨을 보상하되 평점이 곱해져 저평점 가게가 위로 못 솟게 한다.
   return rating * Math.log10(reviews + 1);
 }
 
@@ -121,18 +126,21 @@ function renderPopular() {
   scroll.innerHTML = picks
     .map(({ item }, i) => {
       const accentCls = i % 3 === 1 ? "is-warm" : i % 3 === 2 ? "is-cool" : "";
-      const rating = (item.naverRating ?? 0).toFixed(1);
+      const hasRating = typeof item.naverRating === "number" && item.naverRating > 0;
       const reviews = item.naverVisitorReviewCount || item.naverReviewCount || 0;
       const distance = item.distanceM ? `${item.distanceM}m` : "";
       const cat = item.category ? `${escapeHtml(item.category)}` : "";
       const subMeta = [cat, distance].filter(Boolean).join(" · ");
+      const ratingBadge = hasRating
+        ? `<span>네이버 ★ ${item.naverRating.toFixed(1)}</span>`
+        : `<span>네이버 리뷰</span>`;
       return `
         <article class="popular-card ${accentCls}" data-popular="${escapeHtml(item.name)}">
           <div class="pop-thumb">${thumbForCategory(item)}</div>
           <h4>${escapeHtml(item.name)}</h4>
           <small>${escapeHtml(subMeta)}</small>
           <div class="pop-meta">
-            <span>네이버 ★ ${rating}</span>
+            ${ratingBadge}
             <strong>리뷰 ${reviews.toLocaleString("ko-KR")}</strong>
           </div>
         </article>
