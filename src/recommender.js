@@ -123,11 +123,41 @@ function effectiveTags(restaurant) {
   return tags;
 }
 
+// 원본 DB가 "메뉴 정보 없으면 임시로 업체명을 메뉴로 넣음"으로 시드된 곳이 많다.
+// (예: 메뉴명이 "[가든파이브] 호두앤(현대아울렛)") 이런 placeholder 가 추천 카드
+// 제목에 식당 이름처럼 떠서 어색하므로 걸러낸다. 이름이 바뀐 가게는 placeholder 에
+// 옛 이름이 남아있어 이름 매칭만으론 못 잡으니, 가격이 없고 지점/위치 표기가 든
+// '메뉴'도 placeholder 로 본다.
+function hasPriceToken(name) {
+  return /(\d{1,3}(?:,\d{3})+|\d{3,})\s*원/.test(String(name ?? ""));
+}
+function looksLikeBranchName(name) {
+  return /\[가든파이브\]|\(현대아울렛\)|현대아울렛|법조타운점|파크하비오점|문정\S*점|역점\)?$/.test(String(name ?? ""));
+}
+function isPlaceholderMenu(menuName, restaurantName) {
+  // 가격이 붙어 있으면 무조건 진짜 메뉴다. ("조조감자탕 小 36,000원" 처럼 업체명으로
+  // 시작하는 진짜 메뉴를 placeholder 로 오판하지 않도록 가장 먼저 차단.)
+  if (hasPriceToken(menuName)) return false;
+  const mn = String(menuName ?? "").replace(/\s+/g, "");
+  const rn = String(restaurantName ?? "").replace(/\s+/g, "");
+  if (!mn) return true;
+  if (mn === rn) return true;
+  if (rn.length >= 3 && (mn.includes(rn) || rn.includes(mn))) return true;
+  // 지점/위치 표기가 들어간 무가격 '메뉴' = 업체명 placeholder
+  if (looksLikeBranchName(menuName)) return true;
+  return false;
+}
+function realMenus(list, restaurantName) {
+  return (list ?? []).filter((m) => m?.name && !isPlaceholderMenu(m.name, restaurantName));
+}
+
 function pickMenu(restaurant, meal, preferences, seed) {
-  const menus = restaurant.menus?.[meal] ?? restaurant.menus?.all ?? [];
-  if (!menus.length) return "추천 메뉴 확인 필요";
-  const tagged = menus.filter((menu) => menu.tags?.some((tag) => preferences.has(tag)));
-  const pool = tagged.length ? tagged : menus;
+  // 식권대장 정적 메뉴(placeholder 제외) → 없으면 네이버 메뉴로 대체
+  let pool = realMenus(restaurant.menus?.[meal] ?? restaurant.menus?.all ?? [], restaurant.name);
+  if (!pool.length) pool = realMenus(restaurant.naverMenus ?? [], restaurant.name);
+  if (!pool.length) return "메뉴 정보 없음";
+  const tagged = pool.filter((menu) => menu.tags?.some((tag) => preferences.has(tag)));
+  if (tagged.length) pool = tagged;
   const budget = MEAL_BUDGETS[meal] ?? 12000;
   const ranked = [...pool].sort((a, b) => priceDistance(a.name, budget) - priceDistance(b.name, budget));
   const topSize = Math.min(3, ranked.length);

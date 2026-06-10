@@ -709,22 +709,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "먹방장사장 문정점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "먹방장사장 문정점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -2745,22 +2731,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "오부찌 문정 직영점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "오부찌 문정 직영점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "2090820019",
@@ -3125,22 +3097,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "지오씨커피 문정테라타워점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "지오씨커피 문정테라타워점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1801172120",
@@ -4277,22 +4235,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "압구정샌드위치 문정점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "압구정샌드위치 문정점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1202434452",
@@ -5572,22 +5516,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "이플리(문정역점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "이플리(문정역점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -5875,24 +5805,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "부산아지매국밥(문정테라타워점)",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "부산아지매국밥(문정테라타워점)",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "964500729",
@@ -6455,22 +6369,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "이화수전통육개장(문정법조타운점)",
-            "tags": [
-              "korean"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "이화수전통육개장(문정법조타운점)",
-            "tags": [
-              "korean"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -6623,24 +6523,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "아리솔",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "아리솔",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -6664,22 +6548,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "미도인(문정법조타운점)",
-            "tags": [
-              "noodle"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "미도인(문정법조타운점)",
-            "tags": [
-              "noodle"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -7368,22 +7238,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "본설렁탕(문정역점)",
-            "tags": [
-              "korean"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "본설렁탕(문정역점)",
-            "tags": [
-              "korean"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -8514,22 +8370,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "도원짬(문정법조타운점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "도원짬(문정법조타운점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": null,
@@ -8717,22 +8559,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정엠스테이트점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정엠스테이트점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1587979053",
@@ -8763,22 +8591,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 송파문정역점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 송파문정역점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1121928760",
@@ -9880,22 +9694,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "빽샌드동(문정점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "빽샌드동(문정점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -11773,22 +11573,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정해리움점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정해리움점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1587241026",
@@ -14781,22 +14567,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "GS25(문정현대동점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "GS25(문정현대동점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -14820,22 +14592,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "금정(문정)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "금정(문정)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1114517363",
@@ -15026,22 +14784,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "비바당 문정역점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "비바당 문정역점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -15644,22 +15388,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "요거 문정점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "요거 문정점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -16400,22 +16130,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "GS25(문정SK1호점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "GS25(문정SK1호점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1599930292",
@@ -16446,22 +16162,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "정석식당 카페테리아",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "정석식당 카페테리아",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": null,
@@ -16708,22 +16410,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "바나프레소(문정SK점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "바나프레소(문정SK점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -16747,22 +16435,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "사샤커피",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "사샤커피",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1416787139",
@@ -16824,22 +16498,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정메트로시티점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정메트로시티점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1978155598",
@@ -16870,22 +16530,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "타이완밴땅 문정점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "타이완밴땅 문정점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -19459,22 +19105,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정오벨리스점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정오벨리스점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": null,
@@ -19501,24 +19133,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "목골쌈밥 문정법조점",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "목골쌈밥 문정법조점",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": null,
@@ -19765,22 +19381,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "카츠파랑",
-            "tags": [
-              "noodle"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "카츠파랑",
-            "tags": [
-              "noodle"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -19877,22 +19479,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정대성점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정대성점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "30887709",
@@ -20234,22 +19822,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "김동우동(문정법조타운점)",
-            "tags": [
-              "noodle"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "김동우동(문정법조타운점)",
-            "tags": [
-              "noodle"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": [
@@ -20992,24 +20566,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "백채김치찌개 문정법조타운점",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "백채김치찌개 문정법조타운점",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -22255,22 +21813,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "GS25(테라타워 A동점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "GS25(테라타워 A동점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -22294,22 +21838,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "GS25(테라타워B동점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "GS25(테라타워B동점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -22918,22 +22448,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정테라타워점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정테라타워점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1167151387",
@@ -24321,22 +23837,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "빌리엔젤(문정점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "빌리엔젤(문정점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -25806,22 +25308,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정수성점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정수성점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1097868066",
@@ -25852,22 +25340,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정프리미엄점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정프리미엄점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1917114935",
@@ -26362,22 +25836,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정강진점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정강진점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "2088428607",
@@ -26638,22 +26098,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "순(파크하비오)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "순(파크하비오)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -27853,22 +27299,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "쏘울",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "쏘울",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverSearchQuery": "쏘울",
@@ -28250,22 +27682,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "GS25(문정비지니스A동점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "GS25(문정비지니스A동점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -28290,24 +27708,8 @@
       "quick": false,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "행복한밥상",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "행복한밥상",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1236337221",
@@ -28474,22 +27876,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "플루핏",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "플루핏",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverSearchQuery": "플루핏",
@@ -28729,22 +28117,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "파리바게뜨(송파푸르지오점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "파리바게뜨(송파푸르지오점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "34177490",
@@ -28977,22 +28351,8 @@
       "quick": false,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "역전우동0410(파크하비오점)",
-            "tags": [
-              "noodle"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "역전우동0410(파크하비오점)",
-            "tags": [
-              "noodle"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -29016,22 +28376,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "GS25 송파하비오 1호점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "GS25 송파하비오 1호점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "641303839",
@@ -29062,22 +28408,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "GS25 송파하비오 2호점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "GS25 송파하비오 2호점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "809829950",
@@ -29419,22 +28751,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정하비오2호점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정하비오2호점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "361870839",
@@ -29645,22 +28963,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "써브웨이 문정법조점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "써브웨이 문정법조점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "2002711258",
@@ -29690,22 +28994,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "고래마켓키친(송파직영점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "고래마켓키친(송파직영점)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -29729,22 +29019,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정동조타워점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정동조타워점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": null,
@@ -29770,22 +29046,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정제일점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정제일점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1006219155",
@@ -29816,22 +29078,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "세븐일레븐 문정건영점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "세븐일레븐 문정건영점",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "1586553056",
@@ -30690,22 +29938,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "[가든파이브] 호두앤(현대아울렛)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "[가든파이브] 호두앤(현대아울렛)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverSearchQuery": "호두앤(현대아울렛)",
@@ -30730,22 +29964,8 @@
       "quick": false,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "[가든파이브] 일월분식(현대아울렛)",
-            "tags": [
-              "korean"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "[가든파이브] 일월분식(현대아울렛)",
-            "tags": [
-              "korean"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -30769,22 +29989,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "[가든파이브] 팜사브(현대아울렛)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "[가든파이브] 팜사브(현대아울렛)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
@@ -30848,22 +30054,8 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [
-          {
-            "name": "[가든파이브] 참새정미소(현대아울렛)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ],
-        "dinner": [
-          {
-            "name": "[가든파이브] 참새정미소(현대아울렛)",
-            "tags": [
-              "quick"
-            ]
-          }
-        ]
+        "lunch": [],
+        "dinner": []
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverMenus": []
