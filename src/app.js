@@ -149,6 +149,100 @@ function renderPopular() {
     .join("");
 }
 
+// ========== 오늘의 점심 운세 (날짜 기반 결정론적) ==========
+// 같은 날이면 누구에게나 같은 운세가 뜬다 — 자정에 바뀜. 사무실에서 "오늘 운세
+// 뭐 떴어?" 가 가능하도록 Math.random() 이 아니라 날짜를 시드로 쓴다.
+const FORTUNE_LINES = [
+  "오늘 점심은 끌리는 대로. 직감이 맞는 날입니다.",
+  "고민하지 마세요. 가장 먼저 떠오른 메뉴가 정답입니다.",
+  "동료가 추천하는 곳에 답이 있어요. 따라가 보세요.",
+  "새로운 가맹점에 도전하면 행운이 따릅니다.",
+  "오늘은 매콤한 한 그릇이 스트레스를 날려줄 거예요.",
+  "지갑이 가벼워도 마음은 든든하게. 가성비가 빛나는 날.",
+  "혼밥도 좋습니다. 오늘은 나에게 집중하세요.",
+  "줄 서는 집엔 이유가 있죠. 기다림이 보상받는 날입니다.",
+  "익숙한 단골집이 최고의 선택. 모험은 내일로 미뤄도 좋아요.",
+  "오후 회의 전 든든하게. 배가 부르면 아이디어도 샘솟습니다.",
+  "달달한 디저트 하나가 오늘의 운을 끌어올립니다.",
+  "국물 있는 메뉴가 몸과 마음을 녹여줄 거예요.",
+  "점심 약속을 먼저 제안해보세요. 좋은 인연이 따라옵니다.",
+  "오늘의 키워드는 '함께'. 같이 먹으면 두 배로 맛있습니다.",
+  "가까운 곳에 행운이 숨어 있어요. 멀리 가지 마세요.",
+  "평소 안 먹던 메뉴가 의외의 만족을 줄 거예요.",
+  "커피 한 잔의 여유가 오후를 살립니다.",
+  "복은 밥심에서. 잘 먹는 것이 곧 오늘의 승리입니다.",
+];
+const FORTUNE_LUCKY_FOODS = [
+  { label: "한식", emoji: "🍚", q: "한식" },
+  { label: "고기·구이", emoji: "🥩", q: "고기" },
+  { label: "중식", emoji: "🥟", q: "중식" },
+  { label: "일식", emoji: "🍣", q: "일식" },
+  { label: "양식", emoji: "🍝", q: "양식" },
+  { label: "분식", emoji: "🍙", q: "분식" },
+  { label: "국밥·탕", emoji: "🍲", q: "국밥" },
+  { label: "면·국수", emoji: "🍜", q: "국수" },
+  { label: "돈까스", emoji: "🍤", q: "돈까스" },
+  { label: "버거", emoji: "🍔", q: "버거" },
+  { label: "샐러드", emoji: "🥗", q: "샐러드" },
+  { label: "카페·디저트", emoji: "☕", q: "카페" },
+];
+const FORTUNE_COLORS = ["빨강", "주황", "노랑", "초록", "청록", "파랑", "남색", "보라", "분홍", "금색", "은색", "하양"];
+const FORTUNE_GRADES = [
+  { min: 90, label: "대길 大吉", icon: "🍀" },
+  { min: 80, label: "길 吉", icon: "🍀" },
+  { min: 70, label: "중길 中吉", icon: "🌿" },
+  { min: 60, label: "소길 小吉", icon: "🌱" },
+  { min: 0, label: "평 平", icon: "🌤️" },
+];
+
+// FNV-1a 해시 — 날짜+salt 로 항목마다 독립적인 결정론적 값을 뽑는다.
+function fortuneHash(salt) {
+  const key = `${todayKey()}|${salt}`;
+  let h = 2166136261;
+  for (let i = 0; i < key.length; i += 1) {
+    h ^= key.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function renderFortune() {
+  const el = document.getElementById("fortuneSection");
+  if (!el) return;
+  const score = 55 + (fortuneHash("score") % 45); // 55~99 (사기 진작용 긍정 편향)
+  const grade = FORTUNE_GRADES.find((g) => score >= g.min);
+  const line = FORTUNE_LINES[fortuneHash("line") % FORTUNE_LINES.length];
+  const food = FORTUNE_LUCKY_FOODS[fortuneHash("food") % FORTUNE_LUCKY_FOODS.length];
+  const color = FORTUNE_COLORS[fortuneHash("color") % FORTUNE_COLORS.length];
+  const number = 1 + (fortuneHash("num") % 9);
+  el.innerHTML = `
+    <article class="fortune-card">
+      <div class="fortune-top">
+        <span class="fortune-eyebrow">🔮 오늘의 점심 운세</span>
+        <span class="fortune-date">${escapeHtml(todayLabel())}</span>
+      </div>
+      <div class="fortune-grade">
+        <div class="fortune-grade-main">
+          <span class="fortune-icon">${grade.icon}</span>
+          <strong>${grade.label}</strong>
+        </div>
+        <div class="fortune-score" aria-label="운세 점수 ${score}점">
+          <span>${score}</span><small>점</small>
+        </div>
+      </div>
+      <p class="fortune-line">${escapeHtml(line)}</p>
+      <div class="fortune-lucky">
+        <div class="fortune-chip"><span class="fc-k">행운 메뉴</span><span class="fc-v">${food.emoji} ${escapeHtml(food.label)}</span></div>
+        <div class="fortune-chip"><span class="fc-k">행운 색</span><span class="fc-v">${escapeHtml(color)}</span></div>
+        <div class="fortune-chip"><span class="fc-k">행운 숫자</span><span class="fc-v">${number}</span></div>
+      </div>
+      <button type="button" class="fortune-cta" data-fortune-food="${escapeHtml(food.q)}">
+        🍀 오늘은 ${escapeHtml(food.label)} 먹으러 가기 →
+      </button>
+    </article>
+  `;
+}
+
 function setMeal(meal) {
   state.meal = meal;
   state.pickIndex = 0;
@@ -1506,6 +1600,21 @@ if (popularScrollEl) {
     render();
   });
 }
+
+// 오늘의 운세 "행운 메뉴 먹으러 가기" → 메뉴 탭으로 해당 카테고리 검색.
+const fortuneSectionEl = document.getElementById("fortuneSection");
+if (fortuneSectionEl) {
+  fortuneSectionEl.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-fortune-food]");
+    if (!btn) return;
+    state.searchQuery = btn.dataset.fortuneFood;
+    const menuSearch = document.getElementById("candidateSearch");
+    if (menuSearch) menuSearch.value = state.searchQuery;
+    navigateTo("menu");
+    render();
+  });
+}
+renderFortune();
 
 // ========== LUNCH COUNTDOWN ==========
 function updateLunchCountdown() {
