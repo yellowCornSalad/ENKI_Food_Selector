@@ -646,10 +646,13 @@ function renderCandidateDetail(item, expanded) {
 }
 
 function naverMapSearchUrl(name) {
-  const cleaned = String(name ?? "")
-    .replace(/[\[\]()]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  // 검색 키워드는 '실제 상호'를 앞세운다. "[가든파이브] 찜샤브(현대아울렛)" 를
+  // 통째로 넣으면 0건이 나오므로 → "찜샤브 가든파이브" 처럼 상호+위치로 만든다.
+  const raw = String(name ?? "");
+  const clean = cleanRestaurantName(raw);
+  const tag = nameLocationTag(raw);
+  const query = tag && !clean.includes(tag) ? `${clean} ${tag}` : clean;
+  const cleaned = query.replace(/[\[\]()]/g, " ").replace(/\s+/g, " ").trim();
   return `https://map.naver.com/p/search/${encodeURIComponent(cleaned)}`;
 }
 
