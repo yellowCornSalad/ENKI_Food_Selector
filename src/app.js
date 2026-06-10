@@ -1,4 +1,4 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260523-05";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260610-03";
 import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
