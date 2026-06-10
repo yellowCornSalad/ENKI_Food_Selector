@@ -486,6 +486,26 @@ function renderStatus(recommendations) {
   `;
 }
 
+// 표시용 식당 이름: "[가든파이브] 호두앤(현대아울렛)" → "호두앤" 으로 위치 태그를 떼낸다.
+function cleanRestaurantName(name) {
+  const cleaned = String(name ?? "")
+    .replace(/^\[[^\]]*\]\s*/, "") // [가든파이브] 접두어
+    .replace(/\s*\(현대아울렛\)\s*$/, "") // (현대아울렛) 접미어
+    .trim();
+  return cleaned || String(name ?? "");
+}
+// 이름 속 위치 태그만 뽑기: "[가든파이브] …" → "가든파이브"
+function nameLocationTag(name) {
+  const m = String(name ?? "").match(/^\[([^\]]+)\]/);
+  if (m) return m[1];
+  const m2 = String(name ?? "").match(/\(([^)]+)\)\s*$/);
+  return m2 ? m2[1] : "";
+}
+// 추천 카드 제목에 쓸 진짜 메뉴가 없는 경우 (placeholder fallback 값)
+function hasNoRealMenu(item) {
+  return !item.menu || item.menu === "메뉴 정보 없음" || item.menu === "추천 메뉴 확인 필요";
+}
+
 function renderTopPick(item) {
   const target = $("#topPick");
   if (!state.hasPicked || (needsManualChoices(state.mode) && state.gamePhase !== "done")) {
@@ -529,14 +549,19 @@ function renderTopPick(item) {
   target.classList.remove("is-miss", "is-again", "is-empty");
   const bestFor = item.bestFor ?? item.tags ?? [];
   const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
-  // Direct place URL when available, otherwise name search.
+  // Direct place URL when available, otherwise name search (검색은 원본 이름 사용).
   const mapUrl = item.naverPlaceUrl || naverMapSearchUrl(item.name);
+  // 메뉴 없으면 식당 이름을 제목으로, 아랫줄엔 위치 태그(가든파이브 등).
+  const cName = cleanRestaurantName(item.name);
+  const noMenu = hasNoRealMenu(item);
+  const heroTitle = noMenu ? cName : item.menu;
+  const heroName = noMenu ? nameLocationTag(item.name) || categoryText(item) : cName;
   target.innerHTML = `
     <div class="pick-meta">
       ${meta.map((text) => `<span>${text}</span>`).join("")}
     </div>
-    <h2>${escapeHtml(item.menu)}</h2>
-    <p class="restaurant-name">${escapeHtml(item.name)}</p>
+    <h2>${escapeHtml(heroTitle)}</h2>
+    <p class="restaurant-name">${escapeHtml(heroName)}</p>
     <p class="reason">${escapeHtml(item.reason)}</p>
     ${renderSuggestionList(item)}
     <div class="detail-grid">
@@ -556,11 +581,18 @@ function renderCandidate(item) {
   article.setAttribute("aria-expanded", expanded ? "true" : "false");
   const rating = ratingText(item);
   const chevron = `<span class="candidate-chevron" aria-hidden="true">▾</span>`;
+  // 메뉴 없으면 깔끔한 식당 이름을 제목으로 (가든파이브 호두앤 등), 부제는 위치·카테고리.
+  const cName = cleanRestaurantName(item.name);
+  const noMenu = hasNoRealMenu(item);
+  const cardTitle = noMenu ? cName : item.menu;
+  const cardSub = noMenu
+    ? [nameLocationTag(item.name), categoryText(item)].filter(Boolean).join(" · ")
+    : `${cName} · ${categoryText(item)}`;
   article.innerHTML = `
     <div class="candidate-head">
       <div>
-        <h3>${item.menu}</h3>
-        <p>${item.name} · ${categoryText(item)}</p>
+        <h3>${escapeHtml(cardTitle)}</h3>
+        <p>${escapeHtml(cardSub)}</p>
       </div>
       <div class="candidate-side">
         <span>${item.distanceM}m</span>
