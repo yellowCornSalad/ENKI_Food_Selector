@@ -62,7 +62,7 @@
 ## 기술 스택
 
 - **Vanilla JS modules** — 빌드 없는 정적 SPA
-- **GitHub Pages** + Actions 자동 배포
+- **Vercel** — private 레포 자동 배포 (main push 시)
 - **matter.js** — 핀볼 물리 시뮬레이션
 - **CARTO Dark Basemap** — 홈 hero 지도
 - **Open-Meteo** — 문정동 실시간 날씨
@@ -81,7 +81,7 @@ data/restaurants.json       식권대장 + Naver 통합 데이터
 assets/map-tiles/           CARTO Dark 지도 타일 (문정역 3×3)
 assets/screenshots/         README용 캡처
 scripts/                    데이터 풍부화 / 크롤링 / 캡처
-.github/workflows/pages.yml GitHub Pages 자동 배포
+vercel.json                 Vercel 정적 배포 설정
 ```
 
 ## 브랜치 / 태그
