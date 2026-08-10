@@ -1,15 +1,15 @@
 # 🍱 엔키 — 오늘 뭐 먹지
 
 <p align="center">
-  <a href="https://yellowcornsalad.github.io/ENKI_Food_Selector/">
+  <a href="https://yellowcornsalad.github.io/food/">
     <img src="https://img.shields.io/badge/🍱_엔키_뭐먹지_바로가기-1e1b4b?style=for-the-badge&logoColor=fbbf24" alt="ENKI 오늘 뭐 먹지 — 사이트 열기" />
   </a>
   &nbsp;
-  <a href="https://yellowcornsalad.github.io/ENKI_Food_Selector/#/menu">
+  <a href="https://yellowcornsalad.github.io/food/#/menu">
     <img src="https://img.shields.io/badge/메뉴_탭_바로가기-4338ca?style=for-the-badge" alt="메뉴 탭" />
   </a>
   &nbsp;
-  <a href="https://yellowcornsalad.github.io/ENKI_Food_Selector/#/deal">
+  <a href="https://yellowcornsalad.github.io/food/#/deal">
     <img src="https://img.shields.io/badge/엔키_거래_바로가기-ff6f0f?style=for-the-badge" alt="엔키 거래" />
   </a>
 </p>
@@ -21,7 +21,7 @@
   <img src="./assets/screenshots/home.png" alt="ENKI 오늘 뭐 먹지 — 홈 화면" width="340" />
 </p>
 
-> 🌐 **라이브 사이트** · <https://yellowcornsalad.github.io/ENKI_Food_Selector/>
+> 🌐 **라이브 사이트** · <https://yellowcornsalad.github.io/food/>
 > 📱 모바일에서 보기 좋게 만들어졌어요. PC에서 열면 가운데 정렬됨
 
 ---
@@ -62,7 +62,7 @@
 ## 기술 스택
 
 - **Vanilla JS modules** — 빌드 없는 정적 SPA
-- **Vercel** — private 레포 자동 배포 (main push 시)
+- **GitHub Pages** + Actions 자동 배포
 - **matter.js** — 핀볼 물리 시뮬레이션
 - **CARTO Dark Basemap** — 홈 hero 지도
 - **Open-Meteo** — 문정동 실시간 날씨
@@ -81,7 +81,7 @@ data/restaurants.json       식권대장 + Naver 통합 데이터
 assets/map-tiles/           CARTO Dark 지도 타일 (문정역 3×3)
 assets/screenshots/         README용 캡처
 scripts/                    데이터 풍부화 / 크롤링 / 캡처
-vercel.json                 Vercel 정적 배포 설정
+.github/workflows/pages.yml GitHub Pages 자동 배포
 ```
 
 ## 브랜치 / 태그
