@@ -1704,7 +1704,24 @@ button:not(:disabled):active,
 }
 
 .my-card .my-ico {
-  font-size: 26px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-md);
+  background: var(--accent-tint);
+  color: var(--accent-strong);
+  margin-bottom: 4px;
+}
+
+.my-card .my-ico svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .my-card strong {
@@ -1744,7 +1761,9 @@ button:not(:disabled):active,
 /* ========== DEAL TAB (Carrot tone) ========== */
 .deal-hero {
   padding: 28px 22px 18px;
-  background: linear-gradient(170deg, #ff8a3d 0%, #ff6f0f 55%, #e55a00 100%);
+  background:
+    radial-gradient(110% 90% at 110% -10%, rgba(99, 102, 241, 0.32) 0%, transparent 55%),
+    linear-gradient(170deg, #1e1b4b 0%, #312e81 55%, #1e1b4b 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -1754,9 +1773,7 @@ button:not(:disabled):active,
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(75% 55% at 110% -10%, rgba(255, 235, 130, 0.45), transparent 60%),
-    radial-gradient(70% 60% at -20% 110%, rgba(255, 255, 255, 0.18), transparent 60%);
+  background: radial-gradient(75% 55% at 110% -10%, rgba(251, 191, 36, 0.14), transparent 60%);
   pointer-events: none;
 }
 
@@ -1792,12 +1809,12 @@ button:not(:disabled):active,
   height: 50px;
   border: 0;
   border-radius: 50%;
-  background: #ffffff;
-  color: #ff6f0f;
+  background: #fbbf24;
+  color: #1e1b4b;
   font-size: 26px;
   font-weight: 800;
   line-height: 1;
-  box-shadow: 0 10px 22px rgba(176, 64, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
   cursor: pointer;
 }
 
@@ -1854,9 +1871,9 @@ button:not(:disabled):active,
 
 .deal-chip.is-active {
   background: #ffffff;
-  color: #ff6f0f;
+  color: #1e1b4b;
   border-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(160, 50, 0, 0.22);
+
 }
 
 .deal-grid {
@@ -1883,27 +1900,27 @@ button:not(:disabled):active,
   display: grid;
   place-items: center;
   font-size: 44px;
-  background: linear-gradient(135deg, #94a3b8, #475569);
+  background: var(--surface-sunken);
 }
 
 .deal-thumb.is-tech {
-  background: linear-gradient(135deg, #6366f1, #2563eb);
+  background: var(--accent-tint);
 }
 
 .deal-thumb.is-life {
-  background: linear-gradient(135deg, #fb923c, #f97316);
+  background: #fef7ec;
 }
 
 .deal-thumb.is-coffee {
-  background: linear-gradient(135deg, #92400e, #78350f);
+  background: #f3ede7;
 }
 
 .deal-thumb.is-book {
-  background: linear-gradient(135deg, #14b8a6, #4338ca);
+  background: #e7f6f4;
 }
 
 .deal-thumb.is-free {
-  background: linear-gradient(135deg, #ec4899, #be185d);
+  background: #fdf0f6;
 }
 
 .deal-status {
@@ -1952,7 +1969,7 @@ button:not(:disabled):active,
 .deal-card strong {
   font-size: 15px;
   font-weight: 700;
-  color: #ff6f0f;
+  color: var(--text);
 }
 
 .deal-card small {
@@ -2262,10 +2279,10 @@ h1 {
   min-height: 64px;
   margin-top: 10px;
   padding: 12px;
-  border: 1px dashed rgba(67, 56, 202, 0.28);
+  border: 0;
   border-radius: var(--r-md);
-  background: rgba(255, 253, 248, 0.68);
-  color: #50615d;
+  background: var(--surface-sunken);
+  color: var(--text-2);
   font-size: 13px;
   overflow: hidden;
 }
@@ -3963,7 +3980,7 @@ body.modal-open {
   color: var(--text);
 }
 .chat-avatar.is-deal {
-  background: linear-gradient(135deg, #ff6f0f, #f97316);
+  background: linear-gradient(135deg, #f59e0b, #d97706);
 }
 .chat-avatar.is-system {
   background: linear-gradient(135deg, #475569, #1e293b);
@@ -4533,11 +4550,11 @@ body.modal-open {
   box-shadow: 0 8px 20px rgba(30, 27, 75, 0.1);
 }
 .board-card.is-pinned {
-  background: linear-gradient(135deg, #fff7ed, #ffffff);
-  border: 1px solid rgba(251, 191, 36, 0.3);
+  background: #fffdf5;
+  border: 1px solid #fde68a;
 }
 .board-card.is-mine {
-  background: linear-gradient(135deg, #eef2ff, #ffffff);
+  background: #f7f8ff;
   border: 1px solid rgba(99, 102, 241, 0.25);
 }
 
@@ -4615,7 +4632,7 @@ body.modal-open {
   place-items: center;
 }
 .post-author-mini .post-avatar-mini.is-anon {
-  background: linear-gradient(135deg, #94a3b8, #475569);
+  background: var(--surface-sunken);
 }
 .post-author-mini strong {
   color: var(--text-2);
@@ -4702,7 +4719,7 @@ body.modal-open {
   font-weight: 700;
 }
 .post-detail-author .post-avatar.is-anon {
-  background: linear-gradient(135deg, #94a3b8, #475569);
+  background: var(--surface-sunken);
 }
 .post-detail-author > div {
   display: flex;
