@@ -2312,6 +2312,19 @@ h1 {
   box-shadow: 0 18px 34px rgba(30, 27, 75, 0.24);
 }
 
+/* 결과가 새로 뜰 때 시선을 끄는 pop 강조 (scrollResultIntoView) */
+.hero-card.is-flash {
+  animation: result-flash 0.75s cubic-bezier(0.32, 0.72, 0, 1);
+}
+@keyframes result-flash {
+  0% { transform: scale(0.985); }
+  35% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-card.is-flash { animation: none; }
+}
+
 .hero-card.is-idle {
   background: #fffdf8;
   color: #17211f;
