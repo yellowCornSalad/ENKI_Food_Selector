@@ -9,7 +9,8 @@
     "이 데이터는 data 폴더의 KakaoTalk_20260522 식권대장 앱 캡처 화면에서 판독한 가맹점 목록이다.",
     "기존 수동 후보 식당은 모두 제거했고, 캡처에서 확인된 항목만 sikgwonStatus=confirmed로 등록했다.",
     "캡처에 개별 메뉴 정보가 없어서 추천 메뉴명은 임시로 업체명과 동일하게 두었다.",
-    "영업시간은 일부 캡처에 보이는 정보만 원천에 있으며, 현재 정적 데이터에는 점심/저녁 모두 후보로 노출한다."
+    "영업시간은 일부 캡처에 보이는 정보만 원천에 있으며, 현재 정적 데이터에는 점심/저녁 모두 후보로 노출한다.",
+    "2026-08-12 메뉴 큐레이션: 변동 잦은 프랜차이즈(맘스터치·버거킹·KFC·롯데리아·노브랜드버거·써브웨이·명랑핫도그)는 시그니처 메뉴명만 유지(menuSource=curated, 가격 미표기). 행사/한정/중복/비식품 항목 전 가게 필터. 편의점은 상품 목록 대신 간편식 안내."
   ],
   "restaurants": [
     {
@@ -605,53 +606,65 @@
       "menus": {
         "lunch": [
           {
-            "name": "핫크리스피통다리 변동",
+            "name": "징거버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "핫크리스피치킨 변동",
+            "name": "타워버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "징거타워 변동",
+            "name": "핫크리스피치킨 2조각",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "징거 변동",
+            "name": "텐더 3조각",
             "tags": [
-              "quick"
+              "western"
+            ]
+          },
+          {
+            "name": "코울슬로",
+            "tags": [
+              "western"
             ]
           }
         ],
         "dinner": [
           {
-            "name": "핫크리스피통다리 변동",
+            "name": "징거버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "핫크리스피치킨 변동",
+            "name": "타워버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "징거타워 변동",
+            "name": "핫크리스피치킨 2조각",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "징거 변동",
+            "name": "텐더 3조각",
             "tags": [
-              "quick"
+              "western"
+            ]
+          },
+          {
+            "name": "코울슬로",
+            "tags": [
+              "western"
             ]
           }
         ]
@@ -662,33 +675,40 @@
       "naverMenus": [
         {
           "description": "",
-          "name": "핫크리스피통다리",
-          "price": 0,
-          "priceText": "변동"
+          "name": "징거버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
           "description": "",
-          "name": "핫크리스피치킨",
-          "price": 0,
-          "priceText": "변동"
+          "name": "타워버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
           "description": "",
-          "name": "징거타워",
-          "price": 0,
-          "priceText": "변동"
+          "name": "핫크리스피치킨 2조각",
+          "price": null,
+          "priceText": ""
         },
         {
           "description": "",
-          "name": "징거",
-          "price": 0,
-          "priceText": "변동"
+          "name": "텐더 3조각",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "",
+          "name": "코울슬로",
+          "price": null,
+          "priceText": ""
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1784725931/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 589,
       "naverBlogReviewCount": 48,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-005",
@@ -1249,28 +1269,10 @@
           "priceText": "11,500원"
         },
         {
-          "description": "바스버거(소고기 패티, 리얼 체다, 하우스 소스, 버터헤드 레터스, 양파, 토마토) + 프라이즈 + 음료(컵 제공)",
-          "name": "바스버거 세트",
-          "price": 12400,
-          "priceText": "12,400원"
-        },
-        {
-          "description": "하와이안버거(소고기 패티, 리얼 체다, 하우스 소스, 버터헤드 레터스, 저염 베이컨, 파인애플 슬라이스x2) + 프라이즈 + 음료(컵 제공)",
-          "name": "(인기)하와이안버거 세트",
-          "price": 14400,
-          "priceText": "14,400원"
-        },
-        {
           "description": "와사비마요 쉬림프버거(와사비소스, 버터헤드 레터스, 양파, 토마토, 어니언링, 데리야끼소스, 그릴드 쉬림프, 홀그레인마요소스) + 프라이즈 + 음료(컵 제공)",
           "name": "와사비마요 쉬림프버거 세트",
           "price": 15600,
           "priceText": "15,600원"
-        },
-        {
-          "description": "더블베이컨치즈버거(소고기 패티x2, 리얼 체다x2, 하우스 소스, 저염 베이컨, 케찹) + 프라이즈 + 음료(컵 제공)",
-          "name": "(인기)더블베이컨치즈버거 세트",
-          "price": 16100,
-          "priceText": "16,100원"
         },
         {
           "description": "매콤달콤한 소스의 치킨 윙",
@@ -3899,12 +3901,6 @@
         },
         {
           "description": "",
-          "name": "플레인그릭요거트",
-          "price": 3500,
-          "priceText": "3,500원"
-        },
-        {
-          "description": "",
           "name": "망고드링킹요거트",
           "price": 3500,
           "priceText": "3,500원"
@@ -4993,101 +4989,65 @@
       "menus": {
         "lunch": [
           {
-            "name": "(행사)핫치즈밤치킨(순살) 17,200원",
+            "name": "싸이버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "한라봉싸이버거 세트 9,700원",
+            "name": "딥치즈버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "당근빵(2조각) 3,600원",
+            "name": "휠렛버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "붐팔라 핫치즈밤 싱글세트 23,400원",
+            "name": "텐더 4조각",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "붐팔라 핫치즈밤 비프커플세트 32,000원",
+            "name": "케이준 양념감자",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "(행사)핫치즈밤치킨(순살) 17,200원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "당근빵(2조각) 3,600원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "한라봉싸이버거 세트 9,700원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ],
         "dinner": [
           {
-            "name": "(행사)핫치즈밤치킨(순살) 17,200원",
+            "name": "싸이버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "한라봉싸이버거 세트 9,700원",
+            "name": "딥치즈버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "당근빵(2조각) 3,600원",
+            "name": "휠렛버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "붐팔라 핫치즈밤 싱글세트 23,400원",
+            "name": "텐더 4조각",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "붐팔라 핫치즈밤 비프커플세트 32,000원",
+            "name": "케이준 양념감자",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "(행사)핫치즈밤치킨(순살) 17,200원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "당근빵(2조각) 3,600원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "한라봉싸이버거 세트 9,700원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ]
@@ -5099,189 +5059,40 @@
       "naverBlogReviewCount": 65,
       "naverMenus": [
         {
-          "description": "핫치즈치킨(순살)+치즈밤",
-          "name": "(행사)핫치즈밤치킨(순살)",
-          "price": 17200,
-          "priceText": "17,200원"
+          "description": "",
+          "name": "싸이버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "한라봉싸이버거 단품 + 케이준양념감자(중) + 콜라",
-          "name": "한라봉싸이버거 세트",
-          "price": 9700,
-          "priceText": "9,700원"
+          "description": "",
+          "name": "딥치즈버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "'진짜 당근' 비주얼 속에 달콤고소한 당근크림치즈가 가득 들어있는 당근빵 (잎사귀는 제품연출을 위한 데코픽으로, 제거 후 드시기 바랍니다.)",
-          "name": "당근빵(2조각)",
-          "price": 3600,
-          "priceText": "3,600원"
+          "description": "",
+          "name": "휠렛버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "르세라핌셀피포토1+핫치즈밤(빅싸이순살)1+버거1+콜라1",
-          "name": "붐팔라 핫치즈밤 싱글세트",
-          "price": 23400,
-          "priceText": "23,400원"
+          "description": "",
+          "name": "텐더 4조각",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "르세라핌셀피포토1+핫치즈밤(빅싸이순살)1+비프스테이크버거1+버거1+콜라2+케이준양념감자(중)1",
-          "name": "붐팔라 핫치즈밤 비프커플세트",
-          "price": 32000,
-          "priceText": "32,000원"
-        },
-        {
-          "description": "핫치즈치킨(순살)+치즈밤",
-          "name": "(행사)핫치즈밤치킨(순살)",
-          "price": 17200,
-          "priceText": "17,200원"
-        },
-        {
-          "description": "'진짜 당근' 비주얼 속에 달콤고소한 당근크림치즈가 가득 들어있는 당근빵 (잎사귀는 제품연출을 위한 데코픽으로, 제거 후 드시기 바랍니다.)",
-          "name": "당근빵(2조각)",
-          "price": 3600,
-          "priceText": "3,600원"
-        },
-        {
-          "description": "한라봉싸이버거 단품 + 케이준양념감자(중) + 콜라",
-          "name": "한라봉싸이버거 세트",
-          "price": 9700,
-          "priceText": "9,700원"
-        },
-        {
-          "description": "싸이버거에 제주산 한라봉 소스가 어우러져, 끝 맛까지 산뜻하고 깔끔하게 느낄 수 있는 버거",
-          "name": "한라봉싸이버거 단품",
-          "price": 6700,
-          "priceText": "6,700원"
-        },
-        {
-          "description": "매직풍싸이버거 단품+케이준양념감자(중)+콜라",
-          "name": "매직풍싸이버거 세트",
-          "price": 11200,
-          "priceText": "11,200원"
-        },
-        {
-          "description": "비프스테이크버거단품+케이준양념감자(중)+콜라",
-          "name": "(비프)비프스테이크버거 세트",
-          "price": 10500,
-          "priceText": "10,500원"
-        },
-        {
-          "description": "그릴드비프버거단품+케이준양념감자(중)+콜라",
-          "name": "(비프)그릴드비프버거 세트",
-          "price": 9400,
-          "priceText": "9,400원"
-        },
-        {
-          "description": "그릴드더블비프버거단품+케이준양념감자(중)+콜라",
-          "name": "(더블)그릴드더블비프버거 세트",
-          "price": 13300,
-          "priceText": "13,300원"
-        },
-        {
-          "description": "시그니처불고기버거단품 + 케이준양념감자(중) + 콜라",
-          "name": "시그니처불고기버거 세트",
-          "price": 9300,
-          "priceText": "9,300원"
-        },
-        {
-          "description": "언빌리버블버거단품+케이준양념감자(중)+콜라",
-          "name": "언빌리버블버거 세트",
-          "price": 10500,
-          "priceText": "10,500원"
-        },
-        {
-          "description": "두툼한 비프패티에서 느껴지는 육즙, 그리고 스테이크맛 소스의 달콤함으로 완성되는 극대화된 풍미",
-          "name": "(비프)비프스테이크버거 단품",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "두툼한 호주산 100% 와규 패티에 고소하고 부드러운 체다 치즈가 조화를 이룬 맘스터치 시그니처 비프버거",
-          "name": "(비프)그릴드비프버거 단품",
-          "price": 6400,
-          "priceText": "6,400원"
-        },
-        {
-          "description": "두툼한 호주산 100% 와규 패티 2장이 있어 고기러버들이 강력히 추천하고, 진정한 비프버거 맛을 느낄 수 있는 버거 맛도, 양도 더블",
-          "name": "(더블)그릴드더블비프버거 단품",
-          "price": 10300,
-          "priceText": "10,300원"
-        },
-        {
-          "description": "시그니처불고기버거 단품",
-          "name": "시그니처불고기버거 단품",
-          "price": 6300,
-          "priceText": "6,300원"
-        },
-        {
-          "description": "통새우, 에그프라이, 부드러운 통가슴살에 매콤한 스리라차마요소스를 더한 환상적인 조합의 대확행 버거",
-          "name": "언빌리버블버거 단품",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "매운 핫소스와 부드러운 치즈소스의 중독성 강한 맛으로 즐길 수 있는 치킨",
-          "name": "핫치즈치킨(순살)",
-          "price": 16200,
-          "priceText": "16,200원"
-        },
-        {
-          "description": "크런치마늘토핑과 크리미갈릭소스의 더블 임팩트",
-          "name": "골든갈릭치킨(순살)",
-          "price": 16200,
-          "priceText": "16,200원"
-        },
-        {
-          "description": "부드러운 크림치즈와 디종 머스터드를 조합해 만든 소스에 아삭한 양파가 더해져 무겁지 않고 상큼하게 즐길 수 있는 치킨",
-          "name": "셰프스 크림디종치킨(순살)",
-          "price": 16600,
-          "priceText": "16,600원"
-        },
-        {
-          "description": "진한 버번 소스의 맛과 풍미를 넘치게 즐길 수 있는 치킨 (땅콩토핑 제외 시 요청란에 별도 기입해주세요.)",
-          "name": "셰프스 버번치킨(순살)",
-          "price": 16600,
-          "priceText": "16,600원"
-        },
-        {
-          "description": "싸이버거 스타일 케이준 양념레시피로 더 바삭하고 스파이시한 핫크리스피 치킨",
-          "name": "후라이드치킨(순살)",
-          "price": 13600,
-          "priceText": "13,600원"
-        },
-        {
-          "description": "핫치즈치킨(뼈)+치즈밤",
-          "name": "핫치즈밤치킨(뼈)",
-          "price": 13900,
-          "priceText": "13,900원"
-        },
-        {
-          "description": "달콤한 파인애플 소스에 고소한 코코넛플레이크를 더해 풍성한 맛과 식감, 매콤한 삼발 디핑 소스에 찍어 즐기는 치킨",
-          "name": "매직풍치킨(뼈)",
-          "price": 13400,
-          "priceText": "13,400원"
-        },
-        {
-          "description": "궁극의 맵.단.짠.신 어향소스로 오감을 만족시키는 중화풍 치킨",
-          "name": "후덕죽치킨(뼈)",
-          "price": 13400,
-          "priceText": "13,400원"
-        },
-        {
-          "description": "매운 핫소스와 부드러운 치즈소스의 중독성 강한 맛으로 즐길 수 있는 치킨",
-          "name": "핫치즈치킨(뼈)",
-          "price": 13400,
-          "priceText": "13,400원"
-        },
-        {
-          "description": "크런치마늘토핑과 크리미갈릭소스의 더블 임팩트",
-          "name": "골든갈릭치킨(뼈)",
-          "price": 13400,
-          "priceText": "13,400원"
+          "description": "",
+          "name": "케이준 양념감자",
+          "price": null,
+          "priceText": ""
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1629721956/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverMenuUpdatedAt": "2026-05-22",
-      "naverRating": 4.34
+      "naverRating": 4.34,
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-025",
@@ -5814,12 +5625,6 @@
       "naverVisitorReviewCount": 402,
       "naverBlogReviewCount": 59,
       "naverMenus": [
-        {
-          "description": "물밀면 or 비빔밀면\n    +\n왕만두 or 편육 중",
-          "name": "★만원의 행복 이벤트★",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
         {
           "description": "국내산 우사골 돈골로 진하게 우려낸 육수와 얇게 썰어진 살코기가 들어간 영양국밥입니다.",
           "name": "아지매국밥",
@@ -6602,12 +6407,6 @@
           "priceText": "21,700원"
         },
         {
-          "description": "특제 소스로 12시간 저온 숙성한 소곱창과 부드러운 육즙의 스테이크(사이즈별 가격 다름)",
-          "name": "곱창 스테이크(한정메뉴)",
-          "price": 22700,
-          "priceText": "22,700원"
-        },
-        {
           "description": "부드러운 육즙의 숙성 스테이크와 특제 단짠 소스로 만든 스테이크 덮밥",
           "name": "큐브 스테이크 덮밥",
           "price": 12800,
@@ -6684,12 +6483,6 @@
           "name": "찹쌀치즈볼",
           "price": 4900,
           "priceText": "4,900원"
-        },
-        {
-          "description": "열다섯번의 조리 과정을 거쳐, 반숙 계란을 다진고기로 감싸 튀겨낸 강추 미도인 한정메뉴",
-          "name": "미도인 스카치 에그 (한정메뉴)",
-          "price": 5500,
-          "priceText": "5,500원"
         },
         {
           "description": "쉐프의 한땀한땀 정성으로 껍질을 벗겨 만든 마리네이드 방울토마토와 스테이크를 올린 샐러드",
@@ -6844,12 +6637,6 @@
           "priceText": "13,500원"
         },
         {
-          "description": "1000원할인 100%자연산 모짜렐라치즈카츠와 도톰한통한돈안심을 같이 즐겨보세요",
-          "name": "[+매장인기1위+]NEW콤보카츠(치즈+특히레)(1인분)",
-          "price": 15500,
-          "priceText": "15,500원"
-        },
-        {
           "description": "미니아닌 큰 알밥이며 사이드카츠 및 면은 추가선택 신선한 토핑과 무색소 알만 사용하여 특제간장소스와 고소한 참기름을 더해 쓰삭 비벼 먹으면 꿀맛",
           "name": "황금날치알밥[진심한그릇]",
           "price": 9800,
@@ -6868,12 +6655,6 @@
           "priceText": "13,800원"
         },
         {
-          "description": "한그릇 할인메뉴 돈카츠2장(200g이상혼밥든든)+샐러드+3종소스(돈까스+생와사비+히말라야소금)+흑미밥+반찬2종",
-          "name": "[NEW]하루돈카츠도시락(1~2인분)",
-          "price": 15000,
-          "priceText": "15,000원"
-        },
-        {
           "description": "한돈 생안심만을 사용합니다. 한정특가 생와사비와 히말라야소금을 같이 꼭 드셔보세요",
           "name": "[겉바속촉]특히레카츠(컷팅6P)",
           "price": 13500,
@@ -6884,12 +6665,6 @@
           "name": "[겉바속촉]특히레카츠(미컷팅4P)",
           "price": 15800,
           "priceText": "15,800원"
-        },
-        {
-          "description": "1000원할인 100%자연산 모짜렐라치즈카츠와 도톰한통한돈안심을 같이 즐겨보세요",
-          "name": "[+매장인기1위+]NEW콤보카츠(치즈+특히레)(1인분)",
-          "price": 15500,
-          "priceText": "15,500원"
         },
         {
           "description": "100%자연산모짜렐라치즈 수제카츠 200%만족해요",
@@ -6920,18 +6695,6 @@
           "name": "[뚝백조리]김치나베우동짬뽕",
           "price": 12500,
           "priceText": "12,500원"
-        },
-        {
-          "description": "신선한 야채6종과 특제소스로 맛을낸 칼칼하고 찐한 국물 + 로스1/2카츠 + 밥(1/2공기) +반찬 스노우치즈 또는 우동면 옵션 추가가능",
-          "name": "[뚝백조리]김치카츠나베",
-          "price": 13500,
-          "priceText": "13,500원"
-        },
-        {
-          "description": "미니아닌 큰 알밥이며 사이드카츠 및 면은 추가선택 신선한 토핑과 무색소 알만 사용하여 특제간장소스와 고소한 참기름을 더해 쓰삭 비벼 먹으면 꿀맛",
-          "name": "황금날치알밥[진심한그릇]",
-          "price": 9800,
-          "priceText": "9,800원"
         },
         {
           "description": "미니카츠1+치킨2+중새우2 면은 추가선택가능 왕새우1로 대체될 수 있음",
@@ -10544,30 +10307,6 @@
           "priceText": "7,000원"
         },
         {
-          "description": "패티, 치즈, 수제번, 토마토, 구운양파, 상추, 수제기본소스, 와사비 또는 홀그레인소스",
-          "name": "포온스버거",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "[매콤해요][생야채없어요] 포온스 패티, 치즈x2, 수제번, 수제베이컨, 구운양파, 수제기본소스, 핫윙소스",
-          "name": "베이컨 치즈 버거(Bacon Cheese)",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "클래식 패티, 치즈, 수제번, 구운파인애플, 수제베이컨, 구운양파, 상추, 수제기본소스",
-          "name": "하와이언 버거(Hawaiian)",
-          "price": 8000,
-          "priceText": "8,000원"
-        },
-        {
-          "description": "클래식 패티, 치즈, 수제번, 구운마늘, 토마토, 상추, 수제기본소스, 마늘소스",
-          "name": "마늘 버거(Garlic)",
-          "price": 8000,
-          "priceText": "8,000원"
-        },
-        {
           "description": "(2인분) 두툼해서 식감도 좋고 맛도 좋습니다.",
           "name": "프렌치 프라이즈",
           "price": 4500,
@@ -11264,101 +11003,65 @@
       "menus": {
         "lunch": [
           {
-            "name": "오리지널스 엘파소 치폴레 12,000원",
+            "name": "와퍼 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "오리지널스 뉴욕 스테이크 12,000원",
+            "name": "치즈와퍼 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "스모크 비프립 와퍼 10,600원",
+            "name": "콰트로치즈와퍼 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "스모크 베이컨 와퍼 10,600원",
+            "name": "비프&슈림프버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "스모크 비프립 샌드위치 버거 10,600원",
+            "name": "너겟킹 10조각",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "오리지널스 엘파소 치폴레 12,000원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "오리지널스 엘파소 치폴레 세트 14,700원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "스모크 비프립 와퍼 10,600원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ],
         "dinner": [
           {
-            "name": "오리지널스 엘파소 치폴레 12,000원",
+            "name": "와퍼 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "오리지널스 뉴욕 스테이크 12,000원",
+            "name": "치즈와퍼 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "스모크 비프립 와퍼 10,600원",
+            "name": "콰트로치즈와퍼 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "스모크 베이컨 와퍼 10,600원",
+            "name": "비프&슈림프버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "스모크 비프립 샌드위치 버거 10,600원",
+            "name": "너겟킹 10조각",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "오리지널스 엘파소 치폴레 12,000원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "오리지널스 엘파소 치폴레 세트 14,700원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "스모크 비프립 와퍼 10,600원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ]
@@ -11370,189 +11073,40 @@
       "naverBlogReviewCount": 84,
       "naverMenus": [
         {
-          "description": "150g 패티에 스모키한 풍미의 치폴레와 할라피뇨가 만난 엘파소의 풍미",
-          "name": "오리지널스 엘파소 치폴레",
-          "price": 12000,
-          "priceText": "12,000원"
+          "description": "",
+          "name": "와퍼 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "150g 패티에 뉴욕스테이크 소스와 몬테레이잭 치즈를 더한 정통 미국 스타일",
-          "name": "오리지널스 뉴욕 스테이크",
-          "price": 12000,
-          "priceText": "12,000원"
+          "description": "",
+          "name": "치즈와퍼 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "유용욱 바베큐를 버거킹에서",
-          "name": "스모크 비프립 와퍼",
-          "price": 10600,
-          "priceText": "10,600원"
-        },
-        {
-          "description": "유용욱 바베큐를 버거킹에서",
-          "name": "스모크 베이컨 와퍼",
-          "price": 10600,
-          "priceText": "10,600원"
-        },
-        {
-          "description": "유용욱 바베큐를 버거킹에서",
-          "name": "스모크 비프립 샌드위치 버거",
-          "price": 10600,
-          "priceText": "10,600원"
-        },
-        {
-          "description": "150g 패티에 스모키한 풍미의 치폴레와 할라피뇨가 만난 엘파소의 풍미",
-          "name": "오리지널스 엘파소 치폴레",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "오리지널스 엘파소 치폴레+프렌치프라이R+콜라R",
-          "name": "오리지널스 엘파소 치폴레 세트",
-          "price": 14700,
-          "priceText": "14,700원"
-        },
-        {
-          "description": "유용욱 바베큐를 버거킹에서",
-          "name": "스모크 비프립 와퍼",
-          "price": 10600,
-          "priceText": "10,600원"
-        },
-        {
-          "description": "스모크 비프립 와퍼+프렌치프라이R+콜라R",
-          "name": "스모크 비프립 와퍼 세트",
-          "price": 13300,
-          "priceText": "13,300원"
-        },
-        {
-          "description": "유용욱 바베큐를 버거킹에서",
-          "name": "스모크 베이컨 와퍼",
-          "price": 10600,
-          "priceText": "10,600원"
-        },
-        {
-          "description": "더오치 맥시멈2+프렌치프라이R+콜라R",
-          "name": "더오치 맥시멈2 세트",
-          "price": 14500,
-          "priceText": "14,500원"
-        },
-        {
-          "description": "풍미 가득한 아메리칸 클래식의 완벽한 조화",
-          "name": "베이컨치즈와퍼 세트",
-          "price": 12900,
-          "priceText": "12,900원"
-        },
-        {
-          "description": "디아블로 소스의 매콤함, 불에 직접 구운 100% 순쇠고기 패티와 치킨패티까지 압도적 크기의 몬스터와퍼",
-          "name": "몬스터와퍼 세트",
-          "price": 12800,
-          "priceText": "12,800원"
-        },
-        {
-          "description": "콰트로치즈와퍼+프렌치프라이R+콜라R",
+          "description": "",
           "name": "콰트로치즈와퍼 세트",
-          "price": 11900,
-          "priceText": "11,900원"
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "입안에서 톡톡 터지는 통새우가 매콤한 스파이시 토마토소스와 100% 순쇠고기 패티를 만나 완성한 통새우와퍼",
-          "name": "통새우와퍼세트",
-          "price": 11900,
-          "priceText": "11,900원"
+          "description": "",
+          "name": "비프&슈림프버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "순 쇠고기 패티에 치킨 패티를 더해 든든함이 두 배",
-          "name": "몬스터 주니어 세트",
-          "price": 8400,
-          "priceText": "8,400원"
-        },
-        {
-          "description": "불맛 가득 순쇠고기, 탱글한 통새우, 매콤한 스파이시토마토소스가 더해진 통새우와퍼주니어",
-          "name": "통새우와퍼주니어세트",
-          "price": 9300,
-          "priceText": "9,300원"
-        },
-        {
-          "description": "네가지 고품격 치즈와 100% 순쇠고기 패티의 만남, 작지만 꽉 찬 콰트로치즈와퍼주니어",
-          "name": "콰트로치즈와퍼주니어세트",
-          "price": 9300,
-          "priceText": "9,300원"
-        },
-        {
-          "description": "불에 직접 구운 100% 순쇠고기 패티에 고소한 치즈까지, 치즈와퍼주니어",
-          "name": "치즈와퍼주니어세트",
-          "price": 9000,
-          "priceText": "9,000원"
-        },
-        {
-          "description": "불에 직접 구운 100% 순쇠고기 패티가 들어 작지만 꽉 찼다. 와퍼주니어",
-          "name": "와퍼주니어세트",
-          "price": 8700,
-          "priceText": "8,700원"
-        },
-        {
-          "description": "달콤한 불고기 소스에 더블 패티로 더욱 깊어진 감칠맛",
-          "name": "더블비프불고기버거 세트",
-          "price": 8500,
-          "priceText": "8,500원"
-        },
-        {
-          "description": "스파이시한 통닭다리살과 고소한 브리오쉬번이 만나 더 풍부해진 프리미엄 치킨버거",
-          "name": "치킨킹 세트",
-          "price": 10500,
-          "priceText": "10,500원"
-        },
-        {
-          "description": "스파이시한 통닭다리살과 프리미엄 치킨버거에 베이컨, 양상추, 토마토를 더했다",
-          "name": "치킨킹BLT 세트",
-          "price": 11500,
-          "priceText": "11,500원"
-        },
-        {
-          "description": "불고기소스와 불맛 가득 100% 순쇠고기 패티의 감칠맛 나는 조화",
-          "name": "비프불고기버거 세트",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "통통한 통새우에 새콤달콤 소스 듬뿍",
-          "name": "통새우 슈림프버거 세트",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
-          "description": "맥시멈에 도전하라",
-          "name": "더오치 맥시멈2",
-          "price": 11800,
-          "priceText": "11,800원"
-        },
-        {
-          "description": "디아블로 소스의 매콤함, 불에 직접 구운 100% 순쇠고기 패티와 치킨패티까지 압도적 크기의 몬스터와퍼",
-          "name": "몬스터와퍼",
-          "price": 10600,
-          "priceText": "10,600원"
-        },
-        {
-          "description": "풍미 가득한 아메리칸 클래식의 완벽한 조화",
-          "name": "베이컨치즈와퍼",
-          "price": 10200,
-          "priceText": "10,200원"
-        },
-        {
-          "description": "네가지 고품격 치즈와 100% 순쇠고기 패티로 탄생한 버거킹의 스테디 셀러, 콰트로치즈와퍼",
-          "name": "콰트로치즈와퍼 단품",
-          "price": 9200,
-          "priceText": "9,200원"
-        },
-        {
-          "description": "입안에서 톡톡 터지는 통새우가 매콤한 스파이시 토마토소스와 100% 순쇠고기 패티를 만나 완성한 통새우와퍼",
-          "name": "통새우와퍼",
-          "price": 9200,
-          "priceText": "9,200원"
+          "description": "",
+          "name": "너겟킹 10조각",
+          "price": null,
+          "priceText": ""
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1090428778/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverRating": 4.39,
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-063",
@@ -11777,18 +11331,6 @@
           "name": "능이만두 6p",
           "price": 5000,
           "priceText": "5,000원"
-        },
-        {
-          "description": "누룽지가 넉넉하게 들어간 백숙으로 2인 추천 메뉴입니다.",
-          "name": "(포장/배달)누룽지일반닭백숙",
-          "price": 40000,
-          "priceText": "40,000원"
-        },
-        {
-          "description": "능이가 듬뿍 들어간 백숙으로 2인 추천 메뉴입니다.",
-          "name": "(포장/배달)능이일반닭백숙",
-          "price": 46000,
-          "priceText": "46,000원"
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2044478051/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
@@ -11844,20 +11386,6 @@
             ]
           },
           {
-            "name": "잔치국수 8,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
-            "name": "비빔국수 9,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
             "name": "육개장칼국수 11,000원",
             "tags": [
               "korean",
@@ -11896,20 +11424,6 @@
           },
           {
             "name": "떡만두국 11,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
-            "name": "잔치국수 8,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
-            "name": "비빔국수 9,000원",
             "tags": [
               "korean",
               "noodle"
@@ -11963,18 +11477,6 @@
         },
         {
           "description": "",
-          "name": "잔치국수",
-          "price": 8000,
-          "priceText": "8,000원"
-        },
-        {
-          "description": "",
-          "name": "비빔국수",
-          "price": 9000,
-          "priceText": "9,000원"
-        },
-        {
-          "description": "",
           "name": "육개장칼국수",
           "price": 11000,
           "priceText": "11,000원"
@@ -12002,18 +11504,6 @@
           "name": "고추장 비빔밥",
           "price": 10000,
           "priceText": "10,000원"
-        },
-        {
-          "description": "",
-          "name": "제육덮밥",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "",
-          "name": "떡만두국",
-          "price": 11000,
-          "priceText": "11,000원"
         },
         {
           "description": "",
@@ -12327,12 +11817,6 @@
             ]
           },
           {
-            "name": "니아이 푸딩세트 15,000원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
             "name": "니아이 푸딩 Set 12,000원",
             "tags": [
               "quick"
@@ -12372,12 +11856,6 @@
           },
           {
             "name": "[묵직고소] 니아이 라떼 5,600원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "니아이 푸딩세트 15,000원",
             "tags": [
               "quick"
             ]
@@ -12871,12 +12349,6 @@
           "priceText": "10,900원"
         },
         {
-          "description": "(단백질33.3g) 신선한 생연어의 부드럽고 고소한 풍미를 중심으로 다양한 토핑과 어우러진 슬로우캘리 대표 포케",
-          "name": "연어포케",
-          "price": 14900,
-          "priceText": "14,900원"
-        },
-        {
           "description": "(단백질33g) 담백하고 깔끔한 참치에 신선한 채소와 소스를 더해 가볍고 균형 있게 즐기는 클린 포케",
           "name": "참치포케",
           "price": 13900,
@@ -12919,18 +12391,6 @@
           "priceText": "11,900원"
         },
         {
-          "description": "(단백질48g) 부드러운 닭다리살과 중독성 강한 블랙페퍼 소스가 어우러진 풍미 가득 보울",
-          "name": "블랙페퍼 치킨 보울 도시락",
-          "price": 13900,
-          "priceText": "13,900원"
-        },
-        {
-          "description": "(단백질39g) 부드러운 수비드 부채살 스테이크의 육즙과 부드러움이 살아있는 한 끼 든든한 보울",
-          "name": "부채살 스테이크 보울 도시락",
-          "price": 15900,
-          "priceText": "15,900원"
-        },
-        {
           "description": "(단백질32G) 달콤한 갈릭 버터 소스와 통통한 새우가 어우러진 하와이 대표 메뉴 사워크림, 마늘 , 레몬, 오리엔탈드레싱, 파슬리",
           "name": "하와이안 갈릭쉬림프",
           "price": 15500,
@@ -12967,12 +12427,6 @@
           "priceText": "10,900원"
         },
         {
-          "description": "시그니처 소스로 버무려진 닭가슴살과 담백한 계란이 가득한 든든한 통밀 랩",
-          "name": "닭가슴살 에그 통밀랩 샌드위치 (단백질27G)",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
           "description": "블랙페퍼 치킨이 통째로 들어간 부드러운 닭다리살 통밀 랩",
           "name": "블랙페퍼 치킨 통밀랩 샌드위치 (단백질27G)",
           "price": 10500,
@@ -12983,12 +12437,6 @@
           "name": "부채살 스테이크 통밀랩 샌드위치 (단백질29G)",
           "price": 12500,
           "priceText": "12,500원"
-        },
-        {
-          "description": "매콤한 토마토 소스와 각종 야채가 어우러진 비건 스프 토마토스프, 방울토마토, 양파, 브로콜리, 감자, 당근 ,파슬리",
-          "name": "[비건]스파이시 토마토 야채 스프",
-          "price": 5900,
-          "priceText": "5,900원"
         },
         {
           "description": "자연의 달콤한 옥수수와 부드러운 크림이 어우러진 포근하고 고소한 스프",
@@ -13601,12 +13049,6 @@
           "priceText": ""
         },
         {
-          "description": "생일이나 기념일이신분은 미리 말씀해주시면 작은 이벤트해드립니다 🎂",
-          "name": "[이벤트] 생일&기념일 레터링",
-          "price": 0,
-          "priceText": "0원"
-        },
-        {
           "description": "",
           "name": "[하우스와인] 글라스",
           "price": 9000,
@@ -13617,18 +13059,6 @@
           "name": "[주류] 일품진로&화요25",
           "price": 35000,
           "priceText": "35,000원"
-        },
-        {
-          "description": "",
-          "name": "[콜키지] 사케&와인",
-          "price": 20000,
-          "priceText": "20,000원"
-        },
-        {
-          "description": "",
-          "name": "[콜키지] 위스키",
-          "price": 30000,
-          "priceText": "30,000원"
         }
       ],
       "naverPlaceId": "2088498878",
@@ -14209,12 +13639,6 @@
       "menus": {
         "lunch": [
           {
-            "name": "코스 D / 런치 한정 55,000원",
-            "tags": [
-              "spicy"
-            ]
-          },
-          {
             "name": "코스 C / 올데이 75,000원",
             "tags": [
               "spicy"
@@ -14258,12 +13682,6 @@
           }
         ],
         "dinner": [
-          {
-            "name": "코스 D / 런치 한정 55,000원",
-            "tags": [
-              "spicy"
-            ]
-          },
           {
             "name": "코스 C / 올데이 75,000원",
             "tags": [
@@ -14312,12 +13730,6 @@
       "naverPlaceId": "1035491612",
       "naverSearchQuery": "몽중헌(문정점)",
       "naverMenus": [
-        {
-          "description": "",
-          "name": "코스 D / 런치 한정",
-          "price": 55000,
-          "priceText": "55,000원"
-        },
         {
           "description": "",
           "name": "코스 C / 올데이",
@@ -14448,13 +13860,6 @@
             ]
           },
           {
-            "name": "상아김밥 5,000원",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          },
-          {
             "name": "참치김밥 6,000원",
             "tags": [
               "korean",
@@ -14500,13 +13905,6 @@
           },
           {
             "name": "참치와사비키토김밥 8,000원",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          },
-          {
-            "name": "상아김밥 5,000원",
             "tags": [
               "korean",
               "rice"
@@ -14563,12 +13961,6 @@
           "priceText": "8,000원"
         },
         {
-          "description": "맛살튀김, 지단, 햄, 오뎅이 어우러진 고소하고 바삭함을 가진 상아김밥",
-          "name": "상아김밥",
-          "price": 5000,
-          "priceText": "5,000원"
-        },
-        {
           "description": "참치, 마요네즈, 깻잎이 어우러진 참치맛을 느낄 수 있는 김밥",
           "name": "참치김밥",
           "price": 6000,
@@ -14599,12 +13991,6 @@
           "priceText": "7,300원"
         },
         {
-          "description": "참치와 함께 와사비가 어우러진 키토김밥",
-          "name": "참치와사비키토김밥",
-          "price": 8000,
-          "priceText": "8,000원"
-        },
-        {
           "description": "베이컨과 지단이 어울려진, 일명 밥 없는 베이컨김밥",
           "name": "베이컨키토김밥",
           "price": 7600,
@@ -14621,12 +14007,6 @@
           "name": "트리플치즈키토김밥",
           "price": 8000,
           "priceText": "8,000원"
-        },
-        {
-          "description": "(1.5인분) 상아 양념장으로 주문시 즉석으로 조리해 드리는 국물 떡볶이",
-          "name": "상아떡볶이(1.5인분)",
-          "price": 6900,
-          "priceText": "6,900원"
         },
         {
           "description": "(1.5인분) 고소한 모짜렐라치즈가 자연스럽게 녹아,어울러진 치즈떡볶이",
@@ -14663,18 +14043,6 @@
           "name": "고추제육덮밥",
           "price": 7900,
           "priceText": "7,900원"
-        },
-        {
-          "description": "상아떡볶이+지단김밥+특제 참치주먹밥+A토핑+B토핑+콜라500ml A+B토핑 : 총 6가지 중 택2",
-          "name": "상아A set",
-          "price": 24500,
-          "priceText": "24,500원"
-        },
-        {
-          "description": "상아떡볶이+지단김밥+상아김밥+A토핑+콜라500ml A토핑 : 3가지 중 택1",
-          "name": "상아B set",
-          "price": 20500,
-          "priceText": "20,500원"
         },
         {
           "description": "",
@@ -15851,12 +15219,6 @@
           "name": "아이스티",
           "price": 3000,
           "priceText": "3,000원"
-        },
-        {
-          "description": "80g플레인그릭(블루베리토핑) + 온리베이글 + 아메리카노로 구성된 세트메뉴(할인O)",
-          "name": "(New) 오늘한끼식사세트",
-          "price": 13400,
-          "priceText": "13,400원"
         },
         {
           "description": "아사이퓨레 + 수제그래놀라+ 바나나+ 블루베리+코코넛채+치아씨드",
@@ -17239,18 +16601,6 @@
       "naverVisitorReviewCount": 364,
       "naverBlogReviewCount": 45,
       "naverMenus": [
-        {
-          "description": "",
-          "name": "NEW) 불어묵 키토김밥",
-          "price": 7800,
-          "priceText": "7,800원"
-        },
-        {
-          "description": "",
-          "name": "NEW) 소시지 키토김밥",
-          "price": 7800,
-          "priceText": "7,800원"
-        },
         {
           "description": "부드러운 맛의 계란이 들어간 기본 키토김밥",
           "name": "키토김밥",
@@ -18656,12 +18006,6 @@
       "menus": {
         "lunch": [
           {
-            "name": "청류담은상-1일 20개 한정 19,000원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
             "name": "평양냉면 17,000원",
             "tags": [
               "quick"
@@ -18705,12 +18049,6 @@
           }
         ],
         "dinner": [
-          {
-            "name": "청류담은상-1일 20개 한정 19,000원",
-            "tags": [
-              "quick"
-            ]
-          },
           {
             "name": "평양냉면 17,000원",
             "tags": [
@@ -18759,12 +18097,6 @@
       "naverPlaceId": "1298283004",
       "naverSearchQuery": "청류",
       "naverMenus": [
-        {
-          "description": "청류를 담은 식재료에 계절을 담은 한상 차림",
-          "name": "청류담은상-1일 20개 한정",
-          "price": 19000,
-          "priceText": "19,000원"
-        },
         {
           "description": "음식을 넘어 약을 다린다는 마음으로 오랜시간 1++ 한우를 끓여내 완성된 보양식 평양냉면",
           "name": "평양냉면",
@@ -19048,18 +18380,6 @@
           "priceText": "6,500원"
         },
         {
-          "description": "바삭한 페스츄리 속에 달콤한 팥앙금과 부드러운 슈크림 두 가지 맛을 즐길 수 있는 페스츄리 호두과자 입니다. 취향에 따라 골라먹는 재미가 있는 인기메뉴",
-          "name": "페스츄리 호두과자 2종",
-          "price": 6500,
-          "priceText": "6,500원"
-        },
-        {
-          "description": "",
-          "name": "포트캔 떡볶이 2종",
-          "price": 7200,
-          "priceText": "7,200원"
-        },
-        {
           "description": "",
           "name": "볶음밥 4종",
           "price": 6500,
@@ -19132,22 +18452,10 @@
           "priceText": "7,500원"
         },
         {
-          "description": "향긋한 마늘버터를 듬뿍 바른 바게트에 부드러운 크림치즈를 가득 채워 겉은 바삭, 속은 꾸덕하게 즐기는 바게트.",
-          "name": "갈릭크림치즈바게트",
-          "price": 5300,
-          "priceText": "5,300원"
-        },
-        {
           "description": "쉿크릿라떼를 한번 맛보면 그냥 카페라떼는 안 먹게 될거에요 왜나면............",
           "name": "쉿크릿라떼",
           "price": 5300,
           "priceText": "5,300원"
-        },
-        {
-          "description": "쌉싸름한 말차에 에스프레소를 더한 크림라떼. 부드러운 우유와 어우러져 깊고 진한 맛을 즐길 수 있어요.",
-          "name": "말차크림라떼",
-          "price": 5800,
-          "priceText": "5,800원"
         },
         {
           "description": "고소한 흑임자의 풍미에 에스프레소를 더한 크림라떼. 부드러운 우유와 크림이 어우러져 고소하고 담백한 맛을 느낄수 있어요.",
@@ -19465,34 +18773,10 @@
           "priceText": "12,000원"
         },
         {
-          "description": "신선한 야채믹스5종위에 스위트곤.블랙올리브.방울 토마토 그리고 느타리와 양송이버섯이 어우러진 면연력 증진 샐러드",
-          "name": "구운버섯 샐러드",
-          "price": 8500,
-          "priceText": "8,500원"
-        },
-        {
           "description": "",
           "name": "닭가슴살 샐러드",
           "price": 9000,
           "priceText": "9,000원"
-        },
-        {
-          "description": "",
-          "name": "훈제오리 샐러드",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
-          "description": "신선한 야채믹스위에 리가토니, 모짜렐라볼, 블랙올리브, 그라나파다노치즈와 향긋한 바질페스토가 어우러지는 샐러드",
-          "name": "바질파스타 샐러드",
-          "price": 9500,
-          "priceText": "9,500원"
-        },
-        {
-          "description": "",
-          "name": "닭다리살스테이크 샐러드",
-          "price": 9800,
-          "priceText": "9,800원"
         },
         {
           "description": "",
@@ -19997,12 +19281,6 @@
             ]
           },
           {
-            "name": "PEPPERONI 페퍼로니 6,500원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
             "name": "SPAM HAWAIIAN 스팸하와이안 7,500원",
             "tags": [
               "quick"
@@ -20042,12 +19320,6 @@
           },
           {
             "name": "DOUBLE CHEESE 더블치즈 5,900원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "PEPPERONI 페퍼로니 6,500원",
             "tags": [
               "quick"
             ]
@@ -20103,20 +19375,8 @@
           "priceText": "5,900원"
         },
         {
-          "description": "BEST NEW YORK CRISP PEPPERONI 직접 갈은 모짜렐라, 페퍼로니, 홈메이드토마토소스, 저온숙성도우",
-          "name": "PEPPERONI 페퍼로니",
-          "price": 6500,
-          "priceText": "6,500원"
-        },
-        {
           "description": "ORIGNAL SPAM & PINEAPPLE 직접 갈은 모짜렐라 치즈, 오리지널 스팸, 필리핀 파인애플, 홈메이드토마토소스, 저온숙성도우",
           "name": "SPAM HAWAIIAN 스팸하와이안",
-          "price": 7500,
-          "priceText": "7,500원"
-        },
-        {
-          "description": "SIGNATURE ITALY TRUFFLE OIL with FRESH ROCKET 특품 양송이, 이탈리아산 트러플오일, 직접 갈은 페코리노, 직접 갈은 모짜렐라, 홈메이드토마토소스, 저온숙성사워도우",
-          "name": "TRUFFLE MUSHROOM 트러플머쉬룸",
           "price": 7500,
           "priceText": "7,500원"
         },
@@ -20193,22 +19453,10 @@
           "priceText": "7,200원"
         },
         {
-          "description": "SIGNATURE HOT & HONEY SAUCE WING 시그니처 홈메이드 핫 허니 소스, 시즈닝 버팔로윙",
-          "name": "핫 허니 버팔로윙",
-          "price": 6500,
-          "priceText": "6,500원"
-        },
-        {
           "description": "USA SMOKE BBQ SAUCE 오리지널 USA 바베큐 스모크 소스, 시즈닝 버팔로윙",
           "name": "BBQ 버팔로윙",
           "price": 6500,
           "priceText": "6,500원"
-        },
-        {
-          "description": "SIGNATURE BOLOGNESE FRIES 시그니쳐 홈메이드 볼로네제 소스, 리얼 샤워크림, 크리스피한 얇은 프라이즈",
-          "name": "볼로네제 프라이즈",
-          "price": 7900,
-          "priceText": "7,900원"
         },
         {
           "description": "CRISP OG FRIES & CHEESE TOPPING 꾸덕한 치즈, 크리스피한 얇은 프라이즈",
@@ -20604,12 +19852,6 @@
             ]
           },
           {
-            "name": "우(牛)순대국(소사골) 11,000원",
-            "tags": [
-              "korean"
-            ]
-          },
-          {
             "name": "고기만 순대국(소사골) 11,000원",
             "tags": [
               "korean"
@@ -20649,12 +19891,6 @@
           },
           {
             "name": "일품순대국(소사골) 11,000원",
-            "tags": [
-              "korean"
-            ]
-          },
-          {
-            "name": "우(牛)순대국(소사골) 11,000원",
             "tags": [
               "korean"
             ]
@@ -20710,12 +19946,6 @@
           "priceText": "11,000원"
         },
         {
-          "description": "소사골+명품순대+소고기",
-          "name": "우(牛)순대국(소사골)",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
           "description": "소사골+머리고기+곱창",
           "name": "고기만 순대국(소사골)",
           "price": 11000,
@@ -20726,30 +19956,6 @@
           "name": "순대만 순대국(소사골)",
           "price": 11000,
           "priceText": "11,000원"
-        },
-        {
-          "description": "소고기 가득",
-          "name": "담소육개장(소사골)",
-          "price": 11800,
-          "priceText": "11,800원"
-        },
-        {
-          "description": "우렁이+순두부+만득이/얼큰다데기",
-          "name": "우렁얼큰순두부",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "+사골국물 공기밥 추가 1,000원",
-          "name": "철판순대볶음(2인)",
-          "price": 28400,
-          "priceText": "28,400원"
-        },
-        {
-          "description": "+사골국물 공기밥 추가 1,000원",
-          "name": "철판순대볶음(3인)",
-          "price": 38700,
-          "priceText": "38,700원"
         },
         {
           "description": "편육+야채+사골국물 공기밥 추가 1,000원",
@@ -20831,24 +20037,6 @@
             ]
           },
           {
-            "name": "시온텐동 13,900원",
-            "tags": [
-              "noodle"
-            ]
-          },
-          {
-            "name": "에비텐동 14,900원",
-            "tags": [
-              "noodle"
-            ]
-          },
-          {
-            "name": "시온 쿠시텐동 15,900원",
-            "tags": [
-              "noodle"
-            ]
-          },
-          {
             "name": "시온카레텐동 15,900원",
             "tags": [
               "noodle"
@@ -20862,24 +20050,6 @@
           }
         ],
         "dinner": [
-          {
-            "name": "시온텐동 13,900원",
-            "tags": [
-              "noodle"
-            ]
-          },
-          {
-            "name": "에비텐동 14,900원",
-            "tags": [
-              "noodle"
-            ]
-          },
-          {
-            "name": "시온 쿠시텐동 15,900원",
-            "tags": [
-              "noodle"
-            ]
-          },
           {
             "name": "시온텐동 13,900원",
             "tags": [
@@ -20918,24 +20088,6 @@
       "naverVisitorReviewCount": 533,
       "naverBlogReviewCount": 453,
       "naverMenus": [
-        {
-          "description": "새우 2, 단호박, 김, 느타리, 가지, 꽈리고추, 반숙란",
-          "name": "시온텐동",
-          "price": 13900,
-          "priceText": "13,900원"
-        },
-        {
-          "description": "새우4, 단호박, 김, 꽈리고추, 반숙란",
-          "name": "에비텐동",
-          "price": 14900,
-          "priceText": "14,900원"
-        },
-        {
-          "description": "새우2, 돼지안심꼬치, 닭안심꼬치, 단호박, 김, 꽈리고추, 반숙란",
-          "name": "시온 쿠시텐동",
-          "price": 15900,
-          "priceText": "15,900원"
-        },
         {
           "description": "새우 2, 단호박, 김, 느타리, 가지, 꽈리고추, 반숙란",
           "name": "시온텐동",
@@ -21163,18 +20315,6 @@
             ]
           },
           {
-            "name": "눈꽃 과일빙수 15,800원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "눈꽃 팥빙수 11,000원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
             "name": "눈꽃 딸기빙수 14,800원",
             "tags": [
               "quick"
@@ -21208,18 +20348,6 @@
           },
           {
             "name": "다크 생초콜릿 11,000원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "눈꽃 과일빙수 15,800원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "눈꽃 팥빙수 11,000원",
             "tags": [
               "quick"
             ]
@@ -21574,101 +20702,65 @@
       "menus": {
         "lunch": [
           {
-            "name": "럭키 치즈떡볶이 세트 19,600원",
+            "name": "명랑핫도그",
             "tags": [
-              "korean"
+              "western"
             ]
           },
           {
-            "name": "럭키 치즈떡볶이 13,400원",
+            "name": "모짜렐라 핫도그",
             "tags": [
-              "korean"
+              "western"
             ]
           },
           {
-            "name": "의성 마늘0 크런치 핫도그 4,100원",
+            "name": "체다치즈 핫도그",
             "tags": [
-              "korean"
+              "western"
             ]
           },
           {
-            "name": "럭키 모짜라이스롤 떡볶이 14,400원",
+            "name": "감자 핫도그",
             "tags": [
-              "korean"
+              "western"
             ]
           },
           {
-            "name": "[매움 주의]럭키 폭탄 떡볶이 12,400원",
+            "name": "먹물 모짜렐라 핫도그",
             "tags": [
-              "korean"
-            ]
-          },
-          {
-            "name": "럭키 치즈떡볶이 13,400원",
-            "tags": [
-              "korean"
-            ]
-          },
-          {
-            "name": "럭키 로제떡볶이 12,400원",
-            "tags": [
-              "korean"
-            ]
-          },
-          {
-            "name": "럭키 떡볶이 11,400원",
-            "tags": [
-              "korean"
+              "western"
             ]
           }
         ],
         "dinner": [
           {
-            "name": "럭키 치즈떡볶이 세트 19,600원",
+            "name": "명랑핫도그",
             "tags": [
-              "korean"
+              "western"
             ]
           },
           {
-            "name": "럭키 치즈떡볶이 13,400원",
+            "name": "모짜렐라 핫도그",
             "tags": [
-              "korean"
+              "western"
             ]
           },
           {
-            "name": "의성 마늘0 크런치 핫도그 4,100원",
+            "name": "체다치즈 핫도그",
             "tags": [
-              "korean"
+              "western"
             ]
           },
           {
-            "name": "럭키 모짜라이스롤 떡볶이 14,400원",
+            "name": "감자 핫도그",
             "tags": [
-              "korean"
+              "western"
             ]
           },
           {
-            "name": "[매움 주의]럭키 폭탄 떡볶이 12,400원",
+            "name": "먹물 모짜렐라 핫도그",
             "tags": [
-              "korean"
-            ]
-          },
-          {
-            "name": "럭키 치즈떡볶이 13,400원",
-            "tags": [
-              "korean"
-            ]
-          },
-          {
-            "name": "럭키 로제떡볶이 12,400원",
-            "tags": [
-              "korean"
-            ]
-          },
-          {
-            "name": "럭키 떡볶이 11,400원",
-            "tags": [
-              "korean"
+              "western"
             ]
           }
         ]
@@ -21678,191 +20770,42 @@
       "naverSearchQuery": "명랑핫도그(문정점)",
       "naverMenus": [
         {
-          "description": "떡볶이의 단짝은 핫도그~ 치즈떡볶이와 핫도그의 찰떡궁합",
-          "name": "럭키 치즈떡볶이 세트",
-          "price": 19600,
-          "priceText": "19,600원"
+          "description": "",
+          "name": "명랑핫도그",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "흔한 치즈떡볶이는 가라~ 7가지 치즈를 아낌없이 넣은 명랑만의 '진짜' 치즈떡볶이",
-          "name": "럭키 치즈떡볶이",
-          "price": 13400,
-          "priceText": "13,400원"
+          "description": "",
+          "name": "모짜렐라 핫도그",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "바삭하게 튀긴 식빵 토핑 핫도그와 100% 의성 마늘소스의 달달한 만남, 극락 조합 핫도그",
-          "name": "의성 마늘0 크런치 핫도그",
-          "price": 4100,
-          "priceText": "4,100원"
+          "description": "",
+          "name": "체다치즈 핫도그",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "쫄깃한 라이스페이퍼 속 모짜렐라 치즈가 풍성하게 녹아 내리는 명랑 시그니처 떡볶이",
-          "name": "럭키 모짜라이스롤 떡볶이",
-          "price": 14400,
-          "priceText": "14,400원"
-        },
-        {
-          "description": "명랑 떡볶이 특제 소스의 화끈한 매운맛 어디서도 맛볼 수 없는 강렬한 풍미를 느껴보세요.",
-          "name": "[매움 주의]럭키 폭탄 떡볶이",
-          "price": 12400,
-          "priceText": "12,400원"
-        },
-        {
-          "description": "흔한 치즈떡볶이는 가라~ 7가지 치즈를 아낌없이 넣은 명랑만의 '진짜' 치즈떡볶이",
-          "name": "럭키 치즈떡볶이",
-          "price": 13400,
-          "priceText": "13,400원"
-        },
-        {
-          "description": "꾸덕하고 부드러운 로제 소스와 떡볶이의 만남, 오늘 부드러운 게 당길 땐 로제 어때~",
-          "name": "럭키 로제떡볶이",
-          "price": 12400,
-          "priceText": "12,400원"
-        },
-        {
-          "description": "떡볶이도 잘해서 죄송합니다~ 감칠맛 폭발하는 명랑 떡볶이, 핫도그와 조합은 말해 뭐해~",
-          "name": "럭키 떡볶이",
-          "price": 11400,
-          "priceText": "11,400원"
-        },
-        {
-          "description": "떡볶이의 단짝은 핫도그~ 치즈떡볶이와 핫도그의 찰떡궁합",
-          "name": "럭키 치즈떡볶이 세트",
-          "price": 19600,
-          "priceText": "19,600원"
-        },
-        {
-          "description": "부드럽고 진한 로제떡볶이에 핫도그를 더한 부드러운 조합",
-          "name": "럭키 로제떡볶이 세트",
-          "price": 18600,
-          "priceText": "18,600원"
-        },
-        {
-          "description": "그 유명한 떡도그 조합, 명랑에서 한 번에 즐기자~ 함께 하면 두 배로 맛있는 핫도그와 떡볶이의 조합",
-          "name": "럭키 떡볶이 세트",
-          "price": 17600,
-          "priceText": "17,600원"
-        },
-        {
-          "description": "바삭하게 튀긴 식빵 토핑 핫도그와 100% 의성 마늘소스의 달달한 만남, 극락 조합 핫도그",
-          "name": "의성 마늘0 크런치 핫도그",
-          "price": 4100,
-          "priceText": "4,100원"
-        },
-        {
-          "description": "바삭바삭 식빵 토핑 핫도그와 고소한 통모짜렐라 치즈의 조화, 100% 의성마늘 소스까지 더한 마성의 핫도그",
-          "name": "의성 마늘0 통모짜 크런치 핫도그",
-          "price": 4400,
-          "priceText": "4,400원"
-        },
-        {
-          "description": "치즈 핫도그의 새로운 기준. 모짜렐라, 체다, 고다 세 가지 치즈를 더해 고소함은 두 배로, 풍미는 세 배로 더했다",
-          "name": "트리플X치즈 핫도그",
-          "price": 4400,
-          "priceText": "4,400원"
-        },
-        {
-          "description": "이 시대의 맛없없 조합, 달달한 고구마와 고소한 치즈의 환상적인 만남, 고구마 통모짜",
-          "name": "고구마통모짜 핫도그",
-          "price": 4400,
-          "priceText": "4,400원"
-        },
-        {
-          "description": "이유 있는 스테디셀러, 바삭바삭 감자 토핑과 고소한 치즈의 찰떡궁합, 감자 통모짜",
-          "name": "감자통모짜 핫도그",
-          "price": 4400,
-          "priceText": "4,400원"
-        },
-        {
-          "description": "맵순이들 다 모여라~ 얼얼한 할라피뇨 소시지와 달달한 고구마, 고소한 치즈까지 맵. 단. 짠의 완벽 조화",
-          "name": "모짜맵구마 핫도그",
-          "price": 4200,
-          "priceText": "4,200원"
-        },
-        {
-          "description": "근본 있는 녀석이 왔다. 바삭함과 든든함을 책임지는 핫도그 계의 스테디셀러, 감자 핫도그",
+          "description": "",
           "name": "감자 핫도그",
-          "price": 3900,
-          "priceText": "3,900원"
-        },
-        {
-          "description": "육즙 가득 소시지와 풍미 가득 모짜렐라, 체다치즈의 만남, 두 가지 치즈라 두 배로 맛있다",
-          "name": "모짜체다 핫도그",
-          "price": 4100,
-          "priceText": "4,100원"
-        },
-        {
-          "description": "입안 가득 베어 물 수 있는 치즈스틱이 왔다~ 킹사이즈로 즐기는 모짜렐라 치즈 듬뿍 치즈스틱",
-          "name": "자이언트 치즈스틱(1개)",
-          "price": 4900,
-          "priceText": "4,900원"
-        },
-        {
-          "description": "달달한 마무리가 필요할땐, 바삭함UP 고소함UP~ 쫀득하고 달달한 꽈배기",
-          "name": "꽈배기(1개)",
-          "price": 1500,
-          "priceText": "1,500원"
-        },
-        {
-          "description": "달달한 마무리가 필요할땐, 바삭함UP 고소함UP~ 쫀득하고 달달한 꽈배기",
-          "name": "꽈배기(4개)",
-          "price": 4500,
-          "priceText": "4,500원"
-        },
-        {
-          "description": "이름에서 느껴지는 쫀득 달달함, 두 가지를 동시에 잡은 한입에 쏙 사이드 메뉴, 쫀달 치즈볼",
-          "name": "쫀달치즈볼(5개)",
-          "price": 5000,
-          "priceText": "5,000원"
-        },
-        {
-          "description": "평범한 소떡은 가라~ 육즙 팡팡 소시지에 모짜렐라 치즈떡을 더한 고소한 조합에 맵싹한 불닭 소스의 극락 조합",
-          "name": "불닭치즈소떡",
-          "price": 3500,
-          "priceText": "3,500원"
-        },
-        {
-          "description": "소스7종+시즈닝2종 중 6개 선택",
-          "name": "소스보따리(6개)",
-          "price": 1500,
-          "priceText": "1,500원"
+          "price": null,
+          "priceText": ""
         },
         {
           "description": "",
-          "name": "스위트칠리 소스(10g)",
-          "price": 300,
-          "priceText": "300원"
-        },
-        {
-          "description": "",
-          "name": "핫칠리 소스(10g)",
-          "price": 300,
-          "priceText": "300원"
-        },
-        {
-          "description": "",
-          "name": "치즈맛머스타드 소스(10g)",
-          "price": 300,
-          "priceText": "300원"
-        },
-        {
-          "description": "",
-          "name": "허니머스타드 소스(10g)",
-          "price": 300,
-          "priceText": "300원"
-        },
-        {
-          "description": "",
-          "name": "코카콜라(245ml)",
-          "price": 1500,
-          "priceText": "1,500원"
+          "name": "먹물 모짜렐라 핫도그",
+          "price": null,
+          "priceText": ""
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1809609393/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 644,
       "naverBlogReviewCount": 63,
       "naverMenuUpdatedAt": "2026-05-22",
-      "naverRating": 4.44
+      "naverRating": 4.44,
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-121",
@@ -21885,65 +20828,65 @@
       "menus": {
         "lunch": [
           {
-            "name": "NBB 시그니처 4,800원",
+            "name": "NBB 시그니처 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "미트마니아 6,300원",
+            "name": "그릴드 불고기 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "NBB 어메이징 5,800원",
+            "name": "치즈 버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "그릴드 불고기 2,900원",
+            "name": "치킨 텐더",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "코울슬로 치킨버거 4,900원",
+            "name": "프렌치프라이",
             "tags": [
-              "quick"
+              "western"
             ]
           }
         ],
         "dinner": [
           {
-            "name": "NBB 시그니처 4,800원",
+            "name": "NBB 시그니처 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "미트마니아 6,300원",
+            "name": "그릴드 불고기 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "NBB 어메이징 5,800원",
+            "name": "치즈 버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "그릴드 불고기 2,900원",
+            "name": "치킨 텐더",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "코울슬로 치킨버거 4,900원",
+            "name": "프렌치프라이",
             "tags": [
-              "quick"
+              "western"
             ]
           }
         ]
@@ -21953,41 +20896,42 @@
       "naverSearchQuery": "노브랜드버거(문정역점)",
       "naverMenus": [
         {
-          "description": "직화로 불맛을 살린 두툼한 미트 패티에 진한 치즈를 얹어 깊은 맛을 선사하는 치즈버거",
-          "name": "NBB 시그니처",
-          "price": 4800,
-          "priceText": "4,800원"
+          "description": "",
+          "name": "NBB 시그니처 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "더블 패티와 더블 치즈, 고급스러운 트러플 핫 페퍼 소스에 계란후라이까지 든든한 버거",
-          "name": "미트마니아",
-          "price": 6300,
-          "priceText": "6,300원"
+          "description": "",
+          "name": "그릴드 불고기 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "더블 패티 & 더블 치즈, 어메이징한 크기의 NBB 어메이징 버거",
-          "name": "NBB 어메이징",
-          "price": 5800,
-          "priceText": "5,800원"
+          "description": "",
+          "name": "치즈 버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "직화 미트 패티에 한국인이 가장 좋아하는 불고기 소스를 더한 NBB 최고 가성비 버거",
-          "name": "그릴드 불고기",
-          "price": 2900,
-          "priceText": "2,900원"
+          "description": "",
+          "name": "치킨 텐더",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "달콤한 코울슬로와 바삭한 통가슴살 치킨패티의 조화",
-          "name": "코울슬로 치킨버거",
-          "price": 4900,
-          "priceText": "4,900원"
+          "description": "",
+          "name": "프렌치프라이",
+          "price": null,
+          "priceText": ""
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1081407892/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverVisitorReviewCount": 2800,
       "naverBlogReviewCount": 127,
       "naverMenuUpdatedAt": "2026-05-22",
-      "naverRating": 4.47
+      "naverRating": 4.47,
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-122",
@@ -24031,27 +22975,6 @@
               "korean",
               "noodle"
             ]
-          },
-          {
-            "name": "육개장만두칼국수 12,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
-            "name": "육개장칼국수 11,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
-            "name": "칼국수 10,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
           }
         ],
         "dinner": [
@@ -24085,27 +23008,6 @@
           },
           {
             "name": "반계탕칼국수 13,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
-            "name": "육개장만두칼국수 12,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
-            "name": "육개장칼국수 11,000원",
-            "tags": [
-              "korean",
-              "noodle"
-            ]
-          },
-          {
-            "name": "칼국수 10,000원",
             "tags": [
               "korean",
               "noodle"
@@ -24151,24 +23053,6 @@
         },
         {
           "description": "",
-          "name": "육개장만두칼국수",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "",
-          "name": "육개장칼국수",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "",
-          "name": "칼국수",
-          "price": 10000,
-          "priceText": "10,000원"
-        },
-        {
-          "description": "",
           "name": "떡칼국수",
           "price": 12000,
           "priceText": "12,000원"
@@ -24178,24 +23062,6 @@
           "name": "[프리미엄용기]삼계탕",
           "price": 18000,
           "priceText": "18,000원"
-        },
-        {
-          "description": "",
-          "name": "만두칼국수",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "",
-          "name": "육개장칼국수",
-          "price": 11000,
-          "priceText": "11,000원"
-        },
-        {
-          "description": "",
-          "name": "육개장만두칼국수",
-          "price": 12000,
-          "priceText": "12,000원"
         },
         {
           "description": "",
@@ -24454,21 +23320,7 @@
             ]
           },
           {
-            "name": "마녀김밥 5,100원",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          },
-          {
             "name": "계란마녀김밥 6,200원",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          },
-          {
-            "name": "묵참김밥 6,800원",
             "tags": [
               "korean",
               "rice"
@@ -24512,21 +23364,7 @@
             ]
           },
           {
-            "name": "마녀김밥 5,100원",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          },
-          {
             "name": "계란마녀김밥 6,200원",
-            "tags": [
-              "korean",
-              "rice"
-            ]
-          },
-          {
-            "name": "묵참김밥 6,800원",
             "tags": [
               "korean",
               "rice"
@@ -27207,18 +26045,6 @@
           "priceText": "12,500원"
         },
         {
-          "description": "특별양념된고슬밥+계란+단무지+당근",
-          "name": "아담스 꼬마김밥(5줄)",
-          "price": 4900,
-          "priceText": "4,900원"
-        },
-        {
-          "description": "특별양념된고슬밥+계란+단무지+당근",
-          "name": "아담스 꼬마김밥(10줄)",
-          "price": 8900,
-          "priceText": "8,900원"
-        },
-        {
           "description": "특별양념된고슬밥+계란+단무지+당근+고소한참치",
           "name": "참치 꼬마김밥(4줄)",
           "price": 6200,
@@ -27267,22 +26093,10 @@
           "priceText": "11,900원"
         },
         {
-          "description": "[신라면 보다 매워요] 쫄깃한 밀떡&어묵&당면&양배추가 들어간 깔끔하고 매콤한 국물떡볶이 :)",
-          "name": "국물 떡볶이",
-          "price": 6800,
-          "priceText": "6,800원"
-        },
-        {
           "description": "불닭볶음면 보다 매워요",
           "name": "매운맛 국물떡볶이",
           "price": 6800,
           "priceText": "6,800원"
-        },
-        {
-          "description": "[밀떡+베이컨+메추리알+비엔나+양배추]",
-          "name": "로제떡볶이(1~2인분)",
-          "price": 11000,
-          "priceText": "11,000원"
         },
         {
           "description": "따듯한 국물과 어묵꼬지6개가 들어가있어요~)",
@@ -27581,12 +26395,6 @@
             ]
           },
           {
-            "name": "[주문폭주]클럽 샌드위치 8,500원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
             "name": "햄치즈 샌드위치 7,300원",
             "tags": [
               "quick"
@@ -27626,12 +26434,6 @@
           },
           {
             "name": "핫치킨 샌드위치 9,500원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "[주문폭주]클럽 샌드위치 8,500원",
             "tags": [
               "quick"
             ]
@@ -27687,12 +26489,6 @@
           "priceText": "9,500원"
         },
         {
-          "description": "시그니쳐 샌드위치,//기본(할라피뇨 제외) +베이컨+계란후라이+햄, 칠리소스, 날쌘특제 소스",
-          "name": "[주문폭주]클럽 샌드위치",
-          "price": 8500,
-          "priceText": "8,500원"
-        },
-        {
           "description": "담백하고 깔끔//기본 + 햄2장, 머스타드",
           "name": "햄치즈 샌드위치",
           "price": 7300,
@@ -27745,12 +26541,6 @@
           "name": "핫치킨&또띠아 타코샐러드",
           "price": 10500,
           "priceText": "10,500원"
-        },
-        {
-          "description": "매장에서 직접 구운 닭가슴살(염지X)+삶은 계란+기본토핑+양상추, 발사믹소스",
-          "name": "닭가슴살 샐러드",
-          "price": 9000,
-          "priceText": "9,000원"
         },
         {
           "description": "단호박무스+기본토핑+양상추, 발사믹소스",
@@ -29198,101 +27988,65 @@
       "menus": {
         "lunch": [
           {
-            "name": "더블 한우불고기버거 세트 16,200원",
+            "name": "불고기버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "모짜렐라 인 더 버거 베이컨 세트 11,300원",
+            "name": "새우버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "리아 불고기 더블(빅불) 세트 10,900원",
+            "name": "데리버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "베이컨에그번콤보 5,500원",
+            "name": "치즈스틱",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "에그샐러드번콤보 5,400원",
+            "name": "양념감자",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "베이컨에그번 4,400원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "에그샐러드번 4,300원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "번트비프버거 세트 12,000원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ],
         "dinner": [
           {
-            "name": "더블 한우불고기버거 세트 16,200원",
+            "name": "불고기버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "모짜렐라 인 더 버거 베이컨 세트 11,300원",
+            "name": "새우버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "리아 불고기 더블(빅불) 세트 10,900원",
+            "name": "데리버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "베이컨에그번콤보 5,500원",
+            "name": "치즈스틱",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "에그샐러드번콤보 5,400원",
+            "name": "양념감자",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "베이컨에그번 4,400원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "에그샐러드번 4,300원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "번트비프버거 세트 12,000원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ]
@@ -29304,189 +28058,40 @@
       "naverBlogReviewCount": 95,
       "naverMenus": [
         {
-          "description": "국내산 한우를 사용한 패티 2장 구성으로 육즙 가득 묵직한 육풍미를 특징으로 한 프리미엄 버거",
-          "name": "더블 한우불고기버거 세트",
-          "price": 16200,
-          "priceText": "16,200원"
+          "description": "",
+          "name": "불고기버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "자연산 모짜렐라 치즈와 고소한 베이컨이 만나 풍부한 맛의 버거",
-          "name": "모짜렐라 인 더 버거 베이컨 세트",
-          "price": 11300,
-          "priceText": "11,300원"
+          "description": "",
+          "name": "새우버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "불고기패티 2장으로 더 진하고 더 커진 빅 불고기버거",
-          "name": "리아 불고기 더블(빅불) 세트",
-          "price": 10900,
-          "priceText": "10,900원"
+          "description": "",
+          "name": "데리버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "부드러운 브리오쉬번과 에그샐러드가 어우러진 브런치 플레터를 버거화한 제품",
-          "name": "베이컨에그번콤보",
-          "price": 5500,
-          "priceText": "5,500원"
+          "description": "",
+          "name": "치즈스틱",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "부드러운 브리오쉬번과 에그샐러드가 어우러진 브런치 플레터를 버거화한 제품",
-          "name": "에그샐러드번콤보",
-          "price": 5400,
-          "priceText": "5,400원"
-        },
-        {
-          "description": "부드러운 브리오쉬번과 에그샐러드가 어우러진 브런치 플레터를 버거화한 제품",
-          "name": "베이컨에그번",
-          "price": 4400,
-          "priceText": "4,400원"
-        },
-        {
-          "description": "부드러운 브리오쉬번과 에그샐러드가 어우러진 브런치 플레터를 버거화한 제품",
-          "name": "에그샐러드번",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "재료 하나하나의 감칠맛과 원료 본연의 풍미를 최대한 끌어올린 맛으로 꽉찬 파인다이닝 셰프의 비프버거 (버거는 봉투에서 꺼내지않고, 측면에 브라운버터오일을 조금씩 뿌려드시면 더욱 맛있게 즐기실 수 있습니다)",
-          "name": "번트비프버거 세트",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 요거트 첨가된 그릭렌치소스로 마일드한 맛의 크리스피 치킨버거",
-          "name": "통다리 크리스피치킨버거세트(그릭랜치)",
-          "price": 10200,
-          "priceText": "10,200원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 중독성 있는 갈릭핫소스로 강렬한 매운맛의 크리스피치킨버거",
-          "name": "통다리 크리스피치킨버거세트(파이어핫)",
-          "price": 10200,
-          "priceText": "10,200원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 풍부하고 진한 토마토소스로 맛을낸 스폐셜 모짜렐라버거",
-          "name": "모짜렐라버거세트 토마토바질",
-          "price": 12500,
-          "priceText": "12,500원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 레드와인 발사믹의 산뜻함을 더한 스페셜 모짜렐라버거",
-          "name": "모짜렐라버거세트 발사믹바질",
-          "price": 12500,
-          "priceText": "12,500원"
-        },
-        {
-          "description": "재료 하나하나의 감칠맛과 원료 본연의 풍미를 최대한 끌어올린 맛으로 꽉찬 파인다이닝 셰프의 비프버거 (버거는 봉투에서 꺼내지않고, 측면에 브라운버터오일을 조금씩 뿌려드시면 더욱 맛있게 즐기실 수 있습니다)",
-          "name": "번트비프버거",
-          "price": 9600,
-          "priceText": "9,600원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 요거트 첨가된 그릭렌치소스로 마일드한 맛의 크리스피 치킨버거",
-          "name": "통다리 크리스피치킨버거(그릭랜치)",
-          "price": 7700,
-          "priceText": "7,700원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 중독성 있는 갈릭핫소스로 강렬한 매운맛의 크리스피치킨버거",
-          "name": "통다리 크리스피치킨버거(파이어핫)",
-          "price": 7700,
-          "priceText": "7,700원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 풍부하고 진한 토마토소스로 맛을낸 스폐셜 모짜렐라버거",
-          "name": "모짜렐라버거 토마토바질",
-          "price": 9900,
-          "priceText": "9,900원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 레드와인 발사믹의 산뜻함을 더한 스페셜 모짜렐라버거",
-          "name": "모짜렐라버거 발사믹바질",
-          "price": 9900,
-          "priceText": "9,900원"
-        },
-        {
-          "description": "구성 : 후라이드 4인분 + 소스2개 탱글한 닭다리살에 풍부한 컬과 바삭한 튀김 옷의 조화 순살로 편하게 즐기는 치킨",
-          "name": "후라이드 순살치킨 (L)",
-          "price": 19900,
-          "priceText": "19,900원"
-        },
-        {
-          "description": "치킨다리4조각 + 코울슬로 + 소스1개",
-          "name": "치킨다리 하프팩(코울슬로)",
-          "price": 12200,
-          "priceText": "12,200원"
-        },
-        {
-          "description": "구성 : 치킨다리4조각 + 포테이토+ 소스1개 한국인이 좋아하는 치킨다리로만 구성되어있는 후라이드 치킨",
-          "name": "치킨다리 하프팩(포테이토)",
-          "price": 12200,
-          "priceText": "12,200원"
-        },
-        {
-          "description": "구성 : 후라이드 2인분 + 소스1개 탱글한 닭다리살에 풍부한 컬과 바삭한 튀김 옷의 조화 순살로 편하게 즐기는 치킨",
-          "name": "후라이드 순살치킨 (R)",
-          "price": 12600,
-          "priceText": "12,600원"
-        },
-        {
-          "description": "담백하고 매콤한 치킨윙",
-          "name": "화이어윙 4조각",
-          "price": 6300,
-          "priceText": "6,300원"
-        },
-        {
-          "description": "신대방 온정돈까스 매운맛 10단계인 시그니처 메뉴 디진다돈까스를 핑거 디저트화한 제품으로 극강의 매운맛으로 한 입만 먹어도 강력하고 화끈한 매운맛 (환자, 임산부, 어린이, 노약자, 빈속 등 섭취시 주의하시기 바랍니다)",
-          "name": "디지게 매운 돈까스(디진다맛)",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "신대방 온정돈까스 매운맛 2단계인 양념 돈까스를 핑거 디저트화한 제품으로 매콤달콤한 양념 소스로 누구나 맛있게 맵게 즐길 수 있는 매운맛",
-          "name": "디지게 매운 돈까스(양념맛)",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "통가슴살로 만든 바삭하고 고소한 치킨 디저트",
-          "name": "지파이 고소한맛(S)",
-          "price": 5300,
-          "priceText": "5,300원"
-        },
-        {
-          "description": "통가슴살로 만든 바삭하고 매콤한 빅사이즈 치킨 디저트",
-          "name": "지파이 하바네로(L)",
-          "price": 6300,
-          "priceText": "6,300원"
-        },
-        {
-          "description": "담백하고 촉촉한 치킨너겟에 시즈닝을 뿌려 흔들어 먹는 디저트 치킨너겟 8조각 + 시즈닝 1종",
-          "name": "양념너겟",
-          "price": 4100,
-          "priceText": "4,100원"
-        },
-        {
-          "description": "달콤쌉싸름한 말차와 우유의 고소함이 조화로운 아이스 라떼 드링크",
-          "name": "말차라떼",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "캐모마일의 향긋한 꽃향이 특징인 티",
-          "name": "캐모마일 티",
-          "price": 2900,
-          "priceText": "2,900원"
-        },
-        {
-          "description": "펩시콜라 1.25L",
-          "name": "콜라 PET(1.25L)",
-          "price": 3500,
-          "priceText": "3,500원"
+          "description": "",
+          "name": "양념감자",
+          "price": null,
+          "priceText": ""
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/1016505539/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverMenuUpdatedAt": "2026-05-22",
-      "naverRating": 4.47
+      "naverRating": 4.47,
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-175",
@@ -29719,17 +28324,111 @@
       "quick": true,
       "priceBand": "식권대장 앱 확인",
       "menus": {
-        "lunch": [],
-        "dinner": []
+        "lunch": [
+          {
+            "name": "이탈리안 비엠티 15cm",
+            "tags": [
+              "western"
+            ]
+          },
+          {
+            "name": "에그마요 15cm",
+            "tags": [
+              "western"
+            ]
+          },
+          {
+            "name": "터키 15cm",
+            "tags": [
+              "western"
+            ]
+          },
+          {
+            "name": "스테이크&치즈 15cm",
+            "tags": [
+              "western"
+            ]
+          },
+          {
+            "name": "로티세리 바베큐 치킨 15cm",
+            "tags": [
+              "western"
+            ]
+          }
+        ],
+        "dinner": [
+          {
+            "name": "이탈리안 비엠티 15cm",
+            "tags": [
+              "western"
+            ]
+          },
+          {
+            "name": "에그마요 15cm",
+            "tags": [
+              "western"
+            ]
+          },
+          {
+            "name": "터키 15cm",
+            "tags": [
+              "western"
+            ]
+          },
+          {
+            "name": "스테이크&치즈 15cm",
+            "tags": [
+              "western"
+            ]
+          },
+          {
+            "name": "로티세리 바베큐 치킨 15cm",
+            "tags": [
+              "western"
+            ]
+          }
+        ]
       },
       "source": "식권대장 앱 캡처(2026-05-22)",
       "naverPlaceId": "2002711258",
       "naverSearchQuery": "써브웨이 문정법조점",
       "naverVisitorReviewCount": 12,
       "naverBlogReviewCount": 4,
-      "naverMenus": [],
+      "naverMenus": [
+        {
+          "description": "",
+          "name": "이탈리안 비엠티 15cm",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "",
+          "name": "에그마요 15cm",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "",
+          "name": "터키 15cm",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "",
+          "name": "스테이크&치즈 15cm",
+          "price": null,
+          "priceText": ""
+        },
+        {
+          "description": "",
+          "name": "로티세리 바베큐 치킨 15cm",
+          "price": null,
+          "priceText": ""
+        }
+      ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/2002711258/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
-      "naverMenuUpdatedAt": "2026-05-22"
+      "naverMenuUpdatedAt": "2026-05-22",
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-178",
@@ -29980,101 +28679,65 @@
       "menus": {
         "lunch": [
           {
-            "name": "더블 한우불고기버거 세트 16,200원",
+            "name": "불고기버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "모짜렐라 인 더 버거 베이컨 세트 11,300원",
+            "name": "새우버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "리아 불고기 더블(빅불) 세트 10,900원",
+            "name": "데리버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "순살치킨 풀팩 18,800원",
+            "name": "치즈스틱",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "베이컨에그번콤보 5,500원",
+            "name": "양념감자",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "에그샐러드번콤보 5,400원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "베이컨에그번 4,400원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "에그샐러드번 4,300원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ],
         "dinner": [
           {
-            "name": "더블 한우불고기버거 세트 16,200원",
+            "name": "불고기버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "모짜렐라 인 더 버거 베이컨 세트 11,300원",
+            "name": "새우버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "리아 불고기 더블(빅불) 세트 10,900원",
+            "name": "데리버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "순살치킨 풀팩 18,800원",
+            "name": "치즈스틱",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "베이컨에그번콤보 5,500원",
+            "name": "양념감자",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "에그샐러드번콤보 5,400원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "베이컨에그번 4,400원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "에그샐러드번 4,300원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ]
@@ -30086,189 +28749,40 @@
       "naverBlogReviewCount": 40,
       "naverMenus": [
         {
-          "description": "국내산 한우를 사용한 패티 2장 구성으로 육즙 가득 묵직한 육풍미를 특징으로 한 프리미엄 버거",
-          "name": "더블 한우불고기버거 세트",
-          "price": 16200,
-          "priceText": "16,200원"
+          "description": "",
+          "name": "불고기버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "자연산 모짜렐라 치즈와 고소한 베이컨이 만나 풍부한 맛의 버거",
-          "name": "모짜렐라 인 더 버거 베이컨 세트",
-          "price": 11300,
-          "priceText": "11,300원"
+          "description": "",
+          "name": "새우버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "불고기패티 2장으로 더 진하고 더 커진 빅 불고기버거",
-          "name": "리아 불고기 더블(빅불) 세트",
-          "price": 10900,
-          "priceText": "10,900원"
+          "description": "",
+          "name": "데리버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "바삭한 외피와 육즙 가득한 닭다리살 순살치킨 22조각 + 소스2개",
-          "name": "순살치킨 풀팩",
-          "price": 18800,
-          "priceText": "18,800원"
+          "description": "",
+          "name": "치즈스틱",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "부드러운 브리오쉬번과 에그샐러드가 어우러진 브런치 플레터를 버거화한 제품",
-          "name": "베이컨에그번콤보",
-          "price": 5500,
-          "priceText": "5,500원"
-        },
-        {
-          "description": "부드러운 브리오쉬번과 에그샐러드가 어우러진 브런치 플레터를 버거화한 제품",
-          "name": "에그샐러드번콤보",
-          "price": 5400,
-          "priceText": "5,400원"
-        },
-        {
-          "description": "부드러운 브리오쉬번과 에그샐러드가 어우러진 브런치 플레터를 버거화한 제품",
-          "name": "베이컨에그번",
-          "price": 4400,
-          "priceText": "4,400원"
-        },
-        {
-          "description": "부드러운 브리오쉬번과 에그샐러드가 어우러진 브런치 플레터를 버거화한 제품",
-          "name": "에그샐러드번",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "재료 하나하나의 감칠맛과 원료 본연의 풍미를 최대한 끌어올린 맛으로 꽉찬 파인다이닝 셰프의 비프버거 (버거는 봉투에서 꺼내지않고, 측면에 브라운버터오일을 조금씩 뿌려드시면 더욱 맛있게 즐기실 수 있습니다)",
-          "name": "번트비프버거 세트",
-          "price": 12000,
-          "priceText": "12,000원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 요거트 첨가된 그릭렌치소스로 마일드한 맛의 크리스피 치킨버거",
-          "name": "통다리 크리스피치킨버거세트(그릭랜치)",
-          "price": 10200,
-          "priceText": "10,200원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 중독성 있는 갈릭핫소스로 강렬한 매운맛의 크리스피치킨버거",
-          "name": "통다리 크리스피치킨버거세트(파이어핫)",
-          "price": 10200,
-          "priceText": "10,200원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 풍부하고 진한 토마토소스로 맛을낸 스폐셜 모짜렐라버거",
-          "name": "모짜렐라버거세트 토마토바질",
-          "price": 12500,
-          "priceText": "12,500원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 레드와인 발사믹의 산뜻함을 더한 스페셜 모짜렐라버거",
-          "name": "모짜렐라버거세트 발사믹바질",
-          "price": 12500,
-          "priceText": "12,500원"
-        },
-        {
-          "description": "재료 하나하나의 감칠맛과 원료 본연의 풍미를 최대한 끌어올린 맛으로 꽉찬 파인다이닝 셰프의 비프버거 (버거는 봉투에서 꺼내지않고, 측면에 브라운버터오일을 조금씩 뿌려드시면 더욱 맛있게 즐기실 수 있습니다)",
-          "name": "번트비프버거",
-          "price": 9600,
-          "priceText": "9,600원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 요거트 첨가된 그릭렌치소스로 마일드한 맛의 크리스피 치킨버거",
-          "name": "통다리 크리스피치킨버거(그릭랜치)",
-          "price": 7700,
-          "priceText": "7,700원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 중독성 있는 갈릭핫소스로 강렬한 매운맛의 크리스피치킨버거",
-          "name": "통다리 크리스피치킨버거(파이어핫)",
-          "price": 7700,
-          "priceText": "7,700원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 풍부하고 진한 토마토소스로 맛을낸 스폐셜 모짜렐라버거",
-          "name": "모짜렐라버거 토마토바질",
-          "price": 9900,
-          "priceText": "9,900원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 레드와인 발사믹의 산뜻함을 더한 스페셜 모짜렐라버거",
-          "name": "모짜렐라버거 발사믹바질",
-          "price": 9900,
-          "priceText": "9,900원"
-        },
-        {
-          "description": "바삭한 외피와 육즙 가득한 닭다리살 순살치킨 22조각 + 소스2개",
-          "name": "순살치킨 풀팩",
-          "price": 18800,
-          "priceText": "18,800원"
-        },
-        {
-          "description": "구성 : 후라이드 4인분 + 소스2개 탱글한 닭다리살에 풍부한 컬과 바삭한 튀김 옷의 조화 순살로 편하게 즐기는 치킨",
-          "name": "후라이드 순살치킨 (L)",
-          "price": 19900,
-          "priceText": "19,900원"
-        },
-        {
-          "description": "치킨다리4조각 + 코울슬로 + 소스1개",
-          "name": "치킨다리 하프팩(코울슬로)",
-          "price": 12200,
-          "priceText": "12,200원"
-        },
-        {
-          "description": "구성 : 치킨다리4조각 + 포테이토+ 소스1개 한국인이 좋아하는 치킨다리로만 구성되어있는 후라이드 치킨",
-          "name": "치킨다리 하프팩(포테이토)",
-          "price": 12200,
-          "priceText": "12,200원"
-        },
-        {
-          "description": "바삭한 외피와 육즙 가득한 닭다리살 순살치킨 11조각 + 소스1개",
-          "name": "순살치킨 하프팩",
-          "price": 11800,
-          "priceText": "11,800원"
-        },
-        {
-          "description": "신대방 온정돈까스 매운맛 10단계인 시그니처 메뉴 디진다돈까스를 핑거 디저트화한 제품으로 극강의 매운맛으로 한 입만 먹어도 강력하고 화끈한 매운맛 (환자, 임산부, 어린이, 노약자, 빈속 등 섭취시 주의하시기 바랍니다)",
-          "name": "디지게 매운 돈까스(디진다맛)",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "신대방 온정돈까스 매운맛 2단계인 양념 돈까스를 핑거 디저트화한 제품으로 매콤달콤한 양념 소스로 누구나 맛있게 맵게 즐길 수 있는 매운맛",
-          "name": "디지게 매운 돈까스(양념맛)",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "통가슴살로 만든 바삭하고 고소한 치킨 디저트",
-          "name": "지파이 고소한맛(S)",
-          "price": 5300,
-          "priceText": "5,300원"
-        },
-        {
-          "description": "통가슴살로 만든 바삭하고 매콤한 빅사이즈 치킨 디저트",
-          "name": "지파이 하바네로(L)",
-          "price": 6300,
-          "priceText": "6,300원"
-        },
-        {
-          "description": "담백하고 촉촉한 치킨너겟에 시즈닝을 뿌려 흔들어 먹는 디저트 치킨너겟 8조각 + 시즈닝 1종",
-          "name": "양념너겟",
-          "price": 4100,
-          "priceText": "4,100원"
-        },
-        {
-          "description": "달콤쌉싸름한 말차와 우유의 고소함이 조화로운 아이스 라떼 드링크",
-          "name": "말차라떼",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "펩시콜라 1.25L",
-          "name": "콜라 PET(1.25L)",
-          "price": 3500,
-          "priceText": "3,500원"
+          "description": "",
+          "name": "양념감자",
+          "price": null,
+          "priceText": ""
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/32891388/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverMenuUpdatedAt": "2026-05-22",
-      "naverRating": 4.22
+      "naverRating": 4.22,
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-184",
@@ -30291,101 +28805,65 @@
       "menus": {
         "lunch": [
           {
-            "name": "더블 한우불고기버거 세트 16,200원",
+            "name": "불고기버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "모짜렐라 인 더 버거 베이컨 세트 11,300원",
+            "name": "새우버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "리아 불고기 더블(빅불) 세트 10,900원",
+            "name": "데리버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "번트비프버거 세트 12,000원",
+            "name": "치즈스틱",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "통다리 크리스피치킨버거세트(그릭랜치) 10,200원",
+            "name": "양념감자",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "통다리 크리스피치킨버거세트(파이어핫) 10,200원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "모짜렐라버거세트 토마토바질 12,500원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "모짜렐라버거세트 발사믹바질 12,500원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ],
         "dinner": [
           {
-            "name": "더블 한우불고기버거 세트 16,200원",
+            "name": "불고기버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "모짜렐라 인 더 버거 베이컨 세트 11,300원",
+            "name": "새우버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "리아 불고기 더블(빅불) 세트 10,900원",
+            "name": "데리버거 세트",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "번트비프버거 세트 12,000원",
+            "name": "치즈스틱",
             "tags": [
-              "quick"
+              "western"
             ]
           },
           {
-            "name": "통다리 크리스피치킨버거세트(그릭랜치) 10,200원",
+            "name": "양념감자",
             "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "통다리 크리스피치킨버거세트(파이어핫) 10,200원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "모짜렐라버거세트 토마토바질 12,500원",
-            "tags": [
-              "quick"
-            ]
-          },
-          {
-            "name": "모짜렐라버거세트 발사믹바질 12,500원",
-            "tags": [
-              "quick"
+              "western"
             ]
           }
         ]
@@ -30397,189 +28875,40 @@
       "naverBlogReviewCount": 20,
       "naverMenus": [
         {
-          "description": "국내산 한우를 사용한 패티 2장 구성으로 육즙 가득 묵직한 육풍미를 특징으로 한 프리미엄 버거",
-          "name": "더블 한우불고기버거 세트",
-          "price": 16200,
-          "priceText": "16,200원"
+          "description": "",
+          "name": "불고기버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "자연산 모짜렐라 치즈와 고소한 베이컨이 만나 풍부한 맛의 버거",
-          "name": "모짜렐라 인 더 버거 베이컨 세트",
-          "price": 11300,
-          "priceText": "11,300원"
+          "description": "",
+          "name": "새우버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "불고기패티 2장으로 더 진하고 더 커진 빅 불고기버거",
-          "name": "리아 불고기 더블(빅불) 세트",
-          "price": 10900,
-          "priceText": "10,900원"
+          "description": "",
+          "name": "데리버거 세트",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "재료 하나하나의 감칠맛과 원료 본연의 풍미를 최대한 끌어올린 맛으로 꽉찬 파인다이닝 셰프의 비프버거 (버거는 봉투에서 꺼내지않고, 측면에 브라운버터오일을 조금씩 뿌려드시면 더욱 맛있게 즐기실 수 있습니다)",
-          "name": "번트비프버거 세트",
-          "price": 12000,
-          "priceText": "12,000원"
+          "description": "",
+          "name": "치즈스틱",
+          "price": null,
+          "priceText": ""
         },
         {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 요거트 첨가된 그릭렌치소스로 마일드한 맛의 크리스피 치킨버거",
-          "name": "통다리 크리스피치킨버거세트(그릭랜치)",
-          "price": 10200,
-          "priceText": "10,200원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 중독성 있는 갈릭핫소스로 강렬한 매운맛의 크리스피치킨버거",
-          "name": "통다리 크리스피치킨버거세트(파이어핫)",
-          "price": 10200,
-          "priceText": "10,200원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 풍부하고 진한 토마토소스로 맛을낸 스폐셜 모짜렐라버거",
-          "name": "모짜렐라버거세트 토마토바질",
-          "price": 12500,
-          "priceText": "12,500원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 레드와인 발사믹의 산뜻함을 더한 스페셜 모짜렐라버거",
-          "name": "모짜렐라버거세트 발사믹바질",
-          "price": 12500,
-          "priceText": "12,500원"
-        },
-        {
-          "description": "재료 하나하나의 감칠맛과 원료 본연의 풍미를 최대한 끌어올린 맛으로 꽉찬 파인다이닝 셰프의 비프버거 (버거는 봉투에서 꺼내지않고, 측면에 브라운버터오일을 조금씩 뿌려드시면 더욱 맛있게 즐기실 수 있습니다)",
-          "name": "번트비프버거",
-          "price": 9600,
-          "priceText": "9,600원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 요거트 첨가된 그릭렌치소스로 마일드한 맛의 크리스피 치킨버거",
-          "name": "통다리 크리스피치킨버거(그릭랜치)",
-          "price": 7700,
-          "priceText": "7,700원"
-        },
-        {
-          "description": "육즙 가득 통다리살에 버터밀크 외피로 입안을 가득 채우는 바삭함이 특징, 중독성 있는 갈릭핫소스로 강렬한 매운맛의 크리스피치킨버거",
-          "name": "통다리 크리스피치킨버거(파이어핫)",
-          "price": 7700,
-          "priceText": "7,700원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 풍부하고 진한 토마토소스로 맛을낸 스폐셜 모짜렐라버거",
-          "name": "모짜렐라버거 토마토바질",
-          "price": 9900,
-          "priceText": "9,900원"
-        },
-        {
-          "description": "바질의 신선함을 담은 바질마요소스에 레드와인 발사믹의 산뜻함을 더한 스페셜 모짜렐라버거",
-          "name": "모짜렐라버거 발사믹바질",
-          "price": 9900,
-          "priceText": "9,900원"
-        },
-        {
-          "description": "구성 : 후라이드 4인분 + 소스2개 탱글한 닭다리살에 풍부한 컬과 바삭한 튀김 옷의 조화 순살로 편하게 즐기는 치킨",
-          "name": "후라이드 순살치킨 (L)",
-          "price": 19900,
-          "priceText": "19,900원"
-        },
-        {
-          "description": "치킨다리4조각 + 코울슬로 + 소스1개",
-          "name": "치킨다리 하프팩(코울슬로)",
-          "price": 12200,
-          "priceText": "12,200원"
-        },
-        {
-          "description": "구성 : 치킨다리4조각 + 포테이토+ 소스1개 한국인이 좋아하는 치킨다리로만 구성되어있는 후라이드 치킨",
-          "name": "치킨다리 하프팩(포테이토)",
-          "price": 12200,
-          "priceText": "12,200원"
-        },
-        {
-          "description": "구성 : 후라이드 2인분 + 소스1개 탱글한 닭다리살에 풍부한 컬과 바삭한 튀김 옷의 조화 순살로 편하게 즐기는 치킨",
-          "name": "후라이드 순살치킨 (R)",
-          "price": 12600,
-          "priceText": "12,600원"
-        },
-        {
-          "description": "담백하고 매콤한 치킨윙",
-          "name": "화이어윙 4조각",
-          "price": 6300,
-          "priceText": "6,300원"
-        },
-        {
-          "description": "신대방 온정돈까스 매운맛 10단계인 시그니처 메뉴 디진다돈까스를 핑거 디저트화한 제품으로 극강의 매운맛으로 한 입만 먹어도 강력하고 화끈한 매운맛 (환자, 임산부, 어린이, 노약자, 빈속 등 섭취시 주의하시기 바랍니다)",
-          "name": "디지게 매운 돈까스(디진다맛)",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "신대방 온정돈까스 매운맛 2단계인 양념 돈까스를 핑거 디저트화한 제품으로 매콤달콤한 양념 소스로 누구나 맛있게 맵게 즐길 수 있는 매운맛",
-          "name": "디지게 매운 돈까스(양념맛)",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "통가슴살로 만든 바삭하고 고소한 치킨 디저트",
-          "name": "지파이 고소한맛(S)",
-          "price": 5300,
-          "priceText": "5,300원"
-        },
-        {
-          "description": "통가슴살로 만든 바삭하고 매콤한 빅사이즈 치킨 디저트",
-          "name": "지파이 하바네로(L)",
-          "price": 6300,
-          "priceText": "6,300원"
-        },
-        {
-          "description": "담백하고 촉촉한 치킨너겟에 시즈닝을 뿌려 흔들어 먹는 디저트 치킨너겟 8조각 + 시즈닝 1종",
-          "name": "양념너겟",
-          "price": 4100,
-          "priceText": "4,100원"
-        },
-        {
-          "description": "달콤쌉싸름한 말차와 우유의 고소함이 조화로운 아이스 라떼 드링크",
-          "name": "말차라떼",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "펩시콜라 1.25L",
-          "name": "콜라 PET(1.25L)",
-          "price": 3500,
-          "priceText": "3,500원"
-        },
-        {
-          "description": "상큼한 레몬 맛과 톡 쏘는 탄산의 청량함이 느껴지는 시원한 아이스 드링크",
-          "name": "레몬에이드(L)",
-          "price": 3700,
-          "priceText": "3,700원"
-        },
-        {
-          "description": "상큼한 레몬 맛과 톡 쏘는 탄산의 청량함이 느껴지는 시원한 아이스 드링크",
-          "name": "레몬에이드(R)",
-          "price": 3400,
-          "priceText": "3,400원"
-        },
-        {
-          "description": "달콤한 복숭아 맛의 시원한 아이스 드링크",
-          "name": "아이스티(L)",
-          "price": 3300,
-          "priceText": "3,300원"
-        },
-        {
-          "description": "달콤쌉싸름한 말차와 바삭한 초코쿠키가 조화로운 아이스크림 디저트",
-          "name": "토네이도 말차쿠키",
-          "price": 4300,
-          "priceText": "4,300원"
-        },
-        {
-          "description": "쫄깃한 곤약젤리가 들어있는 달콤 상큼한 망고아이스크림",
-          "name": "토네이도 망고젤리",
-          "price": 4000,
-          "priceText": "4,000원"
+          "description": "",
+          "name": "양념감자",
+          "price": null,
+          "priceText": ""
         }
       ],
       "naverPlaceUrl": "https://pcmap.place.naver.com/restaurant/21817958/menu/list?from=map&fromPanelNum=1&additionalHeight=76&locale=ko&svcName=map_pcv5",
       "naverMenuUpdatedAt": "2026-05-22",
-      "naverRating": 4.41
+      "naverRating": 4.41,
+      "menuSource": "curated"
     },
     {
       "id": "sikgwon-185",
@@ -30941,18 +29270,6 @@
           "name": "(꼬마)불고기김밥",
           "price": 2500,
           "priceText": "2,500원"
-        },
-        {
-          "description": "",
-          "name": "치즈라면(평일한정)",
-          "price": 5000,
-          "priceText": "5,000원"
-        },
-        {
-          "description": "",
-          "name": "계란라면(평일한정)",
-          "price": 4500,
-          "priceText": "4,500원"
         },
         {
           "description": "",
@@ -31342,12 +29659,6 @@
         },
         {
           "description": "",
-          "name": "(신메뉴) 소고기오징어볶음",
-          "price": 25000,
-          "priceText": "25,000원"
-        },
-        {
-          "description": "",
           "name": "소고기삼겹 두부김치",
           "price": 15000,
           "priceText": "15,000원"
@@ -31363,12 +29674,6 @@
           "name": "우렁칼국수무침",
           "price": 19000,
           "priceText": "19,000원"
-        },
-        {
-          "description": "",
-          "name": "(신메뉴) (점심특선) 꽃게 된장전골",
-          "price": 12000,
-          "priceText": "12,000원"
         },
         {
           "description": "",

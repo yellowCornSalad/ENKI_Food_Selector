@@ -94,6 +94,10 @@ function scoreRestaurant(restaurant, meal, preferences) {
   let score = 0;
   if (restaurant.sikgwonStatus === "confirmed") score += 80;
   if (restaurant.sikgwonStatus === "candidate") score += 35;
+  // 편의점/마트는 '오늘 뭐 먹지' 추천 대상이 아니다 — 리스트에는 남기되
+  // 항상 맨 아래로 가라앉혀 히어로 추천/게임 후보에 절대 오르지 않게 한다.
+  // (confirmed +80 과 노이즈 +35 를 합쳐도 못 넘는 크기의 페널티)
+  if (/편의점|마트/.test(restaurant.category ?? "")) score -= 200;
   if (restaurant.hoursConfidence === "high") score += 14;
   if (restaurant.meals?.includes(meal)) score += 12;
   score += Math.max(0, 25 - restaurant.distanceM / 25);
@@ -145,7 +149,23 @@ function isPlaceholderMenu(menuName, restaurantName) {
   if (rn.length >= 3 && (mn.includes(rn) || rn.includes(mn))) return true;
   // 지점/위치 표기가 들어간 무가격 '메뉴' = 업체명 placeholder
   if (looksLikeBranchName(menuName)) return true;
+  // 이름이 바뀐 가게는 placeholder 에 '옛 이름'이 남는다 (잇소니본점 vs 잇쇼니본점 = 0.5).
+  // 정확 일치는 못 잡으니 bigram 유사도로 판단 — 무가격 + 상호와 절반 이상 겹치면 placeholder.
+  if (rn.length >= 3 && bigramSimilarity(mn, rn) >= 0.5) return true;
   return false;
+}
+function bigramSimilarity(a, b) {
+  if (a.length < 2 || b.length < 2) return 0;
+  const grams = (s) => {
+    const out = [];
+    for (let i = 0; i < s.length - 1; i += 1) out.push(s.slice(i, i + 2));
+    return out;
+  };
+  const ga = grams(a);
+  const setB = new Set(grams(b));
+  let hit = 0;
+  for (const g of ga) if (setB.has(g)) hit += 1;
+  return (2 * hit) / (ga.length + grams(b).length);
 }
 function realMenus(list, restaurantName) {
   return (list ?? []).filter((m) => m?.name && !isPlaceholderMenu(m.name, restaurantName));
@@ -158,6 +178,13 @@ function pickMenu(restaurant, meal, preferences, seed) {
   if (!pool.length) return "메뉴 정보 없음";
   const tagged = pool.filter((menu) => menu.tags?.some((tag) => preferences.has(tag)));
   if (tagged.length) pool = tagged;
+  // 4,500원 미만은 사리·사이드·음료대 — 제대로 된 식사 메뉴가 따로 있으면
+  // 대표 자리(카드 제목)에서 제외한다. ("볶음밥 3,000원"이 감자탕집 대표로 뜨는 문제)
+  const mains = pool.filter((menu) => {
+    const p = extractPrice(menu.name);
+    return p == null || p >= 4500;
+  });
+  if (mains.length) pool = mains;
   const budget = MEAL_BUDGETS[meal] ?? 12000;
   const ranked = [...pool].sort((a, b) => priceDistance(a.name, budget) - priceDistance(b.name, budget));
   const topSize = Math.min(3, ranked.length);
