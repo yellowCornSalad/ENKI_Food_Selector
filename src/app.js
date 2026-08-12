@@ -308,6 +308,22 @@ function togglePreference(id) {
   render();
 }
 
+// 결과가 뜰 때 화면 아래에 묻히지 않도록 결과 카드로 스크롤 + 살짝 강조.
+function scrollResultIntoView() {
+  const el = document.getElementById("topPick");
+  if (!el) return;
+  const menuPane = document.querySelector('[data-tab="menu"]');
+  if (menuPane && !menuPane.classList.contains("is-active")) return;
+  // render() 로 innerHTML 갱신된 뒤 레이아웃이 안정되면 스크롤 + pop
+  setTimeout(() => {
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    el.classList.remove("is-flash");
+    void el.offsetWidth; // reflow → 애니메이션 재시작
+    el.classList.add("is-flash");
+    setTimeout(() => el.classList.remove("is-flash"), 900);
+  }, 130);
+}
+
 function chooseMeal() {
   if (state.gamePhase === "running") return;
   if (needsManualChoices(state.mode) && state.userMenus.length < 2) {
@@ -322,6 +338,7 @@ function chooseMeal() {
     state.gamePhase = "done";
     state.hasPicked = true;
     render();
+    scrollResultIntoView();
     return;
   }
   state.gameSeed += 1;
@@ -376,6 +393,7 @@ function startMarbleGame() {
       state.gamePhase = "done";
       state.hasPicked = true;
       render();
+      scrollResultIntoView();
     },
   });
 }
@@ -451,6 +469,7 @@ function scheduleResultReveal(ms) {
     state.hasPicked = true;
     state.resultTimer = null;
     render();
+    scrollResultIntoView();
   }, ms);
 }
 
