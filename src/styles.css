@@ -2765,8 +2765,15 @@ h1 {
 }
 
 .candidate-empty {
-  color: #6d7774;
+  color: var(--text-2);
   font-size: 13px;
+}
+
+/* 메뉴 출처 캡션 — 큐레이션/네이버 기준 안내 */
+.menu-source {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: var(--text-3);
 }
 
 .candidate-link {

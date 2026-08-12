@@ -1,4 +1,4 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260610-03";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260812-02";
 import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
@@ -567,10 +567,14 @@ function renderTopPick(item) {
   }
   target.classList.remove("is-miss", "is-again", "is-empty");
   // 내부 태그 id(quick, korean…)가 그대로 노출되지 않도록 한글 라벨로 바꾸고,
-  // 라벨이 없는 내부용 태그는 버린다.
-  const bestFor = (item.bestFor ?? item.tags ?? [])
-    .map((tag) => preferenceOptions.find((o) => o.id === tag)?.label ?? tag)
-    .filter((label) => !/^[a-z-]+$/.test(label));
+  // 라벨이 없는 내부용 태그·카테고리와 겹치는 라벨(한식·한식)은 버린다.
+  const catText = categoryText(item);
+  const bestFor = [...new Set(
+    (item.bestFor ?? item.tags ?? [])
+      .map((tag) => preferenceOptions.find((o) => o.id === tag)?.label ?? tag)
+      .filter((label) => !/^[a-z-]+$/.test(label))
+      .filter((label) => !catText.includes(label)),
+  )];
   const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
   // Direct place URL when available, otherwise name search (검색은 원본 이름 사용).
   const mapUrl = item.naverPlaceUrl || naverMapSearchUrl(item.name);
@@ -635,6 +639,15 @@ function renderCandidateDetail(item, expanded) {
   // and fall back to a name search when we don't have one mapped.
   const mapUrl = item.naverPlaceUrl || naverMapSearchUrl(item.name);
   const mapButton = `<a class="candidate-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">🗺️ 네이버 지도에서 검색</a>`;
+  // 편의점은 상품 목록 대신 뭘 살 수 있는 곳인지만 안내 (개별 상품 나열은 이질적)
+  if (/편의점|마트/.test(item.category ?? "")) {
+    return `
+      <div class="candidate-detail">
+        <p class="candidate-empty">도시락 · 삼각김밥 · 샐러드 등 간편식을 식권으로 구매할 수 있어요.</p>
+        ${mapButton}
+      </div>
+    `;
+  }
   if (!menus.length) {
     return `
       <div class="candidate-detail">
@@ -660,9 +673,15 @@ function renderCandidateDetail(item, expanded) {
       `;
     })
     .join("");
+  // 출처 캡션 — 큐레이션(대표 메뉴)인지 네이버 크롤인지 정직하게 표기.
+  // 가격 변동·단종을 앱이 실시간 추적할 수 없으므로 기대치를 명확히 잡아준다.
+  const sourceNote = item.menuSource === "curated"
+    ? "대표 메뉴 기준 · 가격은 매장에서 확인해 주세요"
+    : "네이버 플레이스 기준 · 실제 매장과 다를 수 있어요";
   return `
     <div class="candidate-detail">
       <ul class="menu-list">${rows}</ul>
+      <p class="menu-source">${sourceNote}</p>
       ${mapButton}
     </div>
   `;
