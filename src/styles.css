@@ -882,12 +882,18 @@ button:not(:disabled):active,
   line-height: 1.2;
 }
 
+/* 카드 아이콘은 은은한 칩 안에 — 이모지가 바닥에 둥둥 뜨면 산만하다 */
 .action .icon {
   position: absolute;
   right: 14px;
   bottom: 14px;
-  font-size: 28px;
-  opacity: 0.85;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-md);
+  background: var(--surface-sunken);
+  font-size: 22px;
 }
 
 .action.is-primary {
@@ -902,17 +908,27 @@ button:not(:disabled):active,
 }
 
 .action.is-primary .icon {
-  font-size: 38px;
-  opacity: 0.92;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 24px;
 }
 
+/* 식대 카드: 쨍한 주황 그라데이션 대신 화이트 서피스 + 앰버 포인트.
+   컬러 카드는 primary 하나만 — 나머지는 조용해야 primary 가 산다. */
 .action.is-warm {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
+  background: var(--surface);
   color: var(--text);
 }
 
 .action.is-warm .badge {
-  color: rgba(31, 41, 55, 0.6);
+  color: #b45309;
+}
+
+.action.is-warm .icon {
+  background: #fef3c7;
+}
+
+.action.is-fortune .icon {
+  background: #fef3c7;
 }
 
 /* ========== HOME SECTIONS ========== */
@@ -1190,9 +1206,11 @@ button:not(:disabled):active,
 .calendar-embed iframe {
   display: block;
   width: 100%;
-  height: 320px;
+  height: 256px;
   border: 0;
 }
+
+.calendar-note{margin:8px 2px 0;font-size:11px;color:var(--text-3)}
 
 .text-link[href] {
   text-decoration: none;
@@ -1253,7 +1271,7 @@ button:not(:disabled):active,
 }
 
 .notice-tag.is-update {
-  background: #e0e7ff;
+  background: var(--accent-tint);
   color: #4338ca;
 }
 
@@ -1304,19 +1322,20 @@ button:not(:disabled):active,
 .pop-thumb {
   height: 80px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #4338ca, #14b8a6);
+  background: var(--surface-sunken);
   margin-bottom: 10px;
   display: grid;
   place-items: center;
   font-size: 32px;
 }
 
+/* 썸네일 배경은 전부 동일한 뉴트럴 — 색은 음식 이모지가 이미 갖고 있다 */
 .popular-card.is-warm .pop-thumb {
-  background: linear-gradient(135deg, #f59e0b, #f97316);
+  background: #fef7ec;
 }
 
 .popular-card.is-cool .pop-thumb {
-  background: linear-gradient(135deg, #6366f1, #2563eb);
+  background: var(--accent-tint);
 }
 
 .popular-card h4 {
@@ -2133,7 +2152,7 @@ h1 {
   border: 0;
   border-radius: 7px;
   background: transparent;
-  color: #51605d;
+  color: var(--text-2);
   font-weight: 600;
 }
 
@@ -2206,7 +2225,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
-  color: #34413e;
+  color: var(--text-2);
   font-size: 14px;
   font-weight: 600;
 }
@@ -2228,14 +2247,14 @@ h1 {
   border: 1px solid var(--line);
   border-radius: var(--r-md);
   background: var(--surface);
-  color: #34413e;
+  color: var(--text-2);
   font-size: 14px;
   font-weight: 600;
 }
 
 .mode-button.is-active {
   border-color: #4338ca;
-  background: #e0e7ff;
+  background: var(--accent-tint);
   color: #4338ca;
 }
 
@@ -2332,7 +2351,7 @@ h1 {
   padding: 6px 4px 6px 12px;
   border: 1px solid rgba(67, 56, 202, 0.3);
   border-radius: 999px;
-  background: #e0e7ff;
+  background: var(--accent-tint);
   color: #4338ca;
   font-size: 13px;
   font-weight: 600;
@@ -2394,7 +2413,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: var(--r-md);
   background: var(--surface);
-  color: #34413e;
+  color: var(--text-2);
   text-align: left;
 }
 
@@ -2419,7 +2438,7 @@ h1 {
 
 .ladder-option.is-selected {
   border-color: #4338ca;
-  background: #e0e7ff;
+  background: var(--accent-tint);
 }
 
 .ladder-option.is-selected strong,
@@ -3733,6 +3752,8 @@ body.modal-open {
 }
 
 /* ===== Hero icon buttons (bell/gear) ===== */
+.hero-icon-btn svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.search-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .hero-icon-btn {
   position: relative;
   background: transparent;
