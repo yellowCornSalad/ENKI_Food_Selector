@@ -7,7 +7,12 @@
     <meta name="description" content="엔키화이트햇 문정동 사내 점심 앱" />
     <title>엔키 — 오늘 뭐 먹지</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./src/styles.css?v=20260810-01" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="./src/styles.css?v=20260812-01" />
     <script defer src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
   </head>
   <body>
@@ -678,28 +683,38 @@
     <!-- bottom navigation (모든 탭 공통) -->
     <nav class="bottom-nav" aria-label="주요 메뉴">
       <button class="nav-item is-active" type="button" data-tab-target="home">
-        <span class="nav-icon">🏠</span>
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3.2 10.4 12 3.3l8.8 7.1" /><path d="M5.6 9.4V19a1.6 1.6 0 0 0 1.6 1.6h9.6a1.6 1.6 0 0 0 1.6-1.6V9.4" /></svg>
+        </span>
         <span class="nav-label">홈</span>
       </button>
       <button class="nav-item" type="button" data-tab-target="board">
-        <span class="nav-icon">🏛️</span>
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3.4" y="4.4" width="17.2" height="15.2" rx="2.6" /><path d="M7.4 9.6h9.2M7.4 13.6h6" /></svg>
+        </span>
         <span class="nav-label">광장</span>
       </button>
       <button class="nav-item" type="button" data-tab-target="deal">
-        <span class="nav-icon">💰</span>
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20.3 13.1 13.1 20.3a1.9 1.9 0 0 1-2.7 0l-6.7-6.7a1.9 1.9 0 0 1-.6-1.4V4.6a1.2 1.2 0 0 1 1.2-1.2h7.6a1.9 1.9 0 0 1 1.4.6l6.7 6.7a1.7 1.7 0 0 1 0 2.4Z" /><circle cx="8.1" cy="8.1" r="1.3" /></svg>
+        </span>
         <span class="nav-label">거래</span>
       </button>
       <button class="nav-item" type="button" data-tab-target="chat">
-        <span class="nav-icon">💬</span>
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20.6 11.7a7.9 7.9 0 0 1-8.1 7.8 8.6 8.6 0 0 1-3.4-.7L4.2 20.4l1.4-4.4a7.6 7.6 0 0 1-1.2-4.3 7.9 7.9 0 0 1 8.1-7.8 7.9 7.9 0 0 1 8.1 7.8Z" /></svg>
+        </span>
         <span class="nav-label">채팅</span>
         <span class="nav-badge" id="navChatBadge" hidden></span>
       </button>
       <button class="nav-item" type="button" data-tab-target="my">
-        <span class="nav-icon">🙋</span>
+        <span class="nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8.4" r="3.6" /><path d="M4.9 20.1a7.3 7.3 0 0 1 14.2 0" /></svg>
+        </span>
         <span class="nav-label">마이</span>
       </button>
     </nav>
 
-    <script type="module" src="./src/app.js?v=20260810-01"></script>
+    <script type="module" src="./src/app.js?v=20260812-01"></script>
   </body>
 </html>

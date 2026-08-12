@@ -566,7 +566,11 @@ function renderTopPick(item) {
     return;
   }
   target.classList.remove("is-miss", "is-again", "is-empty");
-  const bestFor = item.bestFor ?? item.tags ?? [];
+  // 내부 태그 id(quick, korean…)가 그대로 노출되지 않도록 한글 라벨로 바꾸고,
+  // 라벨이 없는 내부용 태그는 버린다.
+  const bestFor = (item.bestFor ?? item.tags ?? [])
+    .map((tag) => preferenceOptions.find((o) => o.id === tag)?.label ?? tag)
+    .filter((label) => !/^[a-z-]+$/.test(label));
   const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
   // Direct place URL when available, otherwise name search (검색은 원본 이름 사용).
   const mapUrl = item.naverPlaceUrl || naverMapSearchUrl(item.name);
