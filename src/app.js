@@ -1,4 +1,4 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260812-03";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260812-04";
 import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
@@ -2565,11 +2565,11 @@ const BOARD_USER_POSTS_KEY = "enki.board.userPosts.v1";
 const BOARD_LIKES_KEY = "enki.board.likes.v1";
 const BOARD_USER_COMMENTS_KEY = "enki.board.userComments.v1";
 const BOARD_CATEGORY_LABEL = {
-  notice: "📢 공지",
-  free: "💬 자유",
-  anon: "🕵️ 익명",
-  lunch: "🍱 점심 모집",
-  review: "⭐ 거래 후기",
+  notice: "공지",
+  free: "자유",
+  anon: "익명",
+  lunch: "점심 모집",
+  review: "거래 후기",
 };
 const BOARD_TAG_CLASS = {
   notice: "tag-notice",
@@ -2944,7 +2944,7 @@ function renderBoardList() {
   }
   listEl.innerHTML = items.map((p) => {
     const tagCls = BOARD_TAG_CLASS[p.category] || "tag-free";
-    const tagLabel = BOARD_CATEGORY_LABEL[p.category] || "💬 자유";
+    const tagLabel = BOARD_CATEGORY_LABEL[p.category] || "자유";
     const liked = isLiked(p.id);
     const likes = likeCountOf(p);
     const comments = commentsOf(p).length;
@@ -2956,7 +2956,7 @@ function renderBoardList() {
            ${p.lunch.current >= p.lunch.total ? "마감" : `${p.lunch.current}/${p.lunch.total}`}
          </span>`
       : "";
-    const pinned = p.pinned ? `<span class="post-pin-badge">📌 고정</span>` : "";
+    const pinned = p.pinned ? `<span class="post-pin-badge">고정</span>` : "";
     const classList = [
       "board-card",
       p.pinned ? "is-pinned" : "",
@@ -3011,7 +3011,7 @@ function openPostDetail(postId) {
   const tagEl = document.getElementById("postDetailTag");
   if (tagEl) {
     tagEl.className = `post-tag ${BOARD_TAG_CLASS[p.category] || "tag-free"}`;
-    tagEl.textContent = BOARD_CATEGORY_LABEL[p.category] || "💬 자유";
+    tagEl.textContent = BOARD_CATEGORY_LABEL[p.category] || "자유";
   }
   const authorEl = document.getElementById("postDetailAuthor");
   if (authorEl) authorEl.textContent = p.author || "익명";
