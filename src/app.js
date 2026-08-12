@@ -1,4 +1,4 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260812-02";
+import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260812-03";
 import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
@@ -94,7 +94,10 @@ function thumbForCategory(item) {
   if (/치킨/.test(cat)) return "🍗";
   if (/중식|짜장|짬뽕|마라|훠궈/.test(cat)) return "🥟";
   if (/일식|초밥|회|스시|돈까스|돈가스|라멘|우동|규동|텐동/.test(cat)) return "🍣";
-  if (/양식|샌드위치|버거|피자|파스타|스테이크/.test(cat)) return "🍝";
+  if (/버거|패스트푸드/.test(cat)) return "🍔";
+  if (/샌드위치/.test(cat)) return "🥪";
+  if (/피자/.test(cat)) return "🍕";
+  if (/양식|파스타|스테이크/.test(cat)) return "🍝";
   if (/카페|커피|음료|차/.test(cat)) return "☕";
   if (/베이커리|빵|디저트/.test(cat)) return "🥐";
   if (/샐러드|건강식|다이어트/.test(cat)) return "🥗";
