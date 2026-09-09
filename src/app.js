@@ -1,4 +1,4 @@
-import { findRestaurantsByMenu, getCurrentMeal, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260812-04";
+import { findRestaurantsByMenu, getCurrentMeal, menuPrice, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260909-01";
 import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
@@ -19,6 +19,10 @@ const state = {
   selectedStartLane: null,
   resultTimer: null,
   expandedCandidates: new Set(),
+  // 방금 추천한 곳들 — 연속으로 같은 집이 다시 뽑히지 않게 추천 엔진에 넘긴다.
+  recentPicks: [],
+  // 사용자가 '이 집 빼기' 한 곳 (오늘 하루). 추천에서 완전히 제외.
+  excludedIds: new Set(),
   lastGameResult: null,
   marbleItems: null,
   marbleWinnerIndex: null,
@@ -69,6 +73,11 @@ async function loadRestaurants() {
   }
   const payload = await response.json();
   state.restaurants = payload.restaurants ?? [];
+  // 가맹점 수는 데이터에서 읽는다 — 하드코딩하면 데이터 갱신 때마다 어긋난다.
+  const countEl = document.getElementById("menuStoreCount");
+  if (countEl) countEl.textContent = state.restaurants.length.toLocaleString("ko-KR");
+  const homeCountEl = document.getElementById("homeStoreCount");
+  if (homeCountEl) homeCountEl.textContent = `문정동 ${state.restaurants.length}곳`;
   renderPopular();
   render();
 }
@@ -335,6 +344,9 @@ function chooseMeal() {
     render();
     return;
   }
+  // 새로 뽑기 전에 '방금 본 곳'을 기록해 둔다. 기록은 여기서만 해야
+  // 취향 칩 토글 같은 재렌더로 결과가 제멋대로 바뀌지 않는다.
+  if (state.hasPicked) rememberPick(state.lastRecommendations?.[0]);
   if (!needsManualChoices(state.mode)) {
     state.pickIndex += 1;
     state.gameSeed += 1;
@@ -528,6 +540,16 @@ function hasNoRealMenu(item) {
   return !item.menu || item.menu === "메뉴 정보 없음" || item.menu === "추천 메뉴 확인 필요";
 }
 
+const RECENT_PICK_MAX = 8;
+
+// 확정된 추천을 최근 목록에 기록한다. 다음 '한 번 더'에서 이 곳들은 후보에서
+// 빠지므로, 연속으로 같은 집이 반복되지 않는다.
+function rememberPick(item) {
+  const id = String(item?.id ?? "");
+  if (!id || id.startsWith("result-")) return;
+  state.recentPicks = [id, ...state.recentPicks.filter((x) => x !== id)].slice(0, RECENT_PICK_MAX);
+}
+
 function renderTopPick(item) {
   const target = $("#topPick");
   if (!state.hasPicked || (needsManualChoices(state.mode) && state.gamePhase !== "done")) {
@@ -585,21 +607,46 @@ function renderTopPick(item) {
   const cName = cleanRestaurantName(item.name);
   const noMenu = hasNoRealMenu(item);
   const heroTitle = noMenu ? cName : item.menu;
-  const heroName = noMenu ? nameLocationTag(item.name) || categoryText(item) : cName;
+  // 메뉴가 없으면 제목이 곧 가게 이름이다. 이때 부제에 위치 태그를 또 쓰면
+  // "본설렁탕(문정역점) / 문정역점" 처럼 겹치므로, 제목에 없는 정보만 남긴다.
+  const locTag = nameLocationTag(item.name);
+  const heroName = noMenu
+    ? (locTag && !cName.includes(locTag) ? locTag : catText)
+    : cName;
+  // 신뢰 신호를 한 줄로: 거리 · 별점 · 리뷰수 · 영업시간.
+  // "왜 여길 추천했지?" 에 답하는 정보라 제목 바로 아래 둔다.
+  const facts = [
+    `${item.distanceM}m`,
+    typeof item.naverRating === "number" && item.naverRating > 0 ? `★ ${item.naverRating.toFixed(1)}` : "",
+    typeof item.naverVisitorReviewCount === "number" && item.naverVisitorReviewCount > 0
+      ? `리뷰 ${item.naverVisitorReviewCount.toLocaleString("ko-KR")}`
+      : "",
+    item.openingNote || "",
+  ].filter(Boolean);
+
+  // 식권 한도를 넘는 메뉴는 차액이 자기 돈이다. 가서 알기 전에 여기서 알려준다.
+  const price = noMenu ? null : menuPrice(item.menu);
+  const overBy = typeof price === "number" && price > BUDGET_DAILY ? price - BUDGET_DAILY : 0;
+
   target.innerHTML = `
-    <div class="pick-meta">
-      ${meta.map((text) => `<span>${text}</span>`).join("")}
-    </div>
+    <p class="pick-eyebrow">${state.meal === "lunch" ? "점심" : "저녁"} 추천</p>
     <h2>${escapeHtml(heroTitle)}</h2>
-    <p class="restaurant-name">${escapeHtml(heroName)}</p>
-    <p class="reason">${escapeHtml(item.reason)}</p>
+    <p class="restaurant-name">${escapeHtml(noMenu ? heroName : cName)}</p>
+    <div class="pick-facts">
+      ${facts.map((t) => `<span>${escapeHtml(t)}</span>`).join('<i aria-hidden="true">·</i>')}
+    </div>
+    ${overBy > 0 ? `<p class="pick-over">식권 한도보다 ${overBy.toLocaleString("ko-KR")}원 비싸요</p>` : ""}
     ${renderSuggestionList(item)}
     <div class="detail-grid">
-      <span>${escapeHtml(categoryText(item))}</span>
-      <span>${escapeHtml(item.priceBand ?? "")}</span>
-      <span>${escapeHtml(bestFor.slice(0, 3).join(" · "))}</span>
+      <span>${escapeHtml(catText)}</span>
+      ${bestFor.slice(0, 2).map((t) => `<span>${escapeHtml(t)}</span>`).join("")}
     </div>
-    <a class="hero-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">🗺️ 네이버 지도에서 보기</a>
+    <div class="hero-actions">
+      <a class="hero-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">네이버 지도</a>
+      <button type="button" class="hero-exclude" data-exclude-id="${escapeHtml(String(item.id))}">
+        이 집 빼기
+      </button>
+    </div>
   `;
 }
 
@@ -1303,6 +1350,8 @@ function render() {
     preferences: [...state.preferences],
     now: new Date(),
     pickIndex: state.pickIndex,
+    recentIds: state.recentPicks,
+    excludedIds: [...state.excludedIds],
   });
   const selectedRecommendations = selectGameWinner(recommendations);
   state.lastRecommendations = selectedRecommendations;
@@ -1459,6 +1508,14 @@ $("#chooseButton").addEventListener("click", chooseMeal);
 $("#topPick").addEventListener("click", (event) => {
   if (event.target.closest("[data-action='choose']")) {
     chooseMeal();
+    return;
+  }
+  // '이 집 빼기' — 오늘은 이 가게를 추천에서 완전히 제외하고 바로 다시 뽑는다.
+  const exclude = event.target.closest("[data-exclude-id]");
+  if (exclude) {
+    state.excludedIds.add(String(exclude.dataset.excludeId));
+    chooseMeal();
+    showToast("추천에서 제외했어요");
   }
 });
 $("#gameStage").addEventListener("click", (event) => {
@@ -1752,11 +1809,11 @@ function updateLunchCountdown() {
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
   const timeText = hours > 0 ? `${hours}시간 ${minutes}분` : `${minutes}분`;
-  el.innerHTML = `🕒 ${label}까지 <strong>${timeText}</strong>`;
+  el.innerHTML = `${label}까지 <strong>${timeText}</strong>`;
   // Mirror the same label into 메뉴 탭 hero (if mounted)
   const menuEl = document.getElementById("menuLunchCountdown");
   if (menuEl) {
-    menuEl.innerHTML = `🕒 ${label}까지 <strong>${timeText}</strong>`;
+    menuEl.innerHTML = `${label}까지 <strong>${timeText}</strong>`;
   }
 }
 updateLunchCountdown();
@@ -1787,7 +1844,7 @@ async function updateWeatherAndDate() {
   const el = document.getElementById("heroWeather");
   if (!el) return;
   const dateText = todayLabel();
-  el.textContent = `📅 ${dateText}`;
+  el.textContent = `${dateText}`;
   try {
     const res = await fetch(
       "https://api.open-meteo.com/v1/forecast?latitude=37.4858&longitude=127.1228&current_weather=true&timezone=Asia%2FSeoul",
@@ -1799,7 +1856,7 @@ async function updateWeatherAndDate() {
     if (!current) return;
     const icon = weatherIcon(current.weathercode);
     const temp = Math.round(current.temperature);
-    el.textContent = `📅 ${dateText} · ${icon} ${temp}°`;
+    el.textContent = `${dateText} · ${icon} ${temp}°`;
   } catch {
     // network failed; keep date-only label
   }

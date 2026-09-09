@@ -20,9 +20,9 @@
   --text-3: #8b95a1;
 
   /* 강조색 — ENKI 인디고 유지 (브랜드 정체성) */
-  --accent: #4f46e5;
-  --accent-strong: #4338ca;
-  --accent-tint: #eef0ff;
+  --accent: #3182f6;
+  --accent-strong: #1b64da;
+  --accent-tint: #e8f3ff;
 
   /* 라운드 — 4단계로 통일 */
   --r-sm: 10px;
@@ -189,40 +189,18 @@ button:not(:disabled):active,
 }
 
 /* ---------- Menu tab hero wrapper — covers topbar + status + meal switch ---------- */
+/* ---------- 메뉴 탭 라이트 헤더 (토스식: 캔버스 위 다크 타이틀) ---------- */
 .tab-pane[data-tab="menu"] .menu-hero-wrap {
   position: relative;
-  background:
-    radial-gradient(80% 50% at 110% 0%, rgba(245, 158, 11, 0.32), transparent 60%),
-    radial-gradient(60% 50% at -10% 100%, rgba(99, 102, 241, 0.35), transparent 60%),
-    linear-gradient(170deg, #1e1b4b 0%, #312e81 70%, #1e1b4b 100%);
-  color: #ffffff;
-  padding-bottom: 18px;
-  overflow: hidden;
-}
-
-.tab-pane[data-tab="menu"] .menu-hero-wrap::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.1) 0 1.5px, transparent 2px),
-    radial-gradient(circle at 76% 38%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1.5px);
-  pointer-events: none;
-}
-
-.tab-pane[data-tab="menu"] .menu-hero-wrap > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* ---------- Topbar inside hero wrap ---------- */
-.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar {
-  position: relative;
-  margin: 0;
-  padding: 28px 22px 8px;
   background: transparent;
-  color: #ffffff;
-  overflow: visible;
+  color: var(--text);
+  padding-bottom: 6px;
+}
+
+.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar {
+  margin: 0;
+  padding: 20px 20px 0;
+  background: transparent;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -235,8 +213,8 @@ button:not(:disabled):active,
 }
 
 .tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-sub {
-  margin: 10px 0 16px;
-  color: rgba(255, 255, 255, 0.78);
+  margin: 8px 0 10px;
+  color: var(--text-3);
   font-size: 13px;
   line-height: 1.45;
 }
@@ -244,78 +222,48 @@ button:not(:disabled):active,
 .tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.78);
+  gap: 12px;
+  color: var(--text-3);
   font-size: 12px;
-  font-weight: 600;
-}
-
-.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-meta span {
-  padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  backdrop-filter: blur(8px);
+  font-weight: 500;
 }
 
 .tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .topbar-meta strong {
-  color: #ffffff;
+  color: var(--text-2);
   font-weight: 700;
-}
-
-.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 22% 80%, rgba(255, 255, 255, 0.1) 0 1.5px, transparent 2px),
-    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1.5px);
-  pointer-events: none;
-}
-
-.tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar > div {
-  position: relative;
-  z-index: 1;
 }
 
 .tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .eyebrow {
-  color: rgba(252, 211, 77, 0.92);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
+  display: none;
 }
 
 .tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
-  color: #ffffff;
-  line-height: 1.05;
+  color: var(--text);
+  line-height: 1.2;
 }
 
 .tab-pane[data-tab="menu"] > .menu-hero-wrap > .topbar .icon-button {
-  position: relative;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #ffffff;
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text-2);
+  border-radius: 50%;
   flex: 0 0 auto;
 }
 
 /* ---------- Menu tab card sections ---------- */
 .tab-pane[data-tab="menu"] .menu-hero-wrap .status-strip {
-  margin: 6px 18px 12px;
-  padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.95);
+  margin: 8px 18px 12px;
+  padding: 13px 16px;
+  background: var(--surface);
   border: 0;
-  border-radius: 14px;
-  color: #312e81;
-  box-shadow: 0 8px 22px rgba(15, 15, 50, 0.28);
+  border-radius: var(--r-md);
+  color: var(--text-2);
+  box-shadow: var(--sh-1);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .tab-pane[data-tab="menu"] .menu-hero-wrap .status-strip strong {
@@ -323,23 +271,24 @@ button:not(:disabled):active,
   font-weight: 700;
 }
 
+/* 토스식 세그먼트: 회색 트랙 + 흰 썸 */
 .tab-pane[data-tab="menu"] .menu-hero-wrap .meal-switch {
   margin: 0 18px;
-  padding: 5px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
-  backdrop-filter: blur(8px);
+  padding: 4px;
+  background: #e9ebee;
+  border: 0;
+  border-radius: var(--r-md);
 }
 
 .tab-pane[data-tab="menu"] .menu-hero-wrap .meal-switch .segment {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--text-3);
 }
 
 .tab-pane[data-tab="menu"] .menu-hero-wrap .meal-switch .segment.is-active {
   background: #ffffff;
-  color: #312e81;
-  box-shadow: 0 6px 18px rgba(15, 15, 50, 0.32);
+  color: var(--text);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(25, 31, 40, 0.1);
 }
 
 .tab-pane[data-tab="menu"] .meal-switch .segment {
@@ -382,7 +331,7 @@ button:not(:disabled):active,
 }
 
 .tab-pane[data-tab="menu"] .mode-button.is-active {
-  background: linear-gradient(135deg, #4338ca, #312e81);
+  background: var(--accent);
   color: #ffffff;
   border-color: transparent;
 }
@@ -396,18 +345,18 @@ button:not(:disabled):active,
 }
 
 .tab-pane[data-tab="menu"] .chip.is-selected {
-  background: linear-gradient(135deg, #4338ca, #4f46e5);
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
   color: #ffffff;
   border-color: transparent;
 }
 
 .tab-pane[data-tab="menu"] .hero-card {
-  margin: 0 18px 14px;
-  border-radius: 18px;
-  background:
-    radial-gradient(80% 60% at 110% 0%, rgba(245, 158, 11, 0.28), transparent 60%),
-    linear-gradient(140deg, #1e1b4b 0%, #312e81 60%, #1e1b4b 100%);
-  box-shadow: 0 12px 30px rgba(30, 27, 75, 0.28);
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--sh-2);
 }
 
 .tab-pane[data-tab="menu"] .hero-card.is-idle {
@@ -422,8 +371,10 @@ button:not(:disabled):active,
 }
 
 .tab-pane[data-tab="menu"] .hero-card.is-idle .restaurant-name {
-  color: #4338ca;
-  font-weight: 700;
+  margin-top: 8px;
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .tab-pane[data-tab="menu"] .hero-card.is-idle .reason {
@@ -431,19 +382,19 @@ button:not(:disabled):active,
 }
 
 .tab-pane[data-tab="menu"] .hero-card.is-idle .pick-meta span {
-  background: #eef2ff;
-  color: #4338ca;
+  background: var(--accent-tint);
+  color: var(--accent-strong);
 }
 
 .tab-pane[data-tab="menu"] .hero-card.is-idle .hero-cta {
-  background: linear-gradient(135deg, #4338ca, #312e81);
+  background: var(--accent);
   color: #ffffff;
   font-weight: 700;
   box-shadow: 0 6px 18px rgba(67, 56, 202, 0.32);
 }
 
 .tab-pane[data-tab="menu"] .meal-switch .segment.is-active {
-  background: linear-gradient(135deg, #4338ca, #312e81);
+  background: var(--accent);
   color: #ffffff;
   box-shadow: 0 6px 18px rgba(67, 56, 202, 0.32);
 }
@@ -467,7 +418,7 @@ button:not(:disabled):active,
 
 .tab-pane[data-tab="menu"] .candidate-search input:focus {
   background: #ffffff;
-  border-color: #4338ca;
+  border-color: var(--accent-strong);
 }
 
 /* ========== HOME HERO ========== */
@@ -579,8 +530,9 @@ button:not(:disabled):active,
 
 /* My tab: small map block in the top-right corner, pin separate from avatar */
 .my-hero {
-  position: relative;
-  overflow: hidden;
+  padding: 26px 20px 18px;
+  background: transparent;
+  color: var(--text);
   text-align: center;
 }
 .my-hero > .hero-osm {
@@ -733,7 +685,7 @@ button:not(:disabled):active,
   height: 7px;
   background: #f59e0b;
   border-radius: 50%;
-  box-shadow: 0 0 0 2px #1e1b4b;
+  box-shadow: 0 0 0 2px var(--bg);
 }
 
 .hero-copy {
@@ -796,16 +748,98 @@ button:not(:disabled):active,
 }
 
 /* ========== HOME SEARCH ========== */
+/* ===== 토스식 라이트 홈 헤더 ===== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px 0;
+}
+
+.top-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.top-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.top-icon-btn {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.top-icon-btn svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.top-icon-btn .dot {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f04452;
+  border: 1.5px solid var(--bg);
+}
+
+.greet {
+  padding: 20px 20px 14px;
+}
+
+.greet h1 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.greet-sub {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.greet-sub strong {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
 .search-card {
   position: relative;
-  margin: -28px 18px 18px;
-  padding: 6px 8px 6px 18px;
+  margin: 0 18px 18px;
+  padding: 4px 6px 4px 18px;
   display: flex;
   align-items: center;
   gap: 6px;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 18px 38px rgba(30, 27, 75, 0.18);
+  box-shadow: var(--sh-1);
   z-index: 5;
 }
 
@@ -834,7 +868,7 @@ button:not(:disabled):active,
   height: 40px;
   border-radius: 50%;
   border: 0;
-  background: linear-gradient(135deg, #4338ca, #4f46e5);
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
@@ -898,7 +932,7 @@ button:not(:disabled):active,
 
 .action.is-primary {
   grid-column: span 2;
-  background: linear-gradient(135deg, #4338ca 0%, #312e81 100%);
+  background: var(--accent);
   color: #ffffff;
   min-height: 94px;
 }
@@ -1272,7 +1306,7 @@ button:not(:disabled):active,
 
 .notice-tag.is-update {
   background: var(--accent-tint);
-  color: #4338ca;
+  color: var(--accent-strong);
 }
 
 .notice-tag.is-info {
@@ -1361,15 +1395,16 @@ button:not(:disabled):active,
 }
 
 .pop-meta strong {
-  color: #4338ca;
+  color: var(--accent-strong);
 }
 
 /* ========== BOARD / MY PLACEHOLDERS ========== */
 .placeholder-hero,
 .my-hero {
-  padding: 36px 24px 28px;
-  background: linear-gradient(170deg, #1e1b4b 0%, #312e81 45%, #1e1b4b 100%);
-  color: #ffffff;
+  padding: 26px 20px 18px;
+  background: transparent;
+  color: var(--text);
+  text-align: center;
 }
 
 .placeholder-hero h1,
@@ -1429,6 +1464,9 @@ button:not(:disabled):active,
 }
 
 .my-hero {
+  padding: 26px 20px 18px;
+  background: transparent;
+  color: var(--text);
   text-align: center;
 }
 
@@ -1476,7 +1514,7 @@ button:not(:disabled):active,
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #4338ca;
+  color: var(--accent-strong);
   margin-bottom: 6px;
 }
 
@@ -1522,7 +1560,7 @@ button:not(:disabled):active,
 .budget-ring-fg {
   fill: none;
   stroke: url(#budgetGradient);
-  stroke: #4338ca;
+  stroke: var(--accent-strong);
   stroke-width: 5;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.4s ease, stroke 0.2s ease;
@@ -1539,7 +1577,7 @@ button:not(:disabled):active,
   place-items: center;
   font-size: 12px;
   font-weight: 700;
-  color: #312e81;
+  color: var(--accent-strong);
 }
 
 .budget-ring span.is-over {
@@ -1568,7 +1606,7 @@ button:not(:disabled):active,
 .budget-form input:focus {
   outline: 2px solid rgba(67, 56, 202, 0.32);
   outline-offset: -1px;
-  border-color: #4338ca;
+  border-color: var(--accent-strong);
 }
 
 .budget-form input::placeholder {
@@ -1582,7 +1620,7 @@ button:not(:disabled):active,
   padding: 0 14px;
   border: 0;
   border-radius: 10px;
-  background: linear-gradient(135deg, #4338ca, #312e81);
+  background: var(--accent);
   color: #ffffff;
   font-size: 13px;
   font-weight: 700;
@@ -1760,21 +1798,14 @@ button:not(:disabled):active,
 
 /* ========== DEAL TAB (Carrot tone) ========== */
 .deal-hero {
-  padding: 28px 22px 18px;
-  background:
-    radial-gradient(110% 90% at 110% -10%, rgba(99, 102, 241, 0.32) 0%, transparent 55%),
-    linear-gradient(170deg, #1e1b4b 0%, #312e81 55%, #1e1b4b 100%);
-  color: #ffffff;
+  padding: 20px 20px 4px;
+  background: transparent;
+  color: var(--text);
   position: relative;
-  overflow: hidden;
 }
 
 .deal-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(75% 55% at 110% -10%, rgba(251, 191, 36, 0.14), transparent 60%);
-  pointer-events: none;
+  display: none;
 }
 
 .deal-hero-row {
@@ -1787,16 +1818,16 @@ button:not(:disabled):active,
 }
 
 .deal-hero h1 {
-  margin: 4px 0 8px;
-  font-size: 30px;
+  margin: 0;
+  font-size: 25px;
   font-weight: 700;
+  color: var(--text);
 }
 
 .deal-hero p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.92);
+  margin: 8px 0 0;
+  color: var(--text-3);
   font-size: 13px;
-  text-shadow: 0 1px 2px rgba(180, 70, 0, 0.18);
 }
 
 .deal-hero .hero-eyebrow {
@@ -1805,16 +1836,15 @@ button:not(:disabled):active,
 
 .deal-write-btn {
   flex: 0 0 auto;
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   border: 0;
   border-radius: 50%;
-  background: #fbbf24;
-  color: #1e1b4b;
-  font-size: 26px;
-  font-weight: 800;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
   line-height: 1;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
   cursor: pointer;
 }
 
@@ -1858,22 +1888,21 @@ button:not(:disabled):active,
 
 .deal-chip {
   flex: 0 0 auto;
-  padding: 7px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  padding: 8px 14px;
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  color: #ffffff;
-  font-size: 12px;
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .deal-chip.is-active {
-  background: #ffffff;
-  color: #1e1b4b;
-  border-color: #ffffff;
-
+  background: var(--text);
+  color: #ffffff;
+  border-color: var(--text);
 }
 
 .deal-grid {
@@ -1935,8 +1964,8 @@ button:not(:disabled):active,
 }
 
 .deal-status.is-on {
-  background: #eef2ff;
-  color: #4f46e5;
+  background: var(--accent-tint);
+  color: var(--accent);
 }
 
 .deal-status.is-reserved {
@@ -2113,7 +2142,7 @@ button:not(:disabled):active,
 
 .eyebrow {
   margin: 0 0 4px;
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0;
@@ -2138,7 +2167,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: var(--r-md);
   background: var(--surface);
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 22px;
   font-weight: 600;
 }
@@ -2150,8 +2179,8 @@ h1 {
   padding: 12px 14px;
   border: 1px solid rgba(67, 56, 202, 0.22);
   border-radius: var(--r-md);
-  background: #eef2ff;
-  color: #312e81;
+  background: var(--accent-tint);
+  color: var(--accent-strong);
   font-size: 13px;
 }
 
@@ -2175,7 +2204,7 @@ h1 {
 
 .segment.is-active {
   background: var(--surface);
-  color: #4338ca;
+  color: var(--accent-strong);
   box-shadow: 0 4px 16px rgba(23, 33, 31, 0.1);
 }
 
@@ -2248,8 +2277,8 @@ h1 {
 }
 
 .chip.is-selected {
-  border-color: #4338ca;
-  background: #4338ca;
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
   color: #ffffff;
 }
 
@@ -2270,9 +2299,9 @@ h1 {
 }
 
 .mode-button.is-active {
-  border-color: #4338ca;
+  border-color: var(--accent-strong);
   background: var(--accent-tint);
-  color: #4338ca;
+  color: var(--accent-strong);
 }
 
 .game-stage {
@@ -2288,7 +2317,7 @@ h1 {
 }
 
 .game-stage strong {
-  color: #4338ca;
+  color: var(--accent-strong);
 }
 
 .user-menu-setup {
@@ -2335,7 +2364,7 @@ h1 {
 .user-menu-form input:focus {
   outline: 2px solid rgba(67, 56, 202, 0.3);
   outline-offset: -1px;
-  border-color: #4338ca;
+  border-color: var(--accent-strong);
 }
 
 .user-menu-form button {
@@ -2344,7 +2373,7 @@ h1 {
   padding: 0 16px;
   border: 0;
   border-radius: var(--r-md);
-  background: #4338ca;
+  background: var(--accent-strong);
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
@@ -2369,7 +2398,7 @@ h1 {
   border: 1px solid rgba(67, 56, 202, 0.3);
   border-radius: 999px;
   background: var(--accent-tint);
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 13px;
   font-weight: 600;
 }
@@ -2382,7 +2411,7 @@ h1 {
   border: 0;
   border-radius: 50%;
   background: rgba(67, 56, 202, 0.18);
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
@@ -2454,13 +2483,13 @@ h1 {
 }
 
 .ladder-option.is-selected {
-  border-color: #4338ca;
+  border-color: var(--accent-strong);
   background: var(--accent-tint);
 }
 
 .ladder-option.is-selected strong,
 .ladder-option.is-selected span {
-  color: #4338ca;
+  color: var(--accent-strong);
 }
 
 .ladder-warning {
@@ -2473,9 +2502,67 @@ h1 {
   margin-top: 22px;
   padding: 22px;
   border-radius: var(--r-lg);
-  background: #1e1b4b;
-  color: #ffffff;
+  background: var(--surface);
+  color: var(--text);
   box-shadow: var(--sh-2);
+}
+
+.pick-eyebrow {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* 거리 · 별점 · 리뷰 · 영업시간 — '왜 여긴지'에 답하는 한 줄 */
+.pick-facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.pick-facts i {
+  color: var(--line);
+  font-style: normal;
+}
+
+/* 식권 한도 초과 경고 — 가서 알기 전에 여기서 알려준다 */
+.pick-over {
+  margin: 10px 0 0;
+  padding: 9px 12px;
+  border-radius: var(--r-sm);
+  background: #fff4e6;
+  color: #b45309;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hero-actions .hero-map {
+  flex: 1 1 auto;
+  margin-top: 0;
+}
+
+.hero-exclude {
+  flex: 0 0 auto;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text-3);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* 결과가 새로 뜰 때 시선을 끄는 pop 강조 (scrollResultIntoView) */
@@ -2499,12 +2586,12 @@ h1 {
 
 .hero-card.is-idle .pick-meta span,
 .hero-card.is-idle .detail-grid span {
-  background: #eef2ff;
-  color: #312e81;
+  background: var(--surface-sunken);
+  color: var(--text-2);
 }
 
 .hero-card.is-idle .restaurant-name {
-  color: #4338ca;
+  color: var(--accent-strong);
 }
 
 .hero-card.is-idle .reason {
@@ -2517,7 +2604,7 @@ h1 {
   margin-top: 18px;
   border: 0;
   border-radius: var(--r-md);
-  background: #4338ca;
+  background: var(--accent-strong);
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;
@@ -2532,10 +2619,10 @@ h1 {
 
 .pick-meta span,
 .detail-grid span {
-  padding: 6px 9px;
+  padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.9);
+  background: var(--surface-sunken);
+  color: var(--text-2);
   font-size: 12px;
   font-weight: 600;
 }
@@ -2548,7 +2635,7 @@ h1 {
 
 .restaurant-name {
   margin-top: 8px;
-  color: #c7d2fe;
+  color: #b1d5ff;
   font-size: 18px;
   font-weight: 600;
 }
@@ -2572,16 +2659,17 @@ h1 {
   justify-content: space-between;
   gap: 10px;
   padding: 10px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--line);
 }
 
 .suggestion-list strong,
 .suggestion-list span {
-  font-size: 13px;
+  color: var(--text-3);
+  text-align: right;
 }
 
 .suggestion-list span {
-  color: #a5b4fc;
+  color: #8ec1ff;
   text-align: right;
 }
 
@@ -2601,10 +2689,10 @@ h1 {
 .hero-map {
   display: block;
   margin-top: 16px;
-  padding: 12px 16px;
+  padding: 13px 16px;
   border-radius: var(--r-md);
-  background: rgba(255, 255, 255, 0.14);
-  color: #ffffff;
+  background: var(--accent-tint);
+  color: var(--accent-strong);
   font-size: 14px;
   font-weight: 700;
   text-align: center;
@@ -2616,7 +2704,7 @@ h1 {
 }
 
 .hero-card.is-idle .hero-map {
-  background: #4338ca;
+  background: var(--accent-strong);
   color: #ffffff;
 }
 
@@ -2653,7 +2741,7 @@ h1 {
 .candidate-search input:focus {
   outline: 2px solid rgba(67, 56, 202, 0.3);
   outline-offset: -1px;
-  border-color: #4338ca;
+  border-color: var(--accent-strong);
 }
 
 .candidate-search button {
@@ -2730,12 +2818,12 @@ h1 {
 }
 
 .candidate-side strong {
-  color: #4338ca;
+  color: var(--accent-strong);
 }
 
 .candidate-chevron {
   margin-top: 2px;
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 14px;
   font-weight: 700;
   transition: transform 0.2s ease;
@@ -2783,7 +2871,7 @@ h1 {
 
 .menu-price {
   flex: 0 0 auto;
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
@@ -2815,7 +2903,7 @@ h1 {
 .candidate-link {
   display: inline-block;
   margin-top: 12px;
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -2830,7 +2918,7 @@ h1 {
   margin-top: 14px;
   padding: 11px 14px;
   border-radius: var(--r-md);
-  background: #4338ca;
+  background: var(--accent-strong);
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
@@ -2839,7 +2927,7 @@ h1 {
 }
 
 .candidate-map:hover {
-  background: #312e81;
+  background: var(--accent-strong);
 }
 
 .ladder-game {
@@ -2880,8 +2968,8 @@ h1 {
 }
 
 .ladder-number.is-start {
-  border-color: #4338ca;
-  background: #4338ca;
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
   color: #ffffff;
 }
 
@@ -2892,7 +2980,7 @@ h1 {
 }
 
 .ladder-result.is-winner {
-  color: #4338ca;
+  color: var(--accent-strong);
 }
 
 .ladder-field {
@@ -2914,7 +3002,7 @@ h1 {
 
 .ladder-path,
 .ladder-rung.is-active {
-  stroke: #4338ca;
+  stroke: var(--accent-strong);
   stroke-width: 6;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -2955,7 +3043,7 @@ h1 {
   background:
     repeating-linear-gradient(135deg, rgba(67, 56, 202, 0.08) 0 10px, rgba(255, 253, 248, 0.85) 10px 20px),
     rgba(255, 253, 248, 0.9);
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 13px;
   font-weight: 700;
 }
@@ -2975,7 +3063,7 @@ h1 {
 
 .game-wait,
 .game-result {
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 13px;
   font-weight: 700;
   text-align: center;
@@ -3164,7 +3252,7 @@ h1 {
 }
 
 .confetti i:nth-child(2) {
-  background: #4338ca;
+  background: var(--accent-strong);
   animation-delay: 0.04s;
   transform: rotate(24deg);
 }
@@ -3816,7 +3904,7 @@ body.modal-open {
   font-weight: 700;
   display: grid;
   place-items: center;
-  box-shadow: 0 0 0 2px #1e1b4b;
+  box-shadow: 0 0 0 2px var(--bg);
 }
 .nav-badge[hidden] {
   display: none !important;
@@ -3824,12 +3912,9 @@ body.modal-open {
 
 /* ===== CHAT TAB ===== */
 .chat-hero {
-  position: relative;
-  padding: 22px 22px 24px;
-  background:
-    radial-gradient(110% 90% at 110% -10%, rgba(245, 158, 11, 0.32) 0%, transparent 55%),
-    linear-gradient(170deg, #1e1b4b 0%, #312e81 55%, #1e1b4b 100%);
-  color: #ffffff;
+  padding: 20px 20px 4px;
+  background: transparent;
+  color: var(--text);
 }
 .chat-hero-top {
   display: flex;
@@ -3838,29 +3923,27 @@ body.modal-open {
   gap: 14px;
 }
 .chat-hero h1 {
-  margin: 6px 0 0;
-  font-size: 30px;
+  margin: 0;
+  font-size: 25px;
   font-weight: 700;
-  letter-spacing: -0.4px;
+  color: var(--text);
 }
 .chat-hero-sub {
   margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text-3);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .chat-new-btn {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: 0;
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  color: var(--text);
-  font-size: 24px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 22px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(251, 191, 36, 0.35);
-  transition: transform 0.18s ease;
 }
 .chat-new-btn:hover {
   transform: scale(1.06);
@@ -3871,7 +3954,7 @@ body.modal-open {
   top: 0;
   z-index: 4;
   padding: 14px 16px 10px;
-  background: linear-gradient(180deg, #fafaf9 85%, rgba(250, 250, 249, 0));
+  background: linear-gradient(180deg, var(--bg) 85%, rgba(242, 244, 246, 0));
   backdrop-filter: blur(8px);
 }
 .chat-search {
@@ -3918,23 +4001,21 @@ body.modal-open {
   flex: 0 0 auto;
   padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(67, 56, 202, 0.18);
-  background: #ffffff;
-  color: #4338ca;
-  font-size: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.16s ease;
 }
 .chat-chip:hover {
-  border-color: #4338ca;
+  border-color: var(--accent-strong);
 }
 .chat-chip.is-active {
-  background: linear-gradient(135deg, #4338ca, #312e81);
+  background: var(--text);
   color: #ffffff;
-  border-color: transparent;
-  box-shadow: 0 4px 12px rgba(67, 56, 202, 0.3);
+  border-color: var(--text);
 }
 
 .chat-list {
@@ -3972,7 +4053,7 @@ body.modal-open {
   font-size: 16px;
   font-weight: 700;
   color: #ffffff;
-  background: linear-gradient(135deg, #4338ca, #6366f1);
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
   position: relative;
 }
 .chat-avatar.is-group {
@@ -4020,7 +4101,7 @@ body.modal-open {
   padding: 2px 7px;
   border-radius: 999px;
   background: rgba(67, 56, 202, 0.1);
-  color: #4338ca;
+  color: var(--accent-strong);
   margin-left: 6px;
 }
 .chat-line .chat-tag.tag-lunch {
@@ -4080,7 +4161,7 @@ body.modal-open {
   border-radius: 12px;
   background: rgba(67, 56, 202, 0.06);
   border: 1px dashed rgba(67, 56, 202, 0.22);
-  color: #4338ca;
+  color: var(--accent-strong);
   font-size: 12px;
   font-weight: 600;
   text-align: center;
@@ -4299,7 +4380,7 @@ body.modal-open {
   box-shadow: 0 12px 28px rgba(30, 27, 75, 0.12);
 }
 .placeholder-card--link small {
-  color: #4338ca;
+  color: var(--accent-strong);
   font-weight: 700;
 }
 
@@ -4452,7 +4533,7 @@ body.modal-open {
   height: 8px;
   border-radius: 50%;
   background: #fbbf24;
-  box-shadow: 0 0 0 2px #1e1b4b, 0 0 8px rgba(251, 191, 36, 0.5);
+  box-shadow: 0 0 0 2px var(--surface);
 }
 .notif-empty {
   padding: 36px 16px;
@@ -4464,12 +4545,9 @@ body.modal-open {
 
 /* ===== BOARD (광장) ===== */
 .board-hero {
-  position: relative;
-  padding: 22px 22px 24px;
-  background:
-    radial-gradient(110% 90% at 110% -10%, rgba(99, 102, 241, 0.32) 0%, transparent 55%),
-    linear-gradient(170deg, #1e1b4b 0%, #312e81 55%, #1e1b4b 100%);
-  color: #ffffff;
+  padding: 20px 20px 4px;
+  background: transparent;
+  color: var(--text);
 }
 .board-hero-top {
   display: flex;
@@ -4478,29 +4556,27 @@ body.modal-open {
   gap: 14px;
 }
 .board-hero h1 {
-  margin: 6px 0 0;
-  font-size: 30px;
+  margin: 0;
+  font-size: 25px;
   font-weight: 700;
-  letter-spacing: -0.4px;
+  color: var(--text);
 }
 .board-hero-sub {
   margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text-3);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .board-new-btn {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: 0;
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  color: var(--text);
-  font-size: 24px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 22px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(251, 191, 36, 0.35);
-  transition: transform 0.18s ease;
 }
 .board-new-btn:hover {
   transform: scale(1.06);
@@ -4511,7 +4587,7 @@ body.modal-open {
   top: 0;
   z-index: 4;
   padding: 14px 16px 10px;
-  background: linear-gradient(180deg, #fafaf9 85%, rgba(250, 250, 249, 0));
+  background: linear-gradient(180deg, var(--bg) 85%, rgba(242, 244, 246, 0));
   backdrop-filter: blur(8px);
 }
 .board-filter {
@@ -4574,7 +4650,7 @@ body.modal-open {
   white-space: nowrap;
 }
 .post-tag.tag-notice { background: rgba(220, 38, 38, 0.12); color: #b91c1c; }
-.post-tag.tag-free   { background: rgba(67, 56, 202, 0.12); color: #4338ca; }
+.post-tag.tag-free   { background: rgba(67, 56, 202, 0.12); color: var(--accent-strong); }
 .post-tag.tag-anon   { background: rgba(71, 85, 105, 0.16); color: var(--text-2); }
 .post-tag.tag-lunch  { background: rgba(245, 158, 11, 0.16); color: #b45309; }
 .post-tag.tag-review { background: rgba(255, 111, 15, 0.16); color: #c2410c; }
@@ -4624,7 +4700,7 @@ body.modal-open {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4338ca, #6366f1);
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
   color: #ffffff;
   font-size: 11px;
   font-weight: 700;
@@ -4713,7 +4789,7 @@ body.modal-open {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #4338ca, #6366f1);
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
   color: #ffffff;
   font-size: 13px;
   font-weight: 700;
@@ -4982,3 +5058,7 @@ body.modal-open {
 .compose-submit:hover {
   filter: brightness(1.08);
 }
+
+/* 토스 전환: 장식 eyebrow 제거 */
+.hero-eyebrow,
+.deal-hero .hero-eyebrow { display: none; }

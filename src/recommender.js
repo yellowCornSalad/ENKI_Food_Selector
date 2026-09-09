@@ -24,9 +24,12 @@ export function recommendMeals(restaurants, options = {}) {
   const meal = options.meal ?? getCurrentMeal(options.now ?? new Date());
   const preferences = new Set(options.preferences ?? []);
   const pickIndex = Number.isFinite(options.pickIndex) ? options.pickIndex : 0;
+  const recentIds = new Set((options.recentIds ?? []).map(String));
+  const excludedIds = new Set((options.excludedIds ?? []).map(String));
 
   const ranked = restaurants
     .filter((restaurant) => isEligible(restaurant, meal))
+    .filter((restaurant) => !excludedIds.has(String(restaurant.id)))
     .map((restaurant) => ({
       ...restaurant,
       score: scoreRestaurant(restaurant, meal, preferences),
@@ -34,7 +37,7 @@ export function recommendMeals(restaurants, options = {}) {
     }))
     .sort((a, b) => b.score - a.score);
 
-  return rotateTopChoices(ranked, pickIndex)
+  return promoteFreshChoice(ranked, pickIndex, recentIds)
     .map((restaurant) => ({
       ...restaurant,
       menu: pickMenu(restaurant, meal, preferences, pickIndex),
@@ -98,6 +101,12 @@ function scoreRestaurant(restaurant, meal, preferences) {
   // 항상 맨 아래로 가라앉혀 히어로 추천/게임 후보에 절대 오르지 않게 한다.
   // (confirmed +80 과 노이즈 +35 를 합쳐도 못 넘는 크기의 페널티)
   if (/편의점|마트/.test(restaurant.category ?? "")) score -= 200;
+  // 카페·베이커리·디저트도 '점심 뭐 먹지'의 답은 아니다. 다만 편의점과 달리
+  // 토스트·샌드위치로 끼니가 되기도 하므로, 히어로로는 안 오르되 리스트에는
+  // 남을 만큼만 낮춘다. '커피/음료' 취향을 켜면 페널티를 면제한다.
+  if (/카페|베이커리|디저트/.test(restaurant.category ?? "") && !preferences.has("drink")) {
+    score -= 60;
+  }
   if (restaurant.hoursConfidence === "high") score += 14;
   if (restaurant.meals?.includes(meal)) score += 12;
   score += Math.max(0, 25 - restaurant.distanceM / 25);
@@ -171,6 +180,22 @@ function realMenus(list, restaurantName) {
   return (list ?? []).filter((m) => m?.name && !isPlaceholderMenu(m.name, restaurantName));
 }
 
+// "돈," "김,볶,치" 처럼 가게 내부 축약으로 적힌 메뉴명인지.
+// 가격 표기를 뗀 본문이 아주 짧거나, 쉼표로 이어붙인 한두 글자 토막이면 축약으로 본다.
+function isAbbreviatedMenu(name) {
+  const body = String(name ?? "").replace(/\s*[\d,]+\s*원.*$/, "").trim();
+  if (!body) return true;
+  if (body.includes(",")) {
+    return body.split(",").every((part) => part.trim().length <= 2);
+  }
+  return body.length <= 2;
+}
+
+// 대표 메뉴의 가격(원). 알 수 없으면 null.
+export function menuPrice(menuName) {
+  return extractPrice(menuName);
+}
+
 function pickMenu(restaurant, meal, preferences, seed) {
   // 식권대장 정적 메뉴(placeholder 제외) → 없으면 네이버 메뉴로 대체
   let pool = realMenus(restaurant.menus?.[meal] ?? restaurant.menus?.all ?? [], restaurant.name);
@@ -185,6 +210,10 @@ function pickMenu(restaurant, meal, preferences, seed) {
     return p == null || p >= 4500;
   });
   if (mains.length) pool = mains;
+  // 가게가 메뉴판에 쓰는 축약 표기("돈,", "김,볶,치")는 카드 제목으로 걸면
+  // 무슨 음식인지 알 수 없다. 읽을 수 있는 이름이 하나라도 있으면 그쪽을 쓴다.
+  const readable = pool.filter((menu) => !isAbbreviatedMenu(menu.name));
+  if (readable.length) pool = readable;
   const budget = MEAL_BUDGETS[meal] ?? 12000;
   const ranked = [...pool].sort((a, b) => priceDistance(a.name, budget) - priceDistance(b.name, budget));
   const topSize = Math.min(3, ranked.length);
@@ -204,14 +233,59 @@ function extractPrice(name) {
   return Number(match[1].replace(/,/g, ""));
 }
 
-function rotateTopChoices(ranked, pickIndex) {
+// '한 번 더'를 눌러도 같은 12곳만 돌던 문제를 고친 대표 선정 로직.
+//
+// 예전엔 상위 12곳을 pickIndex 로 회전시켜서, 13번째 누르면 1번과 완전히 같은
+// 결과가 나왔다(192곳 중 180곳은 영영 안 나옴). 점수 1~12위 차이가 6점도 안 되는데
+// 12위에서 칼같이 자른 것이 원인.
+//
+// 이제는 (1) 1위와 점수차가 크지 않은 곳을 모두 후보로 열어두고
+// (2) 점수가 높을수록 더 자주 뽑히는 가중 랜덤으로 대표를 정하며
+// (3) 최근에 보여준 곳은 후보에서 뺀다. 좋은 집이 여전히 자주 나오되 매번 새롭다.
+const SCORE_WINDOW = 18; // 1위와 이 점수 차 이내면 '비슷하게 좋은 집'으로 본다
+const MIN_POOL = 15;
+
+function promoteFreshChoice(ranked, pickIndex, recentIds) {
   if (ranked.length <= 1) return ranked;
-  // Bigger rotation pool (was 7) so '한 번 더' has more variety.
-  const topSize = Math.min(12, ranked.length);
-  const top = ranked.slice(0, topSize);
-  const rest = ranked.slice(topSize);
-  const offset = Math.abs(pickIndex) % top.length;
-  return [top[offset], ...top.slice(0, offset), ...top.slice(offset + 1), ...rest];
+
+  const best = ranked[0].score;
+  let pool = ranked.filter((r) => best - r.score <= SCORE_WINDOW);
+  if (pool.length < MIN_POOL) pool = ranked.slice(0, Math.min(MIN_POOL, ranked.length));
+
+  // 최근 본 곳 제외. 다 걸러지면(후보가 적을 때) 제외를 포기하고 전체를 쓴다.
+  const fresh = pool.filter((r) => !recentIds.has(String(r.id)));
+  const candidates = fresh.length ? fresh : pool;
+
+  // 점수를 가중치로: 풀 최저점을 기준선으로 잡아 상대 우위를 반영한다.
+  const floor = candidates[candidates.length - 1].score - 1;
+  const weights = candidates.map((r) => Math.max(0.1, r.score - floor));
+  const total = weights.reduce((s, w) => s + w, 0);
+
+  // pickIndex 를 섞어 '한 번 더' 마다 다른 난수를 쓴다.
+  let dart = randomFor(pickIndex) * total;
+  let chosen = candidates[candidates.length - 1];
+  for (let i = 0; i < candidates.length; i += 1) {
+    dart -= weights[i];
+    if (dart <= 0) { chosen = candidates[i]; break; }
+  }
+
+  return [chosen, ...ranked.filter((r) => r !== chosen)];
+}
+
+function randomFor(pickIndex) {
+  // 세션 시드 + pickIndex 를 섞은 해시. 같은 렌더 안에서는 안정적이고
+  // (스크롤·펼치기로 결과가 안 바뀜) '한 번 더' 를 누르면 새 값이 나온다.
+  const h = hashString(`${SESSION_SEED}|pick|${pickIndex}`);
+  return (h % 100000) / 100000;
+}
+
+function hashString(input) {
+  let hash = 2166136261;
+  for (let i = 0; i < input.length; i += 1) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
 }
 
 function buildReason(restaurant, meal, preferences) {
