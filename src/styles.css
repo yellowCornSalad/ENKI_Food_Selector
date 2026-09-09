@@ -2542,6 +2542,101 @@ h1 {
   font-weight: 600;
 }
 
+/* 결과 카드의 주인공은 가게 이름이다. 제목 오른쪽에 거리 배지를 붙여
+   "어디를, 얼마나 걸어서"가 한눈에 들어오게 한다. */
+.pick-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hero-card .pick-head h2 {
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+
+.pick-distance {
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--accent-tint);
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pick-sub {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+/* 추천 메뉴 — 이름과 가격을 좌우로 갈라 정렬한다. 한 덩어리로 붙여 두면
+   어디까지가 음식 이름인지 읽히지 않고, 가게 이름보다 커 보인다. */
+.pick-menu {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: var(--r-md);
+  background: var(--surface-sunken);
+}
+
+.pick-menu-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-3);
+}
+
+.pick-menu-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.pick-menu-name {
+  min-width: 0;
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.pick-menu-price {
+  flex: 0 0 auto;
+  color: var(--accent-strong);
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pick-menu.is-over .pick-menu-price {
+  color: #b45309;
+}
+
+.pick-menu .pick-over {
+  margin-top: 10px;
+}
+
+.pick-nomenu {
+  margin: 16px 0 0;
+  padding: 13px 16px;
+  border-radius: var(--r-md);
+  background: var(--surface-sunken);
+  color: var(--text-3);
+  font-size: 13px;
+  font-weight: 500;
+}
+
 .hero-actions {
   display: flex;
   gap: 8px;
@@ -2635,14 +2730,14 @@ h1 {
 
 .restaurant-name {
   margin-top: 8px;
-  color: #b1d5ff;
+  color: var(--accent-strong);
   font-size: 18px;
   font-weight: 600;
 }
 
 .reason {
   margin-top: 14px;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--text-2);
   line-height: 1.5;
 }
 
@@ -2662,15 +2757,27 @@ h1 {
   border-top: 1px solid var(--line);
 }
 
-.suggestion-list strong,
-.suggestion-list span {
-  color: var(--text-3);
-  text-align: right;
+/* 가까운 다른 후보 — 왼쪽은 가게 이름(진하게), 오른쪽은 거리·별점(연하게) */
+.suggestion-list strong {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .suggestion-list span {
-  color: #8ec1ff;
+  flex: 0 0 auto;
+  color: var(--text-3);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
   text-align: right;
+}
+
+/* 네이버에 없는 곳은 링크가 아니라 같은 모양의 평문으로 둔다 */
+.suggestion-flat {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
 }
 
 .suggestion-list a {
@@ -2700,7 +2807,24 @@ h1 {
 }
 
 .hero-map:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: #d6e8ff;
+}
+
+.hero-map.is-off {
+  background: var(--surface-sunken);
+  color: var(--text-3);
+  font-weight: 600;
+  cursor: default;
+}
+
+.hero-map.is-off:hover {
+  background: var(--surface-sunken);
+}
+
+.candidate-map.is-off {
+  background: var(--surface-sunken);
+  color: var(--text-3);
+  font-weight: 600;
 }
 
 .hero-card.is-idle .hero-map {
@@ -2807,6 +2931,42 @@ h1 {
   margin-top: 4px;
   color: var(--text-2);
   font-size: 13px;
+}
+
+.candidate-title {
+  min-width: 0;
+}
+
+/* 목록에서도 가게가 제목, 메뉴는 그 아래 한 줄로 이름·가격을 나눠 적는다 */
+.candidate-menu {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.candidate-card .candidate-menu span {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.candidate-menu b {
+  flex: 0 0 auto;
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 식권 한도를 넘는 가격 — 목록을 훑을 때 바로 걸러지도록 색을 달리한다 */
+.candidate-menu b.is-over {
+  color: #b45309;
 }
 
 .candidate-side {

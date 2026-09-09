@@ -190,6 +190,18 @@ function realMenus(list, restaurantName) {
   return (list ?? []).filter((m) => m?.name && !isPlaceholderMenu(m.name, restaurantName));
 }
 
+// "[부대찌개]" "[사이드/추가]" 처럼 메뉴판을 나누는 분류 머리글인지.
+// 요리가 아니라 목차라서 대표 메뉴 자리에 걸리면 뭘 파는지 알 수 없다.
+function isSectionHeader(name) {
+  const body = String(name ?? "").trim();
+  const open = body[0];
+  const close = body[body.length - 1];
+  const pairs = { "[": "]", "(": ")", "【": "】", "<": ">" };
+  if (!open || pairs[open] !== close) return false;
+  // 괄호 안이 곧 전부인 항목만 머리글로 본다 (“[신메뉴] 김치찌개” 는 요리)
+  return !body.slice(1, -1).includes(pairs[open]);
+}
+
 // "돈," "김,볶,치" 처럼 가게 내부 축약으로 적힌 메뉴명인지.
 // 가격 표기를 뗀 본문이 아주 짧거나, 쉼표로 이어붙인 한두 글자 토막이면 축약으로 본다.
 function isAbbreviatedMenu(name) {
@@ -216,25 +228,46 @@ function pickMenu(restaurant, meal, preferences, seed) {
   // 4,500원 미만은 사리·사이드·음료대 — 제대로 된 식사 메뉴가 따로 있으면
   // 대표 자리(카드 제목)에서 제외한다. ("볶음밥 3,000원"이 감자탕집 대표로 뜨는 문제)
   const mains = pool.filter((menu) => {
-    const p = extractPrice(menu.name);
+    const p = menuValue(menu);
     return p == null || p >= 4500;
   });
   if (mains.length) pool = mains;
   // 가게가 메뉴판에 쓰는 축약 표기("돈,", "김,볶,치")는 카드 제목으로 걸면
   // 무슨 음식인지 알 수 없다. 읽을 수 있는 이름이 하나라도 있으면 그쪽을 쓴다.
-  const readable = pool.filter((menu) => !isAbbreviatedMenu(menu.name));
+  const readable = pool.filter((menu) => !isAbbreviatedMenu(menu.name) && !isSectionHeader(menu.name));
   if (readable.length) pool = readable;
   const budget = MEAL_BUDGETS[meal] ?? 12000;
-  const ranked = [...pool].sort((a, b) => priceDistance(a.name, budget) - priceDistance(b.name, budget));
+  const ranked = [...pool].sort((a, b) => menuBudgetGap(a, budget) - menuBudgetGap(b, budget));
   const topSize = Math.min(3, ranked.length);
   const index = deterministicNoise(`${restaurant.id}-${meal}-${seed}`, topSize);
-  return ranked[index]?.name ?? ranked[0]?.name ?? pool[0].name;
+  const chosen = ranked[index] ?? ranked[0] ?? pool[0];
+  return menuLabel(chosen);
 }
 
-function priceDistance(name, budget) {
-  const price = extractPrice(name);
+// 메뉴의 가격(원). 네이버 메뉴는 price 필드에, 식권대장 메뉴는 이름 끝에 들어 있다.
+function menuValue(menu) {
+  const p = menu?.price;
+  if (typeof p === "number" && Number.isFinite(p) && p > 0) return p;
+  return extractPrice(menu?.name);
+}
+
+function menuBudgetGap(menu, budget) {
+  const price = menuValue(menu);
   if (price == null) return Number.POSITIVE_INFINITY;
-  return Math.abs(price - budget);
+  // 한도를 넘으면 차액은 자기 돈이다. 같은 크기의 차이라도 초과 쪽을 더 나쁘게 봐서,
+  // 한도 안에 드는 메뉴가 있으면 그쪽이 대표로 올라오게 한다.
+  return price > budget ? (price - budget) * 2 : budget - price;
+}
+
+// 카드에 넘길 라벨. 이름에 가격이 없으면 아는 가격을 붙여 준다 —
+// 네이버 메뉴 2천여 건은 가격을 알고도 이름에 없다는 이유로 안 보이고 있었다.
+function menuLabel(menu) {
+  const name = String(menu?.name ?? "").trim();
+  if (!name) return "메뉴 정보 없음";
+  if (extractPrice(name) != null) return name;
+  const price = menuValue(menu);
+  if (price == null) return name;
+  return `${name} ${price.toLocaleString("ko-KR")}원`;
 }
 
 function extractPrice(name) {
