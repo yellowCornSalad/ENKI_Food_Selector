@@ -1,4 +1,4 @@
-import { findRestaurantsByMenu, getCurrentMeal, menuPrice, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260909-02";
+import { findRestaurantsByMenu, getCurrentMeal, menuPrice, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260909-03";
 import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
@@ -523,21 +523,63 @@ function renderStatus(recommendations) {
 }
 
 // 표시용 식당 이름: "[가든파이브] 호두앤(현대아울렛)" → "호두앤" 으로 위치 태그를 떼낸다.
+// 이름 끝 괄호가 '지점 표기'인지 가려낸다. "본설렁탕(문정역점)" 의 괄호는 지점이지만
+// "씨즐(SIZZLE)" 의 괄호는 상호의 일부라 떼면 안 된다.
+const BRANCH_TAG = /^(.+?)\s*\(([^()]*(?:점|문정|가락|장지|법조|파크하비오|가든파이브|직영)[^()]*)\)\s*$/;
+
 function cleanRestaurantName(name) {
   const cleaned = String(name ?? "")
     .replace(/^\[[^\]]*\]\s*/, "") // [가든파이브] 접두어
     .replace(/\s*\(현대아울렛\)\s*$/, "") // (현대아울렛) 접미어
     .trim();
-  return cleaned || String(name ?? "");
+  // 지점 표기는 부제로 내린다 — 제목엔 상호 하나만 크게 보이는 편이 읽힌다.
+  const branch = cleaned.match(BRANCH_TAG);
+  const bare = branch ? branch[1].trim() : cleaned;
+  return bare || cleaned || String(name ?? "");
 }
-// 이름 속 위치 태그만 뽑기: "[가든파이브] …" → "가든파이브"
+// 이름 속 위치·지점 태그만 뽑기: "[가든파이브] …" → "가든파이브", "…(문정역점)" → "문정역점"
 function nameLocationTag(name) {
-  const m = String(name ?? "").match(/^\[([^\]]+)\]/);
-  if (m) return m[1];
-  const m2 = String(name ?? "").match(/\(([^)]+)\)\s*$/);
-  return m2 ? m2[1] : "";
+  const raw = String(name ?? "");
+  const prefix = raw.match(/^\[([^\]]+)\]/);
+  if (prefix) return prefix[1];
+  const branch = raw.match(BRANCH_TAG);
+  return branch ? branch[2].trim() : "";
 }
 // 추천 카드 제목에 쓸 진짜 메뉴가 없는 경우 (placeholder fallback 값)
+// "매콤냄비돈까스 8,500원" 처럼 이름과 가격이 한 덩어리인 문자열을 나눈다.
+// 카드에서 둘을 좌우로 정렬해 보여주기 위한 것 — 가격을 이름 뒤에 그대로
+// 붙여 두면 어디까지가 음식 이름인지 읽히지 않는다.
+// 메뉴 앞 대괄호가 '장식 태그'인지 가려낸다. "[겉바속촉]특히레카츠" 의 괄호는 홍보 문구지만
+// "[모짜 치킨 버거] 모짜 치킨 바이츠가…" 의 괄호 안은 메뉴 이름 그 자체다.
+const MENU_TAG = /^\[([^\]]{1,14})\]\s*(.+)$/;
+
+function stripMenuTag(name) {
+  const m = name.match(MENU_TAG);
+  if (!m) return name;
+  const [, tag, rest] = m;
+  // 짧거나 +·% 가 섞인 괄호는 홍보 태그로 본다.
+  const decorative = tag.length <= 6 || /[+%!★]/.test(tag);
+  if (decorative) return rest.trim();
+  // 장식 태그가 아니면 괄호 안이 메뉴 이름이고 뒤가 홍보 문구인 경우가 많다
+  // ("[모짜 치킨 버거] 모짜 치킨 바이츠가 통째로…"). 둘 중 짧은 쪽이 대체로 음식 이름이다.
+  return (rest.trim().length > tag.trim().length ? tag : rest).trim();
+}
+
+function splitMenuLabel(label) {
+  const raw = stripMenuTag(String(label ?? "").trim());
+  const price = menuPrice(raw);
+  if (price == null) return { name: raw, priceText: "" };
+  // 끝에 붙은 '8,500원' 만큼을 뒤에서부터 걷어내 이름만 남긴다.
+  const at = raw.lastIndexOf("원");
+  if (at === -1) return { name: raw, priceText: "" };
+  let i = at - 1;
+  while (i >= 0 && (raw[i] === " " || raw[i] === "	")) i -= 1;
+  while (i >= 0 && "0123456789,".includes(raw[i])) i -= 1;
+  let name = raw.slice(0, i + 1).trim();
+  while (name.length && "·,-/( ".includes(name[name.length - 1])) name = name.slice(0, -1);
+  return { name: name.trim() || raw, priceText: `${price.toLocaleString("ko-KR")}원` };
+}
+
 function hasNoRealMenu(item) {
   return !item.menu || item.menu === "메뉴 정보 없음" || item.menu === "추천 메뉴 확인 필요";
 }
@@ -602,23 +644,25 @@ function renderTopPick(item) {
       .filter((label) => !/^[a-z-]+$/.test(label))
       .filter((label) => !catText.includes(label)),
   )];
-  const meta = [`${item.distanceM}m`, ratingText(item)].filter(Boolean);
-  // Direct place URL when available, otherwise name search (검색은 원본 이름 사용).
-  const mapUrl = item.naverPlaceUrl || naverMapSearchUrl(item.name);
-  // 메뉴 없으면 식당 이름을 제목으로, 아랫줄엔 위치 태그(가든파이브 등).
+  // 카드의 주인공은 "어디로 갈까"다. 그래서 가게 이름이 제목이고, 메뉴는 그 아래
+  // 라벨을 달아 이름과 가격을 좌우로 나눠 놓는다. (예전엔 메뉴가 제목이라
+  // "매콤냄비돈까스 8,500원"이 가게 이름보다 크게 나왔다.)
   const cName = cleanRestaurantName(item.name);
   const noMenu = hasNoRealMenu(item);
-  const heroTitle = noMenu ? cName : item.menu;
-  // 메뉴가 없으면 제목이 곧 가게 이름이다. 이때 부제에 위치 태그를 또 쓰면
-  // "본설렁탕(문정역점) / 문정역점" 처럼 겹치므로, 제목에 없는 정보만 남긴다.
   const locTag = nameLocationTag(item.name);
-  const heroName = noMenu
-    ? (locTag && !cName.includes(locTag) ? locTag : catText)
-    : cName;
-  // 신뢰 신호를 한 줄로: 거리 · 별점 · 리뷰수 · 영업시간.
-  // "왜 여길 추천했지?" 에 답하는 정보라 제목 바로 아래 둔다.
+  // 부제는 분류 + 지점 위치. 분류만 남으면 그것만 쓴다 — 예전엔 메뉴가 없을 때
+  // 이 자리가 가게 이름 칸이라 "한식"이 상호처럼 보였다.
+  const subline = [catText, locTag && !cName.includes(locTag) ? locTag : ""]
+    .filter(Boolean)
+    .join(" · ");
+  const menu = noMenu ? null : splitMenuLabel(item.menu);
+
+  // 식권 한도를 넘는 메뉴는 차액이 자기 돈이다. 가서 알기 전에 여기서 알려준다.
+  const price = menu ? menuPrice(item.menu) : null;
+  const overBy = typeof price === "number" && price > BUDGET_DAILY ? price - BUDGET_DAILY : 0;
+
+  // 신뢰 신호: 별점 · 리뷰수 · 영업시간. 거리는 제목 옆 배지로 따로 보인다.
   const facts = [
-    `${item.distanceM}m`,
     typeof item.naverRating === "number" && item.naverRating > 0 ? `★ ${item.naverRating.toFixed(1)}` : "",
     typeof item.naverVisitorReviewCount === "number" && item.naverVisitorReviewCount > 0
       ? `리뷰 ${item.naverVisitorReviewCount.toLocaleString("ko-KR")}`
@@ -626,25 +670,34 @@ function renderTopPick(item) {
     item.openingNote || "",
   ].filter(Boolean);
 
-  // 식권 한도를 넘는 메뉴는 차액이 자기 돈이다. 가서 알기 전에 여기서 알려준다.
-  const price = noMenu ? null : menuPrice(item.menu);
-  const overBy = typeof price === "number" && price > BUDGET_DAILY ? price - BUDGET_DAILY : 0;
-
   target.innerHTML = `
     <p class="pick-eyebrow">${state.meal === "lunch" ? "점심" : "저녁"} 추천</p>
-    <h2>${escapeHtml(heroTitle)}</h2>
-    <p class="restaurant-name">${escapeHtml(noMenu ? heroName : cName)}</p>
-    <div class="pick-facts">
-      ${facts.map((t) => `<span>${escapeHtml(t)}</span>`).join('<i aria-hidden="true">·</i>')}
+    <div class="pick-head">
+      <h2>${escapeHtml(cName)}</h2>
+      <span class="pick-distance">${item.distanceM}m</span>
     </div>
-    ${overBy > 0 ? `<p class="pick-over">식권 한도보다 ${overBy.toLocaleString("ko-KR")}원 비싸요</p>` : ""}
+    ${subline ? `<p class="pick-sub">${escapeHtml(subline)}</p>` : ""}
+    ${menu
+      ? `<div class="pick-menu${overBy > 0 ? " is-over" : ""}">
+          <p class="pick-menu-label">추천 메뉴</p>
+          <div class="pick-menu-row">
+            <span class="pick-menu-name">${escapeHtml(menu.name)}</span>
+            ${menu.priceText ? `<span class="pick-menu-price">${escapeHtml(menu.priceText)}</span>` : ""}
+          </div>
+          ${overBy > 0 ? `<p class="pick-over">식권 한도보다 ${overBy.toLocaleString("ko-KR")}원 더 내야 해요</p>` : ""}
+        </div>`
+      : `<p class="pick-nomenu">등록된 메뉴가 없어서 가게만 골랐어요</p>`}
+    ${facts.length
+      ? `<div class="pick-facts">${facts.map((t) => `<span>${escapeHtml(t)}</span>`).join('<i aria-hidden="true">·</i>')}</div>`
+      : ""}
     ${renderSuggestionList(item)}
-    <div class="detail-grid">
-      <span>${escapeHtml(catText)}</span>
-      ${bestFor.slice(0, 2).map((t) => `<span>${escapeHtml(t)}</span>`).join("")}
-    </div>
+    ${bestFor.length
+      ? `<div class="detail-grid">${bestFor.slice(0, 2).map((t) => `<span>${escapeHtml(t)}</span>`).join("")}</div>`
+      : ""}
     <div class="hero-actions">
-      <a class="hero-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">네이버 지도</a>
+      ${item.naverPlaceUrl
+        ? `<a class="hero-map" href="${escapeHtml(item.naverPlaceUrl)}" target="_blank" rel="noopener">네이버 지도</a>`
+        : `<span class="hero-map is-off">네이버 미등록 · 식권대장 앱에서 위치 확인</span>`}
       <button type="button" class="hero-exclude" data-exclude-id="${escapeHtml(String(item.id))}">
         이 집 빼기
       </button>
@@ -660,22 +713,33 @@ function renderCandidate(item) {
   article.setAttribute("aria-expanded", expanded ? "true" : "false");
   const rating = ratingText(item);
   const chevron = `<span class="candidate-chevron" aria-hidden="true">▾</span>`;
-  // 메뉴 없으면 깔끔한 식당 이름을 제목으로 (가든파이브 호두앤 등), 부제는 위치·카테고리.
+  // 목록도 대표 카드와 같은 위계다: 제목은 언제나 가게 이름, 메뉴는 그 아래 한 줄.
   const cName = cleanRestaurantName(item.name);
   const noMenu = hasNoRealMenu(item);
-  const cardTitle = noMenu ? cName : item.menu;
-  const cardSub = noMenu
-    ? [nameLocationTag(item.name), categoryText(item)].filter(Boolean).join(" · ")
-    : `${cName} · ${categoryText(item)}`;
+  const menu = noMenu ? null : splitMenuLabel(item.menu);
+  const cardSub = [nameLocationTag(item.name), categoryText(item)].filter(Boolean).join(" · ");
+  // 식권 한도를 넘는 가격은 목록에서도 색으로 구분해, 훑어보다 헛걸음하지 않게 한다.
+  const menuPriceValue = menu ? menuPrice(item.menu) : null;
+  const menuOver = typeof menuPriceValue === "number" && menuPriceValue > BUDGET_DAILY
+    ? menuPriceValue - BUDGET_DAILY
+    : 0;
   article.innerHTML = `
     <div class="candidate-head">
-      <div>
-        <h3>${escapeHtml(cardTitle)}</h3>
+      <div class="candidate-title">
+        <h3>${escapeHtml(cName)}</h3>
         <p>${escapeHtml(cardSub)}</p>
+        ${menu
+          ? `<p class="candidate-menu">
+              <span>${escapeHtml(menu.name)}</span>
+              ${menu.priceText
+                ? `<b class="${menuOver > 0 ? "is-over" : ""}">${escapeHtml(menu.priceText)}</b>`
+                : ""}
+            </p>`
+          : ""}
       </div>
       <div class="candidate-side">
         <span>${item.distanceM}m</span>
-        <strong>${rating || "네이버 정보 없음"}</strong>
+        <strong>${rating || "평점 없음"}</strong>
         ${chevron}
       </div>
     </div>
@@ -689,8 +753,10 @@ function renderCandidateDetail(item, expanded) {
   const menus = item.naverMenus ?? [];
   // Prefer the direct Naver Place URL (lands on that specific restaurant page)
   // and fall back to a name search when we don't have one mapped.
-  const mapUrl = item.naverPlaceUrl || naverMapSearchUrl(item.name);
-  const mapButton = `<a class="candidate-map" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener">🗺️ 네이버 지도에서 검색</a>`;
+  // 네이버 미등록 가게는 이름으로 검색해도 0건이라, 죽은 링크 대신 사실을 적는다.
+  const mapButton = item.naverPlaceUrl
+    ? `<a class="candidate-map" href="${escapeHtml(item.naverPlaceUrl)}" target="_blank" rel="noopener">네이버 지도에서 보기</a>`
+    : `<p class="candidate-map is-off">네이버 지도에 등록되지 않은 곳이에요</p>`;
   // 편의점은 상품 목록 대신 뭘 살 수 있는 곳인지만 안내 (개별 상품 나열은 이질적)
   if (/편의점|마트/.test(item.category ?? "")) {
     return `
@@ -739,17 +805,6 @@ function renderCandidateDetail(item, expanded) {
   `;
 }
 
-function naverMapSearchUrl(name) {
-  // 검색 키워드는 '실제 상호'를 앞세운다. "[가든파이브] 찜샤브(현대아울렛)" 를
-  // 통째로 넣으면 0건이 나오므로 → "찜샤브 가든파이브" 처럼 상호+위치로 만든다.
-  const raw = String(name ?? "");
-  const clean = cleanRestaurantName(raw);
-  const tag = nameLocationTag(raw);
-  const query = tag && !clean.includes(tag) ? `${clean} ${tag}` : clean;
-  const cleaned = query.replace(/[\[\]()]/g, " ").replace(/\s+/g, " ").trim();
-  return `https://map.naver.com/p/search/${encodeURIComponent(cleaned)}`;
-}
-
 function toggleCandidate(id) {
   if (state.expandedCandidates.has(id)) {
     state.expandedCandidates.delete(id);
@@ -782,8 +837,12 @@ function ratingText(item) {
 }
 
 function categoryText(item) {
-  if (!item.category || item.category === "식권대장 가맹점") return "음식점";
-  return item.category;
+  // 식권대장 분류가 그대로 "식권대장 가맹점"이면 무슨 집인지 알 수가 없다.
+  // 그럴 때만 네이버 업종(쌈밥·이자카야·돈가스…)으로 채운다 — 가맹점 분류가
+  // 있으면 그쪽이 사내 기준이라 우선한다.
+  const own = item.category && item.category !== "식권대장 가맹점" ? item.category : "";
+  if (own) return own;
+  return item.naverCategory || "음식점";
 }
 
 function modeLabel(mode) {
@@ -799,9 +858,13 @@ function renderSuggestionList(item) {
     .slice(0, 4)
     .map((suggestion) => {
       const rating = ratingText(suggestion);
-      const url = naverMapSearchUrl(suggestion.name);
+      // 네이버에 없는 곳은 링크를 걸지 않는다 — 눌러도 빈 검색 결과만 나온다.
+      const url = suggestion.naverPlaceUrl || "";
       const meta = `${suggestion.distanceM}m${rating ? ` · ${rating}` : ""}`;
-      return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener"><strong>${escapeHtml(suggestion.name)}</strong><span>${escapeHtml(meta)}</span></a></li>`;
+      const inner = `<strong>${escapeHtml(suggestion.name)}</strong><span>${escapeHtml(meta)}</span>`;
+      return url
+        ? `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${inner}</a></li>`
+        : `<li><span class="suggestion-flat">${inner}</span></li>`;
     })
     .join("");
   return `<ul class="suggestion-list">${rows}</ul>`;
