@@ -1,4 +1,4 @@
-import { findRestaurantsByMenu, getCurrentMeal, menuPrice, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260909-01";
+import { findRestaurantsByMenu, getCurrentMeal, menuPrice, recommendMeals, summarizeDataHealth } from "./recommender.js?v=20260909-02";
 import { startMarbleRace } from "./marble-race.js?v=20260522-31";
 
 const state = {
@@ -77,6 +77,8 @@ async function loadRestaurants() {
   const countEl = document.getElementById("menuStoreCount");
   if (countEl) countEl.textContent = state.restaurants.length.toLocaleString("ko-KR");
   const homeCountEl = document.getElementById("homeStoreCount");
+  const heroCountEl = document.getElementById("heroStoreCount");
+  if (heroCountEl) heroCountEl.textContent = state.restaurants.length.toLocaleString("ko-KR");
   if (homeCountEl) homeCountEl.textContent = `문정동 ${state.restaurants.length}곳`;
   renderPopular();
   render();
@@ -1352,6 +1354,8 @@ function render() {
     pickIndex: state.pickIndex,
     recentIds: state.recentPicks,
     excludedIds: [...state.excludedIds],
+    // 검색 중에는 편의점도 결과에 포함한다 (평소 추천 목록에서는 빠짐).
+    includeConvenience: state.searchQuery.trim().length > 0,
   });
   const selectedRecommendations = selectGameWinner(recommendations);
   state.lastRecommendations = selectedRecommendations;

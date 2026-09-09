@@ -26,9 +26,11 @@ export function recommendMeals(restaurants, options = {}) {
   const pickIndex = Number.isFinite(options.pickIndex) ? options.pickIndex : 0;
   const recentIds = new Set((options.recentIds ?? []).map(String));
   const excludedIds = new Set((options.excludedIds ?? []).map(String));
+  // 검색 중일 때만 편의점을 후보에 넣는다 ("세븐일레븐" 검색은 되어야 하니까).
+  const includeConvenience = options.includeConvenience === true;
 
   const ranked = restaurants
-    .filter((restaurant) => isEligible(restaurant, meal))
+    .filter((restaurant) => isEligible(restaurant, meal, includeConvenience))
     .filter((restaurant) => !excludedIds.has(String(restaurant.id)))
     .map((restaurant) => ({
       ...restaurant,
@@ -75,10 +77,18 @@ export function summarizeDataHealth(restaurants) {
   );
 }
 
-function isEligible(restaurant, meal) {
+// 편의점·마트는 '점심 뭐 먹지'의 답이 아니다. 도시락을 팔긴 하지만 메뉴 추천
+// 목록에 세븐일레븐이 섞여 있으면 고르는 데 방해만 된다. 다만 검색으로는 찾을 수
+// 있어야 하므로 includeConvenience 로 열어둔다.
+function isConvenienceStore(restaurant) {
+  return /편의점|마트/.test(restaurant.category ?? "");
+}
+
+function isEligible(restaurant, meal, includeConvenience) {
   if (restaurant.active === false) return false;
   if (restaurant.meals && !restaurant.meals.includes(meal)) return false;
   if (restaurant.sikgwonStatus === "excluded") return false;
+  if (!includeConvenience && isConvenienceStore(restaurant)) return false;
   return isOpenForMeal(restaurant, meal);
 }
 
